@@ -25,12 +25,12 @@ Siehe: https://www.javatpoint.com/java-swing
 
 ## Aufgabenaufteilung
 
-Dantenbank erstellen (sven)
-Datenbankverbingung mit Java Klasse realisieren ()
-Java Klassen aus unserem Model/Klassendiagramm ableiten (diana)
-Java Klasse fuer an und abmeldung der Nutzer ()
-Java Klassen View fuer die Ansicht ()
-Protokolle fuehren ()
+* Dantenbank erstellen (sven)
+* Datenbankverbingung mit Java Klasse realisieren ()
+* Java Klassen aus unserem Model/Klassendiagramm ableiten (diana)
+* Java Klasse fuer an und abmeldung der Nutzer ()
+* Java Klassen View fuer die Ansicht ()
+* Protokolle fuehren ()
 
 
 
