@@ -6,9 +6,6 @@ MySQL Datenbank
 Address: https://swtistdoof.ignorelist.com/phpmyadmin/
 Port: 2000
 
-Login: swt
-pw: 123456swtistdoof
-
 Ihr muesst alle ueber einen Github account verfuegen, also meldet euch auf
 https://github.com/
 an und sendet mir eure email.
