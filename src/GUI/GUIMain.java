@@ -5,8 +5,7 @@ import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
-public class GUIMain extends javax.swing.JFrame {
-	private static final long serialVersionUID = -4809967054110045268L;
+public class GUIMain extends JFrame {
 	
 	private Toolkit t;
 	private int x = 0, y = 0, width = 800, height = 600;
