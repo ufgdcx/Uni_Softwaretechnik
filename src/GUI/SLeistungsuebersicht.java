@@ -9,12 +9,17 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
 
-public class Leistungsuebersicht extends JFrame {
+public class SLeistungsuebersicht extends JFrame {
+
+	private JPanel left = new JPanel();
+	private JPanel right = new JPanel();
+	private JSplitPane splitpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,true);
 
 	private JTree tree;
 	private JLabel selectedLabel;
+	private JLabel bewertung = new JLabel();
 	
-	public Leistungsuebersicht() {
+	public SLeistungsuebersicht(int width,int height) {
 		
 		 //create the root node
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Leistungsuebersicht");
@@ -61,21 +66,27 @@ public class Leistungsuebersicht extends JFrame {
                 selectedLabel.setText(selectedNode.getUserObject().toString());
             }
         });
+        
+        splitpane.setLeftComponent(left);
+        splitpane.setRightComponent(right);
+        
+		//right.setLayout(new GridLayout(1,1));
+
 		
+        left.add(tree);
+        
+        right.add(bewertung);
+        
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("JTree Example");       
-        this.setSize(200, 200);
+        this.setTitle("Leistungsübersicht");       
+        this.getContentPane().add(splitpane);
+        this.setSize(width, height);
         this.setVisible(true);
 	}
 	
 	
 	public static void main(String[] args){
 
-        SwingUtilities.invokeLater(new Runnable() {
-        	@Override
-        	public void run() {
-        		new Leistungsuebersicht();
-        	}
-        });	
+        		new SLeistungsuebersicht(500,400);
 	}
 }

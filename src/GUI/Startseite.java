@@ -19,11 +19,7 @@ public class Startseite extends JFrame {
 	private JLabel mailLabel = new JLabel("E-Mail-Adresse: ");
 	
 	
-	public Startseite() {
-		
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		setBounds(200,200,600,400);
-		
+	public Startseite(int width, int height) {
 		
 		panel.setLayout(new BorderLayout());
 		cpanel.setLayout(new GridLayout(2,2));
@@ -41,10 +37,13 @@ public class Startseite extends JFrame {
 		cpanel.add(pwdLabel);
 		cpanel.add(pwd);
 		
-		this.getContentPane().add(panel);
-		pack();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle("Startseite");       
+        this.getContentPane().add(panel);       
+        this.setSize(width, height);
+        this.setVisible(true);
 	}
 	public static void main(String[] args){
-		new Startseite().setVisible(true);
+		new Startseite(500,400);
 	}
 }

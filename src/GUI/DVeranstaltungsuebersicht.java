@@ -5,22 +5,21 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 
-public class Veranstaltungsuebersicht extends JFrame {
+public class DVeranstaltungsuebersicht extends JFrame {
 	
 	private JPanel panel = new JPanel();
 	private JPanel epanel = new JPanel();
 	private JPanel spanel = new JPanel();
 
-	private JButton leistungen = new JButton("Leistungen ansehen");
-	private JButton gruppen = new JButton("Gruppen & Teams ansehen");
-	private JButton hinzufuegen = new JButton("Veranstaltung hinzufügen");
-
-	private JLabel infos = new JLabel("Infos über Veranstaltung"); //Platzhalter für Veranstaltungsinfos aus DB
+	private JButton ansehen = new JButton("Veranstaltung ansehen");
 	
-	String veranstaltungen[] = {"Softwaretechnik", "Betriebssysteme", "Verteilte Systeme"}; //Platzhalter für eingeschriebene Veranstaltungen aus DB
+	private JLabel infos = new JLabel("Infos über Veranstaltung"); //Platzhalter für Veranstaltungsinfos aus DB
+
+
+	String veranstaltungen[] = {"Softwaretechnik", "Betriebssysteme", "Verteilte Systeme"}; //Platzhalter für zugeordnete Veranstaltungen aus DB
 		
 	
-	public Veranstaltungsuebersicht() {
+	public DVeranstaltungsuebersicht(int width, int height) {
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		
 		
@@ -37,21 +36,23 @@ public class Veranstaltungsuebersicht extends JFrame {
 		panel.add(epanel, BorderLayout.EAST);
 		panel.add(spanel, BorderLayout.SOUTH);
 
-		epanel.add(gruppen);
-		epanel.add(leistungen);
-		epanel.add(hinzufuegen);
+		epanel.add(ansehen);
+
 		
 		spanel.add(infos,BorderLayout.CENTER);
 		
 		
-		this.getContentPane().add(panel);
-		pack();
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle("Veranstaltungsübersicht");       
+        this.getContentPane().add(panel);
+        this.setSize(width, height);
+        this.setVisible(true);
 
 	}
 	
 	
 	public static void main(String[] args){
-		new Veranstaltungsuebersicht().setVisible(true);
+		new DVeranstaltungsuebersicht(500,400);
 	}
 	
 }
