@@ -23,14 +23,14 @@ public class DGruppenbearbeiten implements FrameContent {
 	private JTree tree;
 	private JLabel selectedLabel;
 	
-	private JButton bestaetigen = new JButton("�nderungen best�tigen");
+	private JButton bestaetigen = new JButton("Änderungen bestätigen");
 	private JButton abbrechen = new JButton("Abbrechen");
 
 	
 	public DGruppenbearbeiten() {
 		
 		 //create the root node
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Gruppen- und Team�bersicht");
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Gruppen- und Teamübersicht");
         //create the lv 1 child nodes
         DefaultMutableTreeNode g1 = new DefaultMutableTreeNode("Gruppe 1");
         DefaultMutableTreeNode g2 = new DefaultMutableTreeNode("Gruppe 2");

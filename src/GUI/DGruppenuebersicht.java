@@ -2,7 +2,7 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -10,9 +10,12 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
 
-public class DGruppenuebersicht extends JFrame {
+public class DGruppenuebersicht implements FrameContent {
+    private String name = "Gruppen- und Teamübersicht";
+    private GUIMain mainFrame;
 
-	private JPanel left = new JPanel();
+    private JPanel panel = new JPanel();
+    private JPanel left = new JPanel();
 	private JPanel right = new JPanel();
 	private JSplitPane splitpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,true);
 
@@ -23,9 +26,9 @@ public class DGruppenuebersicht extends JFrame {
 	private JButton gruppehinzufuegen = new JButton("neue Gruppe hinzufügen");
 	private JButton teamhinzufuegen = new JButton("neues Team hinzufügen");
 	private JButton bearbeiten = new JButton("Gruppen/Teams bearbeiten");
-
+    private Listener def = new Listener();
 	
-	public DGruppenuebersicht(int width, int height) {
+	public DGruppenuebersicht() {
 		
 		 //create the root node
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Gruppen- und Teamübersicht");
@@ -72,10 +75,10 @@ public class DGruppenuebersicht extends JFrame {
         tree.setCellRenderer(renderer);
         tree.setShowsRootHandles(true);
         tree.setRootVisible(false);
-        add(new JScrollPane(tree));
+        //add(new JScrollPane(tree));
          
         selectedLabel = new JLabel();
-        add(selectedLabel, BorderLayout.SOUTH);
+        panel.add(selectedLabel, BorderLayout.SOUTH);
         tree.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
@@ -84,7 +87,7 @@ public class DGruppenuebersicht extends JFrame {
             }
         });
 		
-        
+        panel.add(splitpane);
         splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
         
@@ -97,18 +100,38 @@ public class DGruppenuebersicht extends JFrame {
         right.add(gruppehinzufuegen);
         right.add(teamhinzufuegen);
         right.add(bearbeiten);
-        
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Gruppen- und Teamübersicht");       
-        this.getContentPane().add(splitpane);
-        this.setSize(width, height);
-        this.setVisible(true);
-	}
-	
-	
-	public static void main(String[] args){
 
-        		new DGruppenuebersicht(500,400);
- 
+        leistungen.addActionListener(def);
+        gruppehinzufuegen.addActionListener(def);
+        teamhinzufuegen.addActionListener(def);
+        bearbeiten.addActionListener(def);
 	}
+
+    public String getName(){
+        return name;
+    }
+    public JPanel getPanel(){
+        return panel;
+    }
+    public void setParentFrame(GUIMain p){
+        mainFrame = p;
+    }
+
+    private class Listener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == leistungen) {
+                System.out.println("leistungen");
+            }
+            if (e.getSource() == gruppehinzufuegen) {
+                System.out.println("gruppehinzufuegen");
+            }
+            if (e.getSource() == teamhinzufuegen) {
+                System.out.println("teamhinzufuegen");
+            }
+            if (e.getSource() == bearbeiten) {
+                System.out.println("bearbeiten");
+            }
+        }
+    }
 }
