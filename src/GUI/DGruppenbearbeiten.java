@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.*;
 
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
@@ -10,8 +11,10 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
 
-public class DGruppenbearbeiten extends JFrame {
+public class DGruppenbearbeiten implements FrameContent {
+    private String name = "Gruppen und Teams bearbeiten";
 
+    private JPanel panel = new JPanel();
 	private JPanel left = new JPanel();
 	private JPanel right = new JPanel();
 	private JSplitPane splitpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,true);
@@ -23,7 +26,7 @@ public class DGruppenbearbeiten extends JFrame {
 	private JButton abbrechen = new JButton("Abbrechen");
 
 	
-	public DGruppenbearbeiten(int width, int height) {
+	public DGruppenbearbeiten() {
 		
 		 //create the root node
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Gruppen- und Teamübersicht");
@@ -70,10 +73,10 @@ public class DGruppenbearbeiten extends JFrame {
         tree.setCellRenderer(renderer);
         tree.setShowsRootHandles(true);
         tree.setRootVisible(false);
-        add(new JScrollPane(tree));
+        tree.add(new JScrollPane(tree));
          
         selectedLabel = new JLabel();
-        add(selectedLabel, BorderLayout.SOUTH);
+        panel.add(selectedLabel, BorderLayout.SOUTH);
         tree.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
@@ -93,17 +96,24 @@ public class DGruppenbearbeiten extends JFrame {
         
         right.add(bestaetigen);
         right.add(abbrechen);
-        
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Gruppen- und Teambearbeitung");       
-        this.getContentPane().add(splitpane);
-        this.setSize(width, height);
-        this.setVisible(true);
 	}
-	
-	
-	public static void main(String[] args){
+        public String getName(){
+                return name;
+        }
+        public JPanel getPanel(){
+                return panel;
+        }
 
-        		new DGruppenbearbeiten(500,400);
-	}
+        private class Listener implements ActionListener {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                        if(e.getSource()==bestaetigen){
+                                //System.out.println("bestaetigen button pressed");
+
+                        }
+                        if(e.getSource()==abbrechen){
+                                System.out.println("abbrechen");
+                        }
+                }
+        }
 }
