@@ -4,9 +4,26 @@ import javax.swing.*;
 
 
 public class GUIMain extends JFrame {
-	static int width = 800;
-	static int height = 600;
-	public static void main(String[] args){
-		new Startseite(width, height);
+	private FrameContent content;
+	
+	public GUIMain(int width, int height) {
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    this.setTitle("GUIMain");       
+	    this.setSize(width, height);
+	    setContent(new Startseite());
+	    this.setVisible(true);
+	    
 	}
+	
+	public FrameContent getContent() {
+		return content;
+	}
+
+	public void setContent(FrameContent content) {
+		this.content = content;
+		this.setTitle(content.getName());
+		this.getContentPane().add(content.getPanel());
+	}
+
+	
 }

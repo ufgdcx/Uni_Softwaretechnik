@@ -6,8 +6,9 @@ import java.awt.GridLayout;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Startseite extends JFrame {
-
+public class Startseite implements FrameContent{
+	private String name = "Startseite";
+	
 	private JPanel panel = new JPanel();
 	private JPanel cpanel = new JPanel();
 	private JPanel spanel = new JPanel();
@@ -19,7 +20,7 @@ public class Startseite extends JFrame {
 	private JLabel mailLabel = new JLabel("E-Mail-Adresse: ");
 	private Listener def = new Listener();
 
-	public Startseite(int width, int height) {
+	public Startseite() {
 		
 		panel.setLayout(new BorderLayout());
 		cpanel.setLayout(new GridLayout(2,2));
@@ -39,19 +40,21 @@ public class Startseite extends JFrame {
 		
 		login.addActionListener(def);
 		registrieren.addActionListener(def);
-		
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Startseite");       
-        this.getContentPane().add(panel);       
-        this.setSize(width, height);
-        this.setVisible(true);
+	}
+	
+	public String getName(){
+		return name;
+	}
+	public JPanel getPanel(){
+		return panel;
 	}
 
 	private class Listener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==login){
-				System.out.println("login");
+				//System.out.println("login button pressed");
+				
 			}
 			if(e.getSource()==registrieren){
 				System.out.println("registrieren");
