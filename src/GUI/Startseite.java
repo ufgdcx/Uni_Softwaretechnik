@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Startseite implements FrameContent{
 	private String name = "Startseite";
-	
+	private GUIMain mainFrame;
 	private JPanel panel = new JPanel();
 	private JPanel cpanel = new JPanel();
 	private JPanel spanel = new JPanel();
@@ -48,13 +48,16 @@ public class Startseite implements FrameContent{
 	public JPanel getPanel(){
 		return panel;
 	}
+	public void setParentFrame(GUIMain p){
+		mainFrame = p;
+	}
 
 	private class Listener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==login){
 				//System.out.println("login button pressed");
-				
+				mainFrame.setContent(new DGruppenbearbeiten());
 			}
 			if(e.getSource()==registrieren){
 				System.out.println("registrieren");

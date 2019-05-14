@@ -13,7 +13,8 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 
 public class DGruppenbearbeiten implements FrameContent {
     private String name = "Gruppen und Teams bearbeiten";
-
+    private GUIMain mainFrame;
+    private Listener def = new Listener();
     private JPanel panel = new JPanel();
 	private JPanel left = new JPanel();
 	private JPanel right = new JPanel();
@@ -22,14 +23,14 @@ public class DGruppenbearbeiten implements FrameContent {
 	private JTree tree;
 	private JLabel selectedLabel;
 	
-	private JButton bestaetigen = new JButton("Änderungen bestätigen");
+	private JButton bestaetigen = new JButton("ï¿½nderungen bestï¿½tigen");
 	private JButton abbrechen = new JButton("Abbrechen");
 
 	
 	public DGruppenbearbeiten() {
 		
 		 //create the root node
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Gruppen- und Teamübersicht");
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Gruppen- und Teamï¿½bersicht");
         //create the lv 1 child nodes
         DefaultMutableTreeNode g1 = new DefaultMutableTreeNode("Gruppe 1");
         DefaultMutableTreeNode g2 = new DefaultMutableTreeNode("Gruppe 2");
@@ -73,7 +74,7 @@ public class DGruppenbearbeiten implements FrameContent {
         tree.setCellRenderer(renderer);
         tree.setShowsRootHandles(true);
         tree.setRootVisible(false);
-        tree.add(new JScrollPane(tree));
+        //tree.add(new JScrollPane(tree));
          
         selectedLabel = new JLabel();
         panel.add(selectedLabel, BorderLayout.SOUTH);
@@ -85,7 +86,7 @@ public class DGruppenbearbeiten implements FrameContent {
             }
         });
 		
-        
+        panel.add(splitpane);
         splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
         
@@ -96,6 +97,9 @@ public class DGruppenbearbeiten implements FrameContent {
         
         right.add(bestaetigen);
         right.add(abbrechen);
+        
+        bestaetigen.addActionListener(def);
+        abbrechen.addActionListener(def);
 	}
         public String getName(){
                 return name;
@@ -103,17 +107,22 @@ public class DGruppenbearbeiten implements FrameContent {
         public JPanel getPanel(){
                 return panel;
         }
+		public void setParentFrame(GUIMain m) {
+			mainFrame = m;
+		}
 
         private class Listener implements ActionListener {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                         if(e.getSource()==bestaetigen){
                                 //System.out.println("bestaetigen button pressed");
-
+                        	mainFrame.setContent(new Startseite());
                         }
                         if(e.getSource()==abbrechen){
                                 System.out.println("abbrechen");
                         }
                 }
         }
+
+		
 }

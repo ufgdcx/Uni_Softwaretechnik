@@ -10,7 +10,7 @@ public class GUIMain extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setTitle("GUIMain");       
 	    this.setSize(width, height);
-	    setContent(new Startseite());
+	    setContent(new DGruppenbearbeiten());
 	    this.setVisible(true);
 	    
 	}
@@ -20,9 +20,13 @@ public class GUIMain extends JFrame {
 	}
 
 	public void setContent(FrameContent content) {
+		content.setParentFrame(this);
 		this.content = content;
 		this.setTitle(content.getName());
+		this.getContentPane().removeAll();
 		this.getContentPane().add(content.getPanel());
+		this.revalidate();
+		this.repaint();
 	}
 
 	
