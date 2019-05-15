@@ -6,9 +6,13 @@ public class Dozent extends Nutzer{
 
     private String fakultaet = new String();
     
-    ArrayList<Veranstaltung> veranstaltungen; //von Dozenten geleitete Veranstaltungen
-    ArrayList<Gruppe> gruppen; //von Dozenten betreute Gruppen
-    
+    private  ArrayList<Veranstaltung> veranstaltungen; //von Dozenten geleitete Veranstaltungen
+    private ArrayList<Gruppe> gruppen; //von Dozenten betreute Gruppen
+
+    public Dozent(String email,String passwort, String titel, String vorname, String name, String fakultaet){
+        super(email,passwort,titel,vorname,name);
+        this.fakultaet = fakultaet;
+    }
     //getter und setter für Fakultaet
     public String getFakultaet() {
 
