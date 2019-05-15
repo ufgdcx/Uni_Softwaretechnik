@@ -9,13 +9,13 @@ package Database;
 
 public class DBconn
 {
-    public static void main(String[] args) throws SQLException
+    public static Connection buildConnection()
     {
         System.out.println("# Starting MySQL connection");
 
         final String hostname = "swtistdoof.ignorelist.com";
         final String port = "3306";
-        final String dbname = "swt_test";
+        final String dbname = "swt_datenbank";
         final String user = "swt";
         final String password = "123456swtistdoof";
 
@@ -39,11 +39,6 @@ public class DBconn
 
             // Creating url
             String url = "jdbc:mysql://" + hostname + ":" + port + "/" + dbname + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-//            conn = DriverManager.getConnection(
-//                    "jdbc:mysql://"+"swtistdoof.ignorelist.com"+"/"+"swt_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-//                    "swt",
-//                    "123456swtistdoof");
-            //conn = DriverManager.getConnection("jdbc:mysql://localhost/swt?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
             conn = DriverManager.getConnection(url, user, password);
 
             /*
@@ -58,39 +53,39 @@ public class DBconn
              */
 
             // ################## Insert ##########################
-            System.out.println("# begin statement");
-            Statement stmt1 = conn.createStatement();
-
-            System.out.println("# Insert");
-            String sqlCommand1 =
-                    "INSERT INTO student " +
-                            "VALUES('4', 'blub', '45');";
-            stmt1.executeUpdate(sqlCommand1);
-
-            System.out.println("# close statement");
-            stmt1.close();
-
-            System.out.println("# begin statement");
-            Statement stmt = conn.createStatement();
-
-
-            // ################# Select ###########################
-            System.out.println("# begin request");
-            String sqlCommand =
-//                  "SELECT * FROM test_table"; // "SELECT * FROM test_table";
-                    "SELECT * FROM student";
-
-            ResultSet rs = stmt.executeQuery(sqlCommand);
-
-            System.out.println("# show results");
-            while (rs.next())
-            {
-                System.out.println(rs.getInt(1)+" "+ rs.getString("name") +" "+ rs.getInt(3) );
-            }
-
-            System.out.println("# close statement");
-            stmt.close();
-
+//            System.out.println("# begin statement");
+//            Statement stmt1 = conn.createStatement();
+//
+//            System.out.println("# Insert");
+//            String sqlCommand1 =
+//                    "INSERT INTO student " +
+//                            "VALUES('4', 'blub', '45');";
+//            stmt1.executeUpdate(sqlCommand1);
+//
+//            System.out.println("# close statement");
+//            stmt1.close();
+//
+//            System.out.println("# begin statement");
+//            Statement stmt = conn.createStatement();
+//
+//
+//            // ################# Select ###########################
+//            System.out.println("# begin request");
+//            String sqlCommand =
+////                  "SELECT * FROM test_table"; // "SELECT * FROM test_table";
+//                    "SELECT * FROM student";
+//
+//            ResultSet rs = stmt.executeQuery(sqlCommand);
+//
+//            System.out.println("# show results");
+//            while (rs.next())
+//            {
+//                System.out.println(rs.getInt(1)+" "+ rs.getString("name") +" "+ rs.getInt(3) );
+//            }
+//
+//            System.out.println("# close statement");
+//            stmt.close();
+            return conn;
 
         }
         catch (SQLException ex)
@@ -100,6 +95,7 @@ public class DBconn
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
         }
+        return null;
     }
 }
 
