@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Student extends Nutzer {
 
-    String studiengang = new String();
-    int matrikelnr;
+    private String studiengang = new String();
+    private int matrikelnr;
 
-    ArrayList<Leistungsblock> lBloecke; //Leistungsblöcke
-    Team team;
+    private ArrayList<Leistungsblock> lBloecke; //Leistungsblöcke
+    private Team team;
     
     //getter und setter für Studiengang
     public String getStudiengang() {

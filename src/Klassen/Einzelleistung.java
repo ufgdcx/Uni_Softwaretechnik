@@ -2,8 +2,8 @@ package Klassen;
 
 public class Einzelleistung {
 
-    String aufgabe = new String();
-    Float punkte;
+    private String aufgabe = new String();
+    private Float punkte;
 
     //getter und setter für Aufgabe
     public String getAufgabe() {

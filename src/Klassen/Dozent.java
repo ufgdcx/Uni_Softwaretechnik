@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Dozent extends Nutzer{
 
-    String fakultaet = new String();
+    private String fakultaet = new String();
     
     ArrayList<Veranstaltung> veranstaltungen; //von Dozenten geleitete Veranstaltungen
     ArrayList<Gruppe> gruppen; //von Dozenten betreute Gruppen

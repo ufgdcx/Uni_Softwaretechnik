@@ -2,11 +2,11 @@ package Klassen;
 
 public class Nutzer {
 
-   String email = new String();
-   protected String passwort = new String();
-   String titel = new String();
-   String vorname = new String();
-   String name = new String();
+    private String email = new String();
+    private String passwort = new String();
+    private String titel = new String();
+    private String vorname = new String();
+    private String name = new String();
    
    //getter für Email und setter alles
    public String getEmail() {

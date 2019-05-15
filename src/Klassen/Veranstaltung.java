@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Veranstaltung {
 
-    String name = new String(); //Veranstaltungsname
-    String fakultaet = new String();
-    int Teamanzahl; //Teamanzahl je Gruppe
-    int maxTeilnehmer; //maximale Teilnehmeranzahl je Team 
-    
-    ArrayList<Gruppe> gruppen; //Gruppen der Veranstaltung
-    ArrayList<Dozent> dozenten; //zugehörige Dozenten
+    private String name = new String(); //Veranstaltungsname
+    private String fakultaet = new String();
+    private int Teamanzahl; //Teamanzahl je Gruppe
+    private int maxTeilnehmer; //maximale Teilnehmeranzahl je Team
+
+    private ArrayList<Gruppe> gruppen; //Gruppen der Veranstaltung
+    private ArrayList<Dozent> dozenten; //zugehörige Dozenten
 
     //getter und setter für Name
     public String getName() {

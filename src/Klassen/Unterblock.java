@@ -1,10 +1,10 @@
 package Klassen;
 
 public class Unterblock {
-	
-	String ubName = new String();
-	Float ubPunkte;
-	
-	Leistungsblock lBlock;
+
+	private String ubName = new String();
+	private Float ubPunkte;
+
+	private Leistungsblock lBlock;
 	
 }

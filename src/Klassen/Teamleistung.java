@@ -1,10 +1,10 @@
 package Klassen;
 
 public class Teamleistung {
-	
-	String teamleistungsblockname = new String();
-	float tlPunkte;
-	
-	Team team;
+
+	private String teamleistungsblockname = new String();
+	private float tlPunkte;
+
+	private Team team;
 	
 }

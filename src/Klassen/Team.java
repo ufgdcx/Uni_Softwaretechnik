@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Team {
 
-    int teamID;
-	String thema = new String();
-	
-	ArrayList<Studienganganteil> anteile; //Studienganganteile
-    ArrayList<Teamleistung> teamLBloecke; //Teamleistungsblöcke
-    Gruppe gruppe;
+    private int teamID;
+    private String thema = new String();
+
+    private ArrayList<Studienganganteil> anteile; //Studienganganteile
+    private ArrayList<Teamleistung> teamLBloecke; //Teamleistungsblöcke
+    private Gruppe gruppe;
 
     //getter und setter für Thema
     public String getThema() {

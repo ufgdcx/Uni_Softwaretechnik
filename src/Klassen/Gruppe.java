@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class Gruppe {
 
-    int gruppenID;
-    String email = new String(); //E-Mailadresse des zuständigen Dozenten
-    String tag = new String(); //Wochentag
-    String zeit = new String(); //Uhrzeit
-    String rhythmus = new String(); //Wochenrhythmus
-    String frist = new String(); //Einschreibungsfrist
+    private  int gruppenID;
+    private String email = new String(); //E-Mailadresse des zuständigen Dozenten
+    private String tag = new String(); //Wochentag
+    private String zeit = new String(); //Uhrzeit
+    private String rhythmus = new String(); //Wochenrhythmus
+    private String frist = new String(); //Einschreibungsfrist
 
-    Veranstaltung veranstaltung;
-    ArrayList<Team> teams;
-    Dozent dozent;
+    private Veranstaltung veranstaltung;
+    private ArrayList<Team> teams;
+    private Dozent dozent;
     
     //getter und setter für Tag
     public String getTag() {

@@ -1,10 +1,10 @@
 package Klassen;
 
 public class Studienganganteil {
-	
-	String Studiengang = new String();
-	int anteil;
-	
-	Team team;
+
+	private String Studiengang = new String();
+	private int anteil;
+
+	private Team team;
 	
 }
