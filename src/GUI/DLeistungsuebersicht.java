@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.*;
 
 
 import javax.swing.*;
@@ -11,9 +12,13 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
 
-public class DLeistungsuebersicht extends JFrame {
+public class DLeistungsuebersicht implements FrameContent {
+    private String name = "Gruppen- und Teamübersicht";
+    private GUIMain mainFrame;
+    private Listener def = new Listener();
 
-	private JPanel left = new JPanel();
+    private JPanel panel = new JPanel();
+    private JPanel left = new JPanel();
 	private JPanel right = new JPanel();
 	private JSplitPane splitpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,true);
 
@@ -27,7 +32,7 @@ public class DLeistungsuebersicht extends JFrame {
 	private JButton loeschen = new JButton("Element löschen");
 	
 
-	public DLeistungsuebersicht(int width,int height) {
+	public DLeistungsuebersicht() {
 		
 		 //create the root node
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Leistungsuebersicht");
@@ -63,10 +68,10 @@ public class DLeistungsuebersicht extends JFrame {
         tree.setCellRenderer(renderer);
         tree.setShowsRootHandles(true);
         tree.setRootVisible(false);
-        add(new JScrollPane(tree));
+        //add(new JScrollPane(tree));
          
         selectedLabel = new JLabel();
-        add(selectedLabel, BorderLayout.SOUTH);
+        panel.add(selectedLabel, BorderLayout.SOUTH);
         tree.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
@@ -74,7 +79,8 @@ public class DLeistungsuebersicht extends JFrame {
                 selectedLabel.setText(selectedNode.getUserObject().toString());
             }
         });
-        
+
+        panel.add(splitpane);
         splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
         
@@ -88,19 +94,44 @@ public class DLeistungsuebersicht extends JFrame {
         right.add(unterblockhinzufuegen);
         right.add(leistunghinzufuegen);
         right.add(loeschen);
-        
-        
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Leistungsübersicht");       
-        this.getContentPane().add(splitpane);       
-        this.setSize(width, height);
-        this.setVisible(true);
-	}
-	
-	
-	public static void main(String[] args){
-		
-		new DLeistungsuebersicht(500,400);
-		
-	}
+
+
+        bewertung.addActionListener(def);
+        blockhinzufuegen.addActionListener(def);
+        unterblockhinzufuegen.addActionListener(def);
+        leistunghinzufuegen.addActionListener(def);
+        loeschen.addActionListener(def);
+
+    }
+
+    public String getName(){
+        return name;
+    }
+    public JPanel getPanel(){
+        return panel;
+    }
+    public void setParentFrame(GUIMain p){
+        mainFrame = p;
+    }
+
+    private class Listener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == bewertung) {
+                System.out.println("bewertung");
+            }
+            if (e.getSource() == blockhinzufuegen) {
+                System.out.println("blockhinzufuegen");
+            }
+            if (e.getSource() == unterblockhinzufuegen) {
+                System.out.println("unterblockhinzufuegen");
+            }
+            if (e.getSource() == leistunghinzufuegen) {
+                System.out.println("leistunghinzufuegen");
+            }
+            if (e.getSource() == loeschen) {
+                System.out.println("loeschen");
+            }
+        }
+    }
 }

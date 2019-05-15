@@ -2,11 +2,15 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.*;
 
 import javax.swing.*;
 
-public class SAlleVeranstaltungen extends JFrame {
-	
+public class SAlleVeranstaltungen implements FrameContent {
+	private String name = "Veranstaltung bearbeiten";
+	private GUIMain mainFrame;
+	private Listener def = new Listener();
+
 	private JPanel panel = new JPanel();
 	private JPanel epanel = new JPanel();
 	private JPanel spanel = new JPanel();
@@ -18,19 +22,16 @@ public class SAlleVeranstaltungen extends JFrame {
 	String veranstaltungen[] = {"Softwaretechnik", "Betriebssysteme", "Verteilte Systeme", "Computergraphik", "Modellbildung und Simulation"}; //Platzhalter für alle Veranstaltungen aus DB
 		
 	
-	public SAlleVeranstaltungen(int width, int height) {
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		
-		
+	public SAlleVeranstaltungen() {
+
 		JList<String> veranstaltungsAuswahl = new JList<String>(veranstaltungen);
 		veranstaltungsAuswahl.setSelectionMode(ListSelectionModel.SINGLE_SELECTION );
-		add(new JScrollPane(veranstaltungsAuswahl));
+		//add(new JScrollPane(veranstaltungsAuswahl));
 		
 		panel.setLayout(new BorderLayout());
 		//epanel.setLayout(new GridLayout(3,1));
 		spanel.setLayout(new BorderLayout());
 
-		
 		panel.add(veranstaltungsAuswahl, BorderLayout.CENTER);
 		panel.add(epanel, BorderLayout.EAST);
 		panel.add(spanel, BorderLayout.SOUTH);
@@ -39,18 +40,27 @@ public class SAlleVeranstaltungen extends JFrame {
 		epanel.add(einschreiben);
 		
 		spanel.add(infos,BorderLayout.CENTER);
-		
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Veranstaltungsliste");       
-        this.getContentPane().add(panel);
-        this.setSize(width, height);
-        this.setVisible(true);
 
+		einschreiben.addActionListener(def);
 	}
-	
-	
-	public static void main(String[] args){
-		new SAlleVeranstaltungen(500,400);
+	public String getName() {
+		return name;
 	}
-	
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public void setParentFrame(GUIMain p) {
+		mainFrame = p;
+	}
+
+	private class Listener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == einschreiben) {
+				System.out.println("einschreiben");
+			}
+		}
+	}
 }

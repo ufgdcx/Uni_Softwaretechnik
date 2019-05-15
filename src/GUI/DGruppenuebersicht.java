@@ -13,6 +13,7 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 public class DGruppenuebersicht implements FrameContent {
     private String name = "Gruppen- und Teamübersicht";
     private GUIMain mainFrame;
+    private Listener def = new Listener();
 
     private JPanel panel = new JPanel();
     private JPanel left = new JPanel();
@@ -26,8 +27,7 @@ public class DGruppenuebersicht implements FrameContent {
 	private JButton gruppehinzufuegen = new JButton("neue Gruppe hinzufügen");
 	private JButton teamhinzufuegen = new JButton("neues Team hinzufügen");
 	private JButton bearbeiten = new JButton("Gruppen/Teams bearbeiten");
-    private Listener def = new Listener();
-	
+
 	public DGruppenuebersicht() {
 		
 		 //create the root node
