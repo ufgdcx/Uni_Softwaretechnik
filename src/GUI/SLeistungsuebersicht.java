@@ -1,6 +1,8 @@
 package GUI;
 
+import java.awt.GridLayout;
 import java.awt.BorderLayout;
+import java.awt.event.*;
 
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
@@ -9,17 +11,22 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
 
-public class SLeistungsuebersicht extends JFrame {
+public class SLeistungsuebersicht implements FrameContent {
+    private String name = "Leistungsübersicht";
+    private GUIMain mainFrame;
+    private Listener def = new Listener();
 
+    private JPanel panel = new JPanel();
 	private JPanel left = new JPanel();
 	private JPanel right = new JPanel();
 	private JSplitPane splitpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,true);
+	private JButton zurueck = new JButton("zurueck");
 
 	private JTree tree;
 	private JLabel selectedLabel;
 	private JLabel bewertung = new JLabel();
 	
-	public SLeistungsuebersicht(int width,int height) {
+	public SLeistungsuebersicht() {
 		
 		 //create the root node
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Leistungsuebersicht");
@@ -55,10 +62,10 @@ public class SLeistungsuebersicht extends JFrame {
         tree.setCellRenderer(renderer);
         tree.setShowsRootHandles(true);
         tree.setRootVisible(false);
-        add(new JScrollPane(tree));
+        //add(new JScrollPane(tree));
          
         selectedLabel = new JLabel();
-        add(selectedLabel, BorderLayout.SOUTH);
+        panel.add(selectedLabel, BorderLayout.SOUTH);
         tree.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
@@ -66,27 +73,39 @@ public class SLeistungsuebersicht extends JFrame {
                 selectedLabel.setText(selectedNode.getUserObject().toString());
             }
         });
-        
+
+        panel.setLayout(new BorderLayout());
+        panel.add(splitpane,BorderLayout.CENTER);
+        splitpane.setResizeWeight(0.5);
         splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
         
-		//right.setLayout(new GridLayout(1,1));
+		right.setLayout(new GridLayout(2,1));
 
-		
         left.add(tree);
-        
         right.add(bewertung);
-        
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Leistungsübersicht");       
-        this.getContentPane().add(splitpane);
-        this.setSize(width, height);
-        this.setVisible(true);
-	}
-	
-	
-	public static void main(String[] args){
+        right.add(zurueck);
 
-        		new SLeistungsuebersicht(500,400);
+        zurueck.addActionListener(def);
 	}
+    public String getName() {
+        return name;
+    }
+
+    public JPanel getPanel() {
+        return panel;
+    }
+
+    public void setParentFrame(GUIMain p) {
+        mainFrame = p;
+    }
+
+    private class Listener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == zurueck) {
+                System.out.println("zurueck");
+            }
+        }
+    }
 }

@@ -2,11 +2,14 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-
+import java.awt.event.*;
 import javax.swing.*;
 
-public class DVeranstaltungsuebersicht extends JFrame {
-	
+public class DVeranstaltungsuebersicht implements FrameContent{
+	private String name = "eingeschriebene Veranstaltungen";
+	private GUIMain mainFrame;
+	private Listener def = new Listener();
+
 	private JPanel panel = new JPanel();
 	private JPanel epanel = new JPanel();
 	private JPanel spanel = new JPanel();
@@ -19,13 +22,11 @@ public class DVeranstaltungsuebersicht extends JFrame {
 	String veranstaltungen[] = {"Softwaretechnik", "Betriebssysteme", "Verteilte Systeme"}; //Platzhalter für zugeordnete Veranstaltungen aus DB
 		
 	
-	public DVeranstaltungsuebersicht(int width, int height) {
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		
-		
+	public DVeranstaltungsuebersicht() {
+
 		JList<String> veranstaltungsAuswahl = new JList<String>(veranstaltungen);
 		veranstaltungsAuswahl.setSelectionMode(ListSelectionModel.SINGLE_SELECTION );
-		add(new JScrollPane(veranstaltungsAuswahl));
+		//add(new JScrollPane(veranstaltungsAuswahl));
 		
 		panel.setLayout(new BorderLayout());
 		epanel.setLayout(new GridLayout(3,1));
@@ -40,19 +41,28 @@ public class DVeranstaltungsuebersicht extends JFrame {
 
 		
 		spanel.add(infos,BorderLayout.CENTER);
-		
-		
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Veranstaltungsübersicht");       
-        this.getContentPane().add(panel);
-        this.setSize(width, height);
-        this.setVisible(true);
+		ansehen.addActionListener(def);
 
 	}
-	
-	
-	public static void main(String[] args){
-		new DVeranstaltungsuebersicht(500,400);
+
+	public String getName() {
+		return name;
 	}
-	
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public void setParentFrame(GUIMain p) {
+		mainFrame = p;
+	}
+
+	private class Listener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == ansehen) {
+				System.out.println("ansehen");
+			}
+		}
+	}
 }

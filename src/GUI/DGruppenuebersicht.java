@@ -13,6 +13,7 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 public class DGruppenuebersicht implements FrameContent {
     private String name = "Gruppen- und Teamübersicht";
     private GUIMain mainFrame;
+    private Listener def = new Listener();
 
     private JPanel panel = new JPanel();
     private JPanel left = new JPanel();
@@ -26,8 +27,7 @@ public class DGruppenuebersicht implements FrameContent {
 	private JButton gruppehinzufuegen = new JButton("neue Gruppe hinzufügen");
 	private JButton teamhinzufuegen = new JButton("neues Team hinzufügen");
 	private JButton bearbeiten = new JButton("Gruppen/Teams bearbeiten");
-    private Listener def = new Listener();
-	
+
 	public DGruppenuebersicht() {
 		
 		 //create the root node
@@ -75,7 +75,7 @@ public class DGruppenuebersicht implements FrameContent {
         tree.setCellRenderer(renderer);
         tree.setShowsRootHandles(true);
         tree.setRootVisible(false);
-        //add(new JScrollPane(tree));
+        //tree.add(new JScrollPane());
          
         selectedLabel = new JLabel();
         panel.add(selectedLabel, BorderLayout.SOUTH);
@@ -86,8 +86,9 @@ public class DGruppenuebersicht implements FrameContent {
                 selectedLabel.setText(selectedNode.getUserObject().toString());
             }
         });
-		
-        panel.add(splitpane);
+        panel.setLayout(new BorderLayout());
+        panel.add(splitpane,BorderLayout.CENTER);
+        splitpane.setResizeWeight(0.5);
         splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
         

@@ -8,11 +8,16 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import java.awt.GridLayout;
+import java.awt.event.*;
 
 
-public class SGruppenuebersicht extends JFrame {
+public class SGruppenuebersicht implements FrameContent {
+    private String name = "Gruppen- und Teamübersicht";
+    private GUIMain mainFrame;
+    private Listener def = new Listener();
 
-	private JPanel left = new JPanel();
+    private JPanel panel = new JPanel();
+    private JPanel left = new JPanel();
 	private JPanel right = new JPanel();
 	private JSplitPane splitpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,true);
 
@@ -23,7 +28,7 @@ public class SGruppenuebersicht extends JFrame {
 	private JButton verlassen = new JButton("Team verlassen");
 
 	
-	public SGruppenuebersicht(int width, int height) {
+	public SGruppenuebersicht() {
 		
 		 //create the root node
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Gruppen- und Teamübersicht");
@@ -70,10 +75,10 @@ public class SGruppenuebersicht extends JFrame {
         tree.setCellRenderer(renderer);
         tree.setShowsRootHandles(true);
         tree.setRootVisible(false);
-        add(new JScrollPane(tree));
+        //add(new JScrollPane(tree));
          
         selectedLabel = new JLabel();
-        add(selectedLabel, BorderLayout.SOUTH);
+        panel.add(selectedLabel, BorderLayout.SOUTH);
         tree.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
@@ -81,8 +86,10 @@ public class SGruppenuebersicht extends JFrame {
                 selectedLabel.setText(selectedNode.getUserObject().toString());
             }
         });
-        
-        
+
+        panel.setLayout(new BorderLayout());
+        panel.add(splitpane,BorderLayout.CENTER);
+        splitpane.setResizeWeight(0.5);
         splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
         
@@ -93,17 +100,29 @@ public class SGruppenuebersicht extends JFrame {
         
         right.add(beitreten);
         right.add(verlassen);
-        
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Gruppen- und Teamübersicht");       
-        this.getContentPane().add(splitpane);
-        this.setSize(width, height);
-        this.setVisible(true);
-	}
-	
-	
-	public static void main(String[] args){
 
-        		new SGruppenuebersicht(500,400);
+        beitreten.addActionListener(def);
+        verlassen.addActionListener(def);
 	}
+    public String getName(){
+        return name;
+    }
+    public JPanel getPanel(){
+        return panel;
+    }
+    public void setParentFrame(GUIMain p){
+        mainFrame = p;
+    }
+
+    private class Listener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == beitreten) {
+                System.out.println("beitreten");
+            }
+            if (e.getSource() == verlassen) {
+                System.out.println("verlassen");
+            }
+        }
+    }
 }

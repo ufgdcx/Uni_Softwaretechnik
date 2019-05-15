@@ -9,7 +9,7 @@ package Database;
 
 public class DBconn
 {
-    public static void main(String[] args) //throws SQLException
+    public static void main(String[] args) throws SQLException
     {
         System.out.println("# Starting MySQL connection");
 
