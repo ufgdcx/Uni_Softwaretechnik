@@ -1,12 +1,20 @@
 package Klassen;
 
+import java.util.ArrayList;
+
 public class Gruppe {
 
-    Integer gruppenID;
-    String tag = new String();
-    String zeit = new String();
-    String einschreibungsfrist = new String();
+    int gruppenID;
+    String email = new String(); //E-Mailadresse des zuständigen Dozenten
+    String tag = new String(); //Wochentag
+    String zeit = new String(); //Uhrzeit
+    String rhythmus = new String(); //Wochenrhythmus
+    String frist = new String(); //Einschreibungsfrist
 
+    Veranstaltung veranstaltung;
+    ArrayList<Team> teams;
+    Dozent dozent;
+    
     //getter und setter für Tag
     public String getTag() {
 
@@ -30,13 +38,13 @@ public class Gruppe {
     }
 
     //getter und setter für Einschreibungsfrist
-    public String getEinschreibungsfrist() {
+    public String getFrist() {
 
-        return einschreibungsfrist;
+        return frist;
     }
 
-    public void setEinschreibungsfrist(String einschreibungsfrist) {
+    public void setFrist(String frist) {
 
-        this.einschreibungsfrist = einschreibungsfrist;
+        this.frist = frist;
     }
 }

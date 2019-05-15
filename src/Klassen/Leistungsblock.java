@@ -1,10 +1,14 @@
 package Klassen;
 
+import java.util.ArrayList;
+
 public class Leistungsblock {
 
     String lbName = new String();
-    Float lbPunkte;
 
+    Student student;
+    ArrayList<Unterblock> uBloecke; //Unterblöcke
+    
     //getter und setter für Klassen.Leistungsblock
     public String getLbName() {
 
@@ -14,16 +18,5 @@ public class Leistungsblock {
     public void setLbName(String lbName) {
 
         this.lbName = lbName;
-    }
-
-    //getter und setter für LeistungsblockPunkte
-    public Float getLbPunkte() {
-
-        return lbPunkte;
-    }
-
-    public void setPunkte(Float lbPunkte) {
-
-        this.lbPunkte = lbPunkte;
     }
 }

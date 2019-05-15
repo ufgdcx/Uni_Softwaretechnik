@@ -1,9 +1,15 @@
 package Klassen;
 
+import java.util.ArrayList;
+
 public class Team {
 
-    String thema = new String();
-    String maxMembers = new String();
+    int teamID;
+	String thema = new String();
+	
+	ArrayList<Studienganganteil> anteile; //Studienganganteile
+    ArrayList<Teamleistung> teamLBloecke; //Teamleistungsblöcke
+    Gruppe gruppe;
 
     //getter und setter für Thema
     public String getThema() {

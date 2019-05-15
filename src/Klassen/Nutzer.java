@@ -7,7 +7,7 @@ public class Nutzer {
    String titel = new String();
    String vorname = new String();
    String name = new String();
-
+   
    //getter und setter für Email
    public String getEmail() {
 

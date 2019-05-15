@@ -1,11 +1,16 @@
 package Klassen;
 
+import java.util.ArrayList;
+
 public class Veranstaltung {
 
-    String name = new String();
+    String name = new String(); //Veranstaltungsname
     String fakultaet = new String();
-    String team = new String();
-    String teilnehmer = new String();
+    int Teamanzahl; //Teamanzahl je Gruppe
+    int maxTeilnehmer; //maximale Teilnehmeranzahl je Team 
+    
+    ArrayList<Gruppe> gruppen; //Gruppen der Veranstaltung
+    ArrayList<Dozent> dozenten; //zugehörige Dozenten
 
     //getter und setter für Name
     public String getName() {
@@ -28,26 +33,5 @@ public class Veranstaltung {
 
         this.fakultaet = fakultaet;
     }
-
-    //getter und setter für Klassen.Team
-    public String getTeam() {
-
-        return team;
-    }
-
-    public void setTeam(String team) {
-
-        this.team = team;
-    }
-
-    //getter und setter für Teilnehmer
-    public String getTeilnehmer() {
-
-        return teilnehmer;
-    }
-
-    public void setTeilnehmer(String teilnehmer) {
-
-        this.teilnehmer = teilnehmer;
-    }
+    
 }

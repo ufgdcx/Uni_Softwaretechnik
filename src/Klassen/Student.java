@@ -1,10 +1,15 @@
 package Klassen;
 
+import java.util.ArrayList;
+
 public class Student extends Nutzer {
 
     String studiengang = new String();
     int matrikelnr;
 
+    ArrayList<Leistungsblock> lBloecke; //Leistungsblöcke
+    Team team;
+    
     //getter und setter für Studiengang
     public String getStudiengang() {
 
