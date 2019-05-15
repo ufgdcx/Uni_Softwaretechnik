@@ -9,7 +9,13 @@ public class Student extends Nutzer {
 
     private ArrayList<Leistungsblock> lBloecke; //Leistungsblöcke
     private Team team;
-    
+
+    public Student(String email,String passwort, String titel, String vorname, String name, String studiengang, int matrikelnr){
+        super(email,passwort,titel,vorname,name);
+        this.studiengang = studiengang;
+        this.matrikelnr = matrikelnr;
+    }
+
     //getter und setter für Studiengang
     public String getStudiengang() {
 

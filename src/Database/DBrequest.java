@@ -1,8 +1,6 @@
 package Database;
 
-import Klassen.Leistung;
-import Klassen.Leistungsblock;
-import Klassen.Student;
+import Klassen.*;
 
 import java.sql.Connection;
 
@@ -36,7 +34,8 @@ public class DBrequest {
     }
 
     //getter
-    public void getName(int matrikelnummer){
+    public Student getStudent(String email, String passwort){
 
+        return new Student("abc@uni-rostock.it","1234","Lord","Hanz","Mueller","Verteidigung gegen die Dunklen Kuenste",987654321);
     }
 }
