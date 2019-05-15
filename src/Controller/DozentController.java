@@ -7,7 +7,7 @@ import Klassen.*;
 
 public class DozentController {
 	private GUIMain mainFrame;
-	private Dozent me = new Dozent();
+	private Dozent me;
 	private ArrayList<Veranstaltung> veranstaltungen;
 	private ArrayList<Gruppe> gruppen;
 	private ArrayList<Team> teams;
