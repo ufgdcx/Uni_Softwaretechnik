@@ -7,79 +7,75 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class DVeranstaltungbearbeiten implements FrameContent {
-	private String name = "Veranstaltung bearbeiten";
-	private GUIMain mainFrame;
-	private JPanel panel = new JPanel();
-	private JPanel npanel = new JPanel();
-	private JPanel epanel = new JPanel();
-	private JPanel cpanel = new JPanel();
+  private String name = "Veranstaltung bearbeiten";
+  private GUIMain mainFrame;
+  private JPanel panel = new JPanel();
+  private JPanel epanel = new JPanel();
+  private JPanel cpanel = new JPanel();
 
-	private JButton bestaetigen = new JButton("Änderungen bestätigen");
-	private JButton abbrechen = new JButton("abbrechen");
-	private JButton abmelden = new JButton("Abmelden");
-	private JButton hauptseite = new JButton("Veranstaltungsübersicht");
+  private JButton bestaetigen = new JButton("Ã„nderungen bestÃ¤tigen");
+  private JButton abbrechen = new JButton("abbrechen");
 
-	private JTextArea dozent = new JTextArea("Dozent der Veranstaltung"); //Platzhalter für verantwortlichen Dozenten aus DB
-	private JTextArea infos = new JTextArea("Infos über Veranstaltung"); //Platzhalter für Veranstaltungsinfos aus DB
+  private JTextArea dozent = new JTextArea("Dozent der Veranstaltung"); //Platzhalter fÃ¼r verantwortlichen Dozenten aus DB
+  private JTextArea infos = new JTextArea("Infos Ã¼ber Veranstaltung"); //Platzhalter fÃ¼r Veranstaltungsinfos aus DB
 
-	private Listener def = new Listener();
+  private Listener def = new Listener();
 
-	String veranstaltungen[] = {"Softwaretechnik", "Betriebssysteme", "Verteilte Systeme"}; //Platzhalter für eingeschriebene Veranstaltungen aus DB
+  String veranstaltungen[] = {"Softwaretechnik", "Betriebssysteme", "Verteilte Systeme"}; //Platzhalter fÃ¼r eingeschriebene Veranstaltungen aus DB
 
 
-	public DVeranstaltungbearbeiten() {
-		panel.setLayout(new BorderLayout());
-		epanel.setLayout(new GridLayout(2, 1));
-		cpanel.setLayout(new GridLayout(2, 1));
-		npanel.setLayout(new GridLayout(1,2));
+  public DVeranstaltungbearbeiten() {
+    panel.setLayout(new BorderLayout());
+    epanel.setLayout(new GridLayout(2, 1));
+    cpanel.setLayout(new GridLayout(2, 1));
 
-		panel.add(npanel, BorderLayout.NORTH);
-		panel.add(cpanel, BorderLayout.CENTER);
-		panel.add(epanel, BorderLayout.EAST);
 
-		npanel.add(hauptseite);
-		npanel.add(abmelden);
+    panel.add(cpanel, BorderLayout.CENTER);
+    panel.add(epanel, BorderLayout.EAST);
 
-		epanel.add(bestaetigen);
-		epanel.add(abbrechen);
+    epanel.add(bestaetigen);
+    epanel.add(abbrechen);
 
-		cpanel.add(infos);
-		cpanel.add(dozent);
+    cpanel.add(infos);
+    cpanel.add(dozent);
 
-		bestaetigen.addActionListener(def);
-		abbrechen.addActionListener(def);
-		//infos.addActionListener(def);
-		//dozent.addActionListener(def);
-	}
+    bestaetigen.addActionListener(def);
+    abbrechen.addActionListener(def);
+    //infos.addActionListener(def);
+    //dozent.addActionListener(def);
+  }
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public JPanel getPanel() {
-		return panel;
-	}
+  public JPanel getPanel() {
+    return panel;
+  }
 
-	public void setParentFrame(GUIMain p) {
-		mainFrame = p;
-	}
+  public void setParentFrame(GUIMain p) {
+    mainFrame = p;
+  }
 
-	private class Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == bestaetigen) {
-				System.out.println("bestaetigen");
-			}
-			if (e.getSource() == abbrechen) {
-				System.out.println("abbrechen");
-			}
-			if (e.getSource() == infos) {
-				System.out.println("infos");
-			}
-			if (e.getSource() == dozent) {
-				System.out.println("dozent");
-			}
-		}
-	}
+  private class Listener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      if (e.getSource() == bestaetigen) {
+        System.out.println("bestaetigen");
+        mainFrame.setContent(new DVeranstaltung());
+      }
+      if (e.getSource() == abbrechen) {
+        System.out.println("abbrechen");
+        mainFrame.setContent(new DVeranstaltung());
+      }
+      if (e.getSource() == infos) {
+        //System.out.println("infos");
+
+      }
+      if (e.getSource() == dozent) {
+        //System.out.println("dozent");
+
+      }
+    }
+  }
 }
-

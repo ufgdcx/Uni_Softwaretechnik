@@ -12,29 +12,26 @@ import java.awt.event.*;
 
 
 public class SGruppenuebersicht implements FrameContent {
-    private String name = "Gruppen- und Teamübersicht";
+    private String name = "Gruppen- und TeamÃ¼bersicht";
     private GUIMain mainFrame;
     private Listener def = new Listener();
 
     private JPanel panel = new JPanel();
-    private JPanel npanel = new JPanel();
     private JPanel left = new JPanel();
-	private JPanel right = new JPanel();
-	private JSplitPane splitpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,true);
+    private JPanel right = new JPanel();
+    private JSplitPane splitpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,true);
 
-	private JTree tree;
-	private JLabel selectedLabel;
+    private JTree tree;
+    private JLabel selectedLabel;
 
-	private JButton beitreten = new JButton("Team beitreten");
-	private JButton verlassen = new JButton("Team verlassen");
-    private JButton abmelden = new JButton("Abmelden");
-    private JButton hauptseite = new JButton("Veranstaltungsübersicht");
+    private JButton beitreten = new JButton("Team beitreten");
+    private JButton verlassen = new JButton("Team verlassen");
 
 
-	public SGruppenuebersicht() {
+    public SGruppenuebersicht() {
 
-		 //create the root node
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Gruppen- und Teamübersicht");
+        //create the root node
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Gruppen- und TeamÃ¼bersicht");
         //create the lv 1 child nodes
         DefaultMutableTreeNode g1 = new DefaultMutableTreeNode("Gruppe 1");
         DefaultMutableTreeNode g2 = new DefaultMutableTreeNode("Gruppe 2");
@@ -92,26 +89,21 @@ public class SGruppenuebersicht implements FrameContent {
 
         panel.setLayout(new BorderLayout());
         panel.add(splitpane,BorderLayout.CENTER);
-        panel.add(npanel, BorderLayout.NORTH);
-
         splitpane.setResizeWeight(0.5);
         splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
 
-		right.setLayout(new GridLayout(2,1));
-        npanel.setLayout(new GridLayout(1,2));
+        right.setLayout(new GridLayout(2,1));
 
-        npanel.add(hauptseite);
-        npanel.add(abmelden);
 
         left.add(tree);
-        
+
         right.add(beitreten);
         right.add(verlassen);
 
         beitreten.addActionListener(def);
         verlassen.addActionListener(def);
-	}
+    }
     public String getName(){
         return name;
     }
@@ -126,10 +118,12 @@ public class SGruppenuebersicht implements FrameContent {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == beitreten) {
-                System.out.println("beitreten");
+                //System.out.println("beitreten");
+                mainFrame.setContent(new SGruppenuebersicht());
             }
             if (e.getSource() == verlassen) {
-                System.out.println("verlassen");
+                //System.out.println("verlassen");
+                mainFrame.setContent(new SGruppenuebersicht());
             }
         }
     }
