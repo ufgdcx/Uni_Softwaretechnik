@@ -6,7 +6,7 @@ import Klassen.*;
 
 public class StudentController {
 	private GUIMain mainFrame;
-	private Student me = new Student();
+	private Student me;
 	private ArrayList<Veranstaltung> veranstaltungen;
 	private ArrayList<Gruppe> gruppen;
 	private ArrayList<Team> teams;
