@@ -86,8 +86,10 @@ public class SGruppenuebersicht implements FrameContent {
                 selectedLabel.setText(selectedNode.getUserObject().toString());
             }
         });
-        
-        panel.add(splitpane);
+
+        panel.setLayout(new BorderLayout());
+        panel.add(splitpane,BorderLayout.CENTER);
+        splitpane.setResizeWeight(0.5);
         splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
         

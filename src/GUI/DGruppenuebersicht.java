@@ -75,7 +75,7 @@ public class DGruppenuebersicht implements FrameContent {
         tree.setCellRenderer(renderer);
         tree.setShowsRootHandles(true);
         tree.setRootVisible(false);
-        //add(new JScrollPane(tree));
+        //tree.add(new JScrollPane());
          
         selectedLabel = new JLabel();
         panel.add(selectedLabel, BorderLayout.SOUTH);
@@ -86,8 +86,9 @@ public class DGruppenuebersicht implements FrameContent {
                 selectedLabel.setText(selectedNode.getUserObject().toString());
             }
         });
-		
-        panel.add(splitpane);
+        panel.setLayout(new BorderLayout());
+        panel.add(splitpane,BorderLayout.CENTER);
+        splitpane.setResizeWeight(0.5);
         splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
         

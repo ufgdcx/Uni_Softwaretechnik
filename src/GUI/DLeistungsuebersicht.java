@@ -80,8 +80,9 @@ public class DLeistungsuebersicht implements FrameContent {
             }
         });
 
-        panel.add(splitpane);
-        splitpane.setLeftComponent(left);
+        panel.setLayout(new BorderLayout());
+        panel.add(splitpane,BorderLayout.CENTER);
+        splitpane.setResizeWeight(0.5);        splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
         
 		right.setLayout(new GridLayout(3,2));
