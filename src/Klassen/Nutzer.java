@@ -8,7 +8,7 @@ public class Nutzer {
    String vorname = new String();
    String name = new String();
    
-   //getter und setter für Email
+   //getter für Email und setter alles
    public String getEmail() {
 
       return email;
@@ -17,5 +17,22 @@ public class Nutzer {
    public void setEmail(String email) {
 
        this.email = email;
+   }
+
+   public String getPasswort() {
+      return passwort;
+   }
+   public String getTitel() {
+      return titel;
+   }
+
+   public String getVorname() {
+      return vorname;
+   }
+
+
+
+   public String getName() {
+      return name;
    }
 }
