@@ -13,11 +13,14 @@ public class DVeranstaltung implements FrameContent {
 	private Listener def = new Listener();
 
 	private JPanel panel = new JPanel();
+	private JPanel npanel = new JPanel();
 	private JPanel epanel = new JPanel();
 	private JPanel cpanel = new JPanel();
 
 	private JButton bearbeiten = new JButton("Informationen bearbeiten");
 	private JButton gruppen = new JButton("Gruppen und Teams ansehen");
+	private JButton abmelden = new JButton("Abmelden");
+	private JButton hauptseite = new JButton("Veranstaltungsübersicht");
 
 	private JLabel dozent = new JLabel("Dozent der Veranstaltung"); //Platzhalter für verantwortlichen Dozenten aus DB
 	private JLabel infos = new JLabel("Infos über Veranstaltung"); //Platzhalter für Veranstaltungsinfos aus DB
@@ -30,10 +33,14 @@ public class DVeranstaltung implements FrameContent {
 		panel.setLayout(new BorderLayout());
 		epanel.setLayout(new GridLayout(2, 1));
 		cpanel.setLayout(new GridLayout(2, 1));
+		npanel.setLayout(new GridLayout(1,2));
 
-
+		panel.add(npanel, BorderLayout.NORTH);
 		panel.add(cpanel, BorderLayout.CENTER);
 		panel.add(epanel, BorderLayout.EAST);
+
+		npanel.add(hauptseite);
+		npanel.add(abmelden);
 
 		epanel.add(bearbeiten);
 		epanel.add(gruppen);

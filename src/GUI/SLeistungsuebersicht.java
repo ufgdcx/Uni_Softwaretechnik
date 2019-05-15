@@ -17,17 +17,21 @@ public class SLeistungsuebersicht implements FrameContent {
     private Listener def = new Listener();
 
     private JPanel panel = new JPanel();
+    private JPanel npanel = new JPanel();
 	private JPanel left = new JPanel();
 	private JPanel right = new JPanel();
 	private JSplitPane splitpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,true);
+
 	private JButton zurueck = new JButton("zurueck");
+    private JButton abmelden = new JButton("Abmelden");
+    private JButton hauptseite = new JButton("Veranstaltungsübersicht");
 
 	private JTree tree;
 	private JLabel selectedLabel;
 	private JLabel bewertung = new JLabel();
-	
+
 	public SLeistungsuebersicht() {
-		
+
 		 //create the root node
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Leistungsuebersicht");
         //create the lv 1 child nodes
@@ -53,17 +57,16 @@ public class SLeistungsuebersicht implements FrameContent {
         //add the lv 3 child nodes to the lv 2 nodes
         ha1.add(ha1a1);
         t1.add(t1a1);
-         
+
         //create the tree by passing in the root node
         tree = new JTree(root);
-        DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();       
+        DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
 
-         
+
         tree.setCellRenderer(renderer);
         tree.setShowsRootHandles(true);
         tree.setRootVisible(false);
-        //add(new JScrollPane(tree));
-         
+
         selectedLabel = new JLabel();
         panel.add(selectedLabel, BorderLayout.SOUTH);
         tree.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
@@ -76,11 +79,17 @@ public class SLeistungsuebersicht implements FrameContent {
 
         panel.setLayout(new BorderLayout());
         panel.add(splitpane,BorderLayout.CENTER);
+        panel.add(npanel, BorderLayout.NORTH);
+
         splitpane.setResizeWeight(0.5);
         splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
-        
+
 		right.setLayout(new GridLayout(2,1));
+        npanel.setLayout(new GridLayout(1,2));
+
+        npanel.add(hauptseite);
+        npanel.add(abmelden);
 
         left.add(tree);
         right.add(bewertung);

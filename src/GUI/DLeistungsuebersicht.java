@@ -18,6 +18,7 @@ public class DLeistungsuebersicht implements FrameContent {
     private Listener def = new Listener();
 
     private JPanel panel = new JPanel();
+    private JPanel npanel = new JPanel();
     private JPanel left = new JPanel();
 	private JPanel right = new JPanel();
 	private JSplitPane splitpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,true);
@@ -30,10 +31,12 @@ public class DLeistungsuebersicht implements FrameContent {
 	private JButton unterblockhinzufuegen = new JButton("Unterblock hinzufügen");
 	private JButton leistunghinzufuegen = new JButton("Leistung hinzufügen");
 	private JButton loeschen = new JButton("Element löschen");
-	
+    private JButton abmelden = new JButton("Abmelden");
+    private JButton hauptseite = new JButton("Veranstaltungsübersicht");
+
 
 	public DLeistungsuebersicht() {
-		
+
 		 //create the root node
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Leistungsuebersicht");
         //create the lv 1 child nodes
@@ -59,17 +62,16 @@ public class DLeistungsuebersicht implements FrameContent {
         //add the lv 3 child nodes to the lv 2 nodes
         ha1.add(ha1a1);
         t1.add(t1a1);
-         
+
         //create the tree by passing in the root node
         tree = new JTree(root);
-        DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();       
+        DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
 
-         
+
         tree.setCellRenderer(renderer);
         tree.setShowsRootHandles(true);
         tree.setRootVisible(false);
-        //add(new JScrollPane(tree));
-         
+
         selectedLabel = new JLabel();
         panel.add(selectedLabel, BorderLayout.SOUTH);
         tree.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
@@ -82,11 +84,17 @@ public class DLeistungsuebersicht implements FrameContent {
 
         panel.setLayout(new BorderLayout());
         panel.add(splitpane,BorderLayout.CENTER);
+        panel.add(npanel, BorderLayout.NORTH);
+
         splitpane.setResizeWeight(0.5);        splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
-        
+
 		right.setLayout(new GridLayout(3,2));
-		
+        npanel.setLayout(new GridLayout(1,2));
+
+        npanel.add(hauptseite);
+        npanel.add(abmelden);
+
         left.add(tree);
         
         right.add(label);

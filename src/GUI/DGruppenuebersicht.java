@@ -16,20 +16,23 @@ public class DGruppenuebersicht implements FrameContent {
     private Listener def = new Listener();
 
     private JPanel panel = new JPanel();
+    private JPanel npanel = new JPanel();
     private JPanel left = new JPanel();
 	private JPanel right = new JPanel();
 	private JSplitPane splitpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,true);
 
 	private JTree tree;
 	private JLabel selectedLabel;
-	
+
 	private JButton leistungen = new JButton("Leistungen einsehen");
 	private JButton gruppehinzufuegen = new JButton("neue Gruppe hinzufügen");
 	private JButton teamhinzufuegen = new JButton("neues Team hinzufügen");
 	private JButton bearbeiten = new JButton("Gruppen/Teams bearbeiten");
+    private JButton abmelden = new JButton("Abmelden");
+    private JButton hauptseite = new JButton("Veranstaltungsübersicht");
 
 	public DGruppenuebersicht() {
-		
+
 		 //create the root node
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Gruppen- und Teamübersicht");
         //create the lv 1 child nodes
@@ -53,7 +56,7 @@ public class DGruppenuebersicht implements FrameContent {
         g2.add(g2t1);
         g2.add(g2t2);
         g3.add(g3t1);
-        g3.add(g3t2);      
+        g3.add(g3t2);
         //create the lv 3 child nodes and add to the lv 2 nodes
         g1t1.add(new DefaultMutableTreeNode("Mitglied 1"));
         g1t1.add(new DefaultMutableTreeNode("Mitglied 2"));
@@ -64,19 +67,18 @@ public class DGruppenuebersicht implements FrameContent {
         g2t2.add(new DefaultMutableTreeNode("Mitglied 1"));
         g2t2.add(new DefaultMutableTreeNode("Mitglied 2"));
         g3t1.add(new DefaultMutableTreeNode("Mitglied 1"));
-        g3t1.add(new DefaultMutableTreeNode("Mitglied 2"));    
+        g3t1.add(new DefaultMutableTreeNode("Mitglied 2"));
         g3t2.add(new DefaultMutableTreeNode("Mitglied 1"));
-        g3t2.add(new DefaultMutableTreeNode("Mitglied 2"));      
+        g3t2.add(new DefaultMutableTreeNode("Mitglied 2"));
         //create the tree by passing in the root node
         tree = new JTree(root);
-        DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();       
+        DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
 
-         
+
         tree.setCellRenderer(renderer);
         tree.setShowsRootHandles(true);
         tree.setRootVisible(false);
-        //tree.add(new JScrollPane());
-         
+
         selectedLabel = new JLabel();
         panel.add(selectedLabel, BorderLayout.SOUTH);
         tree.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
@@ -88,13 +90,18 @@ public class DGruppenuebersicht implements FrameContent {
         });
         panel.setLayout(new BorderLayout());
         panel.add(splitpane,BorderLayout.CENTER);
+        panel.add(npanel, BorderLayout.NORTH);
+
         splitpane.setResizeWeight(0.5);
         splitpane.setLeftComponent(left);
         splitpane.setRightComponent(right);
-        
-		right.setLayout(new GridLayout(4,1));
 
-		
+		right.setLayout(new GridLayout(4,1));
+        npanel.setLayout(new GridLayout(1,2));
+
+        npanel.add(hauptseite);
+        npanel.add(abmelden);
+
         left.add(tree);
         
         right.add(leistungen);

@@ -10,11 +10,14 @@ public class DVeranstaltungbearbeiten implements FrameContent {
 	private String name = "Veranstaltung bearbeiten";
 	private GUIMain mainFrame;
 	private JPanel panel = new JPanel();
+	private JPanel npanel = new JPanel();
 	private JPanel epanel = new JPanel();
 	private JPanel cpanel = new JPanel();
 
 	private JButton bestaetigen = new JButton("Änderungen bestätigen");
 	private JButton abbrechen = new JButton("abbrechen");
+	private JButton abmelden = new JButton("Abmelden");
+	private JButton hauptseite = new JButton("Veranstaltungsübersicht");
 
 	private JTextArea dozent = new JTextArea("Dozent der Veranstaltung"); //Platzhalter für verantwortlichen Dozenten aus DB
 	private JTextArea infos = new JTextArea("Infos über Veranstaltung"); //Platzhalter für Veranstaltungsinfos aus DB
@@ -28,10 +31,14 @@ public class DVeranstaltungbearbeiten implements FrameContent {
 		panel.setLayout(new BorderLayout());
 		epanel.setLayout(new GridLayout(2, 1));
 		cpanel.setLayout(new GridLayout(2, 1));
+		npanel.setLayout(new GridLayout(1,2));
 
-
+		panel.add(npanel, BorderLayout.NORTH);
 		panel.add(cpanel, BorderLayout.CENTER);
 		panel.add(epanel, BorderLayout.EAST);
+
+		npanel.add(hauptseite);
+		npanel.add(abmelden);
 
 		epanel.add(bestaetigen);
 		epanel.add(abbrechen);
