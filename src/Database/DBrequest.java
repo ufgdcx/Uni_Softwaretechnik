@@ -7,7 +7,7 @@ import java.sql.Connection;
 public class DBrequest {
     private Connection conn;
 
-    DBrequest(){
+    public DBrequest(){
         conn = DBconn.buildConnection();
     }
 
@@ -34,7 +34,7 @@ public class DBrequest {
     }
 
     //getter
-    public Student getStudent(String email, String passwort){
+    public Nutzer getNutzer(String email, String passwort){
 
         return new Student("abc@uni-rostock.it","1234","Lord","Hanz","Mueller","Verteidigung gegen die Dunklen Kuenste",987654321);
     }
