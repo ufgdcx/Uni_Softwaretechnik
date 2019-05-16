@@ -40,15 +40,23 @@ public class DBrequest {
     public Nutzer getNutzer(String email, String passwort){
         try {
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Student ");
-            rs.next();
-            System.out.println(rs.getInt("Matrikelnummer"));
+            ResultSet rs = stmt.executeQuery("SELECT EMailadresse,Passwort FROM Nutzer WHERE EMailadresse = '" + email + "' AND Passwort = '" + passwort +"'");
+            if(resultSize(rs)!=0){
+                rs = stmt.executeQuery("SELECT EMailadresse, Matrikelnummer FROM Student WHERE EMailadresse = '" + email + "'");
+                if(resultSize(rs)!=0){
+                    System.out.println(rs.getString("EMailadresse"));
+                    int matrikelnummer = rs.getInt("Matrikelnummer");
+                    rs = stmt.executeQuery("SELECT Nutzer.*,Student.Matrikelnummer, Student.Studiengang FROM Nutzer INNER JOIN Student ON Student.EMailadresse = Nutzer.EMailadresse WHERE Matrikelnummer = '" + matrikelnummer + "'");
+                    rs.next();
+                    return new Student(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Studiengang"),rs.getInt("Matrikelnummer"));
+                }else return null;
+            }else return null;
         }catch (SQLException ex){
             ex.printStackTrace();
             System.out.println(ex);
             return  null;
         }
-        return new Student("abc@uni-rostock.it","1234","Lord","Hanz","Mueller","Verteidigung gegen die Dunklen Kuenste",987654321);
+        //return new Student("abc@uni-rostock.it","1234","Lord","Hanz","Mueller","Verteidigung gegen die Dunklen Kuenste",987654321);
     }
 
     public void close(){
@@ -58,4 +66,18 @@ public class DBrequest {
 
         }
     }
+
+    public int resultSize(ResultSet rs){
+        int size =0;
+        try {
+            if (rs != null) {
+                rs.last();    // moves cursor to the last row
+                size = rs.getRow(); // get row id
+                rs.first();
+            }
+        }catch (SQLException ex){
+
+        }
+        return size;
+    };
 }
