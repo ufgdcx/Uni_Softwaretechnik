@@ -3,12 +3,15 @@ package Database;
 import Klassen.*;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DBrequest {
-    private Connection conn;
+    private Connection con;
 
     public DBrequest(){
-        conn = DBconn.buildConnection();
+        con = DataSourceConn.buildConnection();
     }
 
     //creater(primitiv)
@@ -35,7 +38,24 @@ public class DBrequest {
 
     //getter
     public Nutzer getNutzer(String email, String passwort){
-
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Student ");
+            rs.next();
+            System.out.println(rs.getInt("Matrikelnummer"));
+        }catch (SQLException ex){
+            ex.printStackTrace();
+            System.out.println(ex);
+            return  null;
+        }
         return new Student("abc@uni-rostock.it","1234","Lord","Hanz","Mueller","Verteidigung gegen die Dunklen Kuenste",987654321);
+    }
+
+    public void close(){
+        try {
+            con.close();
+        }catch(SQLException ex){
+
+        }
     }
 }

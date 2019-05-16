@@ -23,7 +23,7 @@ public class MainController {
 		}
 		else{
 			//creating student to pass the info to StudentController
-			Student s;
+			Student s = new Student("abc@uni-rostock.it","1234","Lord","Hanz","Mueller","Verteidigung gegen die Dunklen Kuenste",987654321);
 			//transforming Nutzer object n to Student object s
 			//TODO
 			new StudentController(mainFrame,s);
