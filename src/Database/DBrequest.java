@@ -37,7 +37,7 @@ public class DBrequest {
     }
 
     //getter
-    public Nutzer getNutzer(String email, String passwort){
+    public Nutzer getNutzer(String email, String passwort) throws DatabaseExeption{
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT EMailadresse,Passwort FROM Nutzer WHERE EMailadresse = '" + email + "' AND Passwort = '" + passwort +"'");
@@ -56,13 +56,14 @@ public class DBrequest {
                         return new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Fakultaet"));
                     }
                 }
-            }else return null;
+                throw new LoginException("not a Student/Dozent");
+            }
         }catch (SQLException ex){
             ex.printStackTrace();
             System.out.println(ex);
             return  null;
         }
-        return null;
+        throw new LoginException("wrong username/password");
     }
 
     public void close(){
