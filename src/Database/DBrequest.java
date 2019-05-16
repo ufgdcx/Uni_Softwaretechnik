@@ -44,19 +44,25 @@ public class DBrequest {
             if(resultSize(rs)!=0){
                 rs = stmt.executeQuery("SELECT EMailadresse, Matrikelnummer FROM Student WHERE EMailadresse = '" + email + "'");
                 if(resultSize(rs)!=0){
-                    System.out.println(rs.getString("EMailadresse"));
                     int matrikelnummer = rs.getInt("Matrikelnummer");
                     rs = stmt.executeQuery("SELECT Nutzer.*,Student.Matrikelnummer, Student.Studiengang FROM Nutzer INNER JOIN Student ON Student.EMailadresse = Nutzer.EMailadresse WHERE Matrikelnummer = '" + matrikelnummer + "'");
                     rs.next();
                     return new Student(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Studiengang"),rs.getInt("Matrikelnummer"));
-                }else return null;
+                }else{
+                    rs = stmt.executeQuery("SELECT EMailadresse FROM Dozent WHERE EMailadresse = '" + email + "'");
+                    if(resultSize(rs)!=0){
+                        rs = stmt.executeQuery("SELECT Nutzer.*,Dozent.Fakultaet FROM Nutzer INNER JOIN Dozent ON Dozent.EMailadresse = Nutzer.EMailadresse WHERE Nutzer.EMailadresse = '" + email + "'");
+                        rs.next();
+                        return new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Fakultaet"));
+                    }
+                }
             }else return null;
         }catch (SQLException ex){
             ex.printStackTrace();
             System.out.println(ex);
             return  null;
         }
-        //return new Student("abc@uni-rostock.it","1234","Lord","Hanz","Mueller","Verteidigung gegen die Dunklen Kuenste",987654321);
+        return null;
     }
 
     public void close(){
