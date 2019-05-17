@@ -10,7 +10,7 @@ public class Student extends Nutzer
     private ArrayList<Leistungsblock> lBloecke;
     private Team team;
 
-    // Constructor
+    // Constructors
     public Student(String email,String passwort, String titel, String vorname, String name,
                    String studiengang, int matrikelnr, Team team)
     {
@@ -18,6 +18,14 @@ public class Student extends Nutzer
         this.studiengang = studiengang;
         this.matrikelnr = matrikelnr;
         this.team = team;
+    }
+
+    public Student(String email,String passwort, String titel, String vorname, String name,
+                   String studiengang, int matrikelnr)
+    {
+        super(email,passwort,titel,vorname,name); // make use of the superclass's constructor
+        this.studiengang = studiengang;
+        this.matrikelnr = matrikelnr;
     }
 
     // get methods
