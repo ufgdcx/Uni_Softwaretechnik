@@ -87,7 +87,8 @@ public class DGruppenuebersicht implements FrameContent {
       }
     });
 
-    panel.add(splitpane);
+    panel.setLayout(new BorderLayout());
+    panel.add(splitpane,BorderLayout.CENTER);
     splitpane.setLeftComponent(left);
     splitpane.setRightComponent(right);
 

@@ -6,7 +6,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class DVeranstaltungsuebersicht implements FrameContent{
-  private String name = "eingeschriebene Veranstaltungen";
+  private String name = "Veranstaltungsübersicht";
   private GUIMain mainFrame;
   private Listener def = new Listener();
 
