@@ -12,7 +12,8 @@ public class Veranstaltung
     private ArrayList<Gruppe> gruppen; //Gruppen der Veranstaltung
     private ArrayList<Dozent> dozenten; //zugehörige Dozenten
 
-    public Veranstaltung(String name, String fakultaet, int teamanzahl, int maxTeilnehmer, ArrayList<Gruppe> gruppen, ArrayList<Dozent> dozenten)
+    public Veranstaltung(String name, String fakultaet, int teamanzahl, int maxTeilnehmer,
+                         ArrayList<Gruppe> gruppen, ArrayList<Dozent> dozenten)
     {
         this.name = name;
         this.fakultaet = fakultaet;
@@ -23,67 +24,20 @@ public class Veranstaltung
     }
 
     // get methods
-    public String getName()
-    {
-        return name;
-    }
-
-    public String getFakultaet()
-    {
-        return fakultaet;
-    }
-
-    public int getTeamanzahl()
-    {
-        return Teamanzahl;
-    }
-
-    public int getMaxTeilnehmer()
-    {
-        return maxTeilnehmer;
-    }
-
-    public ArrayList<Gruppe> getGruppen()
-    {
-        return gruppen;
-    }
-
-    public ArrayList<Dozent> getDozenten()
-    {
-        return dozenten;
-    }
+    public String getName()  {return name;  }
+    public String getFakultaet()  {return fakultaet;  }
+    public int getTeamanzahl()  {    return Teamanzahl;  }
+    public int getMaxTeilnehmer()  {    return maxTeilnehmer;  }
+    public ArrayList<Gruppe> getGruppen()  {    return gruppen;  }
+    public ArrayList<Dozent> getDozenten()  {    return dozenten;  }
 
     // set methods
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public void setFakultaet(String fakultaet)
-    {
-        this.fakultaet = fakultaet;
-    }
-
-    public void setTeamanzahl(int teamanzahl)
-    {
-        Teamanzahl = teamanzahl;
-    }
-
-    public void setMaxTeilnehmer(int maxTeilnehmer)
-    {
-        this.maxTeilnehmer = maxTeilnehmer;
-    }
-
-    public void setGruppen(ArrayList<Gruppe> gruppen)
-    {
-        this.gruppen = gruppen;
-    }
-
-    public void setDozenten(ArrayList<Dozent> dozenten)
-    {
-        this.dozenten = dozenten;
-    }
+    public void setName(String name)  {    this.name = name;  }
+    public void setFakultaet(String fakultaet)  {    this.fakultaet = fakultaet;  }
+    public void setTeamanzahl(int teamanzahl)  {    Teamanzahl = teamanzahl;  }
+    public void setMaxTeilnehmer(int maxTeilnehmer)  {    this.maxTeilnehmer = maxTeilnehmer;  }
+    public void setGruppen(ArrayList<Gruppe> gruppen)  {    this.gruppen = gruppen;  }
+    public void setDozenten(ArrayList<Dozent> dozenten)  {    this.dozenten = dozenten;  }
 
     // add Gruppe
     public void addGruppe(Gruppe gruppe){ this.gruppen.add(gruppe); }
