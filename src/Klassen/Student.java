@@ -2,39 +2,40 @@ package Klassen;
 
 import java.util.ArrayList;
 
-public class Student extends Nutzer {
-
-    private String studiengang = new String();
+public class Student extends Nutzer
+{
+    // member variables
+    private String studiengang;
     private int matrikelnr;
-
-    private ArrayList<Leistungsblock> lBloecke; //Leistungsblöcke
+    private ArrayList<Leistungsblock> lBloecke;
     private Team team;
 
-    public Student(String email,String passwort, String titel, String vorname, String name, String studiengang, int matrikelnr){
-        super(email,passwort,titel,vorname,name);
+    // Constructor
+    public Student(String email,String passwort, String titel, String vorname, String name,
+                   String studiengang, int matrikelnr, Team team)
+    {
+        super(email,passwort,titel,vorname,name); // make use of the superclass's constructor
         this.studiengang = studiengang;
         this.matrikelnr = matrikelnr;
+        this.team = team;
     }
 
-    //getter und setter für Studiengang
-    public String getStudiengang() {
+    // get methods
+    public String getStudiengang() { return studiengang; }
+    public int getMatrikelnr() { return matrikelnr; }
+    public ArrayList<Leistungsblock> getLeistungsblock(){ return lBloecke; }
+    public Team getTeam() { return team; }
 
-        return studiengang;
-    }
+    // set methods
+    public void setStudiengang(String studiengang) { this.studiengang = studiengang; }
+    public void setMatrikelnr(int matrikelnr) { this.matrikelnr = matrikelnr; }
+    public void setLeistungsblock(ArrayList<Leistungsblock> lBloecke){ this.lBloecke = lBloecke; }
+    public void setTeam(Team team){ this.team = team; }
 
-    public void setStudiengang(String studiengang) {
+    // add a Leistungsblock to the Leistungsblock List
+    public void addLeistungsblock(Leistungsblock lBlock){ this.lBloecke.add(lBlock); }
 
-        this.studiengang = studiengang;
-    }
-
-    //getter und setter für MatrikelNr
-    public int getMatrikelnr() {
-
-        return matrikelnr;
-    }
-
-    public void setMatrikelnr(int matrikelnr) {
-
-        this.matrikelnr = matrikelnr;
-    }
+    // remove a Leistungsblock in the Leistungsblock List
+    public void removeLeistungsblock(int position){ this.lBloecke.remove(position); }
+    public void removeLeistungsblock(Leistungsblock lBlcok){ this.lBloecke.remove(lBlcok); }
 }
