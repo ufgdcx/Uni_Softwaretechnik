@@ -15,7 +15,7 @@ public class MainController {
 		//handle authentification
 		String email = "test";
 		String passwd = "test";
-		n = dbr.getNutzer(email,passwd);
+		//n = dbr.getNutzer(email,passwd);
 		
 		//switch to StudentController or DozentController
 		if(n instanceof Dozent){
