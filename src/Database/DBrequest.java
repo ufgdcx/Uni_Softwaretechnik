@@ -55,14 +55,14 @@ public class DBrequest {
                         return new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Fakultaet"));
                     }
                 }
-                throw new LoginException("not a Student/Dozent");
+                throw new DatabaseExeption("not a Student/Dozent");
             }
         }catch (SQLException ex){
             ex.printStackTrace();
             System.out.println(ex);
             return  null;
         }
-        throw new LoginException("wrong username/password");
+        throw new DatabaseExeption("wrong username/password");
     }
 
     public void close(){

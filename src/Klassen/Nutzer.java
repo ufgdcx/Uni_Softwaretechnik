@@ -2,11 +2,11 @@ package Klassen;
 
 public class Nutzer {
 
-    private String email = new String();
-    private String passwort = new String();
-    private String titel = new String();
-    private String vorname = new String();
-    private String name = new String();
+    private String email;
+    private String passwort;
+    private String titel;
+    private String vorname;
+    private String name;
 
     public Nutzer(String email,String passwort, String titel, String vorname, String name){
         this.email = email;
@@ -30,6 +30,7 @@ public class Nutzer {
    public String getPasswort() {
       return passwort;
    }
+
    public String getTitel() {
       return titel;
    }
@@ -37,8 +38,6 @@ public class Nutzer {
    public String getVorname() {
       return vorname;
    }
-
-
 
    public String getName() {
       return name;

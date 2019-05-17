@@ -9,6 +9,6 @@ public class DatabaseExeption extends Exception{
     }
 
     public String getErrorMsg(){
-        return null;
+        return ErrorMsg;
     }
 }

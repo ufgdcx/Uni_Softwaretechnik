@@ -17,6 +17,7 @@ public class DBtest
             }
             b.close();
         }catch (DatabaseExeption dbex){
+            System.out.println(dbex.getErrorMsg());
         }
     }
 }

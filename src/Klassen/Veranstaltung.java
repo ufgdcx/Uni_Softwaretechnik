@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Veranstaltung {
 
-    private String name = new String(); //Veranstaltungsname
-    private String fakultaet = new String();
+    private String name; //Veranstaltungsname
+    private String fakultaet;
     private int Teamanzahl; //Teamanzahl je Gruppe
     private int maxTeilnehmer; //maximale Teilnehmeranzahl je Team
 
