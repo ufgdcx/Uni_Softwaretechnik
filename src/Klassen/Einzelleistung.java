@@ -1,30 +1,23 @@
 package Klassen;
 
-public class Einzelleistung {
-
-    private String aufgabe = new String();
+public class Einzelleistung 
+{
+    // member variables
+    private String aufgabe;
     private Float punkte;
 
-    //getter und setter für Aufgabe
-    public String getAufgabe() {
-
-        return aufgabe;
-    }
-
-    public void setAufgabe(String aufgabe) {
-
+    // constructor
+    public Einzelleistung(String aufgabe, Float punkte)
+    {
         this.aufgabe = aufgabe;
-    }
-
-    //getter und setter für Punkte
-
-    public Float getPunkte() {
-
-        return punkte;
-    }
-
-    public void setPunkte(Float punkte) {
-
         this.punkte = punkte;
     }
+
+    // get methods
+    public String getAufgabe(){return aufgabe;}
+    public Float getPunkte(){return punkte;}
+
+    // set methods
+    public void setAufgabe(String aufgabe){this.aufgabe = aufgabe;}
+    public void setPunkte(Float punkte){this.punkte = punkte;}
 }
