@@ -55,8 +55,14 @@ public class DBrequest {
         }
     }
 
-    public void crateGehoertZu(){
-        // Values: Matrikelnummer(int) 	TeamID(int) 	GruppenID(int) 	Veranstaltungsname(string)
+    public void createGehoertZu(int matrikelnummer, int teamid, int gruppenid, String veranstaltungsname){
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO Gehoert_zu (Matrikelnummer, TeamID, GruppenID, Veranstaltungsname) VALUES ('" + matrikelnummer + "', '" + teamid + "', '" + gruppenid + "', '" + veranstaltungsname +"')");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void createGruppe(){
