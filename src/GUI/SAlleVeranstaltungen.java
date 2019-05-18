@@ -12,7 +12,7 @@ public class SAlleVeranstaltungen implements FrameContent {
     private JPanel AlleVeranstaltungen;
     private JList list1;
     private JButton eintragen;
-    private JButton zurückButton;
+    private JButton zurueckButton;
     private JButton logoutButton;
 
     public String getNachname() {
@@ -40,7 +40,7 @@ public class SAlleVeranstaltungen implements FrameContent {
                 mainFrame.setContent(new SAlleVeranstaltungen());
             }
         });
-        zurückButton.addActionListener(new ActionListener() {
+        zurueckButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainFrame.setContent(new SVeranstaltungsuebersicht());
