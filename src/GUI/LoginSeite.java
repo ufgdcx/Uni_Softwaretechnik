@@ -38,15 +38,16 @@ public class LoginSeite implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainFrame.setContent(new RegistrierenSeite());
+
             }
         });
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //To Do: if Nutzer == Student do
-                //mainFrame.setContent(new SVeranstaltungsuebersicht());
+                mainFrame.setContent(new SVeranstaltungsuebersicht());
                 //To Do: else do
-                mainFrame.setContent(new DVeranstaltungsuebersicht());
+                //mainFrame.setContent(new DVeranstaltungsuebersicht());
             }
         });
     }

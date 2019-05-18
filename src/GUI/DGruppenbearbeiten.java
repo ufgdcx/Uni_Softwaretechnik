@@ -1,6 +1,7 @@
 package GUI;
 
 import javax.swing.*;
+import javax.swing.JTree;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
