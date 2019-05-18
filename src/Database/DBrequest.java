@@ -84,17 +84,39 @@ public class DBrequest {
         }
     }
 
-    public void crateStudienganganteil(){
+
+    public void crateStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname, int anteil){
         //	Studiengang (string) 	TeamID(int) 	GruppenID(int) 	Veranstaltungsname(string)	Anteil (int)
-
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO Leistungsblock (Studiengang, TeamID, GruppenID, Veranstaltungsname, Anteil) VALUES ('" + studiengang + "', '" + teamid + "', '" + gruppenid +"', '" + veranstaltungsname +"', '" + anteil +"')");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
-    public void crateTeam(){
+    public void crateTeam(int teamid, int gruppenid, String veranstaltungsname, String thema){
         // 	TeamID(int) 	GruppenID(int) 	Veranstaltungsname(string) 	Thema(string)
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO Leistungsblock (TeamID, GruppenID, Veranstaltungsname, Thema) VALUES ('" + teamid + "', '" + gruppenid +"' , '" + veranstaltungsname +"', '" + thema +"')");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
-    public void crateTeamleistung(){
+    public void crateTeamleistung(String teamleistungsname, int teamid, int gruppenid, String veranstaltungsname, int punkte){
         // Teamleistungsname	varchar(255)	TeamID	int(11)	GruppenID	int(11)	Veranstaltungsname	varchar(255)	Punkte	int(11)
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO Leistungsblock (Teamleistungsname, TeamID, GruppenID, Veranstaltungsname, Punkte) VALUES ('" + teamleistungsname + "', '" + teamid +"', '" + gruppenid +"', '" + veranstaltungsname +"', '" + punkte +"')");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void crateUnterblock(int matrikelnummer, String leistunsblockname, String unterblockname, int punkte){
