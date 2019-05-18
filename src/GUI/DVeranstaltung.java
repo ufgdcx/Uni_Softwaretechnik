@@ -12,7 +12,7 @@ public class DVeranstaltung implements FrameContent{
     private JButton InfosBearbeiten;
     private JButton dozentBearbeiten;
     private JButton GrTeBearbeiten;
-    private JButton zurück;
+    private JButton zurueck;
     private JTextPane infos;
     private JTextPane dozent;
     private JLabel infosField;
@@ -61,7 +61,7 @@ public class DVeranstaltung implements FrameContent{
                 mainFrame.setContent(new DGruppenuebersicht());
             }
         });
-        zurück.addActionListener(new ActionListener() {
+        zurueck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 

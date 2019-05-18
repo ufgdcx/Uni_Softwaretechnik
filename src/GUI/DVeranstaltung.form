@@ -32,7 +32,7 @@
           <text value="Veranstaltungsinformationen"/>
         </properties>
       </component>
-      <component id="16969" class="javax.swing.JButton" binding="zurück">
+      <component id="16969" class="javax.swing.JButton" binding="zurueck">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
