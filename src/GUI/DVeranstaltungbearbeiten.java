@@ -9,8 +9,8 @@ public class DVeranstaltungbearbeiten implements FrameContent{
     private GUIMain mainFrame;
 
     private JPanel VeranstaltungbearbeitenPanel;
-    private JButton bestätigen;
-    private JButton zurückButton;
+    private JButton bestaetigen;
+    private JButton zurueckButton;
     private JTextArea infos;
     private JTextArea dozent;
     private JLabel infosLabel;
@@ -34,13 +34,13 @@ public class DVeranstaltungbearbeiten implements FrameContent{
     }
 
     public DVeranstaltungbearbeiten() {
-        bestätigen.addActionListener(new ActionListener() {
+        bestaetigen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
-        zurückButton.addActionListener(new ActionListener() {
+        zurueckButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 

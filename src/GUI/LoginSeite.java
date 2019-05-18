@@ -44,9 +44,9 @@ public class LoginSeite implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //To Do: if Nutzer == Student do
-                //mainFrame.setContent(new SVeranstaltungsübersicht());
+                //mainFrame.setContent(new SVeranstaltungsuebersicht());
                 //To Do: else do
-                mainFrame.setContent(new DVeranstaltungsübersicht());
+                mainFrame.setContent(new DVeranstaltungsuebersicht());
             }
         });
     }

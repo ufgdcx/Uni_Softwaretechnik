@@ -1,13 +1,7 @@
 package Database;
 
-import Klassen.Dozent;
-import Klassen.Nutzer;
-import Klassen.Student;
-
-import java.sql.Time;
-import java.text.ParseException;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
+import java.sql.Time;
 
 public class DBtest
 {

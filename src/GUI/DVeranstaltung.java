@@ -12,7 +12,7 @@ public class DVeranstaltung implements FrameContent{
     private JButton InfosBearbeiten;
     private JButton dozentBearbeiten;
     private JButton GrTeBearbeiten;
-    private JButton zurück;
+    private JButton zurueck;
     private JTextPane infos;
     private JTextPane dozent;
     private JLabel infosField;
@@ -39,7 +39,7 @@ public class DVeranstaltung implements FrameContent{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                //To Do: Information bearbeiten und in DB + TextArea DVeranstaltungsübersicht eintragen
+                //To Do: Information bearbeiten und in DB + TextArea DVeranstaltungsuebersicht eintragen
 
 
                 mainFrame.setContent(new DVeranstaltungbearbeiten());
@@ -49,7 +49,7 @@ public class DVeranstaltung implements FrameContent{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                //To Do: Dozent bearbeiten und in DB + TextArea DVeranstaltungsübersicht eintragen
+                //To Do: Dozent bearbeiten und in DB + TextArea DVeranstaltungsuebersicht eintragen
 
                 mainFrame.setContent(new DVeranstaltungbearbeiten());
             }
@@ -58,14 +58,14 @@ public class DVeranstaltung implements FrameContent{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new DGruppenübersicht());
+                mainFrame.setContent(new DGruppenuebersicht());
             }
         });
-        zurück.addActionListener(new ActionListener() {
+        zurueck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new DVeranstaltungsübersicht());
+                mainFrame.setContent(new DVeranstaltungsuebersicht());
             }
         });
         logoutButton.addActionListener(new ActionListener() {
