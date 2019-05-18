@@ -46,7 +46,13 @@ public class DBrequest {
     }
 
     public void createLeistungsblock(int matrikelnummer, String leistungsblockname){
-
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO Leistungsblock (Matrikelnummer, Leistungsblock_name) VALUES ('" + matrikelnummer + "', '" + leistungsblockname +"')");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void crateGehoertZu(){
