@@ -91,13 +91,31 @@ public class DBrequest {
         // Teamleistungsname	varchar(255)	TeamID	int(11)	GruppenID	int(11)	Veranstaltungsname	varchar(255)	Punkte	int(11)
     }
 
-    public void crateUnterblock(){
+    public void crateUnterblock(int matrikelnummer, String leistunsblockname, String unterblockname, int punkte){
         // Matrikelnummer	int(9)	Leistungsblock_name	varchar(255) Unterblock_name	varchar(255)	Punkte	int(3)
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO Unterblock (Matrikelnummer, Leistungsblock_name, Unterblock_name, Punkte) VALUES ('" + matrikelnummer + "', '" + leistunsblockname +"', '" + unterblockname +"', '" + punkte +"')");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
-    public void crateVeranstaltung(){
-        // Veranstaltungsname	varchar(255)	Fakultaet	varchar(255)	Teamanzahl_je_Gruppe	int(11)	maximale_Teilnehmeranzahl_je_Team	int(11)	Beschreibung	varchar(255)
 
+    public void crateVeranstaltung(String veranstaltungsname, String fakultaet,
+                                   int teamanzahl, int max, String beschreibung  ){
+        // Veranstaltungsname	varchar(255)	Fakultaet	varchar(255)	Teamanzahl_je_Gruppe	int(11)	maximale_Teilnehmeranzahl_je_Team	int(11)	Beschreibung	varchar(255)
+        Statement stmt = null;
+        try
+        {
+            stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO Veranstaltung (Veranstaltungsname, Fakultaet, Teamanzahl_je_Gruppe, maximale_Teilnehmeranzahl_je_Team, Beschreibung) VALUES ('" + veranstaltungsname + "', '" + fakultaet +"', '" + teamanzahl +"', '" + max +"', '" + beschreibung +"')");
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
 
     }
 
