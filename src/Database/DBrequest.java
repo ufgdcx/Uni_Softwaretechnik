@@ -119,12 +119,12 @@ public class DBrequest {
         }
     }
 
-    public void createUnterblock(int matrikelnummer, String leistunsblockname, String unterblockname, int punkte){
+    public void createUnterblock(int matrikelnummer, String leistunsblockname, String unterblockname, String veranstaltungsname, int punkte){
         // Matrikelnummer	int(9)	Leistungsblock_name	varchar(255) Unterblock_name	varchar(255)	Punkte	int(3)
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Unterblock (Matrikelnummer, Leistungsblock_name, Unterblock_name, Punkte) VALUES ('" + matrikelnummer + "', '" + leistunsblockname +"', '" + unterblockname +"', '" + punkte +"')");
+            stmt.executeUpdate("INSERT INTO Unterblock (Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname, Punkte) VALUES ('" + matrikelnummer + "', '" + leistunsblockname +"', '" + unterblockname + "', '" + veranstaltungsname + "', '" + punkte +"')");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
