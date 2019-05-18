@@ -158,6 +158,18 @@ public class DBrequest {
         createDozent(doz.getEmail(),doz.getFakultaet());
     }
 
+
+    //deleter(primitiv)
+    public void deleteUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname){
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Unterblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     //getter
     public Nutzer getNutzer(String email, String passwort) throws DatabaseExeption{
         try {
@@ -187,6 +199,8 @@ public class DBrequest {
         throw new DatabaseExeption("wrong username/password");
     }
 
+
+    //Supportmethods
     public void close(){
         try {
             con.close();
