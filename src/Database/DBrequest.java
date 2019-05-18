@@ -248,26 +248,52 @@ public class DBrequest {
 
     }
 
-    public void deleteTeam(){
+    public void deleteTeam(int teamid, int gruppenid, String veranstaltungsname){
         // Team: TeamID, GruppenID, Veranstaltungsname
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Teamleistung WHERE TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
-    public void deleteTeamleistung(){
+    public void deleteTeamleistung(String teamleistung, int teamid, int gruppenid, String veranstaltungsname){
         // Teamleistung: Teamleistungsname, TeamID, GruppenID, Veranstaltungsname
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Teamleistung WHERE Teamleistungsname = '" + teamleistung + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
-    public void deleteUnterblock(){
+    public void deleteUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname){
         // Unterblock: Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname
-
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Unterblock WHERE Matrikelnummer = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
-    public void deleteVeranstaltung(){
+    public void deleteVeranstaltung(String veranstaltungsname){
         // Veranstaltung: Veranstaltungsname
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
 
     }
-
     //getter(primitiv)
     public Nutzer getNutzer(String email, String passwort) throws DatabaseExeption{
         try {
