@@ -90,7 +90,7 @@ public class DBrequest {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Leistungsblock (Studiengang, TeamID, GruppenID, Veranstaltungsname, Anteil) VALUES ('" + studiengang + "', '" + teamid + "', '" + gruppenid +"', '" + veranstaltungsname +"', '" + anteil +"')");
+            stmt.executeUpdate("INSERT INTO Studienganganteil (Studiengang, TeamID, GruppenID, Veranstaltungsname, Anteil) VALUES ('" + studiengang + "', '" + teamid + "', '" + gruppenid +"', '" + veranstaltungsname +"', '" + anteil +"')");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -101,7 +101,7 @@ public class DBrequest {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Leistungsblock (TeamID, GruppenID, Veranstaltungsname, Thema) VALUES ('" + teamid + "', '" + gruppenid +"' , '" + veranstaltungsname +"', '" + thema +"')");
+            stmt.executeUpdate("INSERT INTO Team (TeamID, GruppenID, Veranstaltungsname, Thema) VALUES ('" + teamid + "', '" + gruppenid +"' , '" + veranstaltungsname +"', '" + thema +"')");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -113,7 +113,7 @@ public class DBrequest {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Leistungsblock (Teamleistungsname, TeamID, GruppenID, Veranstaltungsname, Punkte) VALUES ('" + teamleistungsname + "', '" + teamid +"', '" + gruppenid +"', '" + veranstaltungsname +"', '" + punkte +"')");
+            stmt.executeUpdate("INSERT INTO Teamleistung (Teamleistungsname, TeamID, GruppenID, Veranstaltungsname, Punkte) VALUES ('" + teamleistungsname + "', '" + teamid +"', '" + gruppenid +"', '" + veranstaltungsname +"', '" + punkte +"')");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

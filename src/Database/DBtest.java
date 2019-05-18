@@ -19,6 +19,9 @@ public class DBtest
         b.createGruppe(42,"email@adresse.de", "Mobbing", new Date(System.currentTimeMillis()), new Time(System.currentTimeMillis()),"Mittwoch","ger");
         b.createTeam(3,42,"Mobbing","Cybermobbing");
         b.createGehoertZu(123456789,3,42,"Mobbing");
-        b.createLeistungsblock(123456789,"Bob");
+        b.createLeistungsblock(123456789,"Bob","Mobbing");
+        b.createUnterblock(123456789,"Bob","A1","Mobbing",42);
+        b.createTeamleistung("Bob2",3,42,"Mobbing",42);
+        b.createStudienganganteil("Bilologie",3,42,"Mobbing",1);
     }
 }
