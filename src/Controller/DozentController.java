@@ -16,6 +16,6 @@ public class DozentController {
 		mainFrame = m;
 		me = d;
 		//changing the content of the main window to the "frontpage" for Students
-		mainFrame.setContent(new DVeranstaltungsuebersicht());
+		mainFrame.setContent(new DVeranstaltungsübersicht());
 	}
 }
