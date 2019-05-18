@@ -1,5 +1,6 @@
 package Database;
 
+import Klassen.Dozent;
 import Klassen.Nutzer;
 import Klassen.Student;
 
@@ -7,7 +8,7 @@ public class DBtest
 {
     public static void main(String[] args) {
         DBrequest b = new DBrequest();
-        b.createStudent(new Student("Hans@maier.org","abc","Gangster","Hans","Maier","Biologie",3));
+        b.createDozent(new Dozent("Patrick@Star.org","Majonaise","Seestern","Patrick","Star","Meeresbiologie"));
         try {
             Nutzer n = b.getNutzer("Max@Muster.Mann", "1234");
             if (n != null) {

@@ -36,7 +36,13 @@ public class DBrequest {
     }
 
     public void createDozent(String email, String fakultaet){
-
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO Dozent (EMailadresse, Fakultaet) VALUES ('" + email + "', '" + fakultaet +"')");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void createLeistungsblock(int matrikelnummer, String leistungsblockname){
@@ -83,6 +89,11 @@ public class DBrequest {
     public void  createStudent(Student stud){
         createNutzer(stud.getEmail(),stud.getTitel(),stud.getVorname(),stud.getName(),stud.getPasswort());
         createStudent(stud.getEmail(),stud.getMatrikelnr(),stud.getStudiengang());
+    }
+
+    public void  createDozent(Dozent doz){
+        createNutzer(doz.getEmail(),doz.getTitel(),doz.getVorname(),doz.getName(),doz.getPasswort());
+        createDozent(doz.getEmail(),doz.getFakultaet());
     }
 
     //getter
