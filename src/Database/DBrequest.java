@@ -1,6 +1,7 @@
 package Database;
 
 import Klassen.*;
+import com.mysql.cj.xdevapi.SqlDataResult;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,147 +15,223 @@ public class DBrequest {
 
     //creater(primitiv)
 
-    public void createNutzer(String email, String titel, String vorname, String nachname, String passwort){
+    public void createNutzer(String email, String titel, String vorname, String nachname, String passwort)throws DatabaseExeption{
         try {
             Statement stmt = con.createStatement();
-            System.out.println("INSERT INTO Nutzer (EMailadresse, Titel, Vorname, Nachname, Passwort) VALUES ('" + email + "', '" + titel + "', '" + vorname + "', '" + nachname + "', '" + passwort + "'");
-            stmt.executeUpdate("INSERT INTO Nutzer (EMailadresse, Titel, Vorname, Nachname, Passwort) VALUES ('" + email + "', '" + titel + "', '" + vorname + "', '" + nachname + "', '" + passwort + "')");
+            try {
+                stmt.executeUpdate("INSERT INTO Nutzer (EMailadresse, Titel, Vorname, Nachname, Passwort) VALUES ('" + email + "', '" + titel + "', '" + vorname + "', '" + nachname + "', '" + passwort + "')");
+            }catch (SQLException e){
+                throw new DatabaseExeption("User already exists");
+            }
 
         }catch (SQLException ex){
-            ex.printStackTrace();
+           throw new DatabaseExeption("Connection Failed");
         }
      }
 
-    public void createStudent(String email, int matrikelnummer, String studiengang){
+    public void createStudent(String email, int matrikelnummer, String studiengang)throws DatabaseExeption{
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Student (EMailadresse, Matrikelnummer, Studiengang) VALUES ('" + email + "', '" + matrikelnummer + "', '" + studiengang +"')");
+            try {
+                stmt.executeUpdate("INSERT INTO Student (EMailadresse, Matrikelnummer, Studiengang) VALUES ('" + email + "', '" + matrikelnummer + "', '" + studiengang + "')");
+            }catch(SQLException e){
+                throw new DatabaseExeption("Student already exists");
+            }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseExeption("Connection Failed");
         }
     }
 
-    public void createDozent(String email, String fakultaet){
+    public void createDozent(String email, String fakultaet)throws DatabaseExeption{
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Dozent (EMailadresse, Fakultaet) VALUES ('" + email + "', '" + fakultaet +"')");
+            try{
+                stmt.executeUpdate("INSERT INTO Dozent (EMailadresse, Fakultaet) VALUES ('" + email + "', '" + fakultaet +"')");
+            }catch(SQLException e){
+                throw new DatabaseExeption("Dozent already exists");
+            }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseExeption("Connection Failed");
         }
     }
 
-    public void createLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname){
+    public void createLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname)throws DatabaseExeption{
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Leistungsblock (Matrikelnummer, Leistungsblock_name, Veranstaltungsname) VALUES ('" + matrikelnummer + "', '" + leistungsblockname +"', '" + veranstaltungsname +"')");
+            try {
+                stmt.executeUpdate("INSERT INTO Leistungsblock (Matrikelnummer, Leistungsblock_name, Veranstaltungsname) VALUES ('" + matrikelnummer + "', '" + leistungsblockname + "', '" + veranstaltungsname + "')");
+            }catch (SQLException e){
+                ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Leistungsblock_name, Veranstaltungsname FROM Leistungsblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                if(resultSize(rs)!=0){
+                    throw new DatabaseExeption("Leistungsblock already exists");
+                }else{
+                    throw new DatabaseExeption("Parent doesn't exist");
+                }
+            }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseExeption("Connection Failed");
         }
     }
 
-    public void createGehoertZu(int matrikelnummer, int teamid, int gruppenid, String veranstaltungsname){
+    public void createGehoertZu(int matrikelnummer, int teamid, int gruppenid, String veranstaltungsname)throws DatabaseExeption{
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Gehoert_zu (Matrikelnummer, TeamID, GruppenID, Veranstaltungsname) VALUES ('" + matrikelnummer + "', '" + teamid + "', '" + gruppenid + "', '" + veranstaltungsname +"')");
+            try {
+                stmt.executeUpdate("INSERT INTO Gehoert_zu (Matrikelnummer, TeamID, GruppenID, Veranstaltungsname) VALUES ('" + matrikelnummer + "', '" + teamid + "', '" + gruppenid + "', '" + veranstaltungsname + "')");
+            }catch (SQLException e){
+                ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, TeamID, GruppenID, Veranstaltungsname  FROM Gehoert_zu WHERE Matrikelnummer = '" + matrikelnummer + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                if(resultSize(rs)!=0){
+                    throw new DatabaseExeption("Gehoert_zu already exists");
+                }else{
+                    throw new DatabaseExeption("Parent doesn't exist");
+                }
+            }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseExeption("Connection Failed");
         }
     }
 
-    public void createGruppe(int gruppenid, String email, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus){
+    public void createGruppe(int gruppenid, String email, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus)throws DatabaseExeption{
         try {
             Statement stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Gruppe (GruppenID, Emailadresse, Veranstaltungsname, Einschreibungsfrist, Uhrzeit, Wochentag, Wochenrhytmus) VALUES ('" + gruppenid + "', '" + email + "', '" + veranstaltung + "', '" + einschreibungsfrist + "', '" + uhrzeit + "', '" + wochentag + "', '" + wochenrhytmus + "')");
-
+            try {
+                stmt.executeUpdate("INSERT INTO Gruppe (GruppenID, Emailadresse, Veranstaltungsname, Einschreibungsfrist, Uhrzeit, Wochentag, Wochenrhytmus) VALUES ('" + gruppenid + "', '" + email + "', '" + veranstaltung + "', '" + einschreibungsfrist + "', '" + uhrzeit + "', '" + wochentag + "', '" + wochenrhytmus + "')");
+            }catch (SQLException e){
+                ResultSet rs = stmt.executeQuery("SELECT GruppenID, Veranstaltungsname FROM Gruppe WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltung + "'");
+                if(resultSize(rs)!=0){
+                    throw new DatabaseExeption("Gruppe already exists");
+                }else{
+                    throw new DatabaseExeption("Parent doesn't exist");
+                }
+            }
         }catch (SQLException ex){
-            ex.printStackTrace();
+            throw new DatabaseExeption("Connection Failed");
         }
     }
 
-    public void createLeitet(String name, String email){
+    public void createLeitet(String name, String email)throws DatabaseExeption{
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Leitet (Name, EMailadresse) VALUES ('" + name + "', '" + email +"')");
+            try {
+                stmt.executeUpdate("INSERT INTO Leitet (Name, EMailadresse) VALUES ('" + name + "', '" + email + "')");
+            }catch (SQLException e){
+                ResultSet rs = stmt.executeQuery("SELECT Name, Emailadresse FROM Leitet WHERE Name = '" + name + "' AND Emailadresse = '" + email + "'");
+                if(resultSize(rs)!=0){
+                    throw new DatabaseExeption("Leitet already exists");
+                }else{
+                    throw new DatabaseExeption("Parent doesn't exist");
+                }
+            }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseExeption("Connection Failed");
         }
     }
 
-
-    public void createStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname, int anteil){
-        //	Studiengang (string) 	TeamID(int) 	GruppenID(int) 	Veranstaltungsname(string)	Anteil (int)
+    public void createStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname, int anteil)throws DatabaseExeption{
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Studienganganteil (Studiengang, TeamID, GruppenID, Veranstaltungsname, Anteil) VALUES ('" + studiengang + "', '" + teamid + "', '" + gruppenid +"', '" + veranstaltungsname +"', '" + anteil +"')");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            try {
+                stmt.executeUpdate("INSERT INTO Studienganganteil (Studiengang, TeamID, GruppenID, Veranstaltungsname, Anteil) VALUES ('" + studiengang + "', '" + teamid + "', '" + gruppenid + "', '" + veranstaltungsname + "', '" + anteil + "')");
+            }catch (SQLException e) {
+                ResultSet rs = stmt.executeQuery("SELECT Studiengang, TeamID, GruppenID, Veranstaltungsname  FROM Studienganganteil WHERE Studiengang = '" + studiengang + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                if(resultSize(rs)!=0){
+                    throw new DatabaseExeption("Studienganganteil already exists");
+                }else{
+                    throw new DatabaseExeption("Parent doesn't exist");
+                }
+            }
+        } catch (SQLException ex){
+            throw new DatabaseExeption("Connection Failed");
         }
     }
 
-    public void createTeam(int teamid, int gruppenid, String veranstaltungsname, String thema){
-        // 	TeamID(int) 	GruppenID(int) 	Veranstaltungsname(string) 	Thema(string)
+    public void createTeam(int teamid, int gruppenid, String veranstaltungsname, String thema)throws DatabaseExeption{
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Team (TeamID, GruppenID, Veranstaltungsname, Thema) VALUES ('" + teamid + "', '" + gruppenid +"' , '" + veranstaltungsname +"', '" + thema +"')");
+            try {
+                stmt.executeUpdate("INSERT INTO Team (TeamID, GruppenID, Veranstaltungsname, Thema) VALUES ('" + teamid + "', '" + gruppenid + "' , '" + veranstaltungsname + "', '" + thema + "')");
+            }catch (SQLException e){
+                ResultSet rs = stmt.executeQuery("SELECT TeamID, GruppenID, Veranstaltungsname  FROM Team WHERE TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                if(resultSize(rs)!=0){
+                    throw new DatabaseExeption("Team already exists");
+                }else {
+                    throw new DatabaseExeption("Parent doesn't exist");
+                }
+            }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseExeption("Connection Failed");
         }
-
     }
 
-    public void createTeamleistung(String teamleistungsname, int teamid, int gruppenid, String veranstaltungsname, int punkte){
-        // Teamleistungsname	varchar(255)	TeamID	int(11)	GruppenID	int(11)	Veranstaltungsname	varchar(255)	Punkte	int(11)
+    public void createTeamleistung(String teamleistungsname, int teamid, int gruppenid, String veranstaltungsname, int punkte)throws DatabaseExeption{
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Teamleistung (Teamleistungsname, TeamID, GruppenID, Veranstaltungsname, Punkte) VALUES ('" + teamleistungsname + "', '" + teamid +"', '" + gruppenid +"', '" + veranstaltungsname +"', '" + punkte +"')");
+            try{
+                stmt.executeUpdate("INSERT INTO Teamleistung (Teamleistungsname, TeamID, GruppenID, Veranstaltungsname, Punkte) VALUES ('" + teamleistungsname + "', '" + teamid +"', '" + gruppenid +"', '" + veranstaltungsname +"', '" + punkte +"')");
+            }catch (SQLException e) {
+                ResultSet rs = stmt.executeQuery("SELECT Teamleistungsname, TeamID, GruppenID, Veranstaltungsname  FROM Teamleistung WHERE Teamleistungsname = '" + teamleistungsname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                if(resultSize(rs)!=0){
+                    throw new DatabaseExeption("Teamleistung already exists");
+                }else{
+                    throw new DatabaseExeption("Parent doesn't exist");
+                }
+            }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseExeption("Connection Failed");
         }
     }
 
-    public void createUnterblock(int matrikelnummer, String leistunsblockname, String unterblockname, String veranstaltungsname, int punkte){
-        // Matrikelnummer	int(9)	Leistungsblock_name	varchar(255) Unterblock_name	varchar(255)	Punkte	int(3)
+    public void createUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname, int punkte)throws DatabaseExeption{
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Unterblock (Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname, Punkte) VALUES ('" + matrikelnummer + "', '" + leistunsblockname +"', '" + unterblockname + "', '" + veranstaltungsname + "', '" + punkte +"')");
+            try {
+                stmt.executeUpdate("INSERT INTO Unterblock (Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname, Punkte) VALUES ('" + matrikelnummer + "', '" + leistungsblockname + "', '" + unterblockname + "', '" + veranstaltungsname + "', '" + punkte + "')");
+            }catch (SQLException e){
+                ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname FROM Unterblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                if(resultSize(rs)!=0){
+                    throw new DatabaseExeption("Unterblock already exists");
+                }else{
+                    throw new DatabaseExeption("Parent doesn't exist");
+                }
+            }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseExeption("Connection Failed");
         }
     }
 
 
-    public void createVeranstaltung(String veranstaltungsname, String fakultaet,
-                                   int teamanzahl, int max, String beschreibung  ){
+    public void createVeranstaltung(String veranstaltungsname, String fakultaet, int teamanzahl, int max, String beschreibung  )throws DatabaseExeption{
         // Veranstaltungsname	varchar(255)	Fakultaet	varchar(255)	Teamanzahl_je_Gruppe	int(11)	maximale_Teilnehmeranzahl_je_Team	int(11)	Beschreibung	varchar(255)
         Statement stmt = null;
-        try
-        {
+        try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Veranstaltung (Veranstaltungsname, Fakultaet, Teamanzahl_je_Gruppe, maximale_Teilnehmeranzahl_je_Team, Beschreibung) VALUES ('" + veranstaltungsname + "', '" + fakultaet +"', '" + teamanzahl +"', '" + max +"', '" + beschreibung +"')");
-        }
-        catch (SQLException ex)
-        {
-            ex.printStackTrace();
+            try {
+                stmt.executeUpdate("INSERT INTO Veranstaltung (Veranstaltungsname, Fakultaet, Teamanzahl_je_Gruppe, maximale_Teilnehmeranzahl_je_Team, Beschreibung) VALUES ('" + veranstaltungsname + "', '" + fakultaet + "', '" + teamanzahl + "', '" + max + "', '" + beschreibung + "')");
+            }catch (SQLException e){
+                throw new DatabaseExeption("Veranstaltung already exists");
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseExeption("Connection Failed");
         }
 
     }
 
     //creater(objects)
-    public void  createStudent(Student stud){
+    public void  createStudent(Student stud)throws DatabaseExeption{
         createNutzer(stud.getEmail(),stud.getTitel(),stud.getVorname(),stud.getName(),stud.getPasswort());
         createStudent(stud.getEmail(),stud.getMatrikelnr(),stud.getStudiengang());
     }
 
-    public void  createDozent(Dozent doz){
+    public void  createDozent(Dozent doz)throws DatabaseExeption{
         createNutzer(doz.getEmail(),doz.getTitel(),doz.getVorname(),doz.getName(),doz.getPasswort());
         createDozent(doz.getEmail(),doz.getFakultaet());
     }
