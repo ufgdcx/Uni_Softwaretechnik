@@ -172,50 +172,62 @@ public class DBrequest {
     }
 
     public void deleteDozent(){
+        // Dozent: EMailadresse
 
     }
 
     public void deleteGehoertZu(){
+        // Gehoert_zu: Matrikelnummer, TeamID, GruppenID, Veranstaltungsname
 
     }
 
     public void deleteGruppe(){
+        // Gruppe: GruppenID, Veranstaltungsname
 
     }
 
     public void deleteLeistungsblock(){
+        // Leistungsblock: Matrikelnummer, Leistungsblock_name, Veranstaltungsname
 
     }
 
     public void deleteLeitet(){
+        // Leitet: Name, EMailadresse
 
     }
 
     public void deleteNutzer(){
+        // Nutzer: EMailadresse
 
     }
 
     public void deleteStudent(){
+        // Student: EMailadresse
 
     }
 
     public void deleteStudienganganteil(){
+        // Studienanteil: Studiengang, TeamID, GruppenID, Veranstaltungsname
 
     }
 
     public void deleteTeam(){
+        // Team: TeamID, GruppenID, Veranstaltungsname
 
     }
 
     public void deleteTeamleistung(){
+        // Teamleistung: Teamleistungsname, TeamID, GruppenID, Veranstaltungsname
 
     }
 
     public void deleteUnterblock(){
+        // Unterblock: Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname
 
     }
 
     public void deleteVeranstaltung(){
+        // Veranstaltung: Veranstaltungsname
 
     }
 
