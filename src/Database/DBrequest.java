@@ -243,9 +243,15 @@ public class DBrequest {
         }
     }
 
-    public void deleteStudienganganteil(){
+    public void deleteStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname){
         // Studienanteil: Studiengang, TeamID, GruppenID, Veranstaltungsname
-
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Studienganganteil WHERE Studiengang = '" + studiengang + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void deleteTeam(int teamid, int gruppenid, String veranstaltungsname){
@@ -253,7 +259,7 @@ public class DBrequest {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("DELETE FROM Teamleistung WHERE TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            stmt.executeUpdate("DELETE FROM Team WHERE TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -270,17 +276,6 @@ public class DBrequest {
             ex.printStackTrace();
         }
 
-    }
-
-    public void deleteUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname){
-        // Unterblock: Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname
-        Statement stmt = null;
-        try {
-            stmt = con.createStatement();
-            stmt.executeUpdate("DELETE FROM Unterblock WHERE Matrikelnummer = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
     }
 
     public void deleteVeranstaltung(String veranstaltungsname){
