@@ -4,28 +4,24 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DVeranstaltungbearbeiten implements FrameContent{
+public class DVeranstaltungsübersicht implements FrameContent {
 
     private GUIMain mainFrame;
 
-    private JPanel VeranstaltungbearbeitenPanel;
-    private JButton bestätigen;
-    private JButton zurückButton;
-    private JTextArea infos;
-    private JTextArea dozent;
-    private JLabel infosLabel;
-    private JLabel dozentLabel;
+    private JPanel VeranstaltungsübersichtPanel;
+    private JList VeranstalungenList;
+    private JButton einsehen;
     private JButton logoutButton;
 
 
     public String getNachname() {
 
-        return "Veranstaltung bearbeiten";
+        return "Startseite";
     }
 
     public JPanel getPanel() {
 
-        return VeranstaltungbearbeitenPanel;
+        return VeranstaltungsübersichtPanel;
     }
 
     public void setParentFrame(GUIMain m) {
@@ -33,17 +29,11 @@ public class DVeranstaltungbearbeiten implements FrameContent{
         mainFrame = m;
     }
 
-    public DVeranstaltungbearbeiten() {
-        bestätigen.addActionListener(new ActionListener() {
+    public DVeranstaltungsübersicht() {
+
+        einsehen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        zurückButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
                 mainFrame.setContent(new DVeranstaltung());
             }
         });

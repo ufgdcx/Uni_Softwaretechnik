@@ -4,25 +4,26 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SAlleVeranstaltungen implements FrameContent {
-
+public class SGruppenübersicht implements FrameContent{
 
     private GUIMain mainFrame;
 
-    private JPanel AlleVeranstaltungen;
-    private JList list1;
-    private JButton eintragen;
+    private JPanel GruppenübersichtPanel;
+    private JButton beitreten;
+    private JButton verlassen;
     private JButton zurückButton;
+    private JTree tree1;
     private JButton logoutButton;
+
 
     public String getNachname() {
 
-        return "Veranstaltungsübersicht";
+        return "Gruppenübersicht";
     }
 
     public JPanel getPanel() {
 
-        return AlleVeranstaltungen;
+        return GruppenübersichtPanel;
     }
 
     public void setParentFrame(GUIMain m) {
@@ -30,14 +31,24 @@ public class SAlleVeranstaltungen implements FrameContent {
         mainFrame = m;
     }
 
-    public SAlleVeranstaltungen() {
-        eintragen.addActionListener(new ActionListener() {
+    public SGruppenübersicht() {
+        beitreten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //To Do: ausgewählte Veranstaltung muss in Liste + DB eingetragen werden
+                //TO Do: Name des Studenten muss in Gruppe/Team + DB eingetragen werden
 
 
-                mainFrame.setContent(new SAlleVeranstaltungen());
+                mainFrame.setContent(new SGruppenübersicht());
+            }
+        });
+        verlassen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //To Do: Name des Studenten muss in Gruppe/Team + DB entfernt werden
+
+
+                mainFrame.setContent(new SGruppenübersicht());
             }
         });
         zurückButton.addActionListener(new ActionListener() {
