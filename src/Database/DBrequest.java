@@ -43,6 +43,42 @@ public class DBrequest {
 
     }
 
+    public void crateGehoertZu(){
+
+    }
+
+    public void createGruppe(){
+
+    }
+
+    public void crateLeistungsblock(){
+
+    }
+
+    public void crateLeitet(){
+
+    }
+
+    public void crateStudienganganteil(){
+
+    }
+
+    public void crateTeam(){
+
+    }
+
+    public void crateTeamleistung(){
+
+    }
+
+    public void crateUnterblock(){
+
+    }
+
+    public void crateVeranstaltung(){
+
+    }
+
     //creater(objects)
     public void  createStudent(Student stud){
         createNutzer(stud.getEmail(),stud.getTitel(),stud.getVorname(),stud.getName(),stud.getPasswort());
