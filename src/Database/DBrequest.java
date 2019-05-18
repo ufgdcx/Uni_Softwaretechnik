@@ -50,22 +50,24 @@ public class DBrequest {
     }
 
     public void crateGehoertZu(){
-
+        // Values: Matrikelnummer(int) 	TeamID(int) 	GruppenID(int) 	Veranstaltungsname(string)
     }
 
     public void createGruppe(){
+        // Values: GruppenID(int) 	EMailadresse(string) 	Veranstaltungsname(string) 	Einschreibungsfrist(date) 	Uhrzeit(time) 	Wochentag(string) 	Wochenrhytmus(string)
 
     }
 
     public void crateLeistungsblock(){
-
+        //  Values: 	Matrikelnummer(int) 	Leistungsblock_name(string)
     }
 
     public void crateLeitet(){
-
+        // values:	Name(string) 	EMailadresse(string)
     }
 
     public void crateStudienganganteil(){
+        //	Studiengang 	TeamID 	GruppenID 	Veranstaltungsname 	Anteil
 
     }
 
