@@ -171,39 +171,76 @@ public class DBrequest {
         }
     }
 
-    public void deleteDozent(){
-        // Dozent: EMailadresse
+    public void deleteDozent(String email){
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Dozent WHERE Emailadresse = '" + email + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
-    public void deleteGehoertZu(){
-        // Gehoert_zu: Matrikelnummer, TeamID, GruppenID, Veranstaltungsname
+    public void deleteGehoertZu(int matrikelnummer,int teamid, int gruppenid, String veranstaltungsname){
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Gehoert_zu WHERE matrikelnummer = '" + matrikelnummer + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteGruppe(int gruppenid, String veranstaltungsname){
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Gruppe WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname){
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Leistungsblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
-    public void deleteGruppe(){
-        // Gruppe: GruppenID, Veranstaltungsname
-
+    public void deleteLeitet(String name, String email){
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Leitet WHERE Name = '" + name + "' AND Emailadresse = '" + email + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
-    public void deleteLeistungsblock(){
-        // Leistungsblock: Matrikelnummer, Leistungsblock_name, Veranstaltungsname
-
+    public void deleteNutzer(String email){
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Nutzer WHERE Emailadresse = '" + email + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
-    public void deleteLeitet(){
-        // Leitet: Name, EMailadresse
-
-    }
-
-    public void deleteNutzer(){
-        // Nutzer: EMailadresse
-
-    }
-
-    public void deleteStudent(){
-        // Student: EMailadresse
-
+    public void deleteStudent(String email){
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Student WHERE Emailadresse = '" + email + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void deleteStudienganganteil(){
