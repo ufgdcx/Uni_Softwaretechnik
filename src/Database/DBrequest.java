@@ -18,19 +18,20 @@ public class DBrequest {
     public void createNutzer(String email, String titel, String vorname, String nachname, String passwort){
         try {
             Statement stmt = con.createStatement();
-            stmt.executeQuery("INSERT INTO Nutzer (EMailadresse, Titel, Vorname, Nachname, Passwort) VALUES ('" + email + "', '" + titel + "', '" + vorname + "', '" + nachname + "', '" + passwort + "'");
+            System.out.println("INSERT INTO Nutzer (EMailadresse, Titel, Vorname, Nachname, Passwort) VALUES ('" + email + "', '" + titel + "', '" + vorname + "', '" + nachname + "', '" + passwort + "'");
+            stmt.executeUpdate("INSERT INTO Nutzer (EMailadresse, Titel, Vorname, Nachname, Passwort) VALUES ('" + email + "', '" + titel + "', '" + vorname + "', '" + nachname + "', '" + passwort + "')");
 
         }catch (SQLException ex){
-            System.out.println("du bist dumm!");
+            ex.printStackTrace();
         }
      }
-    public void createStudent(String email, int matrikelnummer){
+    public void createStudent(String email, int matrikelnummer, String studiengang){
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeQuery("INSERT INTO Student (EMailadresse, Matrikelnummer) VALUES ('" + email + "', '" + matrikelnummer +"'");
-        } catch (SQLException e) {
-            System.out.println("du bist dümmer");
+            stmt.executeUpdate("INSERT INTO Student (EMailadresse, Matrikelnummer, Studiengang) VALUES ('" + email + "', '" + matrikelnummer + "', '" + studiengang +"')");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -45,7 +46,7 @@ public class DBrequest {
     //creater(objects)
     public void  createStudent(Student stud){
         createNutzer(stud.getEmail(),stud.getTitel(),stud.getVorname(),stud.getName(),stud.getPasswort());
-        createStudent(stud.getEmail(),stud.getMatrikelnr());
+        createStudent(stud.getEmail(),stud.getMatrikelnr(),stud.getStudiengang());
     }
 
     //getter
