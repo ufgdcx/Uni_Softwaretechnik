@@ -74,7 +74,7 @@ public class DBrequest {
         }
     }
 
-    public void crateLeitet(String name, String email){
+    public void createLeitet(String name, String email){
         Statement stmt = null;
         try {
             stmt = con.createStatement();
@@ -85,7 +85,7 @@ public class DBrequest {
     }
 
 
-    public void crateStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname, int anteil){
+    public void createStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname, int anteil){
         //	Studiengang (string) 	TeamID(int) 	GruppenID(int) 	Veranstaltungsname(string)	Anteil (int)
         Statement stmt = null;
         try {
@@ -96,7 +96,7 @@ public class DBrequest {
         }
     }
 
-    public void crateTeam(int teamid, int gruppenid, String veranstaltungsname, String thema){
+    public void createTeam(int teamid, int gruppenid, String veranstaltungsname, String thema){
         // 	TeamID(int) 	GruppenID(int) 	Veranstaltungsname(string) 	Thema(string)
         Statement stmt = null;
         try {
@@ -108,7 +108,7 @@ public class DBrequest {
 
     }
 
-    public void crateTeamleistung(String teamleistungsname, int teamid, int gruppenid, String veranstaltungsname, int punkte){
+    public void createTeamleistung(String teamleistungsname, int teamid, int gruppenid, String veranstaltungsname, int punkte){
         // Teamleistungsname	varchar(255)	TeamID	int(11)	GruppenID	int(11)	Veranstaltungsname	varchar(255)	Punkte	int(11)
         Statement stmt = null;
         try {
@@ -119,7 +119,7 @@ public class DBrequest {
         }
     }
 
-    public void crateUnterblock(int matrikelnummer, String leistunsblockname, String unterblockname, int punkte){
+    public void createUnterblock(int matrikelnummer, String leistunsblockname, String unterblockname, int punkte){
         // Matrikelnummer	int(9)	Leistungsblock_name	varchar(255) Unterblock_name	varchar(255)	Punkte	int(3)
         Statement stmt = null;
         try {
@@ -131,7 +131,7 @@ public class DBrequest {
     }
 
 
-    public void crateVeranstaltung(String veranstaltungsname, String fakultaet,
+    public void createVeranstaltung(String veranstaltungsname, String fakultaet,
                                    int teamanzahl, int max, String beschreibung  ){
         // Veranstaltungsname	varchar(255)	Fakultaet	varchar(255)	Teamanzahl_je_Gruppe	int(11)	maximale_Teilnehmeranzahl_je_Team	int(11)	Beschreibung	varchar(255)
         Statement stmt = null;
