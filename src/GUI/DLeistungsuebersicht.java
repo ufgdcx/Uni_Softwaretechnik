@@ -9,7 +9,6 @@ public class DLeistungsuebersicht implements FrameContent{
     private GUIMain mainFrame;
 
     private JLabel BewertungLabel;
-    private JButton hinzufügen;
     private JButton LBhinzufuegen;
     private JButton UBhinzufuegen;
     private JButton loeschen;
@@ -38,7 +37,7 @@ public class DLeistungsuebersicht implements FrameContent{
     }
 
     public DLeistungsuebersicht() {
-        hinzufügen.addActionListener(new ActionListener() {
+        hinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //To Do: Einzelleistung aus obigem Textfeld einem Studenten zuordnen + in DB speichern

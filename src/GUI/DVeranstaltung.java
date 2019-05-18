@@ -8,16 +8,18 @@ public class DVeranstaltung implements FrameContent{
 
     private GUIMain mainFrame;
 
-    private JPanel VeranstaltungPanel;
+    public JPanel VeranstaltungPanel;
     private JButton InfosBearbeiten;
     private JButton dozentBearbeiten;
     private JButton GrTeBearbeiten;
-    private JButton zurück;
+    private JButton zurueck;
     private JTextPane infos;
     private JTextPane dozent;
     private JLabel infosField;
     private JLabel dozentField;
     private JButton logoutButton;
+
+    private String text_infos, text_dozent;
 
     public String getNachname() {
 
@@ -35,12 +37,22 @@ public class DVeranstaltung implements FrameContent{
     }
 
     public DVeranstaltung() {
+
+        /*TODO "Informationen" und "Dozent" in DB anlegen
+          TODO "Informationen" und "Dozent(en)" aus DB auslesen und in "text_infos" bzw. "text_dozent" speichern
+        text_infos =;
+        text_dozent =;
+
+        //setzt den Inhalt des JTextArea "infos" bzw "dozent" und speichert es in die Variable "text_infos" bzw. "text_dozent"
+        infos.setText(text_infos);
+        dozent.setText(text_dozent);*/
+
+        infos.setText("Zeit / Veranstaltungsort:\n" + "Dienstag: 15:00 - 17:00, wöchentlich (ab 16.10.2018), Ort: AE22-HS037");
+        dozent.setText("Prof. Dr.-Ing. habil. Peter Forbrig");
+
         InfosBearbeiten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                //To Do: Information bearbeiten und in DB + TextArea DVeranstaltungsuebersicht eintragen
-
 
                 mainFrame.setContent(new DVeranstaltungbearbeiten());
             }
@@ -61,7 +73,7 @@ public class DVeranstaltung implements FrameContent{
                 mainFrame.setContent(new DGruppenuebersicht());
             }
         });
-        zurück.addActionListener(new ActionListener() {
+        zurueck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 

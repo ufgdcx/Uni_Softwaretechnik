@@ -9,18 +9,17 @@ public class DGruppenuebersicht implements FrameContent{
 
 
     private GUIMain mainFrame;
-
+    private JPanel GruppenuebersichtPanel;
     private JButton einsehen;
     private JButton neuTeHinzufuegen;
     private JButton neuGrHinzufuegen;
     private JButton bearbeiten;
-    private JButton zurück;
+    private JButton zurueck;
     private JPanel PanelFuerTree;
-    private JPanel GruppenübersichtPanel;
     private JTree tree;
     private JButton logoutButton;
-    private JPanel GruppenuebersichtPanel;
-    private JButton zurueck;
+
+
 
 
     public String getNachname() {
@@ -30,7 +29,7 @@ public class DGruppenuebersicht implements FrameContent{
 
     public JPanel getPanel() {
 
-        return GruppenübersichtPanel;
+        return GruppenuebersichtPanel;
     }
 
     public void setParentFrame(GUIMain m) {
@@ -63,7 +62,7 @@ public class DGruppenuebersicht implements FrameContent{
                 mainFrame.setContent(new DGruppenbearbeiten());
             }
         });
-        zurück.addActionListener(new ActionListener() {
+        zurueck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainFrame.setContent(new DVeranstaltung());

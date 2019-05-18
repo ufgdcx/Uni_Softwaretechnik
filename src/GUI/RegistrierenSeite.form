@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="RegistrierenPanel" layout-manager="GridLayoutManager" row-count="11" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="50" left="50" bottom="200" right="50"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="626"/>
+      <xy x="20" y="20" width="500" height="671"/>
     </constraints>
     <properties/>
     <border type="line">
@@ -61,7 +61,7 @@
       </component>
       <component id="5ca93" class="javax.swing.JRadioButton" binding="studentRadioButton" default-binding="true">
         <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Student"/>
@@ -69,31 +69,15 @@
       </component>
       <component id="8c957" class="javax.swing.JRadioButton" binding="dozentRadioButton" default-binding="true">
         <constraints>
-          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Dozent"/>
         </properties>
       </component>
-      <component id="d60f8" class="javax.swing.JTextField" binding="fakultaet">
-        <constraints>
-          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="7fcd7" class="javax.swing.JLabel" binding="fakultaetLabel">
-        <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Fakultät"/>
-        </properties>
-      </component>
       <component id="8645a" class="javax.swing.JLabel" binding="matrikelnummerLabel">
         <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="80" height="-1"/>
             <preferred-size width="80" height="-1"/>
             <maximum-size width="80" height="-1"/>
@@ -116,7 +100,7 @@
       </component>
       <component id="4743d" class="javax.swing.JTextField" binding="matrikelnummer">
         <constraints>
-          <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -126,7 +110,7 @@
       </component>
       <component id="9a57e" class="javax.swing.JLabel" binding="studiengangLabel">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="80" height="-1"/>
             <preferred-size width="80" height="-1"/>
             <maximum-size width="80" height="-1"/>
@@ -139,7 +123,7 @@
       </component>
       <component id="88685" class="javax.swing.JTextField" binding="studiengang">
         <constraints>
-          <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -209,6 +193,25 @@
         </constraints>
         <properties>
           <text value="Abbrechen"/>
+        </properties>
+      </component>
+      <component id="d60f8" class="javax.swing.JTextField" binding="fakultaet">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <visible value="false"/>
+        </properties>
+      </component>
+      <component id="7fcd7" class="javax.swing.JLabel" binding="fakultaetLabel">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Fakultät"/>
+          <visible value="false"/>
         </properties>
       </component>
     </children>

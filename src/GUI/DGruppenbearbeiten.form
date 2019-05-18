@@ -42,12 +42,12 @@
           </component>
         </children>
       </grid>
-      <component id="1a907" class="javax.swing.JButton" binding="button1" default-binding="true">
+      <component id="1a907" class="javax.swing.JButton" binding="logoutButton">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <text value="Logout"/>
         </properties>
       </component>
     </children>

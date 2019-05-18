@@ -8,7 +8,7 @@ public class DVeranstaltungsuebersicht implements FrameContent {
 
     private GUIMain mainFrame;
 
-    private JPanel VeranstaltungsübersichtPanel;
+    private JPanel VeranstaltungsuebersichtPanel;
     private JList VeranstalungenList;
     private JButton einsehen;
     private JButton logoutButton;
@@ -21,7 +21,7 @@ public class DVeranstaltungsuebersicht implements FrameContent {
 
     public JPanel getPanel() {
 
-        return VeranstaltungsübersichtPanel;
+        return VeranstaltungsuebersichtPanel;
     }
 
     public void setParentFrame(GUIMain m) {

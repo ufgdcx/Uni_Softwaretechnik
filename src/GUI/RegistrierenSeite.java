@@ -39,15 +39,6 @@ public class RegistrierenSeite implements FrameContent{
 
     private Statement statement;
 
-    //Erzeugt Seite zum Registrieren
-    public  static void erzeugeRegistrieren() {
-
-        JFrame frame = new JFrame("Registrieren");
-        frame.setContentPane(new RegistrierenSeite().RegistrierenPanel);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
 
     public String getNachname() {
 
@@ -76,6 +67,8 @@ public class RegistrierenSeite implements FrameContent{
                     matrikelnummer.setVisible(true);
                     studiengangLabel.setVisible(true);
                     studiengang.setVisible(true);
+                    fakultaetLabel.setVisible(false);
+                    fakultaet.setVisible(false);
                 }
             }
         });
@@ -89,6 +82,8 @@ public class RegistrierenSeite implements FrameContent{
                     matrikelnummer.setVisible(false);
                     studiengangLabel.setVisible(false);
                     studiengang.setVisible(false);
+                    fakultaetLabel.setVisible(true);
+                    fakultaet.setVisible(true);
                 }
             }
         });

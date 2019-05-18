@@ -14,7 +14,7 @@ public class DGruppenbearbeiten implements FrameContent{
     private JPanel GruppenbearbeitenPanel;
     private JPanel TreePanel;
     private JTree tree;
-    private JButton button1;
+    private JButton logoutButton;
 
     public String getNachname() {
 
@@ -43,12 +43,14 @@ public class DGruppenbearbeiten implements FrameContent{
         zurueckButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 mainFrame.setContent(new DGruppenuebersicht());
             }
         });
-        button1.addActionListener(new ActionListener() {
+        logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 mainFrame.setContent(new LogoutSeite());
             }
         });

@@ -3,6 +3,7 @@ package GUI;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Controller.*;
 
 public class LoginSeite implements FrameContent {
 
@@ -45,9 +46,9 @@ public class LoginSeite implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //To Do: if Nutzer == Student do
-                mainFrame.setContent(new SVeranstaltungsuebersicht());
+                //mainFrame.setContent(new SVeranstaltungsuebersicht());
                 //To Do: else do
-                //mainFrame.setContent(new DVeranstaltungsuebersicht());
+                mainFrame.setContent(new DVeranstaltungsuebersicht());
             }
         });
     }
