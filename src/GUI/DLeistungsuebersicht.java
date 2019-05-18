@@ -1,15 +1,13 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.event.*;
-
-
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class DLeistungsuebersicht implements FrameContent {
@@ -80,7 +78,8 @@ public class DLeistungsuebersicht implements FrameContent {
       }
     });
 
-    panel.add(splitpane);
+    panel.setLayout(new BorderLayout());
+    panel.add(splitpane,BorderLayout.CENTER);
     splitpane.setLeftComponent(left);
     splitpane.setRightComponent(right);
 

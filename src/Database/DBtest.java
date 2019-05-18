@@ -13,9 +13,9 @@ public class DBtest
                 System.out.println(n.getName());
                 System.out.println(n.getEmail());
                 System.out.println(n.getPasswort());
-                System.out.println(n.getTitel());
             }
             b.close();
+                System.out.println(n.getTitel());
         }catch (DatabaseExeption dbex){
             System.out.println(dbex.getErrorMsg());
         }

@@ -15,11 +15,23 @@ public class DBrequest {
     }
 
     //creater(primitiv)
-    public void createNutzer(String email, String titel, String Vorname, String Nachname, String passwort){
+    public void createNutzer(String email, String titel, String vorname, String nachname, String passwort){
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeQuery("INSERT INTO Nutzer (EMailadresse, Titel, Vorname, Nachname, Passwort) VALUES ('" + email + "', '" + titel + "', '" + vorname + "', '" + nachname + "', '" + passwort + "'");
 
-    }
+        }catch (SQLException ex){
+            System.out.println("du bist dumm!");
+        }
+     }
     public void createStudent(String email, int matrikelnummer){
-
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeQuery("INSERT INTO Student (EMailadresse, Matrikelnummer) VALUES ('" + email + "', '" + matrikelnummer +"'");
+        } catch (SQLException e) {
+            System.out.println("du bist dümmer");
+        }
     }
 
     public void createDozent(String email, String fakultaet){

@@ -1,13 +1,12 @@
 package GUI;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.event.*;
 
 import javax.swing.*;
 
 public class SAlleVeranstaltungen implements FrameContent {
-  private String name = "Veranstaltung bearbeiten";
+  private String name = "alle Veranstaltungen";
   private GUIMain mainFrame;
   private Listener def = new Listener();
 
