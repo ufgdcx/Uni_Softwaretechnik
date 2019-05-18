@@ -74,12 +74,14 @@ public class DBrequest {
         }
     }
 
-    public void crateLeistungsblock(){
-        //  Values: 	Matrikelnummer(int) 	Leistungsblock_name(string)
-    }
-
-    public void crateLeitet(){
-        // values:	Name(string) 	EMailadresse(string)
+    public void crateLeitet(String name, String email){
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO Leitet (Name, EMailadresse) VALUES ('" + name + "', '" + email +"')");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void crateStudienganganteil(){
