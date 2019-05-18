@@ -67,23 +67,25 @@ public class DBrequest {
     }
 
     public void crateStudienganganteil(){
-        //	Studiengang 	TeamID 	GruppenID 	Veranstaltungsname 	Anteil
+        //	Studiengang (string) 	TeamID(int) 	GruppenID(int) 	Veranstaltungsname(string)	Anteil (int)
 
     }
 
     public void crateTeam(){
-
+        // 	TeamID(int) 	GruppenID(int) 	Veranstaltungsname(string) 	Thema(string)
     }
 
     public void crateTeamleistung(){
-
+        // Teamleistungsname	varchar(255)	TeamID	int(11)	GruppenID	int(11)	Veranstaltungsname	varchar(255)	Punkte	int(11)
     }
 
     public void crateUnterblock(){
-
+        // Matrikelnummer	int(9)	Leistungsblock_name	varchar(255) Unterblock_name	varchar(255)	Punkte	int(3)
     }
 
     public void crateVeranstaltung(){
+        // Veranstaltungsname	varchar(255)	Fakultaet	varchar(255)	Teamanzahl_je_Gruppe	int(11)	maximale_Teilnehmeranzahl_je_Team	int(11)	Beschreibung	varchar(255)
+
 
     }
 
