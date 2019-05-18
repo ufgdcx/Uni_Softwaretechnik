@@ -44,11 +44,11 @@ public class DBrequest {
         }
     }
 
-    public void createLeistungsblock(int matrikelnummer, String leistungsblockname){
+    public void createLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname){
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO Leistungsblock (Matrikelnummer, Leistungsblock_name) VALUES ('" + matrikelnummer + "', '" + leistungsblockname +"')");
+            stmt.executeUpdate("INSERT INTO Leistungsblock (Matrikelnummer, Leistungsblock_name, Veranstaltungsname) VALUES ('" + matrikelnummer + "', '" + leistungsblockname +"', '" + veranstaltungsname +"')");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
