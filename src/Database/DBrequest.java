@@ -2,10 +2,7 @@ package Database;
 
 import Klassen.*;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DBrequest {
     private Connection con;
@@ -15,6 +12,7 @@ public class DBrequest {
     }
 
     //creater(primitiv)
+
     public void createNutzer(String email, String titel, String vorname, String nachname, String passwort){
         try {
             Statement stmt = con.createStatement();
@@ -25,6 +23,7 @@ public class DBrequest {
             ex.printStackTrace();
         }
      }
+
     public void createStudent(String email, int matrikelnummer, String studiengang){
         Statement stmt = null;
         try {
@@ -65,9 +64,14 @@ public class DBrequest {
         }
     }
 
-    public void createGruppe(){
-        // Values: GruppenID(int) 	EMailadresse(string) 	Veranstaltungsname(string) 	Einschreibungsfrist(date) 	Uhrzeit(time) 	Wochentag(string) 	Wochenrhytmus(string)
+    public void createGruppe(int gruppenid, String email, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus){
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO Gruppe (GruppenID, Emailadresse, Veranstaltungsname, Einschreibungsfrist, Uhrzeit, Wochentag, Wochenrhytmus) VALUES ('" + gruppenid + "', '" + email + "', '" + veranstaltung + "', '" + einschreibungsfrist + "', '" + uhrzeit + "', '" + wochentag + "', '" + wochenrhytmus + "')");
 
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
     }
 
     public void crateLeistungsblock(){
