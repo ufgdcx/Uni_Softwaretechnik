@@ -3,6 +3,7 @@ package Database;
 import Klassen.*;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DBrequest {
     private Connection con;
@@ -218,7 +219,7 @@ public class DBrequest {
 
     }
 
-    //getter
+    //getter(primitiv)
     public Nutzer getNutzer(String email, String passwort) throws DatabaseExeption{
         try {
             Statement stmt = con.createStatement();
@@ -247,6 +248,10 @@ public class DBrequest {
         throw new DatabaseExeption("wrong username/password");
     }
 
+    public ArrayList<Leistungsblock> getLeistungsblocks(int matrikelnummer, String veranstaltungsname){
+        //TODO
+        return null;
+    }
 
     //Supportmethods
     public void close(){
