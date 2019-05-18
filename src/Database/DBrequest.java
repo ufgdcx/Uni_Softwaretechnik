@@ -170,6 +170,54 @@ public class DBrequest {
         }
     }
 
+    public void deleteDozent(){
+
+    }
+
+    public void deleteGehoertZu(){
+
+    }
+
+    public void deleteGruppe(){
+
+    }
+
+    public void deleteLeistungsblock(){
+
+    }
+
+    public void deleteLeitet(){
+
+    }
+
+    public void deleteNutzer(){
+
+    }
+
+    public void deleteStudent(){
+
+    }
+
+    public void deleteStudienganganteil(){
+
+    }
+
+    public void deleteTeam(){
+
+    }
+
+    public void deleteTeamleistung(){
+
+    }
+
+    public void deleteUnterblock(){
+
+    }
+
+    public void deleteVeranstaltung(){
+
+    }
+
     //getter
     public Nutzer getNutzer(String email, String passwort) throws DatabaseExeption{
         try {
