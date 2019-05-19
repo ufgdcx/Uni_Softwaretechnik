@@ -399,6 +399,37 @@ public class DBrequest {
         throw new DatabaseExeption("wrong username/password");
     }
 
+    public Nutzer getNutzer(String email, String passwd) throws DatabaseExeption{
+        //converting char array for password to a string
+        //TODO evaluate, if we need to overwrite the string and/or the char array for better security
+        String pwString = new String(passwd);
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT EMailadresse,Passwort FROM Nutzer WHERE EMailadresse = '" + email + "' AND Passwort = '" + pwString +"'");
+            if(resultSize(rs)!=0){
+                rs = stmt.executeQuery("SELECT EMailadresse, Matrikelnummer FROM Student WHERE EMailadresse = '" + email + "'");
+                if(resultSize(rs)!=0){
+                    rs = stmt.executeQuery("SELECT Nutzer.*,Student.Matrikelnummer, Student.Studiengang FROM Nutzer INNER JOIN Student ON Student.EMailadresse = Nutzer.EMailadresse WHERE Nutzer.EMailadresse = '" + email + "'");
+                    rs.next();
+                    return new Student(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Studiengang"),rs.getInt("Matrikelnummer"));
+                }else{
+                    rs = stmt.executeQuery("SELECT EMailadresse FROM Dozent WHERE EMailadresse = '" + email + "'");
+                    if(resultSize(rs)!=0){
+                        rs = stmt.executeQuery("SELECT Nutzer.*,Dozent.Fakultaet FROM Nutzer INNER JOIN Dozent ON Dozent.EMailadresse = Nutzer.EMailadresse WHERE Nutzer.EMailadresse = '" + email + "'");
+                        rs.next();
+                        return new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Fakultaet"));
+                    }
+                }
+                throw new DatabaseExeption("not a Student/Dozent");
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+            System.out.println(ex);
+            return  null;
+        }
+        throw new DatabaseExeption("wrong username/password");
+    }
+
     public ArrayList<Leistungsblock> getLeistungsblocks(int matrikelnummer, String veranstaltungsname){
         //TODO
         return null;
