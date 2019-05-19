@@ -14,7 +14,7 @@ public class StudentController {
 	public StudentController(GUIMain m,Student s) {
 		mainFrame = m;
 		me = s;
-		//changing the content of the main window to the "frontpage" for Students
+		//changing the content of the main window to the "frontpage" for students
 		mainFrame.setContent(new SVeranstaltungsuebersicht());
 	}
 }
