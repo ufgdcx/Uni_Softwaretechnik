@@ -6,7 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.sql.Statement;
+import java.sql.SQLException;
+
+import Database.*;
 
 public class RegistrierenSeite implements FrameContent {
 
@@ -36,9 +38,6 @@ public class RegistrierenSeite implements FrameContent {
     private JPasswordField passwortwdh;
     private JLabel uniRostockDeLabel;
     private JButton abbrechenButton;
-
-    private Statement statement;
-
 
     public String getNachname() {
 
@@ -91,6 +90,50 @@ public class RegistrierenSeite implements FrameContent {
         verifizierenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                String Titel = titel.getText();
+                String Vorname = vorname.getText();
+                String Nachname = nachname.getText();
+                String EMail = emailadresse.getText() + "@uni-rostock.de";
+                String Passwort = String.valueOf(passwort.getPassword());
+
+                DBrequest b = new DBrequest();
+
+
+                if (studentRadioButton.isSelected()) {
+
+                    int Matrikel = Integer.parseInt(matrikelnummer.getText());
+                    String Studiengang = studiengang.getText();
+
+                    try {
+                        b.createNutzer(EMail, Titel, Vorname, Nachname, Passwort);
+                    } catch (DatabaseExeption databaseExeption) {
+                        databaseExeption.printStackTrace();
+                    }
+                    try {
+                        b.createStudent(EMail, Matrikel, Studiengang);
+                    } catch (DatabaseExeption databaseExeption) {
+                        databaseExeption.printStackTrace();
+                    }
+                }
+
+                if (dozentRadioButton.isSelected()) {
+
+                    String Fakultaet = fakultaet.getText();
+
+                    try {
+                        b.createNutzer(EMail, Titel, Vorname, Nachname, Passwort);
+                    } catch (DatabaseExeption databaseExeption) {
+                        databaseExeption.printStackTrace();
+                    }
+                    try {
+                        b.createDozent(EMail, Fakultaet);
+                    } catch (DatabaseExeption databaseExeption) {
+                        databaseExeption.printStackTrace();
+                    }
+                }
+
+
                 mainFrame.setContent(new VerifikationsSeite());
             }
         });
@@ -201,4 +244,5 @@ public class RegistrierenSeite implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return RegistrierenPanel;
     }
+
 }
