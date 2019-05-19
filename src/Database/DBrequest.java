@@ -400,7 +400,7 @@ public class DBrequest {
         return null;
     }
 
-    public ArrayList<String> getVeranstaltungsname(Dozent dozent) throws  DatabaseExeption{
+    public ArrayList<String> getVeranstaltungsnamen(Dozent dozent) throws  DatabaseExeption{
         String email = dozent.getEmail();
         ArrayList<String> results = new ArrayList<String>();
         try {
