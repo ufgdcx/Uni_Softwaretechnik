@@ -13,7 +13,7 @@ public class MainController {
 		mainFrame = m;
 	}
 	
-	public void login(String email, String passwd) {
+	public void login(String email, char[] passwd) {
 		//handle authentification
 		try {
 			n = dbr.getNutzer(email,passwd);

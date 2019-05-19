@@ -46,10 +46,9 @@ public class LoginSeite implements FrameContent {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //To Do: if Nutzer == Student do
-                //mainFrame.setContent(new SVeranstaltungsuebersicht());
-                //To Do: else do
-                mainFrame.setContent(new DVeranstaltungsuebersicht());
+            	//gets the controller reference from the GUIMain object
+            	//then calls the login method with the data in the data from the email and password text fields
+                mainFrame.getController().login(emailField.getText(), passwordField.getPassword());
             }
         });
     }
