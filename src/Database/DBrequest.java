@@ -400,6 +400,21 @@ public class DBrequest {
         return null;
     }
 
+    public ArrayList<String> getVeranstaltungsnamen(Dozent dozent) throws  DatabaseExeption{
+        String email = dozent.getEmail();
+        ArrayList<String> results = new ArrayList<String>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Name FROM Leitet WHERE EMailadresse = '" + email + "'");
+            while (rs.next()){
+                results.add(rs.getString("Name"));
+            }
+        }catch (SQLException ex){
+        throw new DatabaseExeption("Connection Failed");
+        }
+        return  results;
+    }
+
     //Supportmethods
     public void close(){
         try {
