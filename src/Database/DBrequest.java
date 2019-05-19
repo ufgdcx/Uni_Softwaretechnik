@@ -400,6 +400,11 @@ public class DBrequest {
         return null;
     }
 
+    public ArrayList<String> getVeranstaltungsname(Dozent dozent){
+
+        return  null;
+    }
+
     //Supportmethods
     public void close(){
         try {
