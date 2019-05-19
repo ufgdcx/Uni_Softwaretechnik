@@ -1,0 +1,23 @@
+Start Logdata:
+Teste Funktion: b.createNutzer("test@email.com", "Herr", "bob", "boob", "123");(Nutzer existiert noch nicht)
+Nutzer erfolgreich erstelltTeste Funktion: b.createNutzer("test@email.com","Herr","bob","boob","123");
+User already exists
+Teste Funktion: b.createNutzer("bob@baumeister.com","lord","bill","Clinton","polen");
+Teste Funktion: b.createDozent("test@email.com", "Ameise");
+Teste Funktion: b.createStudent("bob@baumeister.com",79,"Imker");
+Teste Funktion: b.createVeranstaltung("Mobbing", "Hogwarts", 42, 10, "9/10 Menschen finden Mobbing gut");
+Teste Funktion: b.createLeitet("Mobbing", "test@email.com");
+Teste Funktion: b.createGruppe(42, "test@email.com", "Mobbing", new Date(System.currentTimeMillis()), new Time(System.currentTimeMillis()), "Mittwoch", "ger");
+
+Teste Funktion: b.createTeam(3, 42, "Mobbing", "Cybermobbing");
+Teste Funktion: b.createGehoertZu(79, 3, 42, "Mobbing");
+Teste Funktion: b.createLeistungsblock(79, "Bob", "Mobbing");
+Teste Funktion: b.createUnterblock(79, "Bob", "A1", "Mobbing", 42);
+Teste Funktion: b.createTeamleistung("Bob2", 3, 42, "Mobbing", 42);
+Teste Funktion: b.createStudienganganteil("Bilologie", 3, 42, "Mobbing", 1);
+Teste Funktion: b.getVeranstaltungsnamen(new Dozent("test@email.com","123","Herr","bob","boob","Ameise"));
+Teste Funktion: b.getNutzer("bob@baumeister.com", "polen");
+Teste Funktion: b.getNutzer("test@email.com", "123");
+Teste Funktion: b.getVeranstaltungsnamen(new Dozent("test@email.com","123","Herr","bob","boob","Ameise"));
+Teste Funktion: b.getNutzer("bob@baumeister.com", "polen");
+wrong username/password
