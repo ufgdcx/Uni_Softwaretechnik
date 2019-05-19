@@ -16,6 +16,10 @@ public class DGruppenbearbeiten implements FrameContent {
     private JPanel TreePanel;
     private JTree tree;
     private JButton logoutButton;
+    private JButton gruppeHinzuButton;
+    private JButton teamHinzufButton;
+    private JButton teamLoeschenButton;
+    private JButton gruppeLoeschenButton;
 
     public String getNachname() {
 
@@ -37,7 +41,7 @@ public class DGruppenbearbeiten implements FrameContent {
         bestaetigen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //To Do:
+                mainFrame.setContent(new DGruppenuebersicht());
 
             }
         });
@@ -55,6 +59,34 @@ public class DGruppenbearbeiten implements FrameContent {
                 mainFrame.setContent(new LogoutSeite());
             }
         });
-    }
+        gruppeHinzuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+                //TODO: neue Gruppe in Baum einfügen
+            }
+        });
+        teamHinzufButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //TODO: neue Gruppe in Baum einfügen
+            }
+        });
+        gruppeLoeschenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //TODO: Gruppe aus Baum entfernen
+            }
+        });
+        teamLoeschenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //TODO: Team aus Baum entfernen
+            }
+        });
+    }
 }
+

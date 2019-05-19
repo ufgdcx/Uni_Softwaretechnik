@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Controller.*;
+import Database.DBrequest;
 
 public class LoginSeite implements FrameContent {
 
@@ -19,6 +20,8 @@ public class LoginSeite implements FrameContent {
     private JLabel passwortLabel;
     private JLabel eMailadresseLabel;
     private JLabel uniRostockDeLabel;
+
+    private String EMail, Passwort;
 
 
     public String getNachname() {
@@ -46,10 +49,14 @@ public class LoginSeite implements FrameContent {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //To Do: if Nutzer == Student do
-                //mainFrame.setContent(new SVeranstaltungsuebersicht());
-                //To Do: else do
-                mainFrame.setContent(new DVeranstaltungsuebersicht());
+
+                //TODO: Wenn Eingabefelder leer - Fehlermeldung
+
+                EMail = emailField.getText() + "@uni-rostock.de";
+                Passwort = String.valueOf(passwordField.getPassword());
+
+                MainController mc = new MainController(mainFrame);
+                mc.login(EMail, Passwort);
             }
         });
     }
