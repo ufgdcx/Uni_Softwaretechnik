@@ -35,8 +35,6 @@ public class SVeranstaltungsuebersicht implements FrameContent {
 
     public SVeranstaltungsuebersicht() {
 
-
-
         hinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

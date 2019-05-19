@@ -11,7 +11,6 @@ public class Veranstaltung
     private int maxTeilnehmer; //maximale Teilnehmeranzahl je Team
     private ArrayList<Gruppe> gruppen; //Gruppen der Veranstaltung
     private ArrayList<Dozent> dozenten; //zugehörige Dozenten
-    private String beschreibung; //Informationen zur Veranstaltung
 
     public Veranstaltung(String name, String fakultaet, int teamanzahl, int maxTeilnehmer,
                          ArrayList<Gruppe> gruppen, ArrayList<Dozent> dozenten)
@@ -22,7 +21,6 @@ public class Veranstaltung
         this.maxTeilnehmer = maxTeilnehmer;
         this.gruppen = gruppen;
         this.dozenten = dozenten;
-        this.beschreibung = beschreibung;
     }
 
     // get methods
@@ -32,7 +30,6 @@ public class Veranstaltung
     public int getMaxTeilnehmer()  {    return maxTeilnehmer;  }
     public ArrayList<Gruppe> getGruppen()  {    return gruppen;  }
     public ArrayList<Dozent> getDozenten()  {    return dozenten;  }
-    public String getBeschreibung() {        return beschreibung;    }
 
     // set methods
     public void setName(String name)  {    this.name = name;  }
@@ -41,7 +38,6 @@ public class Veranstaltung
     public void setMaxTeilnehmer(int maxTeilnehmer)  {    this.maxTeilnehmer = maxTeilnehmer;  }
     public void setGruppen(ArrayList<Gruppe> gruppen)  {    this.gruppen = gruppen;  }
     public void setDozenten(ArrayList<Dozent> dozenten)  {    this.dozenten = dozenten;  }
-    public void setBeschreibung(String beschreibung) {        this.beschreibung = beschreibung;    }
 
     // add Gruppe
     public void addGruppe(Gruppe gruppe){ this.gruppen.add(gruppe); }

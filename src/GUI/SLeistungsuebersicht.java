@@ -31,9 +31,6 @@ public class SLeistungsuebersicht implements FrameContent {
     }
 
     public SLeistungsuebersicht() {
-
-        //TODO: Tree
-
         zurueck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

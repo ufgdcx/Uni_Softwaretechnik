@@ -368,10 +368,13 @@ public class DBrequest {
     }
 
     //getter(primitiv)
-    public Nutzer getNutzer(String email, String passwort) throws DatabaseExeption{
+    public Nutzer getNutzer(String email, char[] passwd) throws DatabaseExeption{
+    	//converting char array for password to a string
+    	//TODO evaluate, if we need to overwrite the string and/or the char array for better security
+    	String pwString = new String(passwd);
         try {
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT EMailadresse,Passwort FROM Nutzer WHERE EMailadresse = '" + email + "' AND Passwort = '" + passwort +"'");
+            ResultSet rs = stmt.executeQuery("SELECT EMailadresse,Passwort FROM Nutzer WHERE EMailadresse = '" + email + "' AND Passwort = '" + pwString +"'");
             if(resultSize(rs)!=0){
                 rs = stmt.executeQuery("SELECT EMailadresse, Matrikelnummer FROM Student WHERE EMailadresse = '" + email + "'");
                 if(resultSize(rs)!=0){

@@ -1,10 +1,12 @@
 package GUI;
 
 import javax.swing.*;
+import Controller.*;
 
 public class GUIMain extends JFrame{
 
     private FrameContent content;
+    private MainController controller;
 
     public GUIMain(int width, int height) {
 
@@ -13,11 +15,20 @@ public class GUIMain extends JFrame{
         this.setSize(width, height);
         setContent(new LoginSeite());
         this.setVisible(true);
-
+    }
+    
+    public void setController(MainController c) {
+    	controller = c;
+    }
+    
+    public MainController getController() {
+    	if(controller == null) {
+    		return controller = new MainController(this);
+    	}
+        return controller;
     }
 
     public FrameContent getContent() {
-
         return content;
     }
 

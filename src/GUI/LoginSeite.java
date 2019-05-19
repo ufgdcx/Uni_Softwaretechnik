@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Controller.*;
-import Database.DBrequest;
 
 public class LoginSeite implements FrameContent {
 
@@ -20,8 +19,6 @@ public class LoginSeite implements FrameContent {
     private JLabel passwortLabel;
     private JLabel eMailadresseLabel;
     private JLabel uniRostockDeLabel;
-
-    private String EMail, Passwort;
 
 
     public String getNachname() {
@@ -49,14 +46,12 @@ public class LoginSeite implements FrameContent {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 //TODO: Wenn Eingabefelder leer - Fehlermeldung
+                String EMail = emailField.getText() + "@uni-rostock.de";
 
-                EMail = emailField.getText() + "@uni-rostock.de";
-                Passwort = String.valueOf(passwordField.getPassword());
-
-                MainController mc = new MainController(mainFrame);
-                mc.login(EMail, Passwort);
+            	//gets the controller reference from the GUIMain object
+            	//then calls the login method with the data in the data from the email and password text fields
+                mainFrame.getController().login(EMail, passwordField.getPassword());
             }
         });
     }
