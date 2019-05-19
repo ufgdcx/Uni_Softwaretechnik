@@ -11,21 +11,31 @@ public class MainController {
 	
 	public MainController(GUIMain m) {
 		mainFrame = m;
-		//render GUI for login
+	}
+	
+	public void login(String email, String passwd) {
 		//handle authentification
-		String email = "test";
-		String passwd = "test";
-		//n = dbr.getNutzer(email,passwd);
+		try {
+			n = dbr.getNutzer(email,passwd);
+		} catch (DatabaseExeption e) {
+			e.printStackTrace();
+			System.out.println(e);
+            return;
+		}
 		
 		//switch to StudentController or DozentController
 		if(n instanceof Dozent){
-			//TODO
+			//creating Dozent object d to pass the info to DozentController
+			//and transforming Nutzer object n to Dozent object d
+			Dozent d = (Dozent) n;
+			new DozentController(mainFrame,d);
 		}
 		else{
-			//creating student to pass the info to StudentController
-			Student s = new Student("abc@uni-rostock.it","1234","Lord","Hanz","Mueller","Verteidigung gegen die Dunklen Kuenste",987654321);
-			//transforming Nutzer object n to Student object s
-			//TODO
+			//creating Student object s to pass the info to StudentController
+			//and transforming Nutzer object n to Student object s
+			Student s = (Student) n;
+			
+			//Student s = new Student("abc@uni-rostock.it","1234","Lord","Hanz","Mueller","Verteidigung gegen die Dunklen Kuenste",987654321);
 			new StudentController(mainFrame,s);
 		}
 	}
