@@ -366,6 +366,7 @@ public class DBrequest {
         }
 
     }
+
     //getter(primitiv)
     public Nutzer getNutzer(String email, String passwort) throws DatabaseExeption{
         try {
@@ -436,5 +437,130 @@ public class DBrequest {
 
         }
         return size;
-    };
+    }
+
+    //TODO
+    public Nutzer updateNutzerPasswort(String email, String passwort) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Nutzer updateNutzerTitle(String email, String title) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Nutzer updateNutzerVornamen(String email, String vorname) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Student updateStudentMatrikelnummer(String email, String matrikelnummer) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Student updateStudentStudiengang(String email, String studiengang) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Dozent updateDozentFakultaet(String email, String fakultaet) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Gruppe updateGruppeVeranstaltungsname(int gruppenID, String veranstaltungsname) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Gruppe updateGruppeEinschreibefrist(int gruppenID, Date einschreibefrist) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Gruppe updateGruppeUhrzeit(int gruppenID, Time uhrzeit) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Gruppe updateGruppeWochentag(int gruppenID, String wochentag) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Gruppe updateGruppeWochenrhythmus(int gruppenID, String wochenrhythmus) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Leistungsblock updateLBName(int matrikelnummer, String lb_name) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Unterblock updateUBName(int matrikelnummer, String ub_name) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Unterblock updateUBPunkte(int matrikelnummer, int ub_punkte) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Studienganganteil updateStudienganganteilStudiengang(int anteil, String studiengang) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Studienganganteil updateStudienganganteilGruppenID(int anteil, int gruppenID) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Studienganganteil updateStudienganganteilTeamID(int anteil, int teamID) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Studienganganteil updateStudienganganteilVName(int anteil, String vName) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Team updateTeamGruppenID(int teamID, int gruppenID) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Team updateTeamThema(int teamID, String Thema) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Teamleistung updateTeamleistungPunkte(int teamID, int punkte) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Teamleistung updateTeamleistungName(int teamID, int tl_Name) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Veranstaltung updateVeranstaltungTeamanzahl(String veranstaltung, int teamanzahl) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Veranstaltung updateVeranstaltungBeschreibung(String veranstaltung, String beschreibung) throws DatabaseExeption{
+        return null;
+    }
+
+    //TODO
+    public Veranstaltung updateVeranstaltungMax_members(String veranstaltung, String max_members) throws DatabaseExeption{
+        return null;
+    }
 }

@@ -131,6 +131,8 @@ public class RegistrierenSeite implements FrameContent {
                     }
                 }
 
+                //TODO: Passwort und Passwort wiederholen abgleichen
+                //TODO: Email mit Verifizierungscode senden
 
                 mainFrame.setContent(new VerifikationsSeite());
             }
@@ -138,6 +140,7 @@ public class RegistrierenSeite implements FrameContent {
         abbrechenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 mainFrame.setContent(new LoginSeite());
             }
         });
