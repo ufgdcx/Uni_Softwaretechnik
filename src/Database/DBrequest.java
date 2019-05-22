@@ -1,7 +1,6 @@
 package Database;
 
 import Klassen.*;
-import com.mysql.cj.xdevapi.SqlDataResult;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,49 +14,49 @@ public class DBrequest {
 
     //creater(primitiv)
 
-    public void createNutzer(String email, String titel, String vorname, String nachname, String passwort)throws DatabaseExeption{
+    public void createNutzer(String email, String titel, String vorname, String nachname, String passwort)throws DatabaseException {
         try {
             Statement stmt = con.createStatement();
             try {
                 stmt.executeUpdate("INSERT INTO Nutzer (EMailadresse, Titel, Vorname, Nachname, Passwort) VALUES ('" + email + "', '" + titel + "', '" + vorname + "', '" + nachname + "', '" + passwort + "')");
             }catch (SQLException e){
-                throw new DatabaseExeption("User already exists");
+                throw new DatabaseException("User already exists");
             }
 
         }catch (SQLException ex){
-           throw new DatabaseExeption("Connection Failed");
+           throw new DatabaseException("Connection Failed");
         }
      }
 
-    public void createStudent(String email, int matrikelnummer, String studiengang)throws DatabaseExeption{
+    public void createStudent(String email, int matrikelnummer, String studiengang)throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             try {
                 stmt.executeUpdate("INSERT INTO Student (EMailadresse, Matrikelnummer, Studiengang) VALUES ('" + email + "', '" + matrikelnummer + "', '" + studiengang + "')");
             }catch(SQLException e){
-                throw new DatabaseExeption("Student already exists");
+                throw new DatabaseException("Student already exists");
             }
         } catch (SQLException ex) {
-            throw new DatabaseExeption("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void createDozent(String email, String fakultaet)throws DatabaseExeption{
+    public void createDozent(String email, String fakultaet)throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             try{
                 stmt.executeUpdate("INSERT INTO Dozent (EMailadresse, Fakultaet) VALUES ('" + email + "', '" + fakultaet +"')");
             }catch(SQLException e){
-                throw new DatabaseExeption("Dozent already exists");
+                throw new DatabaseException("Dozent already exists");
             }
         } catch (SQLException ex) {
-            throw new DatabaseExeption("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void createLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname)throws DatabaseExeption{
+    public void createLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname)throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
@@ -66,17 +65,17 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Leistungsblock_name, Veranstaltungsname FROM Leistungsblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
-                    throw new DatabaseExeption("Leistungsblock already exists");
+                    throw new DatabaseException("Leistungsblock already exists");
                 }else{
-                    throw new DatabaseExeption("Parent doesn't exist");
+                    throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
-            throw new DatabaseExeption("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void createGehoertZu(int matrikelnummer, int teamid, int gruppenid, String veranstaltungsname)throws DatabaseExeption{
+    public void createGehoertZu(int matrikelnummer, int teamid, int gruppenid, String veranstaltungsname)throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
@@ -85,17 +84,17 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, TeamID, GruppenID, Veranstaltungsname  FROM Gehoert_zu WHERE Matrikelnummer = '" + matrikelnummer + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
-                    throw new DatabaseExeption("Gehoert_zu already exists");
+                    throw new DatabaseException("Gehoert_zu already exists");
                 }else{
-                    throw new DatabaseExeption("Parent doesn't exist");
+                    throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
-            throw new DatabaseExeption("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void createGruppe(int gruppenid, String email, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus)throws DatabaseExeption{
+    public void createGruppe(int gruppenid, String email, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus)throws DatabaseException {
         try {
             Statement stmt = con.createStatement();
             try {
@@ -103,17 +102,17 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT GruppenID, Veranstaltungsname FROM Gruppe WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltung + "'");
                 if(resultSize(rs)!=0){
-                    throw new DatabaseExeption("Gruppe already exists");
+                    throw new DatabaseException("Gruppe already exists");
                 }else{
-                    throw new DatabaseExeption("Parent doesn't exist");
+                    throw new DatabaseException("Parent doesn't exist");
                 }
             }
         }catch (SQLException ex){
-            throw new DatabaseExeption("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void createLeitet(String name, String email)throws DatabaseExeption{
+    public void createLeitet(String name, String email)throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
@@ -122,17 +121,17 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT Name, Emailadresse FROM Leitet WHERE Name = '" + name + "' AND Emailadresse = '" + email + "'");
                 if(resultSize(rs)!=0){
-                    throw new DatabaseExeption("Leitet already exists");
+                    throw new DatabaseException("Leitet already exists");
                 }else{
-                    throw new DatabaseExeption("Parent doesn't exist");
+                    throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
-            throw new DatabaseExeption("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void createStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname, int anteil)throws DatabaseExeption{
+    public void createStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname, int anteil)throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
@@ -141,17 +140,17 @@ public class DBrequest {
             }catch (SQLException e) {
                 ResultSet rs = stmt.executeQuery("SELECT Studiengang, TeamID, GruppenID, Veranstaltungsname  FROM Studienganganteil WHERE Studiengang = '" + studiengang + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
-                    throw new DatabaseExeption("Studienganganteil already exists");
+                    throw new DatabaseException("Studienganganteil already exists");
                 }else{
-                    throw new DatabaseExeption("Parent doesn't exist");
+                    throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex){
-            throw new DatabaseExeption("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void createTeam(int teamid, int gruppenid, String veranstaltungsname, String thema)throws DatabaseExeption{
+    public void createTeam(int teamid, int gruppenid, String veranstaltungsname, String thema)throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
@@ -160,17 +159,17 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT TeamID, GruppenID, Veranstaltungsname  FROM Team WHERE TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
-                    throw new DatabaseExeption("Team already exists");
+                    throw new DatabaseException("Team already exists");
                 }else {
-                    throw new DatabaseExeption("Parent doesn't exist");
+                    throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
-            throw new DatabaseExeption("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void createTeamleistung(String teamleistungsname, int teamid, int gruppenid, String veranstaltungsname, int punkte)throws DatabaseExeption{
+    public void createTeamleistung(String teamleistungsname, int teamid, int gruppenid, String veranstaltungsname, int punkte)throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
@@ -179,17 +178,17 @@ public class DBrequest {
             }catch (SQLException e) {
                 ResultSet rs = stmt.executeQuery("SELECT Teamleistungsname, TeamID, GruppenID, Veranstaltungsname  FROM Teamleistung WHERE Teamleistungsname = '" + teamleistungsname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
-                    throw new DatabaseExeption("Teamleistung already exists");
+                    throw new DatabaseException("Teamleistung already exists");
                 }else{
-                    throw new DatabaseExeption("Parent doesn't exist");
+                    throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
-            throw new DatabaseExeption("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void createUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname, int punkte)throws DatabaseExeption{
+    public void createUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname, int punkte)throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
@@ -198,18 +197,18 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname FROM Unterblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
-                    throw new DatabaseExeption("Unterblock already exists");
+                    throw new DatabaseException("Unterblock already exists");
                 }else{
-                    throw new DatabaseExeption("Parent doesn't exist");
+                    throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
-            throw new DatabaseExeption("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
     }
 
 
-    public void createVeranstaltung(String veranstaltungsname, String fakultaet, int teamanzahl, int max, String beschreibung  )throws DatabaseExeption{
+    public void createVeranstaltung(String veranstaltungsname, String fakultaet, int teamanzahl, int max, String beschreibung  )throws DatabaseException {
         // Veranstaltungsname	varchar(255)	Fakultaet	varchar(255)	Teamanzahl_je_Gruppe	int(11)	maximale_Teilnehmeranzahl_je_Team	int(11)	Beschreibung	varchar(255)
         Statement stmt = null;
         try {
@@ -217,21 +216,21 @@ public class DBrequest {
             try {
                 stmt.executeUpdate("INSERT INTO Veranstaltung (Veranstaltungsname, Fakultaet, Teamanzahl_je_Gruppe, maximale_Teilnehmeranzahl_je_Team, Beschreibung) VALUES ('" + veranstaltungsname + "', '" + fakultaet + "', '" + teamanzahl + "', '" + max + "', '" + beschreibung + "')");
             }catch (SQLException e){
-                throw new DatabaseExeption("Veranstaltung already exists");
+                throw new DatabaseException("Veranstaltung already exists");
             }
         } catch (SQLException ex) {
-            throw new DatabaseExeption("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
 
     }
 
     //creater(objects)
-    public void  createStudent(Student stud)throws DatabaseExeption{
+    public void  createStudent(Student stud)throws DatabaseException {
         createNutzer(stud.getEmail(),stud.getTitel(),stud.getVorname(),stud.getName(),stud.getPasswort());
         createStudent(stud.getEmail(),stud.getMatrikelnr(),stud.getStudiengang());
     }
 
-    public void  createDozent(Dozent doz)throws DatabaseExeption{
+    public void  createDozent(Dozent doz)throws DatabaseException {
         createNutzer(doz.getEmail(),doz.getTitel(),doz.getVorname(),doz.getName(),doz.getPasswort());
         createDozent(doz.getEmail(),doz.getFakultaet());
     }
@@ -368,7 +367,7 @@ public class DBrequest {
     }
 
     //getter(primitiv)
-    public Nutzer getNutzer(String email, char[] passwd) throws DatabaseExeption{
+    public Nutzer getNutzer(String email, char[] passwd) throws DatabaseException {
     	//converting char array for password to a string
     	//TODO evaluate, if we need to overwrite the string and/or the char array for better security
     	String pwString = new String(passwd);
@@ -389,17 +388,17 @@ public class DBrequest {
                         return new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Fakultaet"));
                     }
                 }
-                throw new DatabaseExeption("not a Student/Dozent");
+                throw new DatabaseException("not a Student/Dozent");
             }
         }catch (SQLException ex){
             ex.printStackTrace();
             System.out.println(ex);
             return  null;
         }
-        throw new DatabaseExeption("wrong username/password");
+        throw new DatabaseException("wrong username/password");
     }
 
-    public Nutzer getNutzer(String email, String passwd) throws DatabaseExeption{
+    public Nutzer getNutzer(String email, String passwd) throws DatabaseException {
         //converting char array for password to a string
         //TODO evaluate, if we need to overwrite the string and/or the char array for better security
         String pwString = new String(passwd);
@@ -420,14 +419,14 @@ public class DBrequest {
                         return new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Fakultaet"));
                     }
                 }
-                throw new DatabaseExeption("not a Student/Dozent");
+                throw new DatabaseException("not a Student/Dozent");
             }
         }catch (SQLException ex){
             ex.printStackTrace();
             System.out.println(ex);
             return  null;
         }
-        throw new DatabaseExeption("wrong username/password");
+        throw new DatabaseException("wrong username/password");
     }
 
     public ArrayList<Leistungsblock> getLeistungsblocks(int matrikelnummer, String veranstaltungsname){
@@ -435,7 +434,7 @@ public class DBrequest {
         return null;
     }
 
-    public ArrayList<String> getVeranstaltungsnamen(Dozent dozent) throws  DatabaseExeption{
+    public ArrayList<String> getVeranstaltungsnamen(Dozent dozent) throws DatabaseException {
         String email = dozent.getEmail();
         ArrayList<String> results = new ArrayList<String>();
         try {
@@ -445,7 +444,7 @@ public class DBrequest {
                 results.add(rs.getString("Name"));
             }
         }catch (SQLException ex){
-        throw new DatabaseExeption("Connection Failed");
+        throw new DatabaseException("Connection Failed");
         }
         return  results;
     }
@@ -474,127 +473,127 @@ public class DBrequest {
     }
 
     //TODO
-    public Nutzer updateNutzerPasswort(String email, String passwort) throws DatabaseExeption{
+    public Nutzer updateNutzerPasswort(String email, String passwort) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Nutzer updateNutzerTitle(String email, String title) throws DatabaseExeption{
+    public Nutzer updateNutzerTitle(String email, String title) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Nutzer updateNutzerVornamen(String email, String vorname) throws DatabaseExeption{
+    public Nutzer updateNutzerVornamen(String email, String vorname) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Student updateStudentMatrikelnummer(String email, String matrikelnummer) throws DatabaseExeption{
+    public Student updateStudentMatrikelnummer(String email, String matrikelnummer) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Student updateStudentStudiengang(String email, String studiengang) throws DatabaseExeption{
+    public Student updateStudentStudiengang(String email, String studiengang) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Dozent updateDozentFakultaet(String email, String fakultaet) throws DatabaseExeption{
+    public Dozent updateDozentFakultaet(String email, String fakultaet) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Gruppe updateGruppeVeranstaltungsname(int gruppenID, String veranstaltungsname) throws DatabaseExeption{
+    public Gruppe updateGruppeVeranstaltungsname(int gruppenID, String veranstaltungsname) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Gruppe updateGruppeEinschreibefrist(int gruppenID, Date einschreibefrist) throws DatabaseExeption{
+    public Gruppe updateGruppeEinschreibefrist(int gruppenID, Date einschreibefrist) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Gruppe updateGruppeUhrzeit(int gruppenID, Time uhrzeit) throws DatabaseExeption{
+    public Gruppe updateGruppeUhrzeit(int gruppenID, Time uhrzeit) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Gruppe updateGruppeWochentag(int gruppenID, String wochentag) throws DatabaseExeption{
+    public Gruppe updateGruppeWochentag(int gruppenID, String wochentag) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Gruppe updateGruppeWochenrhythmus(int gruppenID, String wochenrhythmus) throws DatabaseExeption{
+    public Gruppe updateGruppeWochenrhythmus(int gruppenID, String wochenrhythmus) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Leistungsblock updateLBName(int matrikelnummer, String lb_name) throws DatabaseExeption{
+    public Leistungsblock updateLBName(int matrikelnummer, String lb_name) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Unterblock updateUBName(int matrikelnummer, String ub_name) throws DatabaseExeption{
+    public Unterblock updateUBName(int matrikelnummer, String ub_name) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Unterblock updateUBPunkte(int matrikelnummer, int ub_punkte) throws DatabaseExeption{
+    public Unterblock updateUBPunkte(int matrikelnummer, int ub_punkte) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Studienganganteil updateStudienganganteilStudiengang(int anteil, String studiengang) throws DatabaseExeption{
+    public Studienganganteil updateStudienganganteilStudiengang(int anteil, String studiengang) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Studienganganteil updateStudienganganteilGruppenID(int anteil, int gruppenID) throws DatabaseExeption{
+    public Studienganganteil updateStudienganganteilGruppenID(int anteil, int gruppenID) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Studienganganteil updateStudienganganteilTeamID(int anteil, int teamID) throws DatabaseExeption{
+    public Studienganganteil updateStudienganganteilTeamID(int anteil, int teamID) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Studienganganteil updateStudienganganteilVName(int anteil, String vName) throws DatabaseExeption{
+    public Studienganganteil updateStudienganganteilVName(int anteil, String vName) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Team updateTeamGruppenID(int teamID, int gruppenID) throws DatabaseExeption{
+    public Team updateTeamGruppenID(int teamID, int gruppenID) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Team updateTeamThema(int teamID, String Thema) throws DatabaseExeption{
+    public Team updateTeamThema(int teamID, String Thema) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Teamleistung updateTeamleistungPunkte(int teamID, int punkte) throws DatabaseExeption{
+    public Teamleistung updateTeamleistungPunkte(int teamID, int punkte) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Teamleistung updateTeamleistungName(int teamID, int tl_Name) throws DatabaseExeption{
+    public Teamleistung updateTeamleistungName(int teamID, int tl_Name) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Veranstaltung updateVeranstaltungTeamanzahl(String veranstaltung, int teamanzahl) throws DatabaseExeption{
+    public Veranstaltung updateVeranstaltungTeamanzahl(String veranstaltung, int teamanzahl) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Veranstaltung updateVeranstaltungBeschreibung(String veranstaltung, String beschreibung) throws DatabaseExeption{
+    public Veranstaltung updateVeranstaltungBeschreibung(String veranstaltung, String beschreibung) throws DatabaseException {
         return null;
     }
 
     //TODO
-    public Veranstaltung updateVeranstaltungMax_members(String veranstaltung, String max_members) throws DatabaseExeption{
+    public Veranstaltung updateVeranstaltungMax_members(String veranstaltung, String max_members) throws DatabaseException {
         return null;
     }
 }

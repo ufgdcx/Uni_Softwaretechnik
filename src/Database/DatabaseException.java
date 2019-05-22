@@ -1,10 +1,10 @@
 package Database;
 
-public class DatabaseExeption extends Exception{
+public class DatabaseException extends Exception{
 
     private String ErrorMsg;
 
-    DatabaseExeption(String ErrorMsg){
+    DatabaseException(String ErrorMsg){
         this.ErrorMsg = ErrorMsg;
     }
 

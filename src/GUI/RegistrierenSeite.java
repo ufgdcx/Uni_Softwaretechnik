@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.sql.SQLException;
 
 import Database.*;
 
@@ -107,13 +106,13 @@ public class RegistrierenSeite implements FrameContent {
 
                     try {
                         b.createNutzer(EMail, Titel, Vorname, Nachname, Passwort);
-                    } catch (DatabaseExeption databaseExeption) {
-                        databaseExeption.printStackTrace();
+                    } catch (DatabaseException databaseException) {
+                        databaseException.printStackTrace();
                     }
                     try {
                         b.createStudent(EMail, Matrikel, Studiengang);
-                    } catch (DatabaseExeption databaseExeption) {
-                        databaseExeption.printStackTrace();
+                    } catch (DatabaseException databaseException) {
+                        databaseException.printStackTrace();
                     }
                 }
 
@@ -123,13 +122,13 @@ public class RegistrierenSeite implements FrameContent {
 
                     try {
                         b.createNutzer(EMail, Titel, Vorname, Nachname, Passwort);
-                    } catch (DatabaseExeption databaseExeption) {
-                        databaseExeption.printStackTrace();
+                    } catch (DatabaseException databaseException) {
+                        databaseException.printStackTrace();
                     }
                     try {
                         b.createDozent(EMail, Fakultaet);
-                    } catch (DatabaseExeption databaseExeption) {
-                        databaseExeption.printStackTrace();
+                    } catch (DatabaseException databaseException) {
+                        databaseException.printStackTrace();
                     }
                 }
 

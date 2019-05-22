@@ -17,7 +17,7 @@ public class MainController {
 		//handle authentification
 		try {
 			n = dbr.getNutzer(email,passwd);
-		} catch (DatabaseExeption e) {
+		} catch (DatabaseException e) {
 			e.printStackTrace();
 			System.out.println(e);
             return;
