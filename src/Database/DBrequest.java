@@ -12,8 +12,8 @@ public class DBrequest {
         con = DataSourceConn.buildConnection();
     }
 
-    //creater(primitiv)
-
+    // creater(primitiv)
+    //
     public void createNutzer(String email, String titel, String vorname, String nachname, String passwort)throws DatabaseException {
         try {
             Statement stmt = con.createStatement();
