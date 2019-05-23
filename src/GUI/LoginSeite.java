@@ -49,8 +49,8 @@ public class LoginSeite implements FrameContent {
                 //TODO: Wenn Eingabefelder leer - Fehlermeldung
                 String EMail = emailField.getText() + "@uni-rostock.de";
 
-            	//gets the controller reference from the GUIMain object
-            	//then calls the login method with the data in the data from the email and password text fields
+                //gets the controller reference from the GUIMain object
+                //then calls the login method with the data in the data from the email and password text fields
                 mainFrame.getController().login(EMail, passwordField.getPassword());
             }
         });
