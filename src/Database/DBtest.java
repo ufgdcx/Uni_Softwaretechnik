@@ -18,9 +18,10 @@ public class DBtest
         FileWriter writer = new FileWriter("Logdata\\logdata.txt");
         BufferedWriter buffer = new BufferedWriter(writer);
         buffer.write("Start Logdata:\n");
+
+
         // Test create methods
         //
-
         try {
             buffer.write("Teste Funktion: b.createNutzer(\"test@email.com\", \"Herr\", \"bob\", \"boob\", \"123\");(Nutzer existiert noch nicht)\n");
             b.createNutzer("test@email.com", "Herr", "bob", "boob", "123");
@@ -135,6 +136,9 @@ public class DBtest
             buffer.write(ex.getErrorMsg());
         }
 
+
+        // Test update methods
+        //
 
 
 
