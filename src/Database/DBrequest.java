@@ -736,6 +736,24 @@ public class DBrequest {
     }
 
     //Supportmethods
+    public  void deleteAll(){
+        /*
+        Unterblock
+        Leistungsblock
+        Studienganganteil
+        Teamleistung
+        Team
+        Gehoert_zu
+        Gruppe
+        Student
+        leitet
+        Dozent
+        Veranstaltung
+        Nutzer
+         */
+
+    }
+
     public void close(){
         try {
             con.close();

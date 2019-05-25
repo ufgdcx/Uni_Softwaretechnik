@@ -155,9 +155,9 @@ public class DBtest
 //        b.updateTeamThema(3, "Cybermobbing 2", 42, "Mobbing");
 //        b.updateTeamleistungPunkte(3, 43, 42, "Mobbing");
 //        b.updateTeamleistungName(3, "Leistung1", 42, "Mobbing");
-        b.updateVeranstaltungTeamanzahl_je_Gruppe("Mobbing", 42);
-        b.updateVeranstaltungBeschreibung("Mobbing", "Hier lernt man Leute zu demotivieren");
-        b.updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team("Mobbing", 42);
+//        b.updateVeranstaltungTeamanzahl_je_Gruppe("Mobbing", 42);
+//        b.updateVeranstaltungBeschreibung("Mobbing", "Hier lernt man Leute zu demotivieren");
+//        b.updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team("Mobbing", 42);
 
 
         // Test delet methods
