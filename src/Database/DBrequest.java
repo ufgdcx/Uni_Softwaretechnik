@@ -462,8 +462,8 @@ public class DBrequest {
         return  results;
     }
 
-
-    //TODO
+    // update Methods
+    //
     public void updateNutzerPasswort(String email, String passwort) throws DatabaseException {
         Statement stmt = null;
         try {
