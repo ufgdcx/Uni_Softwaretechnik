@@ -588,12 +588,12 @@ public class DBrequest {
 //    }
 
     //TODO
-    public void updateUBName(int matrikelnummer, String veranstaltungsname, String ub_name) throws DatabaseException {
+    public void updateUBName(int matrikelnummer, String veranstaltungsname, String ub_name, String leistungsblockname, String unterblockname) throws DatabaseException {
         Statement stmt = null;
         try
         {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Unterblock SET Unterblock_name = '" + ub_name + "' WHERE Veranstaltungsname = '" + matrikelnummer +"'");
+            stmt.executeUpdate("UPDATE Unterblock SET Unterblock_name = '" + ub_name + "' WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         }
         catch(SQLException ex)
         {
@@ -602,12 +602,12 @@ public class DBrequest {
     }
 
     //TODO
-    public void updateUBPunkte(int matrikelnummer, int ub_punkte) throws DatabaseException {
+    public void updateUBPunkte(int matrikelnummer, int ub_punkte, String leistungsblockname, String unterblockname, String veranstaltungsname) throws DatabaseException {
         Statement stmt = null;
         try
         {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Unterblock SET Punkte = '" + ub_punkte + "' WHERE Veranstaltungsname = '" + matrikelnummer +"'");
+            stmt.executeUpdate("UPDATE Unterblock SET Punkte = '" + ub_punkte + "' WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         }
         catch(SQLException ex)
         {
@@ -616,12 +616,12 @@ public class DBrequest {
     }
 
     //TODO
-    public void updateStudienganganteil(String studiengang, int anteil) throws DatabaseException {
+    public void updateStudienganganteil(String studiengang, int anteil, int teamid, int gruppenid, String veranstaltungsname) throws DatabaseException {
         Statement stmt = null;
         try
         {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Studienganganteil SET Anteil = '" + anteil + "' WHERE Veranstaltungsname = '" + studiengang +"'");
+            stmt.executeUpdate("UPDATE Studienganganteil SET Anteil = '" + anteil + "' WHERE Studiengang = '" + studiengang + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         }
         catch(SQLException ex)
         {
@@ -650,12 +650,12 @@ public class DBrequest {
 //    }
 
     //TODO
-    public void updateTeamThema(int teamID, String thema) throws DatabaseException {
+    public void updateTeamThema(int teamID, String thema, int gruppenID, String veranstaltungsname) throws DatabaseException {
         Statement stmt = null;
         try
         {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Team SET Thema = '" + thema + "' WHERE Veranstaltungsname = '" + teamID +"'");
+            stmt.executeUpdate("UPDATE Team SET Thema = '" + thema + "' WHERE TeamID = '" + teamID + "' AND GruppenID = '" + gruppenID + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         }
         catch(SQLException ex)
         {
@@ -664,12 +664,12 @@ public class DBrequest {
     }
 
     //TODO
-    public void updateTeamleistungPunkte(int teamID, int punkte) throws DatabaseException {
+    public void updateTeamleistungPunkte(int teamID, int punkte, int gruppenID, String veranstaltungsname) throws DatabaseException {
         Statement stmt = null;
         try
         {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Teamleistung SET Punkte = '" + punkte + "' WHERE Veranstaltungsname = '" + teamID +"'");
+            stmt.executeUpdate("UPDATE Teamleistung SET Punkte = '" + punkte + "' WHERE TeamID = '" + teamID + "' AND GruppenID = '" + gruppenID + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         }
         catch(SQLException ex)
         {
@@ -678,12 +678,12 @@ public class DBrequest {
     }
 
     //TODO
-    public void updateTeamleistungName(int teamID, String tl_Name) throws DatabaseException {
+    public void updateTeamleistungName(int teamID, String tl_Name, int gruppenID, String veranstaltungsname) throws DatabaseException {
         Statement stmt = null;
         try
         {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Teamleistung SET Teamleistungsname = '" + tl_Name + "' WHERE Veranstaltungsname = '" + teamID +"'");
+            stmt.executeUpdate("UPDATE Teamleistung SET Teamleistungsname = '" + tl_Name + "' WHERE TeamID = '" + teamID + "' AND GruppenID = '" + gruppenID + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         }
         catch(SQLException ex)
         {
