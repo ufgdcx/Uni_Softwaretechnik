@@ -474,7 +474,7 @@ public class DBrequest {
     }
 
     //TODO
-    public Nutzer updateNutzerPasswort(String email, String passwort) throws DatabaseException {
+    public void updateNutzerPasswort(String email, String passwort) throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
@@ -482,18 +482,38 @@ public class DBrequest {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
-        return null;
     }
 
     //TODO
-    public Nutzer updateNutzerTitle(String email, String title) throws DatabaseException {
-        return null;
+    public void updateNutzerTitle(String email, String title) throws DatabaseException {
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Nutzer SET Titel = '" + title + "' WHERE EMailadresse = '" + email + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Nutzer updateNutzerVornamen(String email, String vorname) throws DatabaseException {
-        return null;
+    public void updateNutzerVornamen(String email, String vorname) throws DatabaseException {
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Nutzer SET Vorname = '" + vorname + "' WHERE EMailadresse = '" + email + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateNutzerNachname(String email, String name) throws DatabaseException {
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Nutzer SET Nachmane = '" + name + "' WHERE EMailadresse = '" + email + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
 //    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
@@ -502,13 +522,25 @@ public class DBrequest {
 //    }
 
     //TODO
-    public Student updateStudentStudiengang(String email, String studiengang) throws DatabaseException {
-        return null;
+    public void updateStudentStudiengang(String email, String studiengang) throws DatabaseException {
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Student SET Studiengang = '" + studiengang + "' WHERE EMailadresse = '" + email + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Dozent updateDozentFakultaet(String email, String fakultaet) throws DatabaseException {
-        return null;
+    public void updateDozentFakultaet(String email, String fakultaet) throws DatabaseException {
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Dozent SET Fakultaet = '" + fakultaet + "' WHERE EMailadresse = '" + email + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
 //    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
@@ -517,23 +549,47 @@ public class DBrequest {
 //    }
 
     //TODO
-    public Gruppe updateGruppeEinschreibefrist(int gruppenID, Date einschreibefrist) throws DatabaseException {
-        return null;
+    public void updateGruppeEinschreibefrist(int gruppenID, Date einschreibefrist) throws DatabaseException {
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Gruppe SET  Einschreibungsfrist = '" + einschreibefrist + "' WHERE GruppenID = '" + gruppenID + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Gruppe updateGruppeUhrzeit(int gruppenID, Time uhrzeit) throws DatabaseException {
-        return null;
+    public void updateGruppeUhrzeit(int gruppenID, Time uhrzeit) throws DatabaseException {
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Gruppe SET  Uhrzeit = '" + uhrzeit + "' WHERE GruppenID = '" + gruppenID + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Gruppe updateGruppeWochentag(int gruppenID, String wochentag) throws DatabaseException {
-        return null;
+    public void updateGruppeWochentag(int gruppenID, String wochentag) throws DatabaseException {
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Gruppe SET  Wochentag = '" + wochentag + "' WHERE GruppenID = '" + gruppenID + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Gruppe updateGruppeWochenrhythmus(int gruppenID, String wochenrhythmus) throws DatabaseException {
-        return null;
+    public void updateGruppeWochenrhythmus(int gruppenID, String wochenrhythmus) throws DatabaseException {
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Gruppe SET  Wochenrhytmus = '" + wochenrhythmus + "' WHERE GruppenID = '" + gruppenID + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
 //    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
