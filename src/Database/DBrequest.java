@@ -488,10 +488,10 @@ public class DBrequest {
         return null;
     }
 
-    //TODO
-    public Student updateStudentMatrikelnummer(String email, String matrikelnummer) throws DatabaseException {
-        return null;
-    }
+//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+//    public Student updateStudentMatrikelnummer(String email, String matrikelnummer) throws DatabaseException {
+//        return null;
+//    }
 
     //TODO
     public Student updateStudentStudiengang(String email, String studiengang) throws DatabaseException {
@@ -503,10 +503,10 @@ public class DBrequest {
         return null;
     }
 
-    //TODO
-    public Gruppe updateGruppeVeranstaltungsname(int gruppenID, String veranstaltungsname) throws DatabaseException {
-        return null;
-    }
+//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+//    public Gruppe updateGruppeVeranstaltungsname(int gruppenID, String veranstaltungsname) throws DatabaseException {
+//        return null;
+//    }
 
     //TODO
     public Gruppe updateGruppeEinschreibefrist(int gruppenID, Date einschreibefrist) throws DatabaseException {
@@ -528,10 +528,10 @@ public class DBrequest {
         return null;
     }
 
-    //TODO
-    public Leistungsblock updateLBName(int matrikelnummer, String lb_name) throws DatabaseException {
-        return null;
-    }
+//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+//    public Leistungsblock updateLBName(int matrikelnummer, String lb_name) throws DatabaseException {
+//        return null;
+//    }
 
     //TODO
     public Unterblock updateUBName(int matrikelnummer, String ub_name) throws DatabaseException {
@@ -544,29 +544,29 @@ public class DBrequest {
     }
 
     //TODO
-    public Studienganganteil updateStudienganganteilStudiengang(int anteil, String studiengang) throws DatabaseException {
+    public Studienganganteil updateStudienganganteil(int anteil, String studiengang) throws DatabaseException {
         return null;
     }
 
-    //TODO
-    public Studienganganteil updateStudienganganteilGruppenID(int anteil, int gruppenID) throws DatabaseException {
-        return null;
-    }
+//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+//    public Studienganganteil updateStudienganganteilGruppenID(int anteil, int gruppenID) throws DatabaseException {
+//        return null;
+//    }
 
-    //TODO
-    public Studienganganteil updateStudienganganteilTeamID(int anteil, int teamID) throws DatabaseException {
-        return null;
-    }
+//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+//    public Studienganganteil updateStudienganganteilTeamID(int anteil, int teamID) throws DatabaseException {
+//        return null;
+//    }
 
-    //TODO
-    public Studienganganteil updateStudienganganteilVName(int anteil, String vName) throws DatabaseException {
-        return null;
-    }
+//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+//    public Studienganganteil updateStudienganganteilVName(int anteil, String vName) throws DatabaseException {
+//        return null;
+//    }
 
-    //TODO
-    public Team updateTeamGruppenID(int teamID, int gruppenID) throws DatabaseException {
-        return null;
-    }
+//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+//    public Team updateTeamGruppenID(int teamID, int gruppenID) throws DatabaseException {
+//        return null;
+//    }
 
     //TODO
     public Team updateTeamThema(int teamID, String Thema) throws DatabaseException {
@@ -594,7 +594,7 @@ public class DBrequest {
     }
 
     //TODO
-    public Veranstaltung updateVeranstaltungMax_members(String veranstaltung, String max_members) throws DatabaseException {
+    public Veranstaltung updateVeranstaltungMax_Teammitglieder(String veranstaltung, String max_members) throws DatabaseException {
         return null;
     }
 }
