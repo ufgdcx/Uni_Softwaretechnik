@@ -450,28 +450,6 @@ public class DBrequest {
         return  results;
     }
 
-    //Supportmethods
-    public void close(){
-        try {
-            con.close();
-        }catch(SQLException ex){
-
-        }
-    }
-
-    public int resultSize(ResultSet rs){
-        int size =0;
-        try {
-            if (rs != null) {
-                rs.last();    // moves cursor to the last row
-                size = rs.getRow(); // get row id
-                rs.first();
-            }
-        }catch (SQLException ex){
-
-        }
-        return size;
-    }
 
     //TODO
     public void updateNutzerPasswort(String email, String passwort) throws DatabaseException {
@@ -743,4 +721,26 @@ public class DBrequest {
         }
     }
 
+    //Supportmethods
+    public void close(){
+        try {
+            con.close();
+        }catch(SQLException ex){
+
+        }
+    }
+
+    public int resultSize(ResultSet rs){
+        int size =0;
+        try {
+            if (rs != null) {
+                rs.last();    // moves cursor to the last row
+                size = rs.getRow(); // get row id
+                rs.first();
+            }
+        }catch (SQLException ex){
+
+        }
+        return size;
+    }
 }
