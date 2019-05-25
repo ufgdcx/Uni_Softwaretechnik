@@ -139,22 +139,22 @@ public class DBtest
 
         // Test update methods
         //
-        b.updateNutzerPasswort("test@email.com", "123456");
-        b.updateNutzerTitle("test@email.com", "Overlord");
-        b.updateNutzerVornamen("test@email.com", "bab");
-        b.updateNutzerNachname("test@email.com", "baab");
-        b.updateStudentStudiengang("bob@baumeister.com", "Ingenieur");
-        b.updateDozentFakultaet("test@email.com", "Meeresbiologie");
-        b.updateGruppeEinschreibefrist(42, "Mobbing", new Date(System.currentTimeMillis()) );
-        b.updateGruppeUhrzeit(42, "Mobbing", new Time(System.currentTimeMillis()));
-        b.updateGruppeWochentag(42,"Mobbing", "Tag");
-        b.updateGruppeWochenrhythmus(42,"Mobbing", "ungerW");
-        b.updateUBName(79,"Mobbing", "Mobbing for mature Students", "Bob", "A1");
-        b.updateUBPunkte(79, 43, "Bob", "A1", "Mobbing");
-        b.updateStudienganganteil("Biologie", 42, 3, 42, "Mobbing");
-        b.updateTeamThema(3, "Cybermobbing 2", 42, "Mobbing");
-        b.updateTeamleistungPunkte(3, 43, 42, "Mobbing");
-        b.updateTeamleistungName(3, "Leistung1", 42, "Mobbing");
+//        b.updateNutzerPasswort("test@email.com", "123456");
+//        b.updateNutzerTitle("test@email.com", "Overlord");
+//        b.updateNutzerVornamen("test@email.com", "bab");
+//        b.updateNutzerNachname("test@email.com", "baab");
+//        b.updateStudentStudiengang("bob@baumeister.com", "Ingenieur");
+//        b.updateDozentFakultaet("test@email.com", "Meeresbiologie");
+//        b.updateGruppeEinschreibefrist(42, "Mobbing", new Date(System.currentTimeMillis()) );
+//        b.updateGruppeUhrzeit(42, "Mobbing", new Time(System.currentTimeMillis()));
+//        b.updateGruppeWochentag(42,"Mobbing", "Tag");
+//        b.updateGruppeWochenrhythmus(42,"Mobbing", "ungerW");
+//        b.updateUBName(79,"Mobbing", "Mobbing for mature Students", "Bob", "A1");
+//        b.updateUBPunkte(79, 43, "Bob", "A1", "Mobbing");
+//        b.updateStudienganganteil("Biologie", 42, 3, 42, "Mobbing");
+//        b.updateTeamThema(3, "Cybermobbing 2", 42, "Mobbing");
+//        b.updateTeamleistungPunkte(3, 43, 42, "Mobbing");
+//        b.updateTeamleistungName(3, "Leistung1", 42, "Mobbing");
         b.updateVeranstaltungTeamanzahl_je_Gruppe("Mobbing", 42);
         b.updateVeranstaltungBeschreibung("Mobbing", "Hier lernt man Leute zu demotivieren");
         b.updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team("Mobbing", 42);

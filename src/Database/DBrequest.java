@@ -1,6 +1,7 @@
 package Database;
 
 import Klassen.*;
+import com.mysql.cj.xdevapi.SqlDataResult;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -500,7 +501,7 @@ public class DBrequest {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Nutzer SET Nachmane = '" + name + "' WHERE EMailadresse = '" + email + "'");
+                stmt.executeUpdate("UPDATE Nutzer SET Nachname = '" + name + "' WHERE EMailadresse = '" + email + "'");
         } catch (SQLException ex) {
             throw new DatabaseException("Connection Failed");
         }
@@ -543,13 +544,13 @@ public class DBrequest {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Gruppe SET  Einschreibungsfrist = '" + einschreibefrist + "' WHERE WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-        } catch (SQLException ex) {
+            stmt.executeUpdate("UPDATE Gruppe SET  Einschreibungsfrist = '" + einschreibefrist + "' WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+        }catch (SQLException ex) {
+
             throw new DatabaseException("Connection Failed");
         }
     }
 
-    //TODO
     public void updateGruppeUhrzeit(int gruppenid, String veranstaltungsname, Time uhrzeit) throws DatabaseException {
         Statement stmt = null;
         try {
@@ -593,7 +594,11 @@ public class DBrequest {
         try
         {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Unterblock SET Unterblock_name = '" + ub_name + "' WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            try{
+                stmt.executeUpdate("UPDATE Unterblock SET Unterblock_name = '" + ub_name + "' WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
         }
         catch(SQLException ex)
         {
@@ -601,7 +606,6 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateUBPunkte(int matrikelnummer, int ub_punkte, String leistungsblockname, String unterblockname, String veranstaltungsname) throws DatabaseException {
         Statement stmt = null;
         try
@@ -615,7 +619,6 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateStudienganganteil(String studiengang, int anteil, int teamid, int gruppenid, String veranstaltungsname) throws DatabaseException {
         Statement stmt = null;
         try
@@ -691,13 +694,12 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateVeranstaltungTeamanzahl_je_Gruppe(String veranstaltungsname, int teamanzahl) throws DatabaseException {
         Statement stmt = null;
         try
         {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Veranstaltung SET Teamzahl_je_Gruppe = '" + teamanzahl + "' WHERE Veranstaltungsname = '" +veranstaltungsname+"'");
+            stmt.executeUpdate("UPDATE Veranstaltung SET  Teamanzahl_je_Gruppe = '" + teamanzahl + "' WHERE Veranstaltungsname = '" +veranstaltungsname+"'");
         }
         catch(SQLException ex)
         {
