@@ -594,7 +594,7 @@ public class DBrequest {
     }
 
     //TODO
-    public Veranstaltung updateVeranstaltungMax_Teammitglieder(String veranstaltung, String max_members) throws DatabaseException {
+    public Veranstaltung updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team(String veranstaltung, String maximale_Teilnehmeranzahl_je_Team) throws DatabaseException {
         return null;
     }
 }
