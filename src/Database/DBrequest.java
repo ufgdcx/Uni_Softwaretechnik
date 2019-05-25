@@ -475,6 +475,14 @@ public class DBrequest {
 
     //TODO
     public Nutzer updateNutzerPasswort(String email, String passwort) throws DatabaseException {
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Nutzer SET Passwort = '" + passwort + "' WHERE EMailadresse = '" + email + "'");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
         return null;
     }
 
