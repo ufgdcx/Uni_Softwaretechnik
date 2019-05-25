@@ -238,131 +238,143 @@ public class DBrequest {
 
 
     //deleter(primitiv)
-    public void deleteUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname){
+    public void deleteUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname) throws DatabaseException
+    {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Unterblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void deleteDozent(String email){
+    public void deleteDozent(String email) throws DatabaseException
+    {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Dozent WHERE Emailadresse = '" + email + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
 
     }
 
-    public void deleteGehoertZu(int matrikelnummer,int teamid, int gruppenid, String veranstaltungsname){
+    public void deleteGehoertZu(int matrikelnummer,int teamid, int gruppenid, String veranstaltungsname) throws DatabaseException
+    {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Gehoert_zu WHERE matrikelnummer = '" + matrikelnummer + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void deleteGruppe(int gruppenid, String veranstaltungsname){
+    public void deleteGruppe(int gruppenid, String veranstaltungsname) throws DatabaseException
+    {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Gruppe WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void deleteLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname){
+    public void deleteLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname) throws DatabaseException
+    {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Leistungsblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
 
     }
 
-    public void deleteLeitet(String name, String email){
+    public void deleteLeitet(String name, String email) throws DatabaseException
+    {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Leitet WHERE Name = '" + name + "' AND Emailadresse = '" + email + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void deleteNutzer(String email){
+    public void deleteNutzer(String email) throws DatabaseException
+    {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Nutzer WHERE Emailadresse = '" + email + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void deleteStudent(String email){
+    public void deleteStudent(String email) throws DatabaseException
+    {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Student WHERE Emailadresse = '" + email + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void deleteStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname){
+    public void deleteStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname) throws DatabaseException
+    {
         // Studienanteil: Studiengang, TeamID, GruppenID, Veranstaltungsname
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Studienganganteil WHERE Studiengang = '" + studiengang + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
-    public void deleteTeam(int teamid, int gruppenid, String veranstaltungsname){
+    public void deleteTeam(int teamid, int gruppenid, String veranstaltungsname) throws DatabaseException
+    {
         // Team: TeamID, GruppenID, Veranstaltungsname
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Team WHERE TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
 
     }
 
-    public void deleteTeamleistung(String teamleistung, int teamid, int gruppenid, String veranstaltungsname){
+    public void deleteTeamleistung(String teamleistung, int teamid, int gruppenid, String veranstaltungsname) throws DatabaseException
+    {
         // Teamleistung: Teamleistungsname, TeamID, GruppenID, Veranstaltungsname
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Teamleistung WHERE Teamleistungsname = '" + teamleistung + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
 
     }
 
-    public void deleteVeranstaltung(String veranstaltungsname){
+    public void deleteVeranstaltung(String veranstaltungsname) throws DatabaseException
+    {
         // Veranstaltung: Veranstaltungsname
         Statement stmt = null;
         try {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
 
     }
@@ -458,7 +470,7 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Nutzer SET Passwort = '" + passwort + "' WHERE EMailadresse = '" + email + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -469,7 +481,7 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Nutzer SET Titel = '" + title + "' WHERE EMailadresse = '" + email + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -480,7 +492,7 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Nutzer SET Vorname = '" + vorname + "' WHERE EMailadresse = '" + email + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -490,7 +502,7 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Nutzer SET Nachmane = '" + name + "' WHERE EMailadresse = '" + email + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -506,7 +518,7 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Student SET Studiengang = '" + studiengang + "' WHERE EMailadresse = '" + email + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -517,7 +529,7 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Dozent SET Fakultaet = '" + fakultaet + "' WHERE EMailadresse = '" + email + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -533,7 +545,7 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Gruppe SET  Einschreibungsfrist = '" + einschreibefrist + "' WHERE GruppenID = '" + gruppenID + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -544,7 +556,7 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Gruppe SET  Uhrzeit = '" + uhrzeit + "' WHERE GruppenID = '" + gruppenID + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -555,7 +567,7 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Gruppe SET  Wochentag = '" + wochentag + "' WHERE GruppenID = '" + gruppenID + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -566,7 +578,7 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Gruppe SET  Wochenrhytmus = '" + wochenrhythmus + "' WHERE GruppenID = '" + gruppenID + "'");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -585,7 +597,7 @@ public class DBrequest {
         }
         catch(SQLException ex)
         {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -599,7 +611,7 @@ public class DBrequest {
         }
         catch(SQLException ex)
         {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -613,7 +625,7 @@ public class DBrequest {
         }
         catch(SQLException ex)
         {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -647,7 +659,7 @@ public class DBrequest {
         }
         catch(SQLException ex)
         {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -661,7 +673,7 @@ public class DBrequest {
         }
         catch(SQLException ex)
         {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -675,7 +687,7 @@ public class DBrequest {
         }
         catch(SQLException ex)
         {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -689,7 +701,7 @@ public class DBrequest {
         }
         catch(SQLException ex)
         {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -703,7 +715,7 @@ public class DBrequest {
         }
         catch(SQLException ex)
         {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
@@ -717,7 +729,7 @@ public class DBrequest {
         }
         catch(SQLException ex)
         {
-            ex.printStackTrace();
+            throw new DatabaseException("Connection Failed");
         }
     }
 
