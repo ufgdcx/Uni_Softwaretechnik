@@ -598,18 +598,45 @@ public class DBrequest {
 //    }
 
     //TODO
-    public Unterblock updateUBName(int matrikelnummer, String ub_name) throws DatabaseException {
-        return null;
+    public void updateUBName(int matrikelnummer, String ub_name) throws DatabaseException {
+        Statement stmt = null;
+        try
+        {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Unterblock SET Unterblock_name = '" + ub_name + "' WHERE Veranstaltungsname = '" + matrikelnummer +"'");
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Unterblock updateUBPunkte(int matrikelnummer, int ub_punkte) throws DatabaseException {
-        return null;
+    public void updateUBPunkte(int matrikelnummer, int ub_punkte) throws DatabaseException {
+        Statement stmt = null;
+        try
+        {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Unterblock SET Punkte = '" + ub_punkte + "' WHERE Veranstaltungsname = '" + matrikelnummer +"'");
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Studienganganteil updateStudienganganteil(int anteil, String studiengang) throws DatabaseException {
-        return null;
+    public void updateStudienganganteil(String studiengang, int anteil) throws DatabaseException {
+        Statement stmt = null;
+        try
+        {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Studienganganteil SET Anteil = '" + anteil + "' WHERE Veranstaltungsname = '" + studiengang +"'");
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
 //    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
@@ -633,32 +660,87 @@ public class DBrequest {
 //    }
 
     //TODO
-    public Team updateTeamThema(int teamID, String Thema) throws DatabaseException {
-        return null;
+    public void updateTeamThema(int teamID, String thema) throws DatabaseException {
+        Statement stmt = null;
+        try
+        {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Team SET Thema = '" + thema + "' WHERE Veranstaltungsname = '" + teamID +"'");
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Teamleistung updateTeamleistungPunkte(int teamID, int punkte) throws DatabaseException {
-        return null;
+    public void updateTeamleistungPunkte(int teamID, int punkte) throws DatabaseException {
+        Statement stmt = null;
+        try
+        {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Teamleistung SET Punkte = '" + punkte + "' WHERE Veranstaltungsname = '" + teamID +"'");
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Teamleistung updateTeamleistungName(int teamID, int tl_Name) throws DatabaseException {
-        return null;
+    public void updateTeamleistungName(int teamID, String tl_Name) throws DatabaseException {
+        Statement stmt = null;
+        try
+        {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Teamleistung SET Teamleistungsname = '" + tl_Name + "' WHERE Veranstaltungsname = '" + teamID +"'");
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Veranstaltung updateVeranstaltungTeamanzahl(String veranstaltung, int teamanzahl) throws DatabaseException {
-        return null;
+    public void updateVeranstaltungTeamanzahl_je_Gruppe(String veranstaltungsname, int teamanzahl) throws DatabaseException {
+        Statement stmt = null;
+        try
+        {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Veranstaltung SET Teamzahl_je_Gruppe = '" + teamanzahl + "' WHERE Veranstaltungsname = '" +veranstaltungsname+"'");
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Veranstaltung updateVeranstaltungBeschreibung(String veranstaltung, String beschreibung) throws DatabaseException {
-        return null;
+    public void updateVeranstaltungBeschreibung(String veranstaltungsname, String beschreibung) throws DatabaseException {
+        Statement stmt = null;
+        try
+        {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Veranstaltung SET Beschreibung = '" + beschreibung + "' WHERE Veranstaltungsname = '" +veranstaltungsname+"'");
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     //TODO
-    public Veranstaltung updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team(String veranstaltung, String maximale_Teilnehmeranzahl_je_Team) throws DatabaseException {
-        return null;
+    public void updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team(String veranstaltungsname, int maximale_Teilnehmeranzahl_je_Team) throws DatabaseException {
+        Statement stmt = null;
+        try
+        {
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Veranstaltung SET maximale_Teilnehmeranzahl_je_Team = '" + maximale_Teilnehmeranzahl_je_Team + "' WHERE Veranstaltungsname = '" +veranstaltungsname+"'");
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
     }
+
 }
