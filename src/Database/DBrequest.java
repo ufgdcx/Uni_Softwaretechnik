@@ -237,8 +237,64 @@ public class DBrequest {
         createDozent(doz.getEmail(),doz.getFakultaet());
     }
 
+    // TODO
+    public void createVeranstaltung(Veranstaltung veranstaltung)
+    {
+        // ...
+    }
+
+    // TODO
+    public void createleitet(Dozent dozent, Veranstaltung veranstaltung)
+    {
+        // ...
+    }
+
+    // TODO
+    public void createGruppe(Gruppe gruppe)
+    {
+        // ...
+    }
+
+    // TODO
+    public void createTeam(Team team)
+    {
+        // ...
+    }
+
+    // TODO
+    public void createGehoert_zu(Student student, Team team)
+    {
+        // ...
+    }
+
+    // TODO
+    public void createStudienganganteil(Studienganganteil studienganganteil)
+    {
+        // ...
+    }
+
+    // TODO
+    public void createTeamleistung(Teamleistung teamleisutng)
+    {
+        // ...
+    }
+
+    // TODO
+    public void createLeistungsblock(Leistungsblock leistungsblock)
+    {
+        // ...
+    }
+
+    // TODO
+    public void createUnterblock(Unterblock unterblock)
+    {
+        // ...
+    }
+
+
 
     //deleter(primitiv)
+    //
     public void deleteUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname) throws DatabaseException
     {
         Statement stmt = null;
@@ -775,4 +831,61 @@ public class DBrequest {
         }
         return size;
     }
+
+    // Coole Functionen (Functionsparamteter nur Klassen Modelle keine primitive datentypen!!!! afiujdsf)
+    //
+    // TODO
+    public void updateStudent(Nutzer nutzer)
+    {
+        // ...
+    }
+
+    // TODO
+    public void updateDozent(Nutzer nutzer)
+    {
+        // ...
+    }
+
+    // TODO
+    public void updateVeranstaltung(Nutzer nutzer)
+    {
+        // ...
+    }
+
+    // TODO
+    public void updateGruppe(Nutzer nutzer)
+    {
+        // ...
+    }
+
+    // TODO
+    public void updateTeam(Nutzer nutzer)
+    {
+        // ...
+    }
+
+    // TODO
+    public void updateTeamleistung(Nutzer nutzer)
+    {
+        // ...
+    }
+
+    // TODO
+    public void updateStudienganganteil(Nutzer nutzer)
+    {
+        // ...
+    }
+
+    // TODO
+    public void updateLeistungsblock(Nutzer nutzer)
+    {
+        // ...
+    }
+
+    // TODO
+    public void updateUnterblock(Nutzer nutzer)
+    {
+        // ...
+    }
+
 }
