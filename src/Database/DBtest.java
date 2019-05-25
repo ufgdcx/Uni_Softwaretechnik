@@ -145,19 +145,19 @@ public class DBtest
         b.updateNutzerNachname("test@email.com", "baab");
         b.updateStudentStudiengang("bob@baumeister.com", "Ingenieur");
         b.updateDozentFakultaet("test@email.com", "Meeresbiologie");
-        // b.updateGruppeEinschreibefrist(42, )
-        // b.updateGruppeUhrzeit()
+        b.updateGruppeEinschreibefrist(42, )
+        b.updateGruppeUhrzeit()
         b.updateGruppeWochentag(42, "woche");
         b.updateGruppeWochenrhythmus(42, "ungerW");
         b.updateUBName(79, "gruppe04");
         b.updateUBPunkte(79, 43);
-//        b.updateStudienganganteil();
-//        b.updateTeamThema();
-//        b.updateTeamleistungPunkte();
-//        b.updateTeamleistungName();
-//        b.updateVeranstaltungTeamanzahl_je_Gruppe();
-//        b.updateVeranstaltungBeschreibung();
-//        b.updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team();
+        b.updateStudienganganteil();
+        b.updateTeamThema();
+        b.updateTeamleistungPunkte();
+        b.updateTeamleistungName();
+        b.updateVeranstaltungTeamanzahl_je_Gruppe();
+        b.updateVeranstaltungBeschreibung();
+        b.updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team();
 
 
         // Test delet methods
