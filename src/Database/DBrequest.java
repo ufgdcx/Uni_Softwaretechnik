@@ -539,44 +539,44 @@ public class DBrequest {
 //    }
 
     //TODO
-    public void updateGruppeEinschreibefrist(int gruppenID, Date einschreibefrist) throws DatabaseException {
+    public void updateGruppeEinschreibefrist(int gruppenid, String veranstaltungsname, Date einschreibefrist) throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Gruppe SET  Einschreibungsfrist = '" + einschreibefrist + "' WHERE GruppenID = '" + gruppenID + "'");
+            stmt.executeUpdate("UPDATE Gruppe SET  Einschreibungsfrist = '" + einschreibefrist + "' WHERE WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
             throw new DatabaseException("Connection Failed");
         }
     }
 
     //TODO
-    public void updateGruppeUhrzeit(int gruppenID, Time uhrzeit) throws DatabaseException {
+    public void updateGruppeUhrzeit(int gruppenid, String veranstaltungsname, Time uhrzeit) throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Gruppe SET  Uhrzeit = '" + uhrzeit + "' WHERE GruppenID = '" + gruppenID + "'");
+            stmt.executeUpdate("UPDATE Gruppe SET  Uhrzeit = '" + uhrzeit + "' WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
             throw new DatabaseException("Connection Failed");
         }
     }
 
     //TODO
-    public void updateGruppeWochentag(int gruppenID, String wochentag) throws DatabaseException {
+    public void updateGruppeWochentag(int gruppenid, String veranstaltungsname, String wochentag) throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Gruppe SET  Wochentag = '" + wochentag + "' WHERE GruppenID = '" + gruppenID + "'");
+            stmt.executeUpdate("UPDATE Gruppe SET  Wochentag = '" + wochentag + "' WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
             throw new DatabaseException("Connection Failed");
         }
     }
 
     //TODO
-    public void updateGruppeWochenrhythmus(int gruppenID, String wochenrhythmus) throws DatabaseException {
+    public void updateGruppeWochenrhythmus(int gruppenid, String veranstaltungsname, String wochenrhythmus) throws DatabaseException {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Gruppe SET  Wochenrhytmus = '" + wochenrhythmus + "' WHERE GruppenID = '" + gruppenID + "'");
+            stmt.executeUpdate("UPDATE Gruppe SET  Wochenrhytmus = '" + wochenrhythmus + "' WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         } catch (SQLException ex) {
             throw new DatabaseException("Connection Failed");
         }
@@ -588,7 +588,7 @@ public class DBrequest {
 //    }
 
     //TODO
-    public void updateUBName(int matrikelnummer, String ub_name) throws DatabaseException {
+    public void updateUBName(int matrikelnummer, String veranstaltungsname, String ub_name) throws DatabaseException {
         Statement stmt = null;
         try
         {
