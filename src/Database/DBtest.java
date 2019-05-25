@@ -151,13 +151,13 @@ public class DBtest
         b.updateGruppeWochenrhythmus(42, "ungerW");
         b.updateUBName(79, "gruppe04");
         b.updateUBPunkte(79, 43);
-        b.updateStudienganganteil("");
-        b.updateTeamThema();
-        b.updateTeamleistungPunkte();
-        b.updateTeamleistungName();
-        b.updateVeranstaltungTeamanzahl_je_Gruppe();
-        b.updateVeranstaltungBeschreibung();
-        b.updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team();
+//        b.updateStudienganganteil();
+//        b.updateTeamThema();
+//        b.updateTeamleistungPunkte();
+//        b.updateTeamleistungName();
+//        b.updateVeranstaltungTeamanzahl_je_Gruppe();
+//        b.updateVeranstaltungBeschreibung();
+//        b.updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team();
 
 
         // Test delet methods
