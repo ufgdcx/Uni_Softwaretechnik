@@ -5,12 +5,13 @@ import GUI.*;
 import Klassen.*;
 
 public class MainController {
-	private GUIMain mainFrame;
+	protected GUIMain mainFrame;
 	private Nutzer n;
-	private DBrequest dbr = new DBrequest();
+	protected DBrequest dbr = new DBrequest();
 	
 	public MainController(GUIMain m) {
 		mainFrame = m;
+		mainFrame.setController(this);
 	}
 	
 	public void login(String email, char[] passwd) {
