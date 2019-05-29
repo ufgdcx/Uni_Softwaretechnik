@@ -17,8 +17,6 @@ public  class DataSourceConn {
     public static Connection buildConnection(){
         try {
             MysqlDataSource dataSource = new MysqlDataSource();
-            if (dataSource instanceof DataSource)
-                System.out.println("MysqlDataSource implements the javax.sql.DataSource interface");
 
             System.out.println("datasource created");
             dataSource.setServerName(server);
@@ -26,11 +24,9 @@ public  class DataSourceConn {
             dataSource.setDatabaseName(databaseName);
             dataSource.setUser(username);
             dataSource.setPassword(password);
-            Connection con = dataSource.getConnection();
-            return con;
+            return dataSource.getConnection();
         }catch (SQLException ex){
             ex.printStackTrace();
-            System.out.println(ex);
             return  null;
         }
     }

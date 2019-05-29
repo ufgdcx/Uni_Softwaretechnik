@@ -52,61 +52,61 @@ public class DBtest
             buffer.write("Teste Funktion: b.createStudent(\"bob@baumeister.com\",79,\"Imker\");\n");
             b.createStudent("bob@baumeister.com",79,"Imker");
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());;
+            buffer.write(ex.getErrorMsg());
         }
         try {
             buffer.write("Teste Funktion: b.createVeranstaltung(\"Mobbing\", \"Hogwarts\", 42, 10, \"9/10 Menschen finden Mobbing gut\");\n");
             b.createVeranstaltung("Mobbing", "Hogwarts", 42, 10, "9/10 Menschen finden Mobbing gut");
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());;
+            buffer.write(ex.getErrorMsg());
         }
         try {
             buffer.write("Teste Funktion: b.createLeitet(\"Mobbing\", \"test@email.com\");\n");
             b.createLeitet("Mobbing", "test@email.com");
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());;
+            buffer.write(ex.getErrorMsg());
         }
         try {
             buffer.write("Teste Funktion: b.createGruppe(42, \"test@email.com\", \"Mobbing\", new Date(System.currentTimeMillis()), new Time(System.currentTimeMillis()), \"Mittwoch\", \"ger\");\n");
             b.createGruppe(42, "test@email.com", "Mobbing", new Date(System.currentTimeMillis()), new Time(System.currentTimeMillis()), "Mittwoch", "ger");
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());;
+            buffer.write(ex.getErrorMsg());
         }
         try {
             buffer.write("Teste Funktion: b.createTeam(3, 42, \"Mobbing\", \"Cybermobbing\");\n");
             b.createTeam(3, 42, "Mobbing", "Cybermobbing");
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());;
+            buffer.write(ex.getErrorMsg());
         }
         try {
             buffer.write("Teste Funktion: b.createGehoertZu(79, 3, 42, \"Mobbing\");\n");
             b.createGehoertZu(79, 3, 42, "Mobbing");
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());;
+            buffer.write(ex.getErrorMsg());
         }
         try {
             buffer.write("Teste Funktion: b.createLeistungsblock(79, \"Bob\", \"Mobbing\");\n");
             b.createLeistungsblock(79, "Bob", "Mobbing");
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());;
+            buffer.write(ex.getErrorMsg());
         }
         try {
             buffer.write("Teste Funktion: b.createUnterblock(79, \"Bob\", \"A1\", \"Mobbing\", 42);\n");
             b.createUnterblock(79, "Bob", "A1", "Mobbing", 42);
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());;
+            buffer.write(ex.getErrorMsg());
         }
         try {
             buffer.write("Teste Funktion: b.createTeamleistung(\"Bob2\", 3, 42, \"Mobbing\", 42);\n");
             b.createTeamleistung("Bob2", 3, 42, "Mobbing", 42);
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());;
+            buffer.write(ex.getErrorMsg());
         }
         try {
             buffer.write("Teste Funktion: b.createStudienganganteil(\"Bilologie\", 3, 42, \"Mobbing\", 1);\n");
             b.createStudienganganteil("Bilologie", 3, 42, "Mobbing", 1);
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());;
+            buffer.write(ex.getErrorMsg());
         }
 
         // Test get methods
