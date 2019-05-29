@@ -596,7 +596,7 @@ public class DBrequest {
         return  results;
     }
 
-    public ArrayList<Veranstaltung> getVeranstaltungen(String veranstaltungsname) throws  DatabaseException
+    public ArrayList<Veranstaltung> getVeranstaltungen(Student s) throws  DatabaseException
     {
         // TODO
         return null;
