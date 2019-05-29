@@ -24,7 +24,7 @@ public class DVeranstaltung implements FrameContent {
 
     public String getNachname() {
 
-        return "Veranstaltung";
+        return "Veranstaltung - Dozent";
     }
 
     public JPanel getPanel() {

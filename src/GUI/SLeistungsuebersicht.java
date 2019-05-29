@@ -17,7 +17,7 @@ public class SLeistungsuebersicht implements FrameContent {
 
     public String getNachname() {
 
-        return "Leistungsübersicht";
+        return "Leistungsübersicht - Student";
     }
 
     public JPanel getPanel() {

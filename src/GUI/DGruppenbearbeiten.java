@@ -1,8 +1,6 @@
 package GUI;
 
 import javax.swing.*;
-import javax.swing.JTree;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,7 +17,7 @@ public class DGruppenbearbeiten implements FrameContent {
 
     public String getNachname() {
 
-        return "Gruppen und Teams bearbeiten";
+        return "Gruppen und Teams bearbeiten - Dozent";
     }
 
     public JPanel getPanel() {

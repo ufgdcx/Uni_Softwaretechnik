@@ -1,7 +1,6 @@
 package GUI;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,7 +18,7 @@ public class VerifikationsSeite implements FrameContent {
 
     public String getNachname() {
 
-        return "registrieren";
+        return "Registrierung";
     }
 
     public JPanel getPanel() {

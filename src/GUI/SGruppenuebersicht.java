@@ -19,7 +19,7 @@ public class SGruppenuebersicht implements FrameContent {
 
     public String getNachname() {
 
-        return "Gruppenübersicht";
+        return "Gruppenübersicht - Student";
     }
 
     public JPanel getPanel() {

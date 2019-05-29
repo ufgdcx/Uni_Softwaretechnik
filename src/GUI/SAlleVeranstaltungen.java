@@ -18,7 +18,7 @@ public class SAlleVeranstaltungen implements FrameContent {
 
     public String getNachname() {
 
-        return "Veranstaltungsübersicht";
+        return "Veranstaltungsübersicht - Student";
     }
 
     public JPanel getPanel() {

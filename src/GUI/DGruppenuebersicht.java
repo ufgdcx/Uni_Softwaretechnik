@@ -24,7 +24,7 @@ public class DGruppenuebersicht implements FrameContent {
 
     public String getNachname() {
 
-        return "Gruppen- und Teamübersicht";
+        return "Gruppen- und Teamübersicht - Dozent";
     }
 
     public JPanel getPanel() {

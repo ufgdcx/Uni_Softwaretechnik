@@ -22,7 +22,7 @@ public class DVeranstaltungbearbeiten implements FrameContent {
 
     public String getNachname() {
 
-        return "Veranstaltung bearbeiten";
+        return "Veranstaltung bearbeiten - Dozent";
     }
 
     public JPanel getPanel() {

@@ -20,7 +20,7 @@ public class SVeranstaltungsuebersicht implements FrameContent {
 
     public String getNachname() {
 
-        return "Startseite";
+        return "Veranstaltungsübersicht - Student";
     }
 
     public JPanel getPanel() {

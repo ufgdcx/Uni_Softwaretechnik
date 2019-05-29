@@ -40,7 +40,7 @@ public class RegistrierenSeite implements FrameContent {
 
     public String getNachname() {
 
-        return "Registrieren";
+        return "Registrierung";
     }
 
     public JPanel getPanel() {

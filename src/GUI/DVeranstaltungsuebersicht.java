@@ -17,7 +17,7 @@ public class DVeranstaltungsuebersicht implements FrameContent {
 
     public String getNachname() {
 
-        return "Startseite";
+        return "Veranstaltungsübersicht - Dozent";
     }
 
     public JPanel getPanel() {

@@ -23,7 +23,7 @@ public class LoginSeite implements FrameContent {
 
     public String getNachname() {
 
-        return "Loginseite";
+        return "Login";
     }
 
     public JPanel getPanel() {
