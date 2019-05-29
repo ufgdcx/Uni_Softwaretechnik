@@ -1,6 +1,6 @@
 package Klassen;
 
-public class Einzelleistung 
+public class Aufgabe
 {
     // member variables
     private String elName;
@@ -8,7 +8,7 @@ public class Einzelleistung
     private Unterblock unterblock;
 
     // constructor
-    public Einzelleistung(String elName, int elPunkte, Unterblock unterblock)
+    public Aufgabe(String elName, int elPunkte, Unterblock unterblock)
     {
         this.elName = elName;
         this.elPunkte = elPunkte;
