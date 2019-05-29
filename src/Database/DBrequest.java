@@ -25,9 +25,9 @@ public class DBrequest {
             }
 
         }catch (SQLException ex){
-           throw new DatabaseException("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
-     }
+    }
 
     public void createStudent(String email, int matrikelnummer, String studiengang)throws DatabaseException {
         try {
@@ -508,7 +508,7 @@ public class DBrequest {
         try {
             Statement stmt = con.createStatement();
             try{
-            stmt.executeUpdate("DELETE FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                stmt.executeUpdate("DELETE FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
             }catch (SQLException e){
                 throw new DatabaseException("Veranstaltung already exists");
             }
@@ -519,9 +519,9 @@ public class DBrequest {
 
     //getter(primitiv)
     public Nutzer getNutzer(String email, char[] passwd) throws DatabaseException {
-    	//converting char array for password to a string
-    	//TODO evaluate, if we need to overwrite the string and/or the char array for better security
-    	String pwString = new String(passwd);
+        //converting char array for password to a string
+        //TODO evaluate, if we need to overwrite the string and/or the char array for better security
+        String pwString = new String(passwd);
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT EMailadresse,Passwort FROM Nutzer WHERE EMailadresse = '" + email + "' AND Passwort = '" + pwString +"'");
@@ -591,10 +591,67 @@ public class DBrequest {
                 results.add(rs.getString("Name"));
             }
         }catch (SQLException ex){
-        throw new DatabaseException("Connection Failed");
+            throw new DatabaseException("Connection Failed");
         }
         return  results;
     }
+
+    // todo
+    public ArrayList<String> getVeranstaltungsnamen(Student student) throws  DatabaseException
+    {
+        // todo
+        return null;
+    }
+
+    // todo
+    public Veranstaltung getVeranstaltung(String veranstaltungsname) throws  DatabaseException
+    {
+        // todo
+        return null;
+    }
+
+    // todo
+    public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) throws  DatabaseException
+    {
+        // todo
+        return null;
+    }
+
+    // todo
+    public  ArrayList<Team> getTeam(Gruppe gruppe) throws  DatabaseException
+    {
+        // todo
+        return null;
+    }
+
+    // todo
+    public  Team getTeam(Student student, Gruppe gruppe) throws  DatabaseException
+    {
+        // todo
+        return null;
+    }
+
+    // todo
+    public ArrayList <Leistungsblock> getLeistungsblock(Student student) throws  DatabaseException
+    {
+        // todo
+        return null;
+    }
+
+    // todo
+    public ArrayList<Unterblock> getUnterblock(Student student, Leistungsblock leistungsblock) throws  DatabaseException
+    {
+        // todo
+        return null;
+    }
+
+    // todo
+    public ArrayList<Einzelleistung> getEinzelleistung(Student student, Leistungsblock leistungsblock, Unterblock unterblock    ) throws  DatabaseException
+    {
+        // todo
+        return null;
+    }
+
 
     // update Methods
     //
