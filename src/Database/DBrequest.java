@@ -273,13 +273,7 @@ public class DBrequest {
     }
 
     // TODO
-    public void createTeamleistung(Teamleistung teamleisutng)
-    {
-        // ...
-    }
-
-    // TODO
-    public void createLeistungsblock(Leistungsblock leistungsblock)
+    public void createLeistungs(Leistung leistungs)
     {
         // ...
     }
@@ -597,57 +591,45 @@ public class DBrequest {
         return null;
     }
 
-    // todo
+    // TODO
     public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) throws  DatabaseException
     {
-        // todo
+        // TODO
         return null;
     }
 
-    // todo
+    // TODO
     public  ArrayList<Team> getTeam(Gruppe gruppe) throws  DatabaseException
     {
-        // todo
+        // TODO
         return null;
     }
 
-    // todo
+    // TODO
     public  Team getTeam(Student student, Gruppe gruppe) throws  DatabaseException
     {
-        // todo
+        // TODO
         return null;
     }
 
-    // todo
-    public ArrayList <Leistungsblock> getLeistungsblock(Student student) throws  DatabaseException
+    // TODO
+    public ArrayList <Leistung> getLeistung(Student student) throws  DatabaseException
     {
-        // todo
+        // TODO
         return null;
     }
 
-    // todo
-    public ArrayList<Unterblock> getUnterblock(Student student, Leistungsblock leistungsblock) throws  DatabaseException
+    // TODO
+    public ArrayList<Unterblock> getUnterblock(Student student, Leistung leistung) throws  DatabaseException
     {
-        // todo
+        // TODO
         return null;
     }
 
-    // todo
-    public ArrayList<Einzelleistung> getEinzelleistung(Student student, Leistungsblock leistungsblock, Unterblock unterblock    ) throws  DatabaseException
+    // TODO
+    public ArrayList<Aufgabe> getEinzelleistung(Student student, Leistung leistung, Unterblock unterblock    ) throws  DatabaseException
     {
-        // todo
-        return null;
-    }
-
-    public ArrayList<Teamblock> getTeamblock(Team team) throws  DatabaseException
-    {
-        // todo
-        return null;
-    }
-
-    public ArrayList<Teamleistung> getTeamleistung(Teamblock teamblock) throws  DatabaseException
-    {
-        // todo
+        // TODO
         return null;
     }
 
@@ -762,7 +744,7 @@ public class DBrequest {
     }
 
 //    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
-//    public Leistungsblock updateLBName(int matrikelnummer, String lb_name) throws DatabaseException {
+//    public Leistung updateLName(int matrikelnummer, String l_name) throws DatabaseException {
 //        return null;
 //    }
 
@@ -908,9 +890,8 @@ public class DBrequest {
     public  void deleteAll(){
         /*
         Unterblock
-        Leistungsblock
+        Leistung
         Studienganganteil
-        Teamleistung
         Team
         Gehoert_zu
         Gruppe
