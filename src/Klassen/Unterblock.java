@@ -23,16 +23,16 @@ public class Unterblock
 	public String getUbName(){return ubName;}
 	public int getUbPunkte(){return ubPunkte;}
 	public Leistung getlBlock(){return oberL;}
-	public ArrayList<Aufgabe> getEinzelleistungen() {return aufgaben;}
+	public ArrayList<Aufgabe> getAufgaben() {return aufgaben;}
 
 	// set methods
 	public void setUbName(String ubName){this.ubName = ubName;}
 	public void setUbPunkte(int ubPunkte){this.ubPunkte = ubPunkte;}
 	public void setLeistung(Leistung l){this.oberL = l;}
-	public void setEinzelleistungen(ArrayList<Aufgabe> a){this.aufgaben = a;}
+	public void setAufgaben(ArrayList<Aufgabe> a){this.aufgaben = a;}
 	
     // add Einzelleistung
-    public void addEinzelleistung(Aufgabe a){this.aufgaben.add(a);}
+    public void addAufgabe(Aufgabe a){this.aufgaben.add(a);}
 
     // remove Einzelleistung
     public void removeAufgabe(int position){this.aufgaben.remove(position);}
