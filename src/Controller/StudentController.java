@@ -2,6 +2,7 @@ package Controller;
 import java.util.ArrayList;
 
 import Database.DBrequest;
+import Database.DatabaseException;
 import GUI.*;
 import Klassen.*;
 
@@ -14,8 +15,18 @@ public class StudentController extends MainController{
 	public StudentController(GUIMain m,Student s) {
 		super(m);
 		me = s;
+		buildModel();
 		//changing the content of the main window to the "frontpage" for students
 		mainFrame.setContent(new SVeranstaltungsuebersicht());
+	}
+	
+	void buildModel(){
+		try {
+			veranstaltungen = dbr.getVeranstaltungen(me);
+		} catch (DatabaseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<String> getVeranstaltungsnamen(){
