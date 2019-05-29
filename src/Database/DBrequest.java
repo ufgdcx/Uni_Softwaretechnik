@@ -596,17 +596,9 @@ public class DBrequest {
         return  results;
     }
 
-    // todo
-    public ArrayList<String> getVeranstaltungsnamen(Student student) throws  DatabaseException
+    public ArrayList<Veranstaltung> getVeranstaltungen(String veranstaltungsname) throws  DatabaseException
     {
-        // todo
-        return null;
-    }
-
-    // todo
-    public Veranstaltung getVeranstaltung(String veranstaltungsname) throws  DatabaseException
-    {
-        // todo
+        // TODO
         return null;
     }
 
