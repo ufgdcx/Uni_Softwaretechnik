@@ -1,7 +1,10 @@
 package Klassen;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+/**
+ * Klasse für die Rolle Dozent (Unterklasse von Nutzer)
+ */
 
 public class Dozent extends Nutzer
 {
