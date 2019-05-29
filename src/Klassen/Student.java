@@ -7,7 +7,7 @@ public class Student extends Nutzer
     // member variables
     private String studiengang;
     private int matrikelnr;
-    private ArrayList<Leistungsblock> lBloecke;
+    private ArrayList<Leistung> leistungen;
     private Team team;
 
     // Constructors
@@ -31,19 +31,19 @@ public class Student extends Nutzer
     // get methods
     public String getStudiengang() { return studiengang; }
     public int getMatrikelnr() { return matrikelnr; }
-    public ArrayList<Leistungsblock> getLeistungsblock(){ return lBloecke; }
+    public ArrayList<Leistung> getLeistungsblock(){ return leistungen; }
     public Team getTeam() { return team; }
 
     // set methods
     public void setStudiengang(String studiengang) { this.studiengang = studiengang; }
     public void setMatrikelnr(int matrikelnr) { this.matrikelnr = matrikelnr; }
-    public void setLeistungsblock(ArrayList<Leistungsblock> lBloecke){ this.lBloecke = lBloecke; }
+    public void setLeistungsblock(ArrayList<Leistung> lBloecke){ this.leistungen = lBloecke; }
     public void setTeam(Team team){ this.team = team; }
 
     // add a Leistungsblock to the Leistungsblock List
-    public void addLeistungsblock(Leistungsblock lBlock){ this.lBloecke.add(lBlock); }
+    public void addLeistung(Leistung l){ this.leistungen.add(l); }
 
     // remove a Leistungsblock in the Leistungsblock List
-    public void removeLeistungsblock(int position){ this.lBloecke.remove(position); }
-    public void removeLeistungsblock(Leistungsblock lBlcok){ this.lBloecke.remove(lBlcok); }
+    public void removeLeistungs(int position){ this.leistungen.remove(position); }
+    public void removeLeistungs(Leistung l){ this.leistungen.remove(l); }
 }

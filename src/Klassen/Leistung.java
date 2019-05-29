@@ -2,7 +2,7 @@ package Klassen;
 
 import java.util.ArrayList;
 
-public class Leistungsblock 
+public class Leistung
 {
     // member variables
     private String lbName;
@@ -11,7 +11,7 @@ public class Leistungsblock
     private ArrayList<Unterblock> uBloecke; //Unterblöcke
     
     // constructor
-    public Leistungsblock(String lbName, Student student, int lbPunkte, ArrayList<Unterblock> uBloecke)
+    public Leistung(String lbName, Student student, int lbPunkte, ArrayList<Unterblock> uBloecke)
     {
         this.lbName = lbName;
         this.student = student;
