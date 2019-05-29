@@ -22,7 +22,7 @@ public class StudentController extends MainController{
 	
 	void buildModel(){
 		try {
-			dbr.getVeranstaltungen(me);
+			veranstaltungen = dbr.getVeranstaltungen(me);
 		} catch (DatabaseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
