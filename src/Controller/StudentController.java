@@ -1,12 +1,14 @@
 package Controller;
 import java.util.ArrayList;
 
+import Database.DBrequest;
 import GUI.*;
 import Klassen.*;
 
 public class StudentController {
 	private GUIMain mainFrame;
 	private Student me;
+	private DBrequest dbr = new DBrequest();
 	private ArrayList<Veranstaltung> veranstaltungen;
 	private ArrayList<Gruppe> gruppen;
 	private ArrayList<Team> teams;
