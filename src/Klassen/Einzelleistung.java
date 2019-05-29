@@ -3,21 +3,25 @@ package Klassen;
 public class Einzelleistung 
 {
     // member variables
-    private String aufgabe;
-    private Float punkte;
+    private String elName;
+    private int elPunkte;
+    private Unterblock unterblock;
 
     // constructor
-    public Einzelleistung(String aufgabe, Float punkte)
+    public Einzelleistung(String elName, int elPunkte, Unterblock unterblock)
     {
-        this.aufgabe = aufgabe;
-        this.punkte = punkte;
+        this.elName = elName;
+        this.elPunkte = elPunkte;
+        this.unterblock = unterblock;
     }
 
     // get methods
-    public String getAufgabe(){return aufgabe;}
-    public Float getPunkte(){return punkte;}
+    public String getElName(){return elName;}
+    public int getElPunkte(){return elPunkte;}
+    public Unterblock getUnterblock(){return unterblock;}
 
     // set methods
-    public void setAufgabe(String aufgabe){this.aufgabe = aufgabe;}
-    public void setPunkte(Float punkte){this.punkte = punkte;}
+    public void setElName(String elName){this.elName = elName;}
+    public void setElPunkte(int elPunkte){this.elPunkte = elPunkte;}
+    public void setUnterblock(Unterblock unterblock){this.unterblock = unterblock;}
 }

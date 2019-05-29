@@ -3,25 +3,25 @@ package Klassen;
 public class Teamleistung {
 
 	// member variables
-	private String teamleistungsblockname;
-	private float tlPunkte;
-	private Team team;
+	private String tlName;
+	private int tlPunkte;
+	private Teamblock teamblock;
 	
 	// constructor
-	public Teamleistung(String teamleistungsblockname, float tlPunkte, Team team)
+	public Teamleistung(String tlName, int tlPunkte, Teamblock teamblock)
 	{
-		this.teamleistungsblockname = teamleistungsblockname;
+		this.tlName = tlName;
 		this.tlPunkte = tlPunkte;
-		this.team = team;
+		this.teamblock = teamblock;
 	}
 
 	// get methods
-	public String getTeamleistungsblockname(){return teamleistungsblockname;}
-	public float getTlPunkte(){return tlPunkte;}
-	public Team getTeam(){return team;}
+	public String geTtlName(){return tlName;}
+	public int getTlPunkte(){return tlPunkte;}
+	public Teamblock getTeamblock(){return teamblock;}
 
 	// set methods
-	public void setTeamleistungsblockname(String teamleistungsblockname){this.teamleistungsblockname = teamleistungsblockname;}
-	public void setTlPunkte(float tlPunkte){this.tlPunkte = tlPunkte;}
-	public void setTeam(Team team){this.team = team;}
+	public void setTlName(String tlName){this.tlName = tlName;}
+	public void setTlPunkte(int tlPunkte){this.tlPunkte = tlPunkte;}
+	public void setTeamblock(Teamblock teamblock){this.teamblock = teamblock;}
 }
