@@ -576,11 +576,6 @@ public class DBrequest {
         throw new DatabaseException("wrong username/password");
     }
 
-    public ArrayList<Leistungsblock> getLeistungsblocks(int matrikelnummer, String veranstaltungsname){
-        //TODO
-        return null;
-    }
-
     public ArrayList<String> getVeranstaltungsnamen(Dozent dozent) throws DatabaseException {
         String email = dozent.getEmail();
         ArrayList<String> results = new ArrayList<String>();
@@ -652,6 +647,17 @@ public class DBrequest {
         return null;
     }
 
+    public ArrayList<Teamblock> getTeamblock(Team team) throws  DatabaseException
+    {
+        // todo
+        return null;
+    }
+
+    public ArrayList<Teamleistung> getTeamleistung(Teamblock teamblock) throws  DatabaseException
+    {
+        // todo
+        return null;
+    }
 
     // update Methods
     //
