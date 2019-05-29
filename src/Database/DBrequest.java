@@ -572,7 +572,7 @@ public class DBrequest {
 
     public ArrayList<String> getVeranstaltungsnamen(Dozent dozent) throws DatabaseException {
         String email = dozent.getEmail();
-        ArrayList<String> results = new ArrayList<String>();
+        ArrayList<String> results = new ArrayList<>();
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Name FROM Leitet WHERE EMailadresse = '" + email + "'");
@@ -585,10 +585,24 @@ public class DBrequest {
         return  results;
     }
 
-    public ArrayList<Veranstaltung> getVeranstaltungen(Student s) throws  DatabaseException
+    public ArrayList<Veranstaltung> getVeranstaltungen(Student stud) throws  DatabaseException
     {
-        // TODO
-        return null;
+        int matrikelnr = stud.getMatrikelnr();
+        ArrayList<Veranstaltung> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT DISTINCT Veranstaltungsname FROM Gehoert_zu WHERE Matrikelnummer = '" + matrikelnr + "'");
+            while (rs.next()){
+                String veranstaltungsname = rs.getString("Veranstaltungsname");
+                stmt = con.createStatement();
+                ResultSet rsv = stmt.executeQuery("SELECT * FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                rsv.next();
+                //results.add(new Veranstaltung(rsv.getString("Veranstaltungsname"),rsv.getString("Fakultaet"),rsv.getInt("Teamanzahl_je_Gruppe"),rsv.getInt("maximale_Teilnehmeranzahl_je_Team"),",uss das sein?","wirklivh?"));
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
     }
 
     // TODO
