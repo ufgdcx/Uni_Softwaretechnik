@@ -225,7 +225,8 @@ public class DBrequest {
 
     }
 
-    //creater(objects)
+    // creater(objects)
+    //
     public void  createStudent(Student stud)throws DatabaseException {
         createNutzer(stud.getEmail(),stud.getTitel(),stud.getVorname(),stud.getName(),stud.getPasswort());
         createStudent(stud.getEmail(),stud.getMatrikelnr(),stud.getStudiengang());
@@ -236,54 +237,75 @@ public class DBrequest {
         createDozent(doz.getEmail(),doz.getFakultaet());
     }
 
-    // TODO
-    public void createVeranstaltung(Veranstaltung veranstaltung)
+    public void createVeranstaltung(Veranstaltung veranstaltung) throws DatabaseException
     {
-        // ...
+        // Issue Veranstlatung hat keine Beschreibung!?
+//        createVeranstaltung(veranstaltung.getName(),
+//                            veranstaltung.getFakultaet(),
+//                            veranstaltung.getTeamanzahl(),
+//                            veranstaltung.getMaxTeilnehmer(),
+//                            veranstaltung.getBeschreibung()); // no get method
     }
 
-    // TODO
-    public void createleitet(Dozent dozent, Veranstaltung veranstaltung)
+    public void createLeitet(Dozent dozent, Veranstaltung veranstaltung) throws DatabaseException
     {
-        // ...
+        createLeitet(veranstaltung.getName(), dozent.getEmail());
     }
 
-    // TODO
-    public void createGruppe(Gruppe gruppe)
+    public void createGruppe(Gruppe gruppe) throws DatabaseException
     {
-        // ...
+        // Issue: gruppe.getEinschreibungsfrist fehlt !?
+        // Issue: gruppe.getWochentag           fehlt !?
+//        createGruppe(gruppe.getGruppenID(),
+//                     gruppe.getEmail(),
+//                     gruppe.getVeranstaltung(),
+//                     gruppe.getEinschreibungsfrist(), // no get method
+//                     gruppe.getWochentag(), // no get method
+//                     gruppe.getRhythmus());
     }
 
-    // TODO
-    public void createTeam(Team team)
+    public void createTeam(Team team) throws DatabaseException
     {
-        // ...
+        createTeam(team.getTeamID(),
+                    team.getGruppe().getGruppenID(),
+                    team.getGruppe().getVeranstaltung().getName(),
+                    team.getThema());
     }
 
-    // TODO
-    public void createGehoert_zu(Student student, Team team)
+    public void createGehoert_zu(Student student, Team team) throws DatabaseException
     {
-        // ...
+        createGehoertZu(student.getMatrikelnr(),
+                        team.getTeamID(),
+                        team.getGruppe().getGruppenID(),
+                        team.getGruppe().getVeranstaltung().getName());
     }
 
-    // TODO
-    public void createStudienganganteil(Studienganganteil studienganganteil)
+    public void createStudienganganteil(Studienganganteil studienganganteil) throws DatabaseException
     {
-        // ...
+        createStudienganganteil(studienganganteil.getStudiengang(),
+                                studienganganteil.getTeam().getTeamID(),
+                                studienganganteil.getTeam().getGruppe().getGruppenID(),
+                                studienganganteil.getTeam().getGruppe().getVeranstaltung().getName(),
+                                studienganganteil.getAnteil());
     }
 
-    // TODO
-    public void createLeistungs(Leistung leistungs)
+    // Issue: Leistung braucht Veranstaltungsname !?
+    public void createLeistungsblock(Leistung leistungs)
     {
-        // ...
+//        createLeitet(leistungs.getStudent().getMatrikelnr(),
+//                     leistungs.getLbName(),
+//                     leistungs.getVeranstaltungsname); // no get method
     }
 
-    // TODO
+    // Issue: Unterblock braucht getMatrikelnummer, getVeranstaltungsname !?
     public void createUnterblock(Unterblock unterblock)
     {
-        // ...
+//        createUnterblock(unterblock.getMatrikelnummer, // no get method
+//                        unterblock.getlBlock().getLbName(),
+//                        unterblock.getUbName(),
+//                        unterblock.getVeranstaltungsname(), // no get method
+//                        unterblock.getUbPunkte());
     }
-
 
 
     //deleter(primitiv)
