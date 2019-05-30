@@ -592,14 +592,14 @@ public class DBrequest {
         throw new DatabaseException("wrong username/password");
     }
 
-    public ArrayList<String> getVeranstaltungsnamen(Dozent dozent) throws DatabaseException {
+    public ArrayList<Veranstaltung> getVeranstaltungen(Dozent dozent) throws DatabaseException {
         String email = dozent.getEmail();
-        ArrayList<String> results = new ArrayList<>();
+        ArrayList<Veranstaltung> results = new ArrayList<>();
         try {
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT Name FROM Leitet WHERE EMailadresse = '" + email + "'");
+            ResultSet rs = stmt.executeQuery("SELECT Leitet.EMailadresse, Veranstaltung.* FROM Veranstaltung INNER JOIN Leitet ON Leitet.Name = Veranstaltung.Veranstaltungsname WHERE EMailadresse = '" + email + "'");
             while (rs.next()){
-                results.add(rs.getString("Name"));
+                //results.add(new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"),",muss das sein?","wirklich?"));
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
@@ -619,7 +619,7 @@ public class DBrequest {
                 stmt = con.createStatement();
                 ResultSet rsv = stmt.executeQuery("SELECT * FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
                 rsv.next();
-                //results.add(new Veranstaltung(rsv.getString("Veranstaltungsname"),rsv.getString("Fakultaet"),rsv.getInt("Teamanzahl_je_Gruppe"),rsv.getInt("maximale_Teilnehmeranzahl_je_Team"),",uss das sein?","wirklivh?"));
+                //results.add(new Veranstaltung(rsv.getString("Veranstaltungsname"),rsv.getString("Fakultaet"),rsv.getInt("Teamanzahl_je_Gruppe"),rsv.getInt("maximale_Teilnehmeranzahl_je_Team"),",muss das sein?","wirklich?"));
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
@@ -627,18 +627,37 @@ public class DBrequest {
         return  results;
     }
 
-    // TODO
     public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) throws  DatabaseException
     {
-        // TODO
-        return null;
+        String veranstaltungsname = veranstaltung.getName();
+        ArrayList<Gruppe> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT `Gruppe`.* FROM `Veranstaltung` INNER JOIN `Gruppe` ON `Gruppe`.`Veranstaltungsname` = `Veranstaltung`.`Veranstaltungsname` WHERE Veranstaltung.Veranstaltungsname = '" + veranstaltungsname + "'");
+            while (rs.next()){
+                //results.add(new Gruppe(rs.getInt("GruppenID"), "unnecessary", rs.getString("Wochentag"),rs.getTime("Uhrzeit"),rs.getString("Wochenrhytmus"),rs.getDate("Einschreibungsfrist"),veranstaltung,"mal sehn",getDozent(rs.getString("EMailadresse"))));
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
     }
 
-    // TODO
     public  ArrayList<Team> getTeam(Gruppe gruppe) throws  DatabaseException
     {
-        // TODO
-        return null;
+        String veranstaltungsname = gruppe.getVeranstaltung().getName();
+        int gruppenid = gruppe.getGruppenID();
+        ArrayList<Team> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT `Team`.* FROM `Gruppe` INNER JOIN `Team` ON `Team`.`GruppenID` = `Gruppe`.`GruppenID` AND `Team`.`Veranstaltungsname` = `Gruppe`.`Veranstaltungsname` WHERE Team.GruppenID = '" + gruppenid + "' AND Team.Veranstaltungsname = '" + veranstaltungsname + "'");
+            while (rs.next()){
+                //results.add(new Team(rs.getInt("TeamID"),rs.getString("Thema"),"?","?",gruppe));
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
     }
 
     // TODO
