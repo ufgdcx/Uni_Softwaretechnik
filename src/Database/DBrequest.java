@@ -942,21 +942,44 @@ public class DBrequest {
     }
 
     //Supportmethods
-    public  void deleteAll(){
-        /*
-        Unterblock
-        Leistung
-        Studienganganteil
-        Team
-        Gehoert_zu
-        Gruppe
-        Student
-        leitet
-        Dozent
-        Veranstaltung
-        Nutzer
-         */
-
+    public  void deleteAll()throws DatabaseException{
+        try
+        {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Einzelleistung");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Unterblock");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Leistungsblock");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Teamleistung");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Teamleistungsunterblock");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Teamleistungsblock");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Studienganganteil");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Team");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Gehoert_zu");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Gruppe");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Student");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM leitet");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Dozent");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Veranstaltung");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Nutzer");
+        }
+        catch(SQLException ex)
+        {
+            throw new DatabaseException("Connection Failed");
+        }
     }
 
     public void close(){
