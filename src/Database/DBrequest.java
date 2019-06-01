@@ -714,7 +714,9 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Leistungsblock.* FROM Student INNER JOIN Leistungsblock ON Student.Matrikelnummer = Leistungsblock.Matrikelnummer WHERE Student.Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock.Veranstaltungsname = '" + veranstaltungsname + "'");
             while (rs.next()){
-                //results.add(new Leistung(rs.getString("Leistungsblock_name"),student,"?","?"));
+                Leistung leistung = new Leistung(rs.getString("Leistungsblock_name"),student);
+                leistung.setuBloecke(getUnterblock(student,leistung,veranstaltung));
+                results.add(leistung);
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
@@ -731,8 +733,10 @@ public class DBrequest {
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Unterblock.* FROM Leistungsblock INNER JOIN Unterblock ON Unterblock.Matrikelnummer = Leistungsblock.Matrikelnummer AND Unterblock.Leistungsblock_name = Leistungsblock.Leistungsblock_name WHERE Unterblock.Matrikelnummer = '" + matrikelnummer + "' AND Unterblock.Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock.Veranstaltungsname = '" + veranstaltungsname + "'");
-            while (rs.next()){
-                //results.add(new Unterblock(rs.getString("Unterblock_name"),"?",leistungsblock,"?"));
+            while (rs.next()) {
+                Unterblock ub = new Unterblock(rs.getString("Unterblock_name"),leistungsblock);
+                ub.setAufgaben(getEinzelleistung(student, leistungsblock, ub, veranstaltung));
+                results.add(ub);
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");

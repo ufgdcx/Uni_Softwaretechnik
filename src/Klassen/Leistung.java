@@ -19,6 +19,13 @@ public class Leistung
         this.uBloecke = uBloecke;
     }
 
+    // constructor for Database
+    public Leistung(String lbName, Student student)
+    {
+        this.lbName = lbName;
+        this.student = student;
+    }
+
     // get methods
     public String getLbName() {return lbName;}
     public Student getStudent() {return student;}
