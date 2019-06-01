@@ -163,7 +163,7 @@ public class DBtest
         b.deleteUnterblock(79, "Bob", "A1", "Mobbing");
         b.deleteLeistungsblock(79, "Bob", "Mobbing");
         b.deleteStudienganganteil("Bilologie", 3, 42, "Mobbing");
-        b.deleteTeamleistung("Bob2", 3, 42, "Mobbing");
+        //b.deleteTeamleistung("Bob2", 3, 42, "Mobbing");
         b.deleteGehoertZu(79, 3, 42, "Mobbing");
         b.deleteTeam(3, 42, "Mobbing");
         b.deleteGruppe(42, "Mobbing");

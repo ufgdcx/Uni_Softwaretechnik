@@ -1050,12 +1050,12 @@ public class DBrequest {
 //    }
 
     //TODO
-    public void updateUBName(int matrikelnummer, String veranstaltungsname, String ub_name, String leistungsblockname, String unterblockname) throws DatabaseException {
+    public void updateEinzelleistungName(int matrikelnummer, String veranstaltungsname, String unterblockname, String oldname, String leistungsblockname, String newname) throws DatabaseException {
         try
         {
             Statement stmt = con.createStatement();
             try{
-                stmt.executeUpdate("UPDATE Unterblock SET Unterblock_name = '" + ub_name + "' WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                stmt.executeUpdate("UPDATE Einzelleistung SET Einzelleistung_name = '" + newname + "' WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Einzelleistung_name = '" + oldname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
             }catch (SQLException e){
                 e.printStackTrace();
             }
@@ -1066,11 +1066,11 @@ public class DBrequest {
         }
     }
 
-    public void updateUBPunkte(int matrikelnummer, int ub_punkte, String leistungsblockname, String unterblockname, String veranstaltungsname) throws DatabaseException {
+    public void updateEinzelleistungPunkte(int matrikelnummer, String veranstaltungsname, String unterblockname, String einzelleistungsname, String leistungsblockname, int punkte) throws DatabaseException {
         try
         {
             Statement stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Unterblock SET Punkte = '" + ub_punkte + "' WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            stmt.executeUpdate("UPDATE Einzelleistung SET Punkte = '" + punkte + "' WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Einzelleistung_name = '" + einzelleistungsname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         }
         catch(SQLException ex)
         {
@@ -1124,11 +1124,11 @@ public class DBrequest {
     }
 
     //TODO
-    public void updateTeamleistungPunkte(int teamID, int punkte, int gruppenID, String veranstaltungsname) throws DatabaseException {
+    public void updateTeamleistungPunkte(int teamID, int punkte, int gruppenID, String veranstaltungsname, String teamleistungsblockname, String teamleistungsunterblockname, String teamleistungsname) throws DatabaseException {
         try
         {
             Statement stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Teamleistung SET Punkte = '" + punkte + "' WHERE TeamID = '" + teamID + "' AND GruppenID = '" + gruppenID + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            stmt.executeUpdate("UPDATE Teamleistung SET Punkte = '" + punkte + "' WHERE TeamID = '" + teamID + "' AND Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND Teamleistungsname = '" + teamleistungsname + "' AND GruppenID = '" + gruppenID + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         }
         catch(SQLException ex)
         {
@@ -1137,11 +1137,11 @@ public class DBrequest {
     }
 
     //TODO
-    public void updateTeamleistungName(int teamID, String tl_Name, int gruppenID, String veranstaltungsname) throws DatabaseException {
+    public void updateTeamleistungName(int teamID, String oldname, String newname, int gruppenID, String veranstaltungsname, String teamleistungsblockname, String teamleistungsunterblockname) throws DatabaseException {
         try
         {
             Statement stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Teamleistung SET Teamleistungsname = '" + tl_Name + "' WHERE TeamID = '" + teamID + "' AND GruppenID = '" + gruppenID + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            stmt.executeUpdate("UPDATE Teamleistung SET Teamleistungsname = '" + newname + "' WHERE TeamID = '" + teamID + "' AND Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND Teamleistungsname = '" + oldname + "' AND GruppenID = '" + gruppenID + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
         }
         catch(SQLException ex)
         {
