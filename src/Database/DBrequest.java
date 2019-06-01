@@ -725,6 +725,63 @@ public class DBrequest {
         return  results;
     }
 
+    public ArrayList <Leistung> getLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung) throws  DatabaseException
+    {
+        String veranstaltungsname = veranstaltung.getName();
+        int gruppenID = gruppe.getGruppenID();
+        int teamID = team.getTeamID();
+        ArrayList<Leistung> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("Select Teamleistungsblock.* FROM Team INNER JOIN Teamleistungsblock ON Teamleistungsblock.TeamID = Team.TeamID AND Teamleistungsblock.GruppenID = Team.GruppenID AND Teamleistungsblock.Veranstaltungsname = Team.Veranstaltungsname WHERE Teamleistungsblock.Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsblock.TeamID = '" + teamID + "' AND Teamleistungsblock.GruppenID = '" + gruppenID + "'");
+            while (rs.next()){
+                //results.add(new Leistung(rs.getString("Teamleistungsblockname"),"?","?","?"));
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
+    }
+
+    public ArrayList<Unterblock> getUnterblock(Gruppe gruppe, Team team, Leistung leistungsblock, Veranstaltung veranstaltung) throws  DatabaseException
+    {
+        String veranstaltungsname = veranstaltung.getName();
+        String teamleistungsblockname = leistungsblock.getLbName();
+        int teamID = team.getTeamID();
+        int gruppenID = gruppe.getGruppenID();
+        ArrayList<Unterblock> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("Select Teamleistungsunterblock.* FROM Teamleistungsunterblock INNER JOIN Teamleistungsblock ON Teamleistungsblock.TeamID = Teamleistungsunterblock.TeamID AND Teamleistungsblock.GruppenID = Teamleistungsunterblock.GruppenID AND Teamleistungsblock.Veranstaltungsname = Teamleistungsunterblock.Veranstaltungsname AND Teamleistungsblock.Teamleistungsblockname = Teamleistungsunterblock.Teamleistungsblockname WHERE Teamleistungsunterblock.Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsunterblock.TeamID = '" + teamID + "' AND Teamleistungsunterblock.GruppenID = '" + gruppenID + "' AND Teamleistungsunterblock.Teamleistungsblockname = '" + teamleistungsblockname + "'");
+            while (rs.next()){
+                //results.add(new Unterblock(rs.getString("Teamleistungsunterblockname"),"?",leistungsblock,"?"));
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
+    }
+
+    public ArrayList<Aufgabe> getEinzelleistung(Gruppe gruppe, Team team, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung) throws  DatabaseException
+    {
+        String veranstaltungsname = veranstaltung.getName();
+        String teamleistungsblockname = leistungsblock.getLbName();
+        int teamID = team.getTeamID();
+        int gruppenID = gruppe.getGruppenID();
+        String teamunterblockname = unterblock.getUbName();
+        ArrayList<Aufgabe> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("Select Teamleistung.* FROM Teamleistungsunterblock INNER JOIN Teamleistung ON Teamleistung.TeamID = Teamleistungsunterblock.TeamID AND Teamleistung.GruppenID = Teamleistungsunterblock.GruppenID AND Teamleistung.Veranstaltungsname = Teamleistungsunterblock.Veranstaltungsname AND Teamleistung.Teamleistungsblockname = Teamleistungsunterblock.Teamleistungsblockname AND Teamleistung.Teamleistungsunterblockname = Teamleistungsunterblock.Teamleistungsunterblockname WHERE Teamleistung.Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistung.TeamID = '" + teamID + "' AND Teamleistung.GruppenID = '" + gruppenID + "' AND Teamleistung.Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistung.Teamleistungsunterblockname = '" + teamleistungsblockname + "'");
+            while (rs.next()){
+                results.add(new Aufgabe(rs.getString("Teamleistungsname"),rs.getInt("Punkte"),unterblock));
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
+    }
+
     // update Methods
     //
     public void updateNutzerPasswort(String email, String passwort) throws DatabaseException {
