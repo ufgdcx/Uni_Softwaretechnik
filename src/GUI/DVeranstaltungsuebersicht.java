@@ -1,5 +1,9 @@
 package GUI;
 
+import Controller.DozentController;
+import Database.DBrequest;
+import Klassen.Dozent;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,14 +14,19 @@ public class DVeranstaltungsuebersicht implements FrameContent {
     private GUIMain mainFrame;
 
     private JPanel VeranstaltungsuebersichtPanel;
-    private JList VeranstalungenList;
+    //DefaultListModell wird erzeugt
+    DefaultListModel VL = new DefaultListModel();
+    //JList wird erstellt
+    private JList VeranstalungenList  = new JList(VL);
     private JButton einsehen;
     private JButton logoutButton;
 
 
-    public String getNachname() {
 
-        return "Veranstaltungs�bersicht - Dozent";
+
+    public String getName() {
+
+        return "Veranstaltungsübersicht - Dozent";
     }
 
     public JPanel getPanel() {
@@ -32,15 +41,20 @@ public class DVeranstaltungsuebersicht implements FrameContent {
 
     public DVeranstaltungsuebersicht() {
 
+        //Liste der Veranstaltungen des Dozenten hinzufügen
+
+
         einsehen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 mainFrame.setContent(new DVeranstaltung());
             }
         });
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 mainFrame.setContent(new LogoutSeite());
             }
         });

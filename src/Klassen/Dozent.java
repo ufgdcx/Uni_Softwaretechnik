@@ -12,6 +12,8 @@ public class Dozent extends Nutzer
     private String fakultaet;
     private ArrayList<Veranstaltung> veranstaltungen; // von Dozenten geleitete Veranstaltungen
     private ArrayList<Gruppe> gruppen; //von Dozenten betreute Gruppen
+    private String veranstaltungsname;
+    private Veranstaltung veranstaltung;
 
     public Dozent(String email,String passwort, String titel, String vorname, String name,
                   String fakultaet)
@@ -24,6 +26,7 @@ public class Dozent extends Nutzer
     public String getFakultaet() { return fakultaet; }
     public ArrayList<Veranstaltung> getVeranstaltungen(){ return this.veranstaltungen; }
     public ArrayList<Gruppe> getGruppen(){ return this.gruppen; }
+    public String getVeranstaltungsname(){return veranstaltung.name;}
 
     // set methods
     public void setFakultaet(String fakultaet) { this.fakultaet = fakultaet; }

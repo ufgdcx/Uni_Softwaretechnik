@@ -16,7 +16,7 @@ public class SAlleVeranstaltungen implements FrameContent {
     private JButton zurueckButton;
     private JButton logoutButton;
 
-    public String getNachname() {
+    public String getName() {
 
         return "Veranstaltungsübersicht - Student";
     }

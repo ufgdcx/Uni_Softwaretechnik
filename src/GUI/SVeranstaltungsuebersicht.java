@@ -18,9 +18,9 @@ public class SVeranstaltungsuebersicht implements FrameContent {
     private JButton logoutButton;
 
 
-    public String getNachname() {
+    public String getName() {
 
-        return "Veranstaltungsübersicht - Student";
+        return "VeranstaltungsÃ¼bersicht - Student";
     }
 
     public JPanel getPanel() {
@@ -34,6 +34,8 @@ public class SVeranstaltungsuebersicht implements FrameContent {
     }
 
     public SVeranstaltungsuebersicht() {
+
+
 
         hinzufuegen.addActionListener(new ActionListener() {
             @Override

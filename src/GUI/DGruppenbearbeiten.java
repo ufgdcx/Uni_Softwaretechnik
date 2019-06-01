@@ -15,7 +15,7 @@ public class DGruppenbearbeiten implements FrameContent {
     private JTree tree;
     private JButton logoutButton;
 
-    public String getNachname() {
+    public String getName() {
 
         return "Gruppen und Teams bearbeiten - Dozent";
     }

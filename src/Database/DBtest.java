@@ -162,7 +162,7 @@ public class DBtest
 
         // Test delet methods
         //
-        b.deleteUnterblock(79, "Bob", "A1", "Mobbing");
+        /*b.deleteUnterblock(79, "Bob", "A1", "Mobbing");
         b.deleteLeistungsblock(79, "Bob", "Mobbing");
         b.deleteStudienganganteil("Bilologie", 3, 42, "Mobbing");
         b.deleteTeamleistung("Bob2", 3, 42, "Mobbing");
@@ -191,6 +191,6 @@ public class DBtest
             buffer.write(ex.getErrorMsg());
         }
         buffer.write("\nEND\n");
-        buffer.close();
+        buffer.close();*/
     }
 }

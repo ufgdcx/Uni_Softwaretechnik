@@ -9,14 +9,17 @@ public class Leistung
     private Student student;
     private int lbPunkte;
     private ArrayList<Unterblock> uBloecke; //Unterblöcke
+    private String veranstaltungsname;
+    private Veranstaltung veranstaltung;
     
     // constructor
-    public Leistung(String lbName, Student student, int lbPunkte, ArrayList<Unterblock> uBloecke)
+    public Leistung(String lbName, Student student, int lbPunkte, ArrayList<Unterblock> uBloecke, String veranstaltungsname)
     {
         this.lbName = lbName;
         this.student = student;
         this.lbPunkte = lbPunkte;
         this.uBloecke = uBloecke;
+        this.veranstaltungsname = veranstaltungsname;
     }
 
     // get methods
@@ -24,6 +27,7 @@ public class Leistung
     public Student getStudent() {return student;}
     public int getLbPunkte() {return lbPunkte;}
     public ArrayList<Unterblock> getuBloecke() {return uBloecke;}
+    public String getVeranstaltungsname(){return veranstaltung.name;}
 
     // set methods
     public void setLbName(String lbName) {this.lbName = lbName;}

@@ -3,7 +3,7 @@ package GUI;
 import javax.swing.*;
 
 public interface FrameContent {
-    String getNachname();
+    String getName();
     JPanel getPanel();
     void setParentFrame(GUIMain m);
 }

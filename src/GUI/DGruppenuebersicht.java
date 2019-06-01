@@ -22,7 +22,7 @@ public class DGruppenuebersicht implements FrameContent {
     private JButton logoutButton;
 
 
-    public String getNachname() {
+    public String getName() {
 
         return "Gruppen- und Teamübersicht - Dozent";
     }

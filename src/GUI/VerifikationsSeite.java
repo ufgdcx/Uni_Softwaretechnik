@@ -16,7 +16,7 @@ public class VerifikationsSeite implements FrameContent {
     private JButton codeErneutSendenButton;
     private JButton okButton;
 
-    public String getNachname() {
+    public String getName() {
 
         return "Registrierung";
     }

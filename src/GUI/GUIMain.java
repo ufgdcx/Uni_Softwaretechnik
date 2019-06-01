@@ -35,7 +35,7 @@ public class GUIMain extends JFrame{
     public void setContent(FrameContent content) {
         content.setParentFrame(this);
         this.content = content;
-        this.setTitle(content.getNachname());
+        this.setTitle(content.getName());
         this.getContentPane().removeAll();
         this.getContentPane().add(content.getPanel());
         this.revalidate();

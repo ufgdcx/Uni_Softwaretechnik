@@ -102,7 +102,7 @@ public class DBrequest {
         }
     }
 
-    public void createGruppe(int gruppenid, String email, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus)throws DatabaseException {
+    public void createGruppe(int gruppenid, String email, Veranstaltung veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus)throws DatabaseException {
         try {
             Statement stmt = con.createStatement();
             try {
@@ -239,12 +239,11 @@ public class DBrequest {
 
     public void createVeranstaltung(Veranstaltung veranstaltung) throws DatabaseException
     {
-        // Issue Veranstlatung hat keine Beschreibung!?
-//        createVeranstaltung(veranstaltung.getName(),
-//                            veranstaltung.getFakultaet(),
-//                            veranstaltung.getTeamanzahl(),
-//                            veranstaltung.getMaxTeilnehmer(),
-//                            veranstaltung.getBeschreibung()); // no get method
+        createVeranstaltung(veranstaltung.getName(),
+                            veranstaltung.getFakultaet(),
+                            veranstaltung.getTeamanzahl(),
+                            veranstaltung.getMaxTeilnehmer(),
+                            veranstaltung.getBeschreibung());
     }
 
     public void createLeitet(Dozent dozent, Veranstaltung veranstaltung) throws DatabaseException
@@ -254,14 +253,13 @@ public class DBrequest {
 
     public void createGruppe(Gruppe gruppe) throws DatabaseException
     {
-        // Issue: gruppe.getEinschreibungsfrist fehlt !?
-        // Issue: gruppe.getWochentag           fehlt !?
-//        createGruppe(gruppe.getGruppenID(),
-//                     gruppe.getEmail(),
-//                     gruppe.getVeranstaltung(),
-//                     gruppe.getEinschreibungsfrist(), // no get method
-//                     gruppe.getWochentag(), // no get method
-//                     gruppe.getRhythmus());
+        createGruppe(gruppe.getGruppenID(),
+                     gruppe.getEmail(),
+                     gruppe.getVeranstaltung(),
+                     gruppe.getFrist(),
+                     gruppe.getZeit(),
+                     gruppe.getWochentag(),
+                     gruppe.getRhythmus());
     }
 
     public void createTeam(Team team) throws DatabaseException
@@ -290,23 +288,23 @@ public class DBrequest {
     }
 
     // Issue: Leistung braucht Veranstaltungsname !?
+    // TODO: ist createLeitet richtig? createLeistungsblock passt zu den Parametern
     public void createLeistungsblock(Leistung leistungs)
     {
 //        createLeitet(leistungs.getStudent().getMatrikelnr(),
 //                     leistungs.getLbName(),
-//                     leistungs.getVeranstaltungsname); // no get method
+//                     leistungs.getVeranstaltungsname()); // no get method TODO: ist drin
     }
 
     // Issue: Unterblock braucht getMatrikelnummer, getVeranstaltungsname !?
     public void createUnterblock(Unterblock unterblock)
     {
-//        createUnterblock(unterblock.getMatrikelnummer, // no get method
+//        createUnterblock(unterblock.getMatrikel(), // no get method TODO: ist drin
 //                        unterblock.getlBlock().getLbName(),
 //                        unterblock.getUbName(),
-//                        unterblock.getVeranstaltungsname(), // no get method
+//                        unterblock.getVeranstaltungsname(), // no get method TODO: ist drin
 //                        unterblock.getUbPunkte());
     }
-
 
     //deleter(primitiv)
     //
@@ -599,6 +597,7 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Leitet.EMailadresse, Veranstaltung.* FROM Veranstaltung INNER JOIN Leitet ON Leitet.Name = Veranstaltung.Veranstaltungsname WHERE EMailadresse = '" + email + "'");
             while (rs.next()){
+
                 //results.add(new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"),",muss das sein?","wirklich?"));
             }
         }catch (SQLException ex){
@@ -622,6 +621,14 @@ public class DBrequest {
         }
         return  results;
     }
+
+    //TODO
+    //public ArrayList<String> getVeranstaltungsnamen(Dozent dozent) {
+    //}
+
+    //TODO
+    //public ArrayList<String> getVeranstaltungsnamen(Student student) {
+    //}
 
     public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) throws  DatabaseException
     {

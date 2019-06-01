@@ -20,7 +20,7 @@ public class DVeranstaltungbearbeiten implements FrameContent {
 
     private String text_infos, text_dozent;
 
-    public String getNachname() {
+    public String getName() {
 
         return "Veranstaltung bearbeiten - Dozent";
     }

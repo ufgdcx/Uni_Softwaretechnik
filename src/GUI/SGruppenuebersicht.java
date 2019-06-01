@@ -17,7 +17,7 @@ public class SGruppenuebersicht implements FrameContent {
     private JButton logoutButton;
 
 
-    public String getNachname() {
+    public String getName() {
 
         return "Gruppenübersicht - Student";
     }

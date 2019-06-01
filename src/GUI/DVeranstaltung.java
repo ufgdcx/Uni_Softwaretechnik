@@ -22,7 +22,7 @@ public class DVeranstaltung implements FrameContent {
 
     private String text_infos, text_dozent;
 
-    public String getNachname() {
+    public String getName() {
 
         return "Veranstaltung - Dozent";
     }

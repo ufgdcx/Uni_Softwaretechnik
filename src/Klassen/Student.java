@@ -6,7 +6,7 @@ public class Student extends Nutzer
 {
     // member variables
     private String studiengang;
-    private int matrikelnr;
+    public int matrikelnr;
     private ArrayList<Leistung> leistungen;
     private Team team;
 

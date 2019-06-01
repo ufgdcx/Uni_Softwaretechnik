@@ -22,7 +22,7 @@ public class DLeistungsuebersicht implements FrameContent {
     private JButton hinzufuegen;
 
 
-    public String getNachname() {
+    public String getName() {
 
         return "Leistungsübersicht - Dozent";
     }

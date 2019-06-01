@@ -12,7 +12,7 @@ public class LogoutSeite implements FrameContent {
 
     private GUIMain mainFrame;
 
-    public String getNachname() {
+    public String getName() {
         return "Logout";
     }
 

@@ -38,7 +38,7 @@ public class RegistrierenSeite implements FrameContent {
     private JLabel uniRostockDeLabel;
     private JButton abbrechenButton;
 
-    public String getNachname() {
+    public String getName() {
 
         return "Registrierung";
     }

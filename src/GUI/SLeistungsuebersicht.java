@@ -15,7 +15,7 @@ public class SLeistungsuebersicht implements FrameContent {
     private JButton logoutButton;
 
 
-    public String getNachname() {
+    public String getName() {
 
         return "Leistungsübersicht - Student";
     }
