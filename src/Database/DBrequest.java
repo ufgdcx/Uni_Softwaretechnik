@@ -174,13 +174,13 @@ public class DBrequest {
         }
     }
 
-    public void createTeamleistung(String teamleistungsname, int teamid, int gruppenid, String veranstaltungsname, int punkte)throws DatabaseException {
+    public void createTeamleistung(String teamleistungsblockname, String teamleistungsunterblockname,String teamleistungsname, int teamid, int gruppenid, String veranstaltungsname, int punkte)throws DatabaseException {
         try {
             Statement stmt = con.createStatement();
             try{
-                stmt.executeUpdate("INSERT INTO Teamleistung (Teamleistungsname, TeamID, GruppenID, Veranstaltungsname, Punkte) VALUES ('" + teamleistungsname + "', '" + teamid +"', '" + gruppenid +"', '" + veranstaltungsname +"', '" + punkte +"')");
+                stmt.executeUpdate("INSERT INTO Teamleistung (Teamleistungsblockname, Teamleistungsunterblockname, Teamleistungsname, TeamID, GruppenID, Veranstaltungsname, Punkte) VALUES ('" + teamleistungsblockname + "', '" + teamleistungsunterblockname + "', '" + teamleistungsname + "', '" + teamid +"', '" + gruppenid +"', '" + veranstaltungsname +"', '" + punkte +"')");
             }catch (SQLException e) {
-                ResultSet rs = stmt.executeQuery("SELECT Teamleistungsname, TeamID, GruppenID, Veranstaltungsname  FROM Teamleistung WHERE Teamleistungsname = '" + teamleistungsname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                ResultSet rs = stmt.executeQuery("SELECT Teamleistungsblockname, Teamleistungsunterblockname, Teamleistungsname, TeamID, GruppenID, Veranstaltungsname  FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND Teamleistungsname = '" + teamleistungsname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
                     throw new DatabaseException("Teamleistung already exists");
                 }else{
@@ -192,11 +192,65 @@ public class DBrequest {
         }
     }
 
-    public void createUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname, int punkte)throws DatabaseException {
+    public void createTeamLeistungsblock(String teamleistungsblockname, String teamleistungsunterblockname, int teamid, int gruppenid, String veranstaltungsname)throws DatabaseException {
+        try {
+            Statement stmt = con.createStatement();
+            try{
+                stmt.executeUpdate("INSERT INTO Teamleistung (Teamleistungsblockname, Teamleistungsunterblockname, TeamID, GruppenID, Veranstaltungsname) VALUES ('" + teamleistungsblockname + "', '" + teamleistungsunterblockname + "', '" + teamid +"', '" + gruppenid +"', '" + veranstaltungsname + "')");
+            }catch (SQLException e) {
+                ResultSet rs = stmt.executeQuery("SELECT Teamleistungsblockname, Teamleistungsunterblockname, TeamID, GruppenID, Veranstaltungsname  FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                if(resultSize(rs)!=0){
+                    throw new DatabaseException("Teamleistung already exists");
+                }else{
+                    throw new DatabaseException("Parent doesn't exist");
+                }
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
+    public void createTeamLeistungsblock(String teamleistungsblockname, int teamid, int gruppenid, String veranstaltungsname)throws DatabaseException {
+        try {
+            Statement stmt = con.createStatement();
+            try{
+                stmt.executeUpdate("INSERT INTO Teamleistung (Teamleistungsblockname, TeamID, GruppenID, Veranstaltungsname) VALUES ('" + teamleistungsblockname + "', '" + teamid +"', '" + gruppenid +"', '" + veranstaltungsname + "')");
+            }catch (SQLException e) {
+                ResultSet rs = stmt.executeQuery("SELECT Teamleistungsblockname, TeamID, GruppenID, Veranstaltungsname  FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                if(resultSize(rs)!=0){
+                    throw new DatabaseException("Teamleistung already exists");
+                }else{
+                    throw new DatabaseException("Parent doesn't exist");
+                }
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
+    public void createUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname)throws DatabaseException {
         try {
             Statement stmt = con.createStatement();
             try {
-                stmt.executeUpdate("INSERT INTO Unterblock (Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname, Punkte) VALUES ('" + matrikelnummer + "', '" + leistungsblockname + "', '" + unterblockname + "', '" + veranstaltungsname + "', '" + punkte + "')");
+                stmt.executeUpdate("INSERT INTO Unterblock (Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname) VALUES ('" + matrikelnummer + "', '" + leistungsblockname + "', '" + unterblockname + "', '" + veranstaltungsname + "')");
+            }catch (SQLException e){
+                ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname FROM Unterblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                if(resultSize(rs)!=0){
+                    throw new DatabaseException("Unterblock already exists");
+                }else{
+                    throw new DatabaseException("Parent doesn't exist");
+                }
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
+    public void createEinzelleistung(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname, String einzelleistungsname, int punkte)throws DatabaseException {
+        try {
+            Statement stmt = con.createStatement();
+            try {
+                stmt.executeUpdate("INSERT INTO Unterblock (Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname, Einzelleistung_name,Punkte) VALUES ('" + matrikelnummer + "', '" + leistungsblockname + "', '" + unterblockname + "', '" + veranstaltungsname + "', '" + einzelleistungsname + "', '" + punkte + "')");
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname FROM Unterblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
@@ -289,21 +343,21 @@ public class DBrequest {
                                 studienganganteil.getAnteil());
     }
 
-    // Issue: Leistung braucht Veranstaltungsname !?
+    // Issue: Leistung braucht Veranstaltungsname !? JA
     public void createLeistungsblock(Leistung leistungs)
     {
 //        createLeitet(leistungs.getStudent().getMatrikelnr(),
 //                     leistungs.getLbName(),
-//                     leistungs.getVeranstaltungsname); // no get method
+//                     leistungs.getVeranstaltungsname); // no get method, muss noch gemacht werden
     }
 
     // Issue: Unterblock braucht getMatrikelnummer, getVeranstaltungsname !?
     public void createUnterblock(Unterblock unterblock)
     {
-//        createUnterblock(unterblock.getMatrikelnummer, // no get method
+//        createUnterblock(unterblock.getMatrikelnummer, // no get method (kriegst du von Leistung.getStudent()...
 //                        unterblock.getlBlock().getLbName(),
 //                        unterblock.getUbName(),
-//                        unterblock.getVeranstaltungsname(), // no get method
+//                        unterblock.getVeranstaltungsname(), // no get method, wenn fertig: Leistung.getVeranstaltung()
 //                        unterblock.getUbPunkte());
     }
 
@@ -795,7 +849,7 @@ public class DBrequest {
             ResultSet rs = stmt.executeQuery("Select Teamleistungsunterblock.* FROM Teamleistungsunterblock INNER JOIN Teamleistungsblock ON Teamleistungsblock.TeamID = Teamleistungsunterblock.TeamID AND Teamleistungsblock.GruppenID = Teamleistungsunterblock.GruppenID AND Teamleistungsblock.Veranstaltungsname = Teamleistungsunterblock.Veranstaltungsname AND Teamleistungsblock.Teamleistungsblockname = Teamleistungsunterblock.Teamleistungsblockname WHERE Teamleistungsunterblock.Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsunterblock.TeamID = '" + teamID + "' AND Teamleistungsunterblock.GruppenID = '" + gruppenID + "' AND Teamleistungsunterblock.Teamleistungsblockname = '" + teamleistungsblockname + "'");
             while (rs.next()){
                 Unterblock ub = new Unterblock(rs.getString("Unterblock_name"),leistungsblock);
-                ub.setAufgaben(getEinzelleistung(gruppe, team, leistungsblock, ub, veranstaltung));
+                ub.setAufgaben(getTeamleistung(gruppe, team, leistungsblock, ub, veranstaltung));
                 results.add(ub);
             }
         }catch (SQLException ex){
@@ -804,7 +858,7 @@ public class DBrequest {
         return  results;
     }
 
-    public ArrayList<Aufgabe> getEinzelleistung(Gruppe gruppe, Team team, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung) throws  DatabaseException
+    public ArrayList<Aufgabe> getTeamleistung(Gruppe gruppe, Team team, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung) throws  DatabaseException
     {
         String veranstaltungsname = veranstaltung.getName();
         String teamleistungsblockname = leistungsblock.getLbName();

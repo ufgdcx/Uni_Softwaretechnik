@@ -90,16 +90,16 @@ public class DBtest
         }
         try {
             buffer.write("Teste Funktion: b.createUnterblock(79, \"Bob\", \"A1\", \"Mobbing\", 42);\n");
-            b.createUnterblock(79, "Bob", "A1", "Mobbing", 42);
+            b.createUnterblock(79, "Bob", "A1", "Mobbing");
         } catch (DatabaseException ex) {
             buffer.write(ex.getErrorMsg());
         }
-        try {
-            buffer.write("Teste Funktion: b.createTeamleistung(\"Bob2\", 3, 42, \"Mobbing\", 42);\n");
-            b.createTeamleistung("Bob2", 3, 42, "Mobbing", 42);
-        } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());
-        }
+//        try {
+//            buffer.write("Teste Funktion: b.createTeamleistung(\"Bob2\", 3, 42, \"Mobbing\", 42);\n");
+//            b.createTeamleistung("Bob2", 3, 42, "Mobbing", 42);
+//        } catch (DatabaseException ex) {
+//            buffer.write(ex.getErrorMsg());
+//        }
         try {
             buffer.write("Teste Funktion: b.createStudienganganteil(\"Bilologie\", 3, 42, \"Mobbing\", 1);\n");
             b.createStudienganganteil("Bilologie", 3, 42, "Mobbing", 1);
