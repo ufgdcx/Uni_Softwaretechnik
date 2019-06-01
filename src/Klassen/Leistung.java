@@ -22,6 +22,12 @@ public class Leistung
         this.veranstaltungsname = veranstaltungsname;
     }
 
+    // constructor for Database
+    public Leistung(String lbName)
+    {
+        this.lbName = lbName;
+    }
+
     // get methods
     public String getLbName() {return lbName;}
     public Student getStudent() {return student;}

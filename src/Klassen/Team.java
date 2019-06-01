@@ -20,6 +20,14 @@ public class Team
         this.leistungen = teaml;
         this.gruppe = gruppe;
     }
+
+    // Constructor for Database
+    public Team(int teamID, String thema, Gruppe gruppe)
+    {
+        this.teamID = teamID;
+        this.thema = thema;
+        this.gruppe = gruppe;
+    }
     
     // set methods
     public void setTeamID(int teamID) { this.teamID = teamID; }

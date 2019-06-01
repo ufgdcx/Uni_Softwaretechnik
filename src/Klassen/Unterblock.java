@@ -25,6 +25,13 @@ public class Unterblock
 		this.matrikel = matrikel;
 	}
 
+	// constructor for Database
+	public Unterblock(String ubName, Leistung l)
+	{
+		this.ubName = ubName;
+		this.oberL = l;
+	}
+
 	// get methods
 	public String getUbName(){return ubName;}
 	public int getUbPunkte(){return ubPunkte;}

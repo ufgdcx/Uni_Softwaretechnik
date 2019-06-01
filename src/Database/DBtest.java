@@ -4,7 +4,6 @@ import Klassen.Dozent;
 import Klassen.Nutzer;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -15,8 +14,7 @@ public class DBtest
 
         DBrequest b = new DBrequest();
 
-        FileWriter writer = new FileWriter("Logdata\\logdata.txt");
-        BufferedWriter buffer = new BufferedWriter(writer);
+        BufferedWriter buffer = LogWriter.getIntstance();
         buffer.write("Start Logdata:\n");
 
 
@@ -92,16 +90,16 @@ public class DBtest
         }
         try {
             buffer.write("Teste Funktion: b.createUnterblock(79, \"Bob\", \"A1\", \"Mobbing\", 42);\n");
-            b.createUnterblock(79, "Bob", "A1", "Mobbing", 42);
+            b.createUnterblock(79, "Bob", "A1", "Mobbing");
         } catch (DatabaseException ex) {
             buffer.write(ex.getErrorMsg());
         }
-        try {
-            buffer.write("Teste Funktion: b.createTeamleistung(\"Bob2\", 3, 42, \"Mobbing\", 42);\n");
-            b.createTeamleistung("Bob2", 3, 42, "Mobbing", 42);
-        } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());
-        }
+//        try {
+//            buffer.write("Teste Funktion: b.createTeamleistung(\"Bob2\", 3, 42, \"Mobbing\", 42);\n");
+//            b.createTeamleistung("Bob2", 3, 42, "Mobbing", 42);
+//        } catch (DatabaseException ex) {
+//            buffer.write(ex.getErrorMsg());
+//        }
         try {
             buffer.write("Teste Funktion: b.createStudienganganteil(\"Bilologie\", 3, 42, \"Mobbing\", 1);\n");
             b.createStudienganganteil("Bilologie", 3, 42, "Mobbing", 1);
@@ -112,15 +110,15 @@ public class DBtest
         // Test get methods
         //
         ArrayList<String> a = null;
-        try {
-            buffer.write("Teste Funktion: b.getVeranstaltungsnamen(new Dozent(\"test@email.com\",\"123\",\"Herr\",\"bob\",\"boob\",\"Ameise\"));\n");
-            a = b.getVeranstaltungsnamen(new Dozent("test@email.com","123","Herr","bob","boob","Ameise"));
-
-            for(int i=0; i<a.size();i++)
-                System.out.println(a.get(i));
-        } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());
-        }
+//        try {
+//            buffer.write("Teste Funktion: b.getVeranstaltungsnamen(new Dozent(\"test@email.com\",\"123\",\"Herr\",\"bob\",\"boob\",\"Ameise\"));\n");
+//            //a = b.getVeranstaltungsnamen(new Dozent("test@email.com","123","Herr","bob","boob","Ameise"));
+//
+//            for(int i=0; i<a.size();i++)
+//                System.out.println(a.get(i));
+//        } catch (DatabaseException ex) {
+//            buffer.write(ex.getErrorMsg());
+//        }
         try {
             buffer.write("Teste Funktion: b.getNutzer(\"bob@baumeister.com\", \"polen\");\n");
             Nutzer student = b.getNutzer("bob@baumeister.com", "polen");
@@ -165,7 +163,7 @@ public class DBtest
         /*b.deleteUnterblock(79, "Bob", "A1", "Mobbing");
         b.deleteLeistungsblock(79, "Bob", "Mobbing");
         b.deleteStudienganganteil("Bilologie", 3, 42, "Mobbing");
-        b.deleteTeamleistung("Bob2", 3, 42, "Mobbing");
+        //b.deleteTeamleistung("Bob2", 3, 42, "Mobbing");
         b.deleteGehoertZu(79, 3, 42, "Mobbing");
         b.deleteTeam(3, 42, "Mobbing");
         b.deleteGruppe(42, "Mobbing");
@@ -175,14 +173,14 @@ public class DBtest
         b.deleteStudent("bob@baumeister.com");
         b.deleteNutzer("test@email.com");
         b.deleteNutzer("bob@baumeister.com");
-        try {
-            buffer.write("Teste Funktion: b.createNutzer(\"test@email.com\", \"Herr\", \"bob\", \"boob\", \"123\");(Nutzer existiert noch nicht)\n");
-            a = b.getVeranstaltungsnamen(new Dozent("test@email.com","123","Herr","bob","boob","Ameise"));
-            for(int i=0; i<a.size();i++)
-                System.out.println(a.get(i));
-        } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());
-        }
+//        try {
+//            buffer.write("Teste Funktion: b.createNutzer(\"test@email.com\", \"Herr\", \"bob\", \"boob\", \"123\");(Nutzer existiert noch nicht)\n");
+//            a = b.getVeranstaltungsnamen(new Dozent("test@email.com","123","Herr","bob","boob","Ameise"));
+//            for(int i=0; i<a.size();i++)
+//                System.out.println(a.get(i));
+//        } catch (DatabaseException ex) {
+//            buffer.write(ex.getErrorMsg());
+//        }
 
         try {
             buffer.write("Teste Funktion: b.createNutzer(\"test@email.com\", \"Herr\", \"bob\", \"boob\", \"123\");(Nutzer existiert noch nicht)\n");
