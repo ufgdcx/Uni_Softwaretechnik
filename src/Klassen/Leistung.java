@@ -20,10 +20,9 @@ public class Leistung
     }
 
     // constructor for Database
-    public Leistung(String lbName, Student student)
+    public Leistung(String lbName)
     {
         this.lbName = lbName;
-        this.student = student;
     }
 
     // get methods
