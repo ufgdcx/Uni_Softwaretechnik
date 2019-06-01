@@ -613,13 +613,9 @@ public class DBrequest {
         ArrayList<Veranstaltung> results = new ArrayList<>();
         try {
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT DISTINCT Veranstaltungsname FROM Gehoert_zu WHERE Matrikelnummer = '" + matrikelnr + "'");
+            ResultSet rs = stmt.executeQuery("SELECT Veranstaltung.* FROM Gehoert_zu INNER JOIN Veranstaltung ON Veranstaltung.Veranstaltungsname = Gehoert_zu.Veranstaltungsname WHERE Matrikelnummer = '" + matrikelnr + "'");
             while (rs.next()){
-                String veranstaltungsname = rs.getString("Veranstaltungsname");
-                stmt = con.createStatement();
-                ResultSet rsv = stmt.executeQuery("SELECT * FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                rsv.next();
-                //results.add(new Veranstaltung(rsv.getString("Veranstaltungsname"),rsv.getString("Fakultaet"),rsv.getInt("Teamanzahl_je_Gruppe"),rsv.getInt("maximale_Teilnehmeranzahl_je_Team"),",muss das sein?","wirklich?"));
+                //results.add(new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"),"?","?"));
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
@@ -660,32 +656,73 @@ public class DBrequest {
         return  results;
     }
 
-    // TODO
     public  Team getTeam(Student student, Gruppe gruppe) throws  DatabaseException
     {
-        // TODO
-        return null;
+        String veranstaltungsname = gruppe.getVeranstaltung().getName();
+        int gruppenid = gruppe.getGruppenID();
+        int matrikelnummer = student.getMatrikelnr();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Team.* FROM Gehoert_zu INNER JOIN Team ON Team.TeamID = Gehoert_zu.TeamID AND Team.GruppenID = Gehoert_zu.GruppenID AND Team.Veranstaltungsname = Gehoert_zu.Veranstaltungsname WHERE Gehoert_zu.Matrikelnummer = '" + matrikelnummer + "' AND Team.Veranstaltungsname = '" + veranstaltungsname + "' AND Team.GruppenID = '" + gruppenid + "'");
+            //Team result = new Team(rs.getInt("TeamID"),rs.getString("Thema"),"?","?",gruppe));
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  null;
     }
 
-    // TODO
-    public ArrayList <Leistung> getLeistung(Student student) throws  DatabaseException
+    public ArrayList <Leistung> getLeistung(Student student, Veranstaltung veranstaltung) throws  DatabaseException
     {
-        // TODO
-        return null;
+        String veranstaltungsname = veranstaltung.getName();
+        int matrikelnummer = student.getMatrikelnr();
+        ArrayList<Leistung> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Leistungsblock.* FROM Student INNER JOIN Leistungsblock ON Student.Matrikelnummer = Leistungsblock.Matrikelnummer WHERE Student.Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock.Veranstaltungsname = '" + veranstaltungsname + "'");
+            while (rs.next()){
+                //results.add(new Leistung(rs.getString("Leistungsblock_name"),student,"?","?"));
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
     }
 
-    // TODO
-    public ArrayList<Unterblock> getUnterblock(Student student, Leistung leistung) throws  DatabaseException
+    public ArrayList<Unterblock> getUnterblock(Student student, Leistung leistungsblock, Veranstaltung veranstaltung) throws  DatabaseException
     {
-        // TODO
-        return null;
+        String veranstaltungsname = veranstaltung.getName();
+        String leistungsblockname = leistungsblock.getLbName();
+        int matrikelnummer = student.getMatrikelnr();
+        ArrayList<Unterblock> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Unterblock.* FROM Leistungsblock INNER JOIN Unterblock ON Unterblock.Matrikelnummer = Leistungsblock.Matrikelnummer AND Unterblock.Leistungsblock_name = Leistungsblock.Leistungsblock_name WHERE Unterblock.Matrikelnummer = '" + matrikelnummer + "' AND Unterblock.Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock.Veranstaltungsname = '" + veranstaltungsname + "'");
+            while (rs.next()){
+                //results.add(new Unterblock(rs.getString("Unterblock_name"),"?",leistungsblock,"?"));
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
     }
 
-    // TODO
-    public ArrayList<Aufgabe> getEinzelleistung(Student student, Leistung leistung, Unterblock unterblock    ) throws  DatabaseException
+    public ArrayList<Aufgabe> getEinzelleistung(Student student, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung) throws  DatabaseException
     {
-        // TODO
-        return null;
+        String veranstaltungsname = veranstaltung.getName();
+        String leistungsblockname = leistungsblock.getLbName();
+        int matrikelnummer = student.getMatrikelnr();
+        String unterblockname = unterblock.getUbName();
+        ArrayList<Aufgabe> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Einzelleistung.* FROM Unterblock INNER JOIN Einzelleistung ON Unterblock.Matrikelnummer = Einzelleistung.Matrikelnummer AND Unterblock.Leistungsblock_name = Einzelleistung.Leistungsblock_name AND Unterblock.Unterblock_name = Einzelleistung.Unterblock_name WHERE Einzelleistung.Matrikelnummer = '" + matrikelnummer + "' AND Einzelleistung.Leistungsblock_name = '" + leistungsblockname + "' AND Einzelleistung.Veranstaltungsname = '" + veranstaltungsname + "' AND Einzelleistung.Unterblock_name = '" + unterblockname + "'");
+            while (rs.next()){
+                results.add(new Aufgabe(rs.getString("Einzelleistung_name"),rs.getInt("Punkte"),unterblock));
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
     }
 
     // update Methods
