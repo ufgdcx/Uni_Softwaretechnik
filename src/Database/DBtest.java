@@ -4,7 +4,6 @@ import Klassen.Dozent;
 import Klassen.Nutzer;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -15,8 +14,7 @@ public class DBtest
 
         DBrequest b = new DBrequest();
 
-        FileWriter writer = new FileWriter("Logdata\\logdata.txt");
-        BufferedWriter buffer = new BufferedWriter(writer);
+        BufferedWriter buffer = LogWriter.getIntstance();
         buffer.write("Start Logdata:\n");
 
 

@@ -607,7 +607,7 @@ public class DBrequest {
         return  results;
     }
 
-    private ArrayList<Veranstaltung> getVeranstaltungen(Student stud) throws  DatabaseException
+    public ArrayList<Veranstaltung> getVeranstaltungen(Student stud) throws  DatabaseException
     {
         int matrikelnr = stud.getMatrikelnr();
         ArrayList<Veranstaltung> results = new ArrayList<>();
