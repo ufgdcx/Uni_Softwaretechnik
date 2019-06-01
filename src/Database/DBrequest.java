@@ -607,6 +607,24 @@ public class DBrequest {
         return  results;
     }
 
+    private ArrayList<Veranstaltung> getVeranstaltungen(Student stud) throws  DatabaseException
+    {
+        int matrikelnr = stud.getMatrikelnr();
+        ArrayList<Veranstaltung> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Veranstaltung.* FROM Gehoert_zu INNER JOIN Veranstaltung ON Veranstaltung.Veranstaltungsname = Gehoert_zu.Veranstaltungsname WHERE Matrikelnummer = '" + matrikelnr + "'");
+            while (rs.next()){
+                Veranstaltung veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"));
+                veranstaltung.setDozenten(getDozenten(veranstaltung));
+                results.add(veranstaltung);
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
+    }
+
     public ArrayList<Dozent> getDozenten(Veranstaltung veranstaltung) throws  DatabaseException{
         String veranstaltungsname = veranstaltung.getName();
         ArrayList<Dozent> results = new ArrayList<>();
@@ -622,22 +640,6 @@ public class DBrequest {
         return  results;
     }
 
-    private ArrayList<Veranstaltung> getVeranstaltungen(Student stud) throws  DatabaseException
-    {
-        int matrikelnr = stud.getMatrikelnr();
-        ArrayList<Veranstaltung> results = new ArrayList<>();
-        try {
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT Veranstaltung.* FROM Gehoert_zu INNER JOIN Veranstaltung ON Veranstaltung.Veranstaltungsname = Gehoert_zu.Veranstaltungsname WHERE Matrikelnummer = '" + matrikelnr + "'");
-            while (rs.next()){
-                //results.add(new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"),"?","?"));
-            }
-        }catch (SQLException ex){
-            throw new DatabaseException("Connection Failed");
-        }
-        return  results;
-    }
-
     public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) throws  DatabaseException
     {
         String veranstaltungsname = veranstaltung.getName();
@@ -646,12 +648,25 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT `Gruppe`.* FROM `Veranstaltung` INNER JOIN `Gruppe` ON `Gruppe`.`Veranstaltungsname` = `Veranstaltung`.`Veranstaltungsname` WHERE Veranstaltung.Veranstaltungsname = '" + veranstaltungsname + "'");
             while (rs.next()){
-                //results.add(new Gruppe(rs.getInt("GruppenID"), "unnecessary", rs.getString("Wochentag"),rs.getTime("Uhrzeit"),rs.getString("Wochenrhytmus"),rs.getDate("Einschreibungsfrist"),veranstaltung,"mal sehn",getDozent(rs.getString("EMailadresse"))));
+                results.add(new Gruppe(rs.getInt("GruppenID"), rs.getString("Wochentag"),rs.getTime("Uhrzeit"),rs.getString("Wochenrhytmus"),rs.getDate("Einschreibungsfrist"),veranstaltung,getDozent(rs.getString("EMailadresse"))));
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
         }
         return  results;
+    }
+
+    public Dozent getDozent(String emailadresse) throws DatabaseException{
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Nutzer.*, Dozent.Fakultaet FROM Nutzer INNER JOIN Dozent ON Nutzer.EMailadresse = Dozent.EMailadresse WHERE Nutzer.EMailadresse = '" + emailadresse + "'");
+            if(resultSize(rs)!=0) {
+                Dozent result = new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),"Fakultaet");
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  null;
     }
 
     public  ArrayList<Team> getTeam(Gruppe gruppe) throws  DatabaseException
@@ -679,7 +694,9 @@ public class DBrequest {
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Team.* FROM Gehoert_zu INNER JOIN Team ON Team.TeamID = Gehoert_zu.TeamID AND Team.GruppenID = Gehoert_zu.GruppenID AND Team.Veranstaltungsname = Gehoert_zu.Veranstaltungsname WHERE Gehoert_zu.Matrikelnummer = '" + matrikelnummer + "' AND Team.Veranstaltungsname = '" + veranstaltungsname + "' AND Team.GruppenID = '" + gruppenid + "'");
-            //Team result = new Team(rs.getInt("TeamID"),rs.getString("Thema"),"?","?",gruppe));
+            if(resultSize(rs)!=0) {
+                //Team result = new Team(rs.getInt("TeamID"),rs.getString("Thema"),"?","?",gruppe));
+            }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
         }
