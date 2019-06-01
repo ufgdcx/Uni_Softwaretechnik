@@ -662,6 +662,7 @@ public class DBrequest {
             ResultSet rs = stmt.executeQuery("SELECT Nutzer.*, Dozent.Fakultaet FROM Nutzer INNER JOIN Dozent ON Nutzer.EMailadresse = Dozent.EMailadresse WHERE Nutzer.EMailadresse = '" + emailadresse + "'");
             if(resultSize(rs)!=0) {
                 Dozent result = new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),"Fakultaet");
+                return result;
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
@@ -669,7 +670,7 @@ public class DBrequest {
         return  null;
     }
 
-    public  ArrayList<Team> getTeam(Gruppe gruppe) throws  DatabaseException
+    public  ArrayList<Team> getTeams(Gruppe gruppe) throws  DatabaseException
     {
         String veranstaltungsname = gruppe.getVeranstaltung().getName();
         int gruppenid = gruppe.getGruppenID();
@@ -678,7 +679,7 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT `Team`.* FROM `Gruppe` INNER JOIN `Team` ON `Team`.`GruppenID` = `Gruppe`.`GruppenID` AND `Team`.`Veranstaltungsname` = `Gruppe`.`Veranstaltungsname` WHERE Team.GruppenID = '" + gruppenid + "' AND Team.Veranstaltungsname = '" + veranstaltungsname + "'");
             while (rs.next()){
-                //results.add(new Team(rs.getInt("TeamID"),rs.getString("Thema"),"?","?",gruppe));
+                results.add(new Team(rs.getInt("TeamID"),rs.getString("Thema"),gruppe));
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
@@ -695,7 +696,8 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Team.* FROM Gehoert_zu INNER JOIN Team ON Team.TeamID = Gehoert_zu.TeamID AND Team.GruppenID = Gehoert_zu.GruppenID AND Team.Veranstaltungsname = Gehoert_zu.Veranstaltungsname WHERE Gehoert_zu.Matrikelnummer = '" + matrikelnummer + "' AND Team.Veranstaltungsname = '" + veranstaltungsname + "' AND Team.GruppenID = '" + gruppenid + "'");
             if(resultSize(rs)!=0) {
-                //Team result = new Team(rs.getInt("TeamID"),rs.getString("Thema"),"?","?",gruppe));
+                Team result = new Team(rs.getInt("TeamID"),rs.getString("Thema"),gruppe);
+                return result;
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
