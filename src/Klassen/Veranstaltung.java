@@ -23,6 +23,15 @@ public class Veranstaltung
         this.dozenten = dozenten;
     }
 
+    //Constructor for Database
+    public Veranstaltung(String name, String fakultaet, int teamanzahl, int maxTeilnehmer)
+    {
+        this.name = name;
+        this.fakultaet = fakultaet;
+        Teamanzahl = teamanzahl;
+        this.maxTeilnehmer = maxTeilnehmer;
+    }
+
     // get methods
     public String getName()  {return name;  }
     public String getFakultaet()  {return fakultaet;  }

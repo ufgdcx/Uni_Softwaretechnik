@@ -564,8 +564,6 @@ public class DBrequest {
     }
 
     public Nutzer getNutzer(String email, String passwd) throws DatabaseException {
-        //converting char array for password to a string
-        //TODO evaluate, if we need to overwrite the string and/or the char array for better security
         String pwString = new String(passwd);
         try {
             Statement stmt = con.createStatement();
@@ -599,7 +597,9 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Leitet.EMailadresse, Veranstaltung.* FROM Veranstaltung INNER JOIN Leitet ON Leitet.Name = Veranstaltung.Veranstaltungsname WHERE EMailadresse = '" + email + "'");
             while (rs.next()){
-                //results.add(new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"),",muss das sein?","wirklich?"));
+                Veranstaltung veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"));
+                veranstaltung.setDozenten(getDozenten(veranstaltung));
+                results.add(veranstaltung);
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
@@ -607,7 +607,22 @@ public class DBrequest {
         return  results;
     }
 
-    public ArrayList<Veranstaltung> getVeranstaltungen(Student stud) throws  DatabaseException
+    public ArrayList<Dozent> getDozenten(Veranstaltung veranstaltung) throws  DatabaseException{
+        String veranstaltungsname = veranstaltung.getName();
+        ArrayList<Dozent> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Nutzer.*, Dozent.Fakultaet FROM Leitet INNER JOIN (Nutzer INNER JOIN Dozent ON Nutzer.EMailadresse = Dozent.EMailadresse) ON Leitet.EMailadresse = Dozent.EMailadresse WHERE Leitet.Name = '" + veranstaltungsname + "'");
+            while (rs.next()){
+                results.add(new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Fakultaet")));
+            }
+        }catch (SQLException ex){
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
+    }
+
+    private ArrayList<Veranstaltung> getVeranstaltungen(Student stud) throws  DatabaseException
     {
         int matrikelnr = stud.getMatrikelnr();
         ArrayList<Veranstaltung> results = new ArrayList<>();
