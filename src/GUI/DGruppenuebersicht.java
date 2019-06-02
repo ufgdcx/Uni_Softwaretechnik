@@ -39,19 +39,6 @@ public class DGruppenuebersicht implements FrameContent {
 
     public DGruppenuebersicht() {
 
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Root");
-        DefaultTreeModel model = new DefaultTreeModel(root);
-        root.add(new DefaultMutableTreeNode("Version 1"));
-        tree = new JTree(model);
-        tree.setRootVisible(true);
-        tree.setShowsRootHandles(true);
-        JScrollPane treeView = new JScrollPane(tree);
-        tree.setVisible(true);
-        DefaultMutableTreeNode category = null;
-        DefaultMutableTreeNode book = null;
-        category = new DefaultMutableTreeNode("Books for Java Programmers");
-        root.add(category);
-
 
         einsehen.addActionListener(new ActionListener() {
             @Override

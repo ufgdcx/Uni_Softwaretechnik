@@ -4,8 +4,6 @@ import Database.*;
 import GUI.*;
 import Klassen.*;
 
-import java.sql.Array;
-
 public class MainController {
 	protected GUIMain mainFrame;
 	private Nutzer n;
@@ -42,5 +40,4 @@ public class MainController {
 			new StudentController(mainFrame,s);
 		}
 	}
-
 }
