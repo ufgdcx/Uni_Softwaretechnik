@@ -30,6 +30,20 @@ public class Gruppe {
         this.teams = teams;
         this.dozent = dozent;
     }
+    // Constructor for Database
+    public Gruppe(int gruppenID, String wochentag, Time zeit, String rhythmus,
+                  java.sql.Date frist, Veranstaltung veranstaltung, Dozent dozent)
+    {
+        this.gruppenID = gruppenID;
+        this.email = email;
+        this.wochentag = wochentag;
+        this.zeit = zeit;
+        this.rhythmus = rhythmus;
+        this.frist = frist;
+        this.veranstaltung = veranstaltung;
+        this.teams = teams;
+        this.dozent = dozent;
+    }
 
     // get methods
     public int getGruppenID() {  return gruppenID; }
