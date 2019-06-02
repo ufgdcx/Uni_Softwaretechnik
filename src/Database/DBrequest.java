@@ -35,6 +35,7 @@ public class DBrequest {
     }
 
     public void createStudent(String email, int matrikelnummer, String studiengang)throws DatabaseException {
+        logwriter.writetoLog("function: createStudent(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try {
@@ -42,17 +43,21 @@ public class DBrequest {
             }catch(SQLException e) {
                 ResultSet rs = stmt.executeQuery("SELECT Emailadresse, FROM Student WHERE Emailadresse = '" + email + "'");
                 if (resultSize(rs) != 0) {
+                    logwriter.writetoLog("Student already exists","ERROR");
                     throw new DatabaseException("Student already exists");
                 } else {
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createDozent(String email, String fakultaet)throws DatabaseException {
+        logwriter.writetoLog("function: createDozent(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try{
@@ -60,18 +65,22 @@ public class DBrequest {
             }catch(SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT Emailadresse, FROM Dozent WHERE Emailadresse = '" + email + "'");
                 if (resultSize(rs) != 0) {
+                    logwriter.writetoLog("Dozent already exists","ERROR");
                     throw new DatabaseException("Dozent already exists");
                 }else {
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
 
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname)throws DatabaseException {
+        logwriter.writetoLog("function: createLeistungsblock(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try {
@@ -79,17 +88,21 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Leistungsblock_name, Veranstaltungsname FROM Leistungsblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
+                    logwriter.writetoLog("Leistungsblock already exists","ERROR");
                     throw new DatabaseException("Leistungsblock already exists");
                 }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createGehoertZu(int matrikelnummer, int teamid, int gruppenid, String veranstaltungsname)throws DatabaseException {
+        logwriter.writetoLog("function: createGehoertZu(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try {
@@ -97,17 +110,21 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, TeamID, GruppenID, Veranstaltungsname  FROM Gehoert_zu WHERE Matrikelnummer = '" + matrikelnummer + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
+                    logwriter.writetoLog("Gehoert_zu already exists","ERROR");
                     throw new DatabaseException("Gehoert_zu already exists");
                 }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createGruppe(int gruppenid, String email, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus)throws DatabaseException {
+        logwriter.writetoLog("function: createGruppe(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try {
@@ -115,17 +132,21 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT GruppenID, Veranstaltungsname FROM Gruppe WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltung + "'");
                 if(resultSize(rs)!=0){
+                    logwriter.writetoLog("Gruppe already exists","ERROR");
                     throw new DatabaseException("Gruppe already exists");
                 }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         }catch (SQLException ex){
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createLeitet(String name, String email)throws DatabaseException {
+        logwriter.writetoLog("function: createLeitet(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try {
@@ -133,17 +154,21 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT Name, Emailadresse FROM Leitet WHERE Name = '" + name + "' AND Emailadresse = '" + email + "'");
                 if(resultSize(rs)!=0){
+                    logwriter.writetoLog("Leitet already exists","ERROR");
                     throw new DatabaseException("Leitet already exists");
                 }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname, int anteil)throws DatabaseException {
+        logwriter.writetoLog("function: createStudienganganteil(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try {
@@ -151,17 +176,21 @@ public class DBrequest {
             }catch (SQLException e) {
                 ResultSet rs = stmt.executeQuery("SELECT Studiengang, TeamID, GruppenID, Veranstaltungsname  FROM Studienganganteil WHERE Studiengang = '" + studiengang + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
+                    logwriter.writetoLog("Studienganganteil already exists","ERROR");
                     throw new DatabaseException("Studienganganteil already exists");
                 }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex){
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createTeam(int teamid, int gruppenid, String veranstaltungsname, String thema)throws DatabaseException {
+        logwriter.writetoLog("function: createTeam(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try {
@@ -169,17 +198,21 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT TeamID, GruppenID, Veranstaltungsname  FROM Team WHERE TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
+                    logwriter.writetoLog("Team already exists","ERROR");
                     throw new DatabaseException("Team already exists");
                 }else {
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createTeamleistung(String teamleistungsblockname, String teamleistungsunterblockname,String teamleistungsname, int teamid, int gruppenid, String veranstaltungsname, int punkte)throws DatabaseException {
+        logwriter.writetoLog("function: createTeamleistung(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try{
@@ -187,17 +220,21 @@ public class DBrequest {
             }catch (SQLException e) {
                 ResultSet rs = stmt.executeQuery("SELECT Teamleistungsblockname, Teamleistungsunterblockname, Teamleistungsname, TeamID, GruppenID, Veranstaltungsname  FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND Teamleistungsname = '" + teamleistungsname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
+                    logwriter.writetoLog("Teamleistung already exists","ERROR");
                     throw new DatabaseException("Teamleistung already exists");
                 }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createTeamLeistungsUnterblock(String teamleistungsblockname, String teamleistungsunterblockname, int teamid, int gruppenid, String veranstaltungsname)throws DatabaseException {
+        logwriter.writetoLog("function: createTeamleistungsUnterblock(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try{
@@ -205,17 +242,21 @@ public class DBrequest {
             }catch (SQLException e) {
                 ResultSet rs = stmt.executeQuery("SELECT Teamleistungsblockname, Teamleistungsunterblockname, TeamID, GruppenID, Veranstaltungsname  FROM Teamleistungsunterblock WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
-                    throw new DatabaseException("Teamleistung already exists");
+                    logwriter.writetoLog("TeamleistungsUnterblock already exists","ERROR");
+                    throw new DatabaseException("TeamleistungsUnterblock already exists");
                 }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createTeamLeistungsblock(String teamleistungsblockname, int teamid, int gruppenid, String veranstaltungsname)throws DatabaseException {
+        logwriter.writetoLog("function: createTeamleistungsblock(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try{
@@ -223,17 +264,21 @@ public class DBrequest {
             }catch (SQLException e) {
                 ResultSet rs = stmt.executeQuery("SELECT Teamleistungsblockname, TeamID, GruppenID, Veranstaltungsname  FROM Teamleistungsblock WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
-                    throw new DatabaseException("Teamleistung already exists");
+                    logwriter.writetoLog("Teamleistungsblock already exists","ERROR");
+                    throw new DatabaseException("Teamleistungsblock already exists");
                 }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname)throws DatabaseException {
+        logwriter.writetoLog("function: createUnterblock(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try {
@@ -241,17 +286,21 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname FROM Unterblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
+                    logwriter.writetoLog("Unterblock already exists","ERROR");
                     throw new DatabaseException("Unterblock already exists");
                 }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
     public void createEinzelleistung(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname, String einzelleistungsname, int punkte)throws DatabaseException {
+        logwriter.writetoLog("function: createEinzelleistung(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try {
@@ -259,26 +308,32 @@ public class DBrequest {
             }catch (SQLException e){
                 ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Einzelleistung_name, Leistungsblock_name, Unterblock_name, Veranstaltungsname FROM Einzelleistung WHERE Matrikelnummer = '" + matrikelnummer + "' AND Einzelleistung_name = '" + einzelleistungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 if(resultSize(rs)!=0){
-                    throw new DatabaseException("Unterblock already exists");
+                    logwriter.writetoLog("Einzelleistung already exists","ERROR");
+                    throw new DatabaseException("Einzelleistung already exists");
                 }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
 
 
     public void createVeranstaltung(String veranstaltungsname, String fakultaet, int teamanzahl, int max, String beschreibung  )throws DatabaseException {
+        logwriter.writetoLog("function: createVeranstaltung(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try {
                 stmt.executeUpdate("INSERT INTO Veranstaltung (Veranstaltungsname, Fakultaet, Teamanzahl_je_Gruppe, maximale_Teilnehmeranzahl_je_Team, Beschreibung) VALUES ('" + veranstaltungsname + "', '" + fakultaet + "', '" + teamanzahl + "', '" + max + "', '" + beschreibung + "')");
             }catch (SQLException e){
+                logwriter.writetoLog("Veranstaltung already exists","ERROR");
                 throw new DatabaseException("Veranstaltung already exists");
             }
         } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
 
