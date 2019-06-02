@@ -62,12 +62,12 @@ public class DBtest
         } catch (DatabaseException ex) {
             buffer.write(ex.getErrorMsg());
         }
-        try {
+        /*try {
             buffer.write("Teste Funktion: b.createGruppe(42, \"test@email.com\", \"Mobbing\", new Date(System.currentTimeMillis()), new Time(System.currentTimeMillis()), \"Mittwoch\", \"ger\");\n");
             b.createGruppe(42, "test@email.com", "Mobbing", new Date(System.currentTimeMillis()), new Time(System.currentTimeMillis()), "Mittwoch", "ger");
         } catch (DatabaseException ex) {
             buffer.write(ex.getErrorMsg());
-        }
+        }*/
         try {
             buffer.write("Teste Funktion: b.createTeam(3, 42, \"Mobbing\", \"Cybermobbing\");\n");
             b.createTeam(3, 42, "Mobbing", "Cybermobbing");
@@ -86,12 +86,12 @@ public class DBtest
         } catch (DatabaseException ex) {
             buffer.write(ex.getErrorMsg());
         }
-        try {
+        /*try {
             buffer.write("Teste Funktion: b.createUnterblock(79, \"Bob\", \"A1\", \"Mobbing\", 42);\n");
             b.createUnterblock(79, "Bob", "A1", "Mobbing");
         } catch (DatabaseException ex) {
             buffer.write(ex.getErrorMsg());
-        }
+        }*/
 //        try {
 //            buffer.write("Teste Funktion: b.createTeamleistung(\"Bob2\", 3, 42, \"Mobbing\", 42);\n");
 //            b.createTeamleistung("Bob2", 3, 42, "Mobbing", 42);

@@ -768,7 +768,7 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT `Gruppe`.* FROM `Veranstaltung` INNER JOIN `Gruppe` ON `Gruppe`.`Veranstaltungsname` = `Veranstaltung`.`Veranstaltungsname` WHERE Veranstaltung.Veranstaltungsname = '" + veranstaltungsname + "'");
             while (rs.next()){
-                results.add(new Gruppe(rs.getInt("GruppenID"), rs.getString("Wochentag"),rs.getTime("Uhrzeit"),rs.getString("Wochenrhytmus"),rs.getDate("Einschreibungsfrist"),veranstaltung,getDozent(rs.getString("EMailadresse"))));
+                results.add(new Gruppe(rs.getInt("GruppenID"),"unnecessary", rs.getString("Wochentag"),rs.getTime("Uhrzeit"),rs.getString("Wochenrhytmus"),rs.getDate("Einschreibungsfrist"),veranstaltung,getDozent(rs.getString("EMailadresse"))));
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");

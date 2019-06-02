@@ -1,8 +1,8 @@
 package Klassen;
 
+import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Gruppe {
 
@@ -12,17 +12,16 @@ public class Gruppe {
     private String wochentag; // Wochentag
     private Time zeit; // Uhrzeit
     private String rhythmus; // Wochenrhythmus
-    private java.sql.Date frist; // Einschreibungsfrist
+    private Date frist; // Einschreibungsfrist
     private Veranstaltung veranstaltung;
     private ArrayList<Team> teams;
     private Dozent dozent;
 
     // Constructor
-    public Gruppe(int gruppenID, String email, String wochentag, Time zeit, String rhythmus,
-                  java.sql.Date frist, Veranstaltung veranstaltung, ArrayList<Team> teams, Dozent dozent)
+    public Gruppe(int gruppenID, String wochentag, Time zeit, String rhythmus,
+                  Date frist, Veranstaltung veranstaltung, ArrayList<Team> teams, Dozent dozent)
     {
         this.gruppenID = gruppenID;
-        this.email = email;
         this.wochentag = wochentag;
         this.zeit = zeit;
         this.rhythmus = rhythmus;
@@ -32,7 +31,7 @@ public class Gruppe {
         this.dozent = dozent;
     }
     // Constructor for Database
-    public Gruppe(int gruppenID, String wochentag, Time zeit, String rhythmus,
+    public Gruppe(int gruppenID, String email, String wochentag, Time zeit, String rhythmus,
                   java.sql.Date frist, Veranstaltung veranstaltung, Dozent dozent)
     {
         this.gruppenID = gruppenID;
@@ -53,7 +52,7 @@ public class Gruppe {
     public Veranstaltung getVeranstaltung() {  return veranstaltung; }
     public ArrayList<Team> getTeams() {  return teams; }
     public Dozent getDozent() {  return dozent; }
-    public java.sql.Date getFrist() { return  frist;}
+    public Date getFrist() { return  frist;}
     public String getWochentag() { return wochentag; }
     public Time getZeit() {return zeit;}
 
@@ -63,7 +62,7 @@ public class Gruppe {
      public void setTag(String tag) {  this.wochentag = tag; }
      public void setZeit(Time zeit) {  this.zeit = zeit; }
      public void setRhythmus(String rhythmus) {  this.rhythmus = rhythmus; }
-     public void setFrist(java.sql.Date frist) {  this.frist = frist; }
+     public void setFrist(Date frist) {  this.frist = frist; }
      public void setVeranstaltung(Veranstaltung veranstaltung) {  this.veranstaltung = veranstaltung; }
      public void setTeams(ArrayList<Team> teams) {  this.teams = teams; }
      public void setDozent(Dozent dozent) {  this.dozent = dozent; }
