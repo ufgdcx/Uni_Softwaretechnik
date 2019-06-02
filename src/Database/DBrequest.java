@@ -715,10 +715,6 @@ public class DBrequest {
                 veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"), rs.getString("Beschreibung"));
                 veranstaltung.setDozenten(getDozenten(veranstaltung));
                 results.add(veranstaltung);
-                for(Veranstaltung ve: results) {
-                    System.out.println(ve.getName() + " " + ve.getTeamanzahl() + " " + ve.getFakultaet());
-                }
-                System.out.println("---------------");
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
