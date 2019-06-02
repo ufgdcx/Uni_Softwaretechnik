@@ -2,6 +2,7 @@ package Database;
 
 import Klassen.Dozent;
 import Klassen.Nutzer;
+import Klassen.Veranstaltung;
 
 import java.io.BufferedWriter;
 import java.sql.Date;
@@ -14,31 +15,28 @@ public class DBtest
 
         DBrequest b = new DBrequest();
 
-        BufferedWriter buffer = LogWriter.getIntstance();
-        buffer.write("Start Logdata:\n");
-
+        LogWriter buffer = LogWriter.getIntstance();
+        buffer.writetoLog("Start Logdata\n", "INFO");
 
         // Test create methods
-        //
+
+        ArrayList<Veranstaltung> v = b.getVeranstaltungen(new Dozent("marie.bach@uni-rostock.de","123456","a","d","d","d"));
+        for(Veranstaltung ve: v) {
+            System.out.println(ve.getName());
+        }
+
         try {
-            buffer.write("Teste Funktion: b.createNutzer(\"test@email.com\", \"Herr\", \"bob\", \"boob\", \"123\");(Nutzer existiert noch nicht)\n");
             b.createNutzer("test@email.com", "Herr", "bob", "boob", "123");
 
-            buffer.write("Nutzer erfolgreich erstellt");
         }catch(DatabaseException ex){
-            buffer.write(ex.getErrorMsg());
         }
         try {
-            buffer.write("Teste Funktion: b.createNutzer(\"test@email.com\",\"Herr\",\"bob\",\"boob\",\"123\");\n");
             b.createNutzer("test@email.com","Herr","bob","boob","123");
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg()+ "\n");
         }
         try {
-            buffer.write("Teste Funktion: b.createNutzer(\"bob@baumeister.com\",\"lord\",\"bill\",\"Clinton\",\"polen\");\n");
             b.createNutzer("bob@baumeister.com","lord","bill","Clinton","polen");
         } catch (DatabaseException ex) {
-            buffer.write(ex.getErrorMsg());
         }
         try {
             buffer.write("Teste Funktion: b.createDozent(\"test@email.com\", \"Ameise\");\n");
@@ -188,7 +186,7 @@ public class DBtest
         } catch (DatabaseException ex) {
             buffer.write(ex.getErrorMsg());
         }
-        buffer.write("\nEND\n");
-        buffer.close();*/
+        buffer.write("\nEND\n");*/
+        buffer.close();
     }
 }

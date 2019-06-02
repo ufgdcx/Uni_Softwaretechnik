@@ -6,7 +6,7 @@ public class Veranstaltung
 {
     // member variables
     //Veranstaltungsname
-    public static String name;
+    private String name;
     private String fakultaet;
     //Teamanzahl je Gruppe
     private int Teamanzahl;
@@ -32,12 +32,13 @@ public class Veranstaltung
     }
 
     //Constructor for Database
-    public Veranstaltung(String name, String fakultaet, int teamanzahl, int maxTeilnehmer)
+    public Veranstaltung(String name, String fakultaet, int teamanzahl, int maxTeilnehmer, String beschreibung)
     {
         this.name = name;
         this.fakultaet = fakultaet;
         Teamanzahl = teamanzahl;
         this.maxTeilnehmer = maxTeilnehmer;
+        this.beschreibung = beschreibung;
     }
 
     // get methods
