@@ -31,7 +31,7 @@ public class Gruppe {
         this.dozent = dozent;
     }
     // Constructor for Database
-    public Gruppe(int gruppenID, String wochentag, Time zeit, String rhythmus,
+    public Gruppe(int gruppenID, String email, String wochentag, Time zeit, String rhythmus,
                   java.sql.Date frist, Veranstaltung veranstaltung, Dozent dozent)
     {
         this.gruppenID = gruppenID;
