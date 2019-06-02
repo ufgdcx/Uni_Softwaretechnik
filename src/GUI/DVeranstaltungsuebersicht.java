@@ -1,6 +1,7 @@
 package GUI;
 
 import Controller.DozentController;
+import Controller.MainController;
 import Database.DBrequest;
 import Klassen.Dozent;
 

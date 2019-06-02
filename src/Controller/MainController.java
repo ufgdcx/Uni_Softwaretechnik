@@ -30,6 +30,7 @@ public class MainController {
 			//and transforming Nutzer object n to Dozent object d
 			Dozent d = (Dozent) n;
 			new DozentController(mainFrame,d);
+
 		}
 		else{
 			//creating Student object s to pass the info to StudentController

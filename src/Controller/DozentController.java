@@ -11,30 +11,30 @@ public class DozentController extends MainController{
 	private ArrayList<Gruppe> gruppen;
 	private ArrayList<Team> teams;
 	protected DBrequest dbr = new DBrequest();
-
+	ArrayList<String> vName = new ArrayList<String>();
 
 	
 	public DozentController(GUIMain m,Dozent d) {
 		super(m);
 		me = d;
+		buildModel();
 		//changing the content of the main window to the "frontpage" for lecturers
 		mainFrame.setContent(new DVeranstaltungsuebersicht());
 	}
 
-	void buildModel(){
+	private ArrayList<String> buildModel(){
 		try {
 			veranstaltungen = dbr.getVeranstaltungen(me);
 		} catch (DatabaseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
 
-	public ArrayList<String> getVeranstaltungsnamen(){
-		ArrayList<String> namen = null;
-		for(Veranstaltung v : veranstaltungen){
-			namen.add(v.getName());
+		for (Veranstaltung v: veranstaltungen){
+			System.out.println(v.getName());
+			vName.add(v.getName());
 		}
-		return namen;
+		System.out.println(vName);
+		return vName;
 	}
 }
