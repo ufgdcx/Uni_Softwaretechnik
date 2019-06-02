@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class DBrequest {
     private Connection con;
+    private LogWriter logwriter = LogWriter.getIntstance();
 
     public DBrequest(){
         con = DataSourceConn.buildConnection();
@@ -16,15 +17,19 @@ public class DBrequest {
     // creater(primitiv)
     //
     public void createNutzer(String email, String titel, String vorname, String nachname, String passwort)throws DatabaseException {
+        logwriter.writetoLog("function: createNutzer(primitiv)","TRACE");
         try {
             Statement stmt = con.createStatement();
             try {
                 stmt.executeUpdate("INSERT INTO Nutzer (EMailadresse, Titel, Vorname, Nachname, Passwort) VALUES ('" + email + "', '" + titel + "', '" + vorname + "', '" + nachname + "', '" + passwort + "')");
+                logwriter.writetoLog("successfull","TRACE");
             }catch (SQLException e){
+                logwriter.writetoLog("User already exists","ERROR");
                 throw new DatabaseException("User already exists");
             }
 
         }catch (SQLException ex){
+            logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
     }
@@ -699,19 +704,26 @@ public class DBrequest {
     }
 
     public ArrayList<Veranstaltung> getVeranstaltungen(Dozent dozent) throws DatabaseException {
+        logwriter.writetoLog("function: getVeranstaltung(Dozent)","TRACE");
         String email = dozent.getEmail();
         ArrayList<Veranstaltung> results = new ArrayList<>();
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Leitet.EMailadresse, Veranstaltung.* FROM Veranstaltung INNER JOIN Leitet ON Leitet.Name = Veranstaltung.Veranstaltungsname WHERE EMailadresse = '" + email + "'");
+            Veranstaltung veranstaltung;
             while (rs.next()){
-                Veranstaltung veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"));
+                veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"), rs.getString("Beschreibung"));
                 veranstaltung.setDozenten(getDozenten(veranstaltung));
                 results.add(veranstaltung);
+                for(Veranstaltung ve: results) {
+                    System.out.println(ve.getName() + " " + ve.getTeamanzahl() + " " + ve.getFakultaet());
+                }
+                System.out.println("---------------");
             }
         }catch (SQLException ex){
             throw new DatabaseException("Connection Failed");
         }
+
         return  results;
     }
 
@@ -723,7 +735,7 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Veranstaltung.* FROM Gehoert_zu INNER JOIN Veranstaltung ON Veranstaltung.Veranstaltungsname = Gehoert_zu.Veranstaltungsname WHERE Matrikelnummer = '" + matrikelnr + "'");
             while (rs.next()){
-                Veranstaltung veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"));
+                Veranstaltung veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"), rs.getString("Beschreibung"));
                 veranstaltung.setDozenten(getDozenten(veranstaltung));
                 results.add(veranstaltung);
             }

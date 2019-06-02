@@ -4,10 +4,14 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class LogWriter extends BufferedWriter {
 
     private final static LogWriter instance;
+    private final SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss");
+
     static {
         LogWriter tmp = null;
         new File("Logdata").mkdirs();
@@ -33,5 +37,14 @@ public class LogWriter extends BufferedWriter {
     public static LogWriter getIntstance() {
         return instance;
     }
-
+    public void writetoLog(String text, String type) {
+        try {
+            Date date = new Date(System.currentTimeMillis());
+            String msg = "[" + type + "] " + formatter.format(date) + " - " + text+ "\n";
+            write(msg);
+            flush();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+        }
+    }
 }
