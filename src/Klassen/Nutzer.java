@@ -7,16 +7,16 @@ public class Nutzer
     private String passwort;
     private String titel;
     private String vorname;
-    private String name;
+    private String nachname;
 
     // Constructor
-    public Nutzer(String email,String passwort, String titel, String vorname, String name)
+    public Nutzer(String email,String passwort, String titel, String vorname, String nachname)
     {
         this.email = email;
         this.passwort = passwort;
         this.titel = titel;
         this.vorname = vorname;
-        this.name = name;
+        this.nachname = nachname;
     }
 
     // set Methods
@@ -24,7 +24,7 @@ public class Nutzer
     public void setPasswort(String passwort) { this.passwort = passwort; }
     public void setTitel(String titel) { this.titel = titel; }
     public void setVorname(String vorname) { this.vorname = vorname; }
-    public void setName(String name) { this.name = name; }
+    public void setNachname(String name) { this.nachname = nachname; }
 
     // get Methods
     public String getEmail() { return email; }
@@ -37,7 +37,7 @@ public class Nutzer
     public String getVorname() {
       return vorname;
     }
-    public String getName() {
-      return name;
+    public String getNachname() {
+      return nachname;
    }
 }

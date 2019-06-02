@@ -55,22 +55,14 @@ public class DVeranstaltung implements FrameContent {
             d += doz.getTitel() + " " +doz.getVorname() + " " + doz.getNachname() + "\n";
         }
 
-        /*TODO "Informationen" und "Dozent" in DB anlegen
-          TODO "Informationen" und "Dozent(en)" aus DB auslesen und in "text_infos" bzw. "text_dozent" speichern
-        text_infos =;
-        text_dozent =;
-
-        //setzt den Inhalt des JTextArea "infos" bzw "dozent" und speichert es in die Variable "text_infos" bzw. "text_dozent"
-        infos.setText(text_infos);*/
-
-        infos.setText("Zeit / Veranstaltungsort:\n" + "Dienstag: 15:00 - 17:00, wöchentlich (ab 16.10.2018), Ort: AE22-HS037");
+        infos.setText(dVL.get(getIndex).getBeschreibung());
         dozent.setText(d);
 
         InfosBearbeiten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new DVeranstaltungbearbeiten());
+                mainFrame.setContent(new DVeranstaltungbearbeiten(dVL, index));
             }
         });
         GrTeBearbeiten.addActionListener(new ActionListener() {

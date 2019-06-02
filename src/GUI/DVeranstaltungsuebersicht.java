@@ -1,19 +1,11 @@
 package GUI;
 
-import Controller.DozentController;
-import Controller.MainController;
-import Database.DBrequest;
-import Klassen.Dozent;
+import Klassen.Veranstaltung;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.MouseAdapter;
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Vector;
 
 public class DVeranstaltungsuebersicht implements FrameContent {
 
@@ -26,7 +18,7 @@ public class DVeranstaltungsuebersicht implements FrameContent {
     private JScrollPane scrollPane;
     private JButton einsehen;
     private JButton logoutButton;
-
+    private JLabel errorLabel;
 
 
     public String getName() {
@@ -44,15 +36,15 @@ public class DVeranstaltungsuebersicht implements FrameContent {
         mainFrame = m;
     }
 
-    public DVeranstaltungsuebersicht(ArrayList<String> dVL) {
+    public DVeranstaltungsuebersicht(ArrayList<Veranstaltung> dVL) {
 
-        //TODO: Liste der Varanstaltungen des Dozenten aus DB erhalten und hinzufügen
-        ArrayList<String> veranstaltungen = dVL;
+        ArrayList<String> veranstaltungen = new ArrayList<String>();
 
-
-        //Testveranstaltungen
-        //veranstaltungen.add("VL1");
-        //veranstaltungen.add("VL2");
+        for (Veranstaltung v: dVL){
+            //für Funktionastest
+            System.out.println(v.getName());
+            veranstaltungen.add(v.getName());
+        }
 
         dLV.addAll(veranstaltungen);
         VeranstalungenList.setModel(dLV);
@@ -61,7 +53,13 @@ public class DVeranstaltungsuebersicht implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new DVeranstaltung());
+                if(VeranstalungenList.getSelectedIndex() >= 0){
+                    mainFrame.setContent(new DVeranstaltung(dVL, VeranstalungenList.getSelectedIndex()));
+                }
+                else {
+                    errorLabel.setVisible(true);
+                }
+
             }
         });
         logoutButton.addActionListener(new ActionListener() {
@@ -70,10 +68,6 @@ public class DVeranstaltungsuebersicht implements FrameContent {
 
                 mainFrame.setContent(new LogoutSeite());
             }
-        });
-        VeranstalungenList.addComponentListener(new ComponentAdapter() {
-        });
-        VeranstalungenList.addMouseListener(new MouseAdapter() {
         });
     }
 

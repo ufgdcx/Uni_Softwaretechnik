@@ -19,8 +19,8 @@ public class MainController {
 		try {
 			n = dbr.getNutzer(email,passwd);
 		} catch (DatabaseException e) {
+
 			e.printStackTrace();
-			System.out.println(e);
             return;
 		}
 		
@@ -40,5 +40,18 @@ public class MainController {
 			//Student s = new Student("abc@uni-rostock.it","1234","Lord","Hanz","Mueller","Verteidigung gegen die Dunklen Kuenste",987654321);
 			new StudentController(mainFrame,s);
 		}
+	}
+
+	public void setVBeschreibung (Veranstaltung veranstaltung){
+
+		try {
+			dbr.updateVeranstaltungBeschreibung(veranstaltung.getName(), veranstaltung.getBeschreibung());
+		}
+		catch (DatabaseException e){
+
+			e.printStackTrace();
+			return;
+		}
+
 	}
 }
