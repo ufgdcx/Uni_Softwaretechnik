@@ -22,7 +22,7 @@ public class DVeranstaltungsuebersicht implements FrameContent {
     private JPanel VeranstaltungsuebersichtPanel;
     //JList wird erstellt
     private JList VeranstalungenList;
-    private DefaultListModel alleLV = new DefaultListModel();
+    private DefaultListModel dLV = new DefaultListModel();
     private JScrollPane scrollPane;
     private JButton einsehen;
     private JButton logoutButton;
@@ -44,18 +44,18 @@ public class DVeranstaltungsuebersicht implements FrameContent {
         mainFrame = m;
     }
 
-    public DVeranstaltungsuebersicht() {
-
-        ArrayList<String> veranstaltungen = new ArrayList<>();
+    public DVeranstaltungsuebersicht(ArrayList<String> dVL) {
 
         //TODO: Liste der Varanstaltungen des Dozenten aus DB erhalten und hinzufügen
+        ArrayList<String> veranstaltungen = dVL;
+
 
         //Testveranstaltungen
-        veranstaltungen.add("VL1");
-        veranstaltungen.add("VL2");
+        //veranstaltungen.add("VL1");
+        //veranstaltungen.add("VL2");
 
-        alleLV.addAll(veranstaltungen);
-        VeranstalungenList.setModel(alleLV);
+        dLV.addAll(veranstaltungen);
+        VeranstalungenList.setModel(dLV);
 
         einsehen.addActionListener(new ActionListener() {
             @Override

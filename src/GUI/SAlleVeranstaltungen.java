@@ -1,5 +1,7 @@
 package GUI;
 
+import Controller.DozentController;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +17,7 @@ public class SAlleVeranstaltungen implements FrameContent {
     private JList list1;
     private DefaultListModel alleLV = new DefaultListModel();
     private JScrollPane scrollPane;
+    //Button zum Eintragen in die ausgewählte Veranstaltung
     private JButton eintragen;
     private JButton zurueckButton;
     private JButton logoutButton;
@@ -35,11 +38,11 @@ public class SAlleVeranstaltungen implements FrameContent {
         mainFrame = m;
     }
 
-
-
     public SAlleVeranstaltungen() {
 
         ArrayList<String> veranstaltungen = new ArrayList<>();
+
+
 
         //TODO: Liste aller Varanstaltungen aus DB erhalten und hinzufügen
 
