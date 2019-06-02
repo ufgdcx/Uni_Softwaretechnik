@@ -1,5 +1,8 @@
 package GUI;
 
+import Klassen.Dozent;
+import Klassen.Veranstaltung;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -38,7 +41,19 @@ public class DVeranstaltung implements FrameContent {
         mainFrame = m;
     }
 
-    public DVeranstaltung() {
+    public DVeranstaltung(ArrayList<Veranstaltung> dVL, int... index) {
+
+        int getIndex = 0;
+        String d = "";
+
+        if(index.length > 0){
+            getIndex = index[0];
+        }
+
+        ArrayList<Dozent> dozenten = dVL.get(getIndex).getDozenten();
+        for (Dozent doz: dozenten){
+            d += doz.getTitel() + " " +doz.getVorname() + " " + doz.getNachname() + "\n";
+        }
 
         /*TODO "Informationen" und "Dozent" in DB anlegen
           TODO "Informationen" und "Dozent(en)" aus DB auslesen und in "text_infos" bzw. "text_dozent" speichern
@@ -46,24 +61,14 @@ public class DVeranstaltung implements FrameContent {
         text_dozent =;
 
         //setzt den Inhalt des JTextArea "infos" bzw "dozent" und speichert es in die Variable "text_infos" bzw. "text_dozent"
-        infos.setText(text_infos);
-        dozent.setText(text_dozent);*/
+        infos.setText(text_infos);*/
 
         infos.setText("Zeit / Veranstaltungsort:\n" + "Dienstag: 15:00 - 17:00, wöchentlich (ab 16.10.2018), Ort: AE22-HS037");
-        dozent.setText("Prof. Dr.-Ing. habil. Peter Forbrig");
+        dozent.setText(d);
 
         InfosBearbeiten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                mainFrame.setContent(new DVeranstaltungbearbeiten());
-            }
-        });
-        dozentBearbeiten.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                //To Do: Dozent bearbeiten und in DB + TextArea DVeranstaltungsuebersicht eintragen
 
                 mainFrame.setContent(new DVeranstaltungbearbeiten());
             }
@@ -79,12 +84,13 @@ public class DVeranstaltung implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new DVeranstaltungsuebersicht(new ArrayList<String>()));
+                mainFrame.setContent(new DVeranstaltungsuebersicht(dVL));
             }
         });
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 mainFrame.setContent(new LogoutSeite());
             }
         });
