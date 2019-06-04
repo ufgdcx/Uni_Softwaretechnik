@@ -1,14 +1,8 @@
 package GUI;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-
-import Controller.*;
-import Database.DatabaseException;
 
 public class LoginSeite implements FrameContent {
 
@@ -42,6 +36,8 @@ public class LoginSeite implements FrameContent {
     }
 
     public LoginSeite() {
+
+
 
         registrierenButton.addActionListener(new ActionListener() {
             @Override

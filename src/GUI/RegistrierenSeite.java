@@ -1,7 +1,6 @@
 package GUI;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -37,6 +36,7 @@ public class RegistrierenSeite implements FrameContent {
     private JPasswordField passwortwdh;
     private JLabel uniRostockDeLabel;
     private JButton abbrechenButton;
+    private JLabel errorLabel;
 
     public String getName() {
 
@@ -133,9 +133,18 @@ public class RegistrierenSeite implements FrameContent {
                 }
 
                 //TODO: Passwort und Passwort wiederholen abgleichen
-                //TODO: Email mit Verifizierungscode senden
 
-                mainFrame.setContent(new VerifikationsSeite());
+                if(passwort.getPassword() != passwortwdh.getPassword()){
+
+                    errorLabel.setVisible(true);
+                }
+                else {
+                    //TODO: Email mit Verifizierungscode senden
+
+                    String verifyingCode = mainFrame.getController().generateVerifyingCode();
+
+                    mainFrame.setContent(new VerifikationsSeite());
+                }
             }
         });
         abbrechenButton.addActionListener(new ActionListener() {
@@ -146,5 +155,4 @@ public class RegistrierenSeite implements FrameContent {
             }
         });
     }
-
 }

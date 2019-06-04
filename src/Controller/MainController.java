@@ -5,6 +5,7 @@ import GUI.*;
 import Klassen.*;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainController {
 	protected GUIMain mainFrame;
@@ -96,10 +97,10 @@ public class MainController {
         return null;
     }
 
-    public ArrayList<Leistung> erzeugeLeistung(Student student, Veranstaltung veranstaltung){
+    public ArrayList<Leistung> erzeugeLeistungsblock(Student student, Veranstaltung veranstaltung){
 
         try {
-            return dbr.getLeistung(student, veranstaltung);
+            return dbr.getLeistungsblock(student, veranstaltung);
         } catch (DatabaseException e){
             e.printStackTrace();
         }
@@ -188,7 +189,7 @@ public class MainController {
         }
     }
 
-    public void setLeistung(Student student, Veranstaltung veranstaltung){
+    public void setLeistungsblock(Student student, Veranstaltung veranstaltung){
 
         try {
             dbr.updateLeistung(student, veranstaltung);
@@ -237,4 +238,21 @@ public class MainController {
             return;
         }
     }*/
+
+    public String generateVerifyingCode() {
+
+        String charvalue = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!§$%&/()=?ßäöü{[]}";
+        char[] chars = charvalue.toCharArray();
+
+        String verifyingCode = "";
+        Random random = new Random();
+
+        for (int i=0; i<= 16; i++) {
+            verifyingCode += chars[random.nextInt(chars.length-1)];
+        }
+
+        System.out.println(verifyingCode);
+
+        return verifyingCode;
+    }
 }
