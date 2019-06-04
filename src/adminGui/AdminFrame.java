@@ -1,5 +1,4 @@
 package adminGui;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
@@ -10,7 +9,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JList;
-import javax.swing.ListSelectionModel;
 	
 public class AdminFrame extends JFrame{
 	private static final long serialVersionUID = 1L;
