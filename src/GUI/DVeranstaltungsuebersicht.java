@@ -36,13 +36,11 @@ public class DVeranstaltungsuebersicht implements FrameContent {
         mainFrame = m;
     }
 
-    public DVeranstaltungsuebersicht(ArrayList<Veranstaltung> dVL) {
+    public DVeranstaltungsuebersicht(ArrayList<Veranstaltung> dVL, int index) {
 
         ArrayList<String> veranstaltungen = new ArrayList<String>();
 
         for (Veranstaltung v: dVL){
-            //für Funktionastest
-            System.out.println(v.getName());
             veranstaltungen.add(v.getName());
         }
 

@@ -17,10 +17,10 @@ public class DozentController extends MainController{
 		super(m);
 		me = d;
 		//changing the content of the main window to the "frontpage" for lecturers
-		mainFrame.setContent(new DVeranstaltungsuebersicht(buildModel()));
+		mainFrame.setContent(new DVeranstaltungsuebersicht(erzeugeVListe(), 0));
 	}
 
-	public ArrayList<Veranstaltung> buildModel(){
+	public ArrayList<Veranstaltung> erzeugeVListe(){
 		try {
 			return dbr.getVeranstaltungen(me);
 		} catch (DatabaseException e) {
@@ -29,6 +29,4 @@ public class DozentController extends MainController{
 		}
 		return null;
 	}
-
-
 }

@@ -38,17 +38,15 @@ public class DVeranstaltungbearbeiten implements FrameContent {
         mainFrame = m;
     }
 
-    public DVeranstaltungbearbeiten(ArrayList<Veranstaltung> dVL, int[] index) {
+    public DVeranstaltungbearbeiten(ArrayList<Veranstaltung> dVL, int index) {
 
         bestaetigen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if(index.length > 0) {
-                    dVL.get(index[0]).setBeschreibung(infos.getText());
-                    mainFrame.getController().setVBeschreibung(dVL.get(index[0]));
+                dVL.get(index).setBeschreibung(infos.getText());
+                mainFrame.getController().setVBeschreibung(dVL.get(index));
 
-                }
             }
         });
         zurueckButton.addActionListener(new ActionListener() {

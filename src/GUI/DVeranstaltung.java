@@ -4,7 +4,6 @@ import Klassen.Dozent;
 import Klassen.Veranstaltung;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -15,16 +14,13 @@ public class DVeranstaltung implements FrameContent {
 
     public JPanel VeranstaltungPanel;
     private JButton InfosBearbeiten;
-    private JButton dozentBearbeiten;
-    private JButton GrTeBearbeiten;
+    private JButton GrTeEinsehen;
     private JButton zurueck;
     private JTextPane infos;
     private JTextPane dozent;
     private JLabel infosField;
     private JLabel dozentField;
     private JButton logoutButton;
-
-    private String text_infos, text_dozent;
 
     public String getName() {
 
@@ -41,21 +37,16 @@ public class DVeranstaltung implements FrameContent {
         mainFrame = m;
     }
 
-    public DVeranstaltung(ArrayList<Veranstaltung> dVL, int... index) {
+    public DVeranstaltung(ArrayList<Veranstaltung> dVL, int index) {
 
-        int getIndex = 0;
         String d = "";
 
-        if(index.length > 0){
-            getIndex = index[0];
-        }
-
-        ArrayList<Dozent> dozenten = dVL.get(getIndex).getDozenten();
+        ArrayList<Dozent> dozenten = dVL.get(index).getDozenten();
         for (Dozent doz: dozenten){
             d += doz.getTitel() + " " +doz.getVorname() + " " + doz.getNachname() + "\n";
         }
 
-        infos.setText(dVL.get(getIndex).getBeschreibung());
+        infos.setText(dVL.get(index).getBeschreibung());
         dozent.setText(d);
 
         InfosBearbeiten.addActionListener(new ActionListener() {
@@ -65,18 +56,18 @@ public class DVeranstaltung implements FrameContent {
                 mainFrame.setContent(new DVeranstaltungbearbeiten(dVL, index));
             }
         });
-        GrTeBearbeiten.addActionListener(new ActionListener() {
+        GrTeEinsehen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new DGruppenuebersicht());
+                mainFrame.setContent(new DGruppenuebersicht(dVL, index));
             }
         });
         zurueck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new DVeranstaltungsuebersicht(dVL));
+                mainFrame.setContent(new DVeranstaltungsuebersicht(dVL, index));
             }
         });
         logoutButton.addActionListener(new ActionListener() {

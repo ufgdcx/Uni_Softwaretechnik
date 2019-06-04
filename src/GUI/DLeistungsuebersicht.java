@@ -1,9 +1,12 @@
 package GUI;
 
+import Klassen.Veranstaltung;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class DLeistungsuebersicht implements FrameContent {
 
@@ -37,7 +40,8 @@ public class DLeistungsuebersicht implements FrameContent {
         mainFrame = m;
     }
 
-    public DLeistungsuebersicht() {
+    public DLeistungsuebersicht(ArrayList<Veranstaltung> dVL, int index) {
+
         hinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,7 +60,7 @@ public class DLeistungsuebersicht implements FrameContent {
             public void actionPerformed(ActionEvent e) {
                 //To Do: neuen LB in Tree und DB hinzufügen
 
-                mainFrame.setContent(new DLeistungsuebersicht());
+                mainFrame.setContent(new DLeistungsuebersicht(dVL, index));
             }
         });
         UBhinzufuegen.addActionListener(new ActionListener() {
@@ -64,26 +68,27 @@ public class DLeistungsuebersicht implements FrameContent {
             public void actionPerformed(ActionEvent e) {
                 //To Do: neuen UB in Tree und DB hinzufügen
 
-                mainFrame.setContent(new DLeistungsuebersicht());
+                mainFrame.setContent(new DLeistungsuebersicht(dVL, index));
             }
         });
         loeschen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new DLeistungsuebersicht());
+                mainFrame.setContent(new DLeistungsuebersicht(dVL, index));
             }
         });
         zurueckButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new DGruppenuebersicht());
+                mainFrame.setContent(new DGruppenuebersicht(dVL, index));
             }
         });
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 mainFrame.setContent(new LogoutSeite());
             }
         });
