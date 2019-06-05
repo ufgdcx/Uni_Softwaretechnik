@@ -19,6 +19,7 @@ public class Veranstaltung
     //Informationen zur Veranstaltung (Tag, Uhrzeit,...)
     private String beschreibung;
 
+    public Veranstaltung(){}
     public Veranstaltung(String name, String fakultaet, int teamanzahl, int maxTeilnehmer,
                          ArrayList<Gruppe> gruppen, ArrayList<Dozent> dozenten, String beschreibung)
     {
