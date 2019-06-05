@@ -23,7 +23,7 @@ public class MainController {
 			n = dbr.getNutzer(email,passwd);
 		} catch (DatabaseException e) {
 
-			e.printStackTrace();
+			System.out.println(e.getErrorMsg());
             return;
 		}
 		
@@ -50,7 +50,7 @@ public class MainController {
 			return dbr.getVeranstaltungen(me);
 		} catch (DatabaseException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getErrorMsg());
 		}
 		return null;
 	}
@@ -60,7 +60,7 @@ public class MainController {
 			return dbr.getVeranstaltungen(me);
 		} catch (DatabaseException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getErrorMsg());
 		}
 		return null;
 	}
@@ -70,7 +70,7 @@ public class MainController {
 			dbr.updateVeranstaltungBeschreibung(veranstaltung.getName(), veranstaltung.getBeschreibung());
 		}
 		catch (DatabaseException e){
-			e.printStackTrace();
+			System.out.println(e.getErrorMsg());
 			return;
 		}
 	}
@@ -79,7 +79,7 @@ public class MainController {
         try {
             return dbr.getLeistung(gruppe, team, veranstaltung);
         } catch (DatabaseException e){
-            e.printStackTrace();
+            System.out.println(e.getErrorMsg());
         }
         return null;
     }
@@ -92,7 +92,7 @@ public class MainController {
             dbr.updateGruppe(veranstaltung);
 
         } catch (DatabaseException e) {
-            e.printStackTrace();
+            System.out.println(e.getErrorMsg());
             return;
         }
     }
@@ -102,7 +102,7 @@ public class MainController {
         try{
             dbr.updateTeams(gruppe);
         } catch (DatabaseException e) {
-            e.printStackTrace();
+            System.out.println(e.getErrorMsg());
             return;
         }
     }
@@ -112,7 +112,7 @@ public class MainController {
         try{
             dbr.updateTeam(student, gruppe);
         } catch (DatabaseException e) {
-            e.printStackTrace();
+            System.out.println(e.getErrorMsg());
             return;
         }
     }
@@ -122,7 +122,7 @@ public class MainController {
         try {
             dbr.updateLeistung(gruppe, team, veranstaltung);
         } catch (DatabaseException e){
-            e.printStackTrace();
+            System.out.println(e.getErrorMsg());
             return;
         }
     }
