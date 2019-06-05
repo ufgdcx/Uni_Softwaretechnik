@@ -997,7 +997,7 @@ public class DBrequest {
 
     public ArrayList <Leistung> getLeistungsblock(Student student, Veranstaltung veranstaltung) throws  DatabaseException
     {
-        logwriter.writetoLog("function: getLeistungsblock(Student, Gruppe)","TRACE");
+        logwriter.writetoLog("function: getLeistungsblock(Student, Veranstaltung)","TRACE");
         String veranstaltungsname = veranstaltung.getName();
         int matrikelnummer = student.getMatrikelnr();
         ArrayList<Leistung> results = new ArrayList<>();
@@ -1017,7 +1017,7 @@ public class DBrequest {
         return  results;
     }
 
-    public ArrayList<Unterblock> getUnterblock(Student student, Leistung leistungsblock, Veranstaltung veranstaltung) throws  DatabaseException
+    private ArrayList<Unterblock> getUnterblock(Student student, Leistung leistungsblock, Veranstaltung veranstaltung) throws  DatabaseException
     {
         logwriter.writetoLog("function: getUnterblock(Student, Leistung, Veranstaltung)","TRACE");
         String veranstaltungsname = veranstaltung.getName();
@@ -1040,7 +1040,7 @@ public class DBrequest {
         return  results;
     }
 
-    public ArrayList<Aufgabe> getEinzelleistung(Student student, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung) throws  DatabaseException
+    private ArrayList<Aufgabe> getEinzelleistung(Student student, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung) throws  DatabaseException
     {
         logwriter.writetoLog("function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)","TRACE");
         String veranstaltungsname = veranstaltung.getName();
@@ -1062,11 +1062,11 @@ public class DBrequest {
         return  results;
     }
 
-    public ArrayList <Leistung> getLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung) throws  DatabaseException
+    public ArrayList <Leistung> getLeistung(Team team) throws  DatabaseException
     {
-        logwriter.writetoLog("function: getLeistung(Gruppe, Team, Veranstaltung)","TRACE");
-        String veranstaltungsname = veranstaltung.getName();
-        int gruppenID = gruppe.getGruppenID();
+        logwriter.writetoLog("function: getLeistung(Team)","TRACE");
+        String veranstaltungsname = team.getGruppe().getVeranstaltung().getName();
+        int gruppenID = team.getGruppe().getGruppenID();
         int teamID = team.getTeamID();
         ArrayList<Leistung> results = new ArrayList<>();
         try {
@@ -1074,7 +1074,7 @@ public class DBrequest {
             ResultSet rs = stmt.executeQuery("Select Teamleistungsblock.* FROM Team INNER JOIN Teamleistungsblock ON Teamleistungsblock.TeamID = Team.TeamID AND Teamleistungsblock.GruppenID = Team.GruppenID AND Teamleistungsblock.Veranstaltungsname = Team.Veranstaltungsname WHERE Teamleistungsblock.Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsblock.TeamID = '" + teamID + "' AND Teamleistungsblock.GruppenID = '" + gruppenID + "'");
             while (rs.next()){
                 Leistung leistung = new Leistung(rs.getString("Leistungsblock_name"));
-                leistung.setuBloecke(getUnterblock(gruppe,team, leistung,veranstaltung));
+                leistung.setuBloecke(getUnterblock(team, leistung));
                 results.add(leistung);
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
@@ -1085,20 +1085,20 @@ public class DBrequest {
         return  results;
     }
 
-    public ArrayList<Unterblock> getUnterblock(Gruppe gruppe, Team team, Leistung leistungsblock, Veranstaltung veranstaltung) throws  DatabaseException
+    private ArrayList<Unterblock> getUnterblock( Team team, Leistung leistungsblock) throws  DatabaseException
     {
-        logwriter.writetoLog("function: getLeistung(Gruppe, Team, Leistung, Veranstaltung)","TRACE");
-        String veranstaltungsname = veranstaltung.getName();
+        logwriter.writetoLog("function: getLeistung(Team, Leistung)","TRACE");
+        String veranstaltungsname = team.getGruppe().getVeranstaltung().getName();
         String teamleistungsblockname = leistungsblock.getLbName();
         int teamID = team.getTeamID();
-        int gruppenID = gruppe.getGruppenID();
+        int gruppenID = team.getGruppe().getGruppenID();
         ArrayList<Unterblock> results = new ArrayList<>();
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("Select Teamleistungsunterblock.* FROM Teamleistungsunterblock INNER JOIN Teamleistungsblock ON Teamleistungsblock.TeamID = Teamleistungsunterblock.TeamID AND Teamleistungsblock.GruppenID = Teamleistungsunterblock.GruppenID AND Teamleistungsblock.Veranstaltungsname = Teamleistungsunterblock.Veranstaltungsname AND Teamleistungsblock.Teamleistungsblockname = Teamleistungsunterblock.Teamleistungsblockname WHERE Teamleistungsunterblock.Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsunterblock.TeamID = '" + teamID + "' AND Teamleistungsunterblock.GruppenID = '" + gruppenID + "' AND Teamleistungsunterblock.Teamleistungsblockname = '" + teamleistungsblockname + "'");
             while (rs.next()){
                 Unterblock ub = new Unterblock(rs.getString("Unterblock_name"),leistungsblock);
-                ub.setAufgaben(getTeamleistung(gruppe, team, leistungsblock, ub, veranstaltung));
+                ub.setAufgaben(getTeamleistung(team, leistungsblock, ub));
                 results.add(ub);
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
@@ -1109,13 +1109,13 @@ public class DBrequest {
         return  results;
     }
 
-    public ArrayList<Aufgabe> getTeamleistung(Gruppe gruppe, Team team, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung) throws  DatabaseException
+    private ArrayList<Aufgabe> getTeamleistung(Team team, Leistung leistungsblock, Unterblock unterblock) throws  DatabaseException
     {
-        logwriter.writetoLog("function: getTeamleistung(Gruppe, Team, Leistung, Unterblock, Veranstaltung)", "TRACE");
-        String veranstaltungsname = veranstaltung.getName();
+        logwriter.writetoLog("function: getTeamleistung(Team, Leistung, Unterblock)", "TRACE");
+        String veranstaltungsname = team.getGruppe().getVeranstaltung().getName();
         String teamleistungsblockname = leistungsblock.getLbName();
         int teamID = team.getTeamID();
-        int gruppenID = gruppe.getGruppenID();
+        int gruppenID = team.getGruppe().getGruppenID();
         String teamunterblockname = unterblock.getUbName();
         ArrayList<Aufgabe> results = new ArrayList<>();
         try {
