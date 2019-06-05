@@ -18,6 +18,7 @@ public class Leistung
     private Veranstaltung veranstaltung;
     
     // constructor
+    public Leistung(){}
     public Leistung(String lbName, Student student, int lbPunkte, ArrayList<Unterblock> uBloecke)
     {
         this.lbName = lbName;

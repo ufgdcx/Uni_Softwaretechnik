@@ -12,6 +12,7 @@ public class Studienganganteil
 	private Team team;
 	
 	// constructor
+	public Studienganganteil(){}
 	public Studienganganteil(String studiengang, int anteil, Team team)
 	{
 		Studiengang = studiengang;

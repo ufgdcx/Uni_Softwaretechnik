@@ -20,6 +20,7 @@ public class Unterblock
 	private Student student;
 	
 	// constructor
+	public Unterblock(){}
 	public Unterblock(String ubName, int ubPunkte, Leistung l, ArrayList<Aufgabe> a, int matrikel)
 	{
 		this.ubName = ubName;
