@@ -14,6 +14,7 @@ public class Nutzer
     private String nachname;
 
     // Constructor
+    public Nutzer(){}
     public Nutzer(String email,String passwort, String titel, String vorname, String nachname)
     {
         this.email = email;

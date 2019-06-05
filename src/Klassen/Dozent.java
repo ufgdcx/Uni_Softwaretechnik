@@ -14,6 +14,7 @@ public class Dozent extends Nutzer
     private ArrayList<Gruppe> gruppen; //von Dozenten betreute Gruppen
     private Veranstaltung veranstaltung;
 
+    public Dozent(){}
     public Dozent(String email,String passwort, String titel, String vorname, String name,
                   String fakultaet)
     {

@@ -21,6 +21,7 @@ public class Gruppe {
     private Dozent dozent;
 
     // Constructor for Database
+    public Gruppe(){}
     public Gruppe(int gruppenID, String wochentag, Time zeit, String rhythmus,
                   java.sql.Date frist, Veranstaltung veranstaltung, Dozent dozent)
     {
