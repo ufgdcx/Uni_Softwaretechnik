@@ -1,13 +1,14 @@
 package Database;
 
-import Klassen.Dozent;
 import Klassen.Nutzer;
-import Klassen.Veranstaltung;
 
-import java.io.BufferedWriter;
-import java.sql.Date;
-import java.sql.Time;
 import java.util.ArrayList;
+
+/**
+ * Testet DBRequest.
+ * @author Christoph
+ * @author Sven
+ */
 
 public class DBtest
 {

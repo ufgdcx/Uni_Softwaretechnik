@@ -7,6 +7,12 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Erzeugt einen Log der Ausführung des Programms.
+ * @author Christoph
+ * @author Sven
+ */
+
 public class LogWriter extends BufferedWriter {
 
     private final static LogWriter instance;
