@@ -1,5 +1,9 @@
 package Klassen;
 
+/**
+ * Klasse für die Rolle des Nutzers (Oberklasse von Student und Dozent).
+ * @author Sebastian
+ */
 public class Nutzer
 {
     // Member variables

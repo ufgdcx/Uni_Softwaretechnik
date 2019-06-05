@@ -4,6 +4,10 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 
+/**
+ * Klasse für die Verwaltung der Übungsgruppen.
+ * @author Sebastian
+ */
 public class Gruppe {
 
     // member variables

@@ -2,6 +2,10 @@ package Klassen;
 
 import java.util.ArrayList;
 
+/**
+ * Klasse für die Rolle Student (Unterklasse von Nutzer).
+ * @author Sebastian
+ */
 public class Student extends Nutzer
 {
     // member variables

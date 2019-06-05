@@ -3,9 +3,9 @@ package Klassen;
 import java.util.ArrayList;
 
 /**
- * Klasse für die Rolle Dozent (Unterklasse von Nutzer)
+ * Klasse für die Rolle Dozent (Unterklasse von Nutzer).
+ * @author Sebastian
  */
-
 public class Dozent extends Nutzer
 {
     // member variables

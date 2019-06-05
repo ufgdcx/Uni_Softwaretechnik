@@ -2,6 +2,10 @@ package Klassen;
 
 import java.util.ArrayList;
 
+/**
+ * Klasse für die Verwaltung der Projektteams.
+ * @author Sebastian
+ */
 public class Team
 {
     // member variables

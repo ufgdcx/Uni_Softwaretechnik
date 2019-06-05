@@ -1,5 +1,10 @@
 package Klassen;
 
+/**
+ * Klasse für die Verwaltung der Aufgaben von einem Unterblock eines Studenten oder Teams.
+ * z.B. Aufgabe 1 des Unterblocks Übungsserie 1
+ * @author Oleg
+ */
 public class Aufgabe
 {
     // member variables

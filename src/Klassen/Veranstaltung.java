@@ -2,22 +2,20 @@ package Klassen;
 
 import java.util.ArrayList;
 
+/**
+ * Klasse für die Verwaltung von Veranstaltungen.
+ * @author Sebastian
+ */
 public class Veranstaltung
 {
     // member variables
-    //Veranstaltungsname
-    private String name;
+    private String name; //Veranstaltungsname
     private String fakultaet;
-    //Teamanzahl je Gruppe
-    private int Teamanzahl;
-    //maximale Teilnehmeranzahl je Team
-    private int maxTeilnehmer;
-    //Gruppen der Veranstaltung
-    private ArrayList<Gruppe> gruppen;
-    //zugehörige Dozenten
-    private ArrayList<Dozent> dozenten;
-    //Informationen zur Veranstaltung (Tag, Uhrzeit,...)
-    private String beschreibung;
+    private int Teamanzahl; //Teamanzahl je Gruppe
+    private int maxTeilnehmer; //maximale Teilnehmeranzahl je Team
+    private ArrayList<Gruppe> gruppen; //Gruppen der Veranstaltung
+    private ArrayList<Dozent> dozenten; //zugehörige Dozenten
+    private String beschreibung; //Informationen zur Veranstaltung (Tag, Uhrzeit,...)
 
     public Veranstaltung(){}
     public Veranstaltung(String name, String fakultaet, int teamanzahl, int maxTeilnehmer,

@@ -2,6 +2,12 @@ package Klassen;
 
 import java.util.ArrayList;
 
+/**
+ * Klasse für die Verwaltung der Unterblöcken einer Leistung eines Studenten oder Teams.
+ * Setzt sich aus mehreren Aufgaben zusammen.
+ * z.B. Übungsserie 1 der Leistung Übungsserien
+ * @author Oleg
+ */
 public class Unterblock 
 {
 	// member variables

@@ -2,6 +2,12 @@ package Klassen;
 
 import java.util.ArrayList;
 
+/**
+ * Klasse für eine Leistungskategorie eines Studenten oder Teams.
+ * Setzt sich aus mehreren Unterblöcken zusammen.
+ * z.B. Übungsserien (mit den Unterblöcken Serie 1, Serie 2 etc.) oder Projektarbeit (mit den Unterblöcken Lastenheft, Pflichtenheft etc.)
+ * @author Oleg
+ */
 public class Leistung
 {
     // member variables

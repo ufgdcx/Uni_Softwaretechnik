@@ -1,5 +1,9 @@
 package Klassen;
 
+/**
+ * Klasse für die Verwaltung von Studiengangsanteilen bei der Verteilung der Projektteams.
+ * @author Sebastian
+ */
 public class Studienganganteil 
 {
 	// member variables
