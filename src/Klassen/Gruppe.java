@@ -5,7 +5,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 
 /**
- * Klasse für die Verwaltung der Übungsgruppen.
+ * Klasse für die Verwaltung der Uebungsgruppen.
  * @author Sebastian
  */
 public class Gruppe {
