@@ -7,6 +7,12 @@ import Klassen.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+
+/**
+ * Steuert Anmeldung, Registrierung und Wechsel zu Dozenten-/Studentencontroller.
+ * @author Oleg
+ */
+
 public class MainController {
 	protected GUIMain mainFrame;
 	private Nutzer n;
