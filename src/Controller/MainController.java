@@ -44,7 +44,27 @@ public class MainController {
 			new StudentController(mainFrame,s);
 		}
 	}
-
+	
+	public ArrayList<Veranstaltung> getVeranstaltungen(Student me){
+		try {
+			return dbr.getVeranstaltungen(me);
+		} catch (DatabaseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public ArrayList<Veranstaltung> getVeranstaltungen(Dozent me){
+		try {
+			return dbr.getVeranstaltungen(me);
+		} catch (DatabaseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public void setVBeschreibung (Veranstaltung veranstaltung){
 
 		try {
@@ -57,7 +77,7 @@ public class MainController {
 		}
 	}
 
-    public ArrayList<Gruppe> erzeugeGruppen(Veranstaltung veranstaltung) {
+    public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) {
 
         try{
             return dbr.getGruppen(veranstaltung);
@@ -67,7 +87,7 @@ public class MainController {
         return null;
     }
 
-    public ArrayList<Team> erzeugeTeams(Gruppe gruppe) {
+    public ArrayList<Team> getTeams(Gruppe gruppe) {
 
         try{
             return dbr.getTeams(gruppe);
@@ -77,7 +97,7 @@ public class MainController {
         return null;
     }
 
-    public Team erzeugeTeam(Student student, Gruppe gruppe) {
+    public Team getTeam(Student student, Gruppe gruppe) {
 
         try{
             return dbr.getTeam(student, gruppe);
@@ -87,7 +107,7 @@ public class MainController {
         return null;
     }
 
-    public ArrayList<Leistung> erzeugeLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung){
+    public ArrayList<Leistung> getLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung){
 
         try {
             return dbr.getLeistung(gruppe, team, veranstaltung);
@@ -97,7 +117,7 @@ public class MainController {
         return null;
     }
 
-    public ArrayList<Leistung> erzeugeLeistungsblock(Student student, Veranstaltung veranstaltung){
+    public ArrayList<Leistung> getLeistungsblock(Student student, Veranstaltung veranstaltung){
 
         try {
             return dbr.getLeistungsblock(student, veranstaltung);
@@ -107,7 +127,7 @@ public class MainController {
         return null;
     }
 
-    public ArrayList<Aufgabe> erzeugeEinzelleistung(Student student, Leistung leistung, Unterblock unterblock, Veranstaltung veranstaltung){
+    public ArrayList<Aufgabe> getEinzelleistung(Student student, Leistung leistung, Unterblock unterblock, Veranstaltung veranstaltung){
 
         try {
             return dbr.getEinzelleistung(student, leistung, unterblock, veranstaltung);
@@ -117,7 +137,7 @@ public class MainController {
         return null;
     }
 
-    public ArrayList<Aufgabe> erzeugeTeamleistung(Gruppe gruppe, Team team, Leistung leistung, Unterblock unterblock, Veranstaltung veranstaltung){
+    public ArrayList<Aufgabe> getTeamleistung(Gruppe gruppe, Team team, Leistung leistung, Unterblock unterblock, Veranstaltung veranstaltung){
 
         try {
             return dbr.getTeamleistung(gruppe, team, leistung, unterblock, veranstaltung);
@@ -127,7 +147,7 @@ public class MainController {
         return null;
     }
 
-    public ArrayList<Unterblock> erzeugeUB(Gruppe gruppe, Team team, Leistung leistung, Veranstaltung veranstaltung){
+    public ArrayList<Unterblock> getUB(Gruppe gruppe, Team team, Leistung leistung, Veranstaltung veranstaltung){
 
         try {
             return dbr.getUnterblock(gruppe, team, leistung, veranstaltung);
@@ -137,7 +157,7 @@ public class MainController {
         return null;
     }
 
-    public ArrayList<Unterblock> erzeugeUB(Student student, Leistung leistung, Veranstaltung veranstaltung){
+    public ArrayList<Unterblock> getUB(Student student, Leistung leistung, Veranstaltung veranstaltung){
 
         try {
             return dbr.getUnterblock(student, leistung, veranstaltung);
@@ -239,6 +259,7 @@ public class MainController {
         }
     }*/
 
+    //erzeugt Verifizierungscode für die Email Bestätigung
     public String generateVerifyingCode() {
 
         String charvalue = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!§$%&/()=?ßäöü{[]}";

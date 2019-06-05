@@ -1527,57 +1527,55 @@ public class DBrequest {
     // Coole Functionen (Functionsparamteter nur Klassen Modelle keine primitive datentypen!!!! afiujdsf)
     //
     // TODO
-    public void updateStudent(Nutzer nutzer)
+    public void updateStudent(Student student)throws DatabaseException
     {
-        // ...
+        updateStudentStudiengang(student.getEmail(),student.getStudiengang());
     }
 
     // TODO
-    public void updateDozent(Nutzer nutzer)
+    public void updateDozent(Dozent dozent) throws DatabaseException
     {
-        // ...
+        updateDozentFakultaet(dozent.getEmail(),dozent.getFakultaet());
     }
 
     // TODO
-    public void updateVeranstaltung(Nutzer nutzer)
+    public void updateVeranstaltung(Veranstaltung veranstaltung) throws DatabaseException
     {
-        // ...
+        updateVeranstaltungBeschreibung(veranstaltung.getName(),veranstaltung.getBeschreibung());
+        updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team(veranstaltung.getName(),veranstaltung.getMaxTeilnehmer());
+        updateVeranstaltungTeamanzahl_je_Gruppe(veranstaltung.getName(),veranstaltung.getTeamanzahl());
     }
 
     // TODO
-    public void updateGruppe(Nutzer nutzer)
+    public void updateGruppe(Gruppe gruppe)throws DatabaseException
     {
-        // ...
+        updateGruppeEinschreibefrist(gruppe.getGruppenID(),gruppe.getVeranstaltung().getName(),gruppe.getFrist());
+        updateGruppeUhrzeit(gruppe.getGruppenID(),gruppe.getVeranstaltung().getName(),gruppe.getZeit());
+        updateGruppeWochenrhythmus(gruppe.getGruppenID(),gruppe.getVeranstaltung().getName(),gruppe.getRhythmus());
+        updateGruppeWochentag(gruppe.getGruppenID(),gruppe.getVeranstaltung().getName(),gruppe.getWochentag());
     }
 
     // TODO
-    public void updateTeam(Nutzer nutzer)
+    public void updateTeam(Team team)throws DatabaseException
     {
-        // ...
+        updateTeamThema(team.getTeamID(),team.getThema(),team.getGruppe().getGruppenID(),team.getGruppe().getVeranstaltung().getName());
+    }
+
+    public void updateTeamleistung(Aufgabe teamleistung, Team team)throws DatabaseException
+    {
+        updateTeamleistungName(team.getTeamID(),"?",teamleistung.getElName(),team.getGruppe().getGruppenID(),team.getGruppe().getVeranstaltung().getName(),teamleistung.getUnterblock().getlBlock().getLbName(),teamleistung.getUnterblock().getUbName());
     }
 
     // TODO
-    public void updateTeamleistung(Nutzer nutzer)
+    public void updateStudienganganteil(Studienganganteil studienganganteil)throws DatabaseException
     {
-        // ...
+        updateStudienganganteil(studienganganteil.getStudiengang(),studienganganteil.getAnteil(),studienganganteil.getTeam().getTeamID(),studienganganteil.getTeam().getGruppe().getGruppenID(),studienganganteil.getTeam().getGruppe().getVeranstaltung().getName());
     }
 
     // TODO
-    public void updateStudienganganteil(Nutzer nutzer)
+    public void updateEinzelLeistung(Aufgabe einzelLeistung,Veranstaltung veranstaltung)throws DatabaseException
     {
-        // ...
-    }
-
-    // TODO
-    public void updateLeistungsblock(Nutzer nutzer)
-    {
-        // ...
-    }
-
-    // TODO
-    public void updateUnterblock(Nutzer nutzer)
-    {
-        // ...
+        updateEinzelleistungPunkte(einzelLeistung.getUnterblock().getlBlock().getStudent().getMatrikelnr(),veranstaltung.getName(),einzelLeistung.getUnterblock().getUbName(),einzelLeistung.getElName(),einzelLeistung.getUnterblock().getlBlock().getLbName(),einzelLeistung.getElPunkte());
     }
 
 }
