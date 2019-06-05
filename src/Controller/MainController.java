@@ -44,7 +44,27 @@ public class MainController {
 			new StudentController(mainFrame,s);
 		}
 	}
-
+	
+	public ArrayList<Veranstaltung> getVeranstaltungen(Student me){
+		try {
+			return dbr.getVeranstaltungen(me);
+		} catch (DatabaseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public ArrayList<Veranstaltung> getVeranstaltungen(Dozent me){
+		try {
+			return dbr.getVeranstaltungen(me);
+		} catch (DatabaseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public void setVBeschreibung (Veranstaltung veranstaltung){
 
 		try {
