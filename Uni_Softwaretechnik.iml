@@ -10,7 +10,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="External Library" level="project" />
-    <orderEntry type="library" exported="" name="mysql-connector-java-6.0.6" level="project" />
     <orderEntry type="library" exported="" name="mysql:mysql-connector-java:8.0.16" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
@@ -23,5 +22,8 @@
     </orderEntry>
     <orderEntry type="library" name="mysql-connector-java-6.0.6" level="project" />
     <orderEntry type="library" name="mysql-connector-java-6.0.6" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-6.0.6" level="project" />
+    <orderEntry type="library" name="forms_rt" level="project" />
+    <orderEntry type="library" name="snakeyaml-1.24" level="project" />
   </component>
 </module>

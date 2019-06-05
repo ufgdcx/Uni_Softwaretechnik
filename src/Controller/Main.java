@@ -2,6 +2,15 @@ package Controller;
 
 import GUI.*;
 
+/**
+ * Mainklasse zur Ausführung des Programms.
+ * @author Oleg Mayer
+ * @author Christoph Häseker
+ * @author Sven Hagemann
+ * @author Diana Bürger
+ * @author Sebastian Beleites
+ * @author Kristi Bartelt
+ */
 public class Main {
 	
 	public static void main(String[] args) {

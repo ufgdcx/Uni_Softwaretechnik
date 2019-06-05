@@ -1,10 +1,15 @@
 package Database;
 
-import java.sql.Connection;
-
 import com.mysql.cj.jdbc.MysqlDataSource;
+
+import java.sql.Connection;
 import java.sql.SQLException;
-import javax.sql.DataSource;
+
+/**
+ * Baut die Verbindung zur Datenbank auf.
+ * @author Christoph
+ * @author Sven
+ */
 
 public  class DataSourceConn {
     final static String server = "swt.ignorelist.com";

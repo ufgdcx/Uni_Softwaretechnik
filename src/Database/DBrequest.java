@@ -5,6 +5,12 @@ import Klassen.*;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Verwaltet Datenbankanfragen.
+ * @author Christoph
+ * @author Sven
+ */
+
 public class DBrequest {
     private Connection con;
     private LogWriter logwriter = LogWriter.getIntstance();

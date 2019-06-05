@@ -1,10 +1,19 @@
 package Controller;
+import Database.DBrequest;
+import GUI.GUIMain;
+import GUI.SVeranstaltungsuebersicht;
+import Klassen.Gruppe;
+import Klassen.Student;
+import Klassen.Team;
+import Klassen.Veranstaltung;
+
 import java.util.ArrayList;
 
-import Database.DBrequest;
-import Database.DatabaseException;
-import GUI.*;
-import Klassen.*;
+
+/**
+ * Steuert die Studentenansicht.
+ * @author Oleg
+ */
 
 public class StudentController extends MainController{
 	private Student me;

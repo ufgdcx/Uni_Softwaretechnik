@@ -1,9 +1,18 @@
 package Controller;
+import Database.DBrequest;
+import GUI.DVeranstaltungsuebersicht;
+import GUI.GUIMain;
+import Klassen.Dozent;
+import Klassen.Gruppe;
+import Klassen.Team;
+import Klassen.Veranstaltung;
+
 import java.util.ArrayList;
 
-import Database.*;
-import GUI.*;
-import Klassen.*;
+/**
+ * Steuert die Dozentenansicht.
+ * @author Oleg
+ */
 
 public class DozentController extends MainController{
 	private Dozent me;
