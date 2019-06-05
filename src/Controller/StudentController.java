@@ -23,16 +23,10 @@ public class StudentController extends MainController{
 		mainFrame.setContent(new SVeranstaltungsuebersicht());
 	}
 
-	public ArrayList<String> buildModel(){
-		try {
-			veranstaltungen = dbr.getVeranstaltungen(me);
-		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void buildModel(){
+		veranstaltungen = this.getVeranstaltungen(me);
 
 		for (Veranstaltung v: veranstaltungen){
-
 			//für Funktionstest
 			System.out.println(v.getName());
 			vNameS.add(v.getName());
@@ -40,6 +34,6 @@ public class StudentController extends MainController{
 
 		//für Funktionstest
 		System.out.println(vNameS);
-		return vNameS;
+		return;
 	}
 }
