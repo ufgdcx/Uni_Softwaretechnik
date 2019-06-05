@@ -781,6 +781,78 @@ public class DBrequest {
         try {
             Statement stmt = con.createStatement();
             try{
+                try{
+                    stmt.executeUpdate("DELETE FROM Leitet WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Leitet","TRACE");
+                }catch (SQLException e) {
+                    logwriter.writetoLog("  no entries in leitet", "TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Teamleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Teamleistung","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Teamleistung","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Teamleistungsunterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Teamleistungsunterblock","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Teamleistungsunterblock","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Teamleistungsblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Teamleistungsblock","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Teamleistungsblock","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Studienganganteil WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Studienganganteil","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Studienganganteil","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Gehoert_zu WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Gehoert_zu","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Gehoert_zu","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Team WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Team","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Team","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Gruppe WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Gruppe","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Gruppe","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Einzelleistung","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Einzelleistung","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Unterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Unterblock","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Unterblock","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Leistungsblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Leistungsblock","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Leistungsblock","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM MaxPunktzahl WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from MaxPunktzahl","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in MaxPunktzahl","TRACE");
+                }
                 stmt.executeUpdate("DELETE FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
                 logwriter.writetoLog("successful","TRACE");
             }catch (SQLException e){

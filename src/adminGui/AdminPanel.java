@@ -74,11 +74,14 @@ public class AdminPanel extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==deletebutton) {
 				for(Veranstaltung v: veranstaltungen){
-					try {
-						if (v.getName().equals(veranstaltungslist.getSelectedValue()))
+					if (v.getName().equals(veranstaltungslist.getSelectedValue())) {
+						try {
 							dbr.deleteVeranstaltung(v.getName());
-					}catch(DatabaseException dbe){
-						System.out.println(dbe.getErrorMsg());
+						} catch (DatabaseException dbe) {
+							System.out.println(dbe.getErrorMsg());
+						}
+						veranstaltungen.remove(v);
+						break;
 					}
 				}
 
