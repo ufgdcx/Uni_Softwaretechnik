@@ -4,7 +4,7 @@ import Controller.MainController;
 
 import javax.swing.*;
 /**
- * Öffnet die Loginseite beim Aufruf und stellt Methoden zur Änderung des derzeitigen Fensterinhalts bereit.
+ * Oeffnet die Loginseite beim Aufruf und stellt Methoden zur Aenderung des derzeitigen Fensterinhalts bereit.
  * @author Oleg
  * @author Kristi
  */

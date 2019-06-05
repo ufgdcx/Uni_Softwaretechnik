@@ -3,7 +3,7 @@ package Controller;
 import GUI.*;
 
 /**
- * Mainklasse zur Ausführung des Programms.
+ * Mainklasse zur Ausfuehrung des Programms.
  * @author Oleg Mayer
  * @author Christoph Häseker
  * @author Sven Hagemann

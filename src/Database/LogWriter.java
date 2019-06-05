@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Erzeugt einen Log der Ausführung des Programms.
+ * Erzeugt einen Log der Ausfuehrung des Programms.
  * @author Christoph
  * @author Sven
  */
