@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class DBrequest {
     private Connection con;
     private LogWriter logwriter = LogWriter.getIntstance();
+    private final static DBrequest instance = new DBrequest();
 
     public DBrequest(){
         con = DataSourceConn.buildConnection();
@@ -42,7 +43,7 @@ public class DBrequest {
                 stmt.executeUpdate("INSERT INTO Student (EMailadresse, Matrikelnummer, Studiengang) VALUES ('" + email + "', '" + matrikelnummer + "', '" + studiengang + "')");
                 logwriter.writetoLog("successful","TRACE");
             }catch(SQLException e) {
-                ResultSet rs = stmt.executeQuery("SELECT Emailadresse, FROM Student WHERE Emailadresse = '" + email + "'");
+                ResultSet rs = stmt.executeQuery("SELECT Emailadresse FROM Student WHERE Emailadresse = '" + email + "'");
                 if (resultSize(rs) != 0) {
                     logwriter.writetoLog("Student already exists","ERROR");
                     throw new DatabaseException("Student already exists");
@@ -65,7 +66,7 @@ public class DBrequest {
                 stmt.executeUpdate("INSERT INTO Dozent (EMailadresse, Fakultaet) VALUES ('" + email + "', '" + fakultaet +"')");
                 logwriter.writetoLog("successful","TRACE");
             }catch(SQLException e){
-                ResultSet rs = stmt.executeQuery("SELECT Emailadresse, FROM Dozent WHERE Emailadresse = '" + email + "'");
+                ResultSet rs = stmt.executeQuery("SELECT Emailadresse FROM Dozent WHERE Emailadresse = '" + email + "'");
                 if (resultSize(rs) != 0) {
                     logwriter.writetoLog("Dozent already exists","ERROR");
                     throw new DatabaseException("Dozent already exists");
@@ -382,7 +383,7 @@ public class DBrequest {
     public void createGruppe(Gruppe gruppe) throws DatabaseException
     {
         createGruppe(gruppe.getGruppenID(),
-                     gruppe.getEmail(),
+                     gruppe.getDozent().getEmail(),
                      gruppe.getVeranstaltung().getName(),
                      gruppe.getFrist(),
                      gruppe.getZeit(),
@@ -924,7 +925,7 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT `Gruppe`.* FROM `Veranstaltung` INNER JOIN `Gruppe` ON `Gruppe`.`Veranstaltungsname` = `Veranstaltung`.`Veranstaltungsname` WHERE Veranstaltung.Veranstaltungsname = '" + veranstaltungsname + "'");
             while (rs.next()){
-                results.add(new Gruppe(rs.getInt("GruppenID"),"unnecessary", rs.getString("Wochentag"),rs.getTime("Uhrzeit"),rs.getString("Wochenrhytmus"),rs.getDate("Einschreibungsfrist"),veranstaltung,getDozent(rs.getString("EMailadresse"))));
+                results.add(new Gruppe(rs.getInt("GruppenID"), rs.getString("Wochentag"),rs.getTime("Uhrzeit"),rs.getString("Wochenrhytmus"),rs.getDate("Einschreibungsfrist"),veranstaltung,getDozent(rs.getString("EMailadresse"))));
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
         }catch (SQLException ex){
@@ -1122,6 +1123,25 @@ public class DBrequest {
             ResultSet rs = stmt.executeQuery("Select Teamleistung.* FROM Teamleistungsunterblock INNER JOIN Teamleistung ON Teamleistung.TeamID = Teamleistungsunterblock.TeamID AND Teamleistung.GruppenID = Teamleistungsunterblock.GruppenID AND Teamleistung.Veranstaltungsname = Teamleistungsunterblock.Veranstaltungsname AND Teamleistung.Teamleistungsblockname = Teamleistungsunterblock.Teamleistungsblockname AND Teamleistung.Teamleistungsunterblockname = Teamleistungsunterblock.Teamleistungsunterblockname WHERE Teamleistung.Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistung.TeamID = '" + teamID + "' AND Teamleistung.GruppenID = '" + gruppenID + "' AND Teamleistung.Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistung.Teamleistungsunterblockname = '" + teamunterblockname + "'");
             while (rs.next()){
                 results.add(new Aufgabe(rs.getString("Teamleistungsname"),rs.getInt("Punkte"),unterblock));
+            }
+            logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
+        }catch (SQLException ex){
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
+    }
+
+    public ArrayList<Veranstaltung> getAllVeranstaltungen()throws DatabaseException{
+        logwriter.writetoLog("function: getAllVeranstaltungen()","TRACE");
+        ArrayList<Veranstaltung> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Veranstaltung");
+            while (rs.next()){
+                Veranstaltung veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"), rs.getString("Beschreibung"));
+                veranstaltung.setDozenten(getDozenten(veranstaltung));
+                results.add(veranstaltung);
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
         }catch (SQLException ex){
@@ -1472,6 +1492,10 @@ public class DBrequest {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
+    }
+
+    public static DBrequest getIntstance() {
+        return instance;
     }
 
     public void close()throws DatabaseException{

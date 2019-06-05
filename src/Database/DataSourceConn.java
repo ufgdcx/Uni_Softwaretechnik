@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 public  class DataSourceConn {
-    final static String server = "swtistdoof.ignorelist.com";
+    final static String server = "swt.ignorelist.com";
     final static int port = 3306;
     final static String databaseName = "swt_datenbank?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     final static String username = "swt";

@@ -8,7 +8,6 @@ public class Gruppe {
 
     // member variables
     private  int gruppenID;
-    private String email; // E-Mailadresse des zustaendigen Dozenten
     private String wochentag; // Wochentag
     private Time zeit; // Uhrzeit
     private String rhythmus; // Wochenrhythmus
@@ -17,25 +16,11 @@ public class Gruppe {
     private ArrayList<Team> teams;
     private Dozent dozent;
 
-    // Constructor
-    public Gruppe(int gruppenID, String wochentag, Time zeit, String rhythmus,
-                  Date frist, Veranstaltung veranstaltung, ArrayList<Team> teams, Dozent dozent)
-    {
-        this.gruppenID = gruppenID;
-        this.wochentag = wochentag;
-        this.zeit = zeit;
-        this.rhythmus = rhythmus;
-        this.frist = frist;
-        this.veranstaltung = veranstaltung;
-        this.teams = teams;
-        this.dozent = dozent;
-    }
     // Constructor for Database
-    public Gruppe(int gruppenID, String email, String wochentag, Time zeit, String rhythmus,
+    public Gruppe(int gruppenID, String wochentag, Time zeit, String rhythmus,
                   java.sql.Date frist, Veranstaltung veranstaltung, Dozent dozent)
     {
         this.gruppenID = gruppenID;
-        this.email = email;
         this.wochentag = wochentag;
         this.zeit = zeit;
         this.rhythmus = rhythmus;
@@ -47,7 +32,6 @@ public class Gruppe {
 
     // get methods
     public int getGruppenID() {  return gruppenID; }
-    public String getEmail() {  return email; }
     public String getRhythmus() {  return rhythmus; }
     public Veranstaltung getVeranstaltung() {  return veranstaltung; }
     public ArrayList<Team> getTeams() {  return teams; }
@@ -58,7 +42,6 @@ public class Gruppe {
 
     // set methods
      public void setGruppenID(int gruppenID) {  this.gruppenID = gruppenID; }
-     public void setEmail(String email) {  this.email = email; }
      public void setTag(String tag) {  this.wochentag = tag; }
      public void setZeit(Time zeit) {  this.zeit = zeit; }
      public void setRhythmus(String rhythmus) {  this.rhythmus = rhythmus; }

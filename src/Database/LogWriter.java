@@ -21,7 +21,7 @@ public class LogWriter extends BufferedWriter {
                 fileName = "Logdata\\logdata.txt";
             }
             else {
-                //TODO
+                fileName = "Logdata.txt";
             }
             tmp = new LogWriter(new FileWriter(fileName));
         }catch (IOException ioe){
