@@ -75,9 +75,9 @@ public class MainController {
 		}
 	}
 
-    public ArrayList<Leistung> getLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung){
+    public ArrayList<Leistung> getLeistung(Team team){
         try {
-            return dbr.getLeistung(gruppe, team, veranstaltung);
+            return dbr.getLeistung(team);
         } catch (DatabaseException e){
             System.out.println(e.getErrorMsg());
         }
