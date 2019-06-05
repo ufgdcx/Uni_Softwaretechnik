@@ -131,7 +131,7 @@ public class MainController {
     //erzeugt Verifizierungscode für die Email Bestätigung
     public String generateVerifyingCode() {
 
-        String charvalue = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!§$%&/()=?ßäöü{[]}";
+        String charvalue = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
         char[] chars = charvalue.toCharArray();
 
         String verifyingCode = "";
