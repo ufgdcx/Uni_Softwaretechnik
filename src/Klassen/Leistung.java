@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Klasse für eine Leistungskategorie eines Studenten oder Teams.
- * Setzt sich aus mehreren Unterblöcken zusammen.
- * z.B. Übungsserien (mit den Unterblöcken Serie 1, Serie 2 etc.) oder Projektarbeit (mit den Unterblöcken Lastenheft, Pflichtenheft etc.)
+ * Setzt sich aus mehreren Unterbloecken zusammen.
+ * z.B. Uebungsserien (mit den Unterbloecken Serie 1, Serie 2 etc.) oder Projektarbeit (mit den Unterbloecken Lastenheft, Pflichtenheft etc.)
  * @author Oleg
  */
 public class Leistung
