@@ -65,50 +65,17 @@ public class MainController {
 		return null;
 	}
 	
-	public void setVBeschreibung (Veranstaltung veranstaltung){
-
+	public void setVBeschreibung(Veranstaltung veranstaltung){
 		try {
 			dbr.updateVeranstaltungBeschreibung(veranstaltung.getName(), veranstaltung.getBeschreibung());
 		}
 		catch (DatabaseException e){
-
 			e.printStackTrace();
 			return;
 		}
 	}
 
-    public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) {
-
-        try{
-            return dbr.getGruppen(veranstaltung);
-        } catch (DatabaseException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public ArrayList<Team> getTeams(Gruppe gruppe) {
-
-        try{
-            return dbr.getTeams(gruppe);
-        } catch (DatabaseException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public Team getTeam(Student student, Gruppe gruppe) {
-
-        try{
-            return dbr.getTeam(student, gruppe);
-        } catch (DatabaseException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public ArrayList<Leistung> getLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung){
-
         try {
             return dbr.getLeistung(gruppe, team, veranstaltung);
         } catch (DatabaseException e){
@@ -117,58 +84,9 @@ public class MainController {
         return null;
     }
 
-    public ArrayList<Leistung> getLeistungsblock(Student student, Veranstaltung veranstaltung){
-
-        try {
-            return dbr.getLeistungsblock(student, veranstaltung);
-        } catch (DatabaseException e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public ArrayList<Aufgabe> getEinzelleistung(Student student, Leistung leistung, Unterblock unterblock, Veranstaltung veranstaltung){
-
-        try {
-            return dbr.getEinzelleistung(student, leistung, unterblock, veranstaltung);
-        } catch (DatabaseException e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public ArrayList<Aufgabe> getTeamleistung(Gruppe gruppe, Team team, Leistung leistung, Unterblock unterblock, Veranstaltung veranstaltung){
-
-        try {
-            return dbr.getTeamleistung(gruppe, team, leistung, unterblock, veranstaltung);
-        } catch (DatabaseException e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public ArrayList<Unterblock> getUB(Gruppe gruppe, Team team, Leistung leistung, Veranstaltung veranstaltung){
-
-        try {
-            return dbr.getUnterblock(gruppe, team, leistung, veranstaltung);
-        } catch (DatabaseException e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public ArrayList<Unterblock> getUB(Student student, Leistung leistung, Veranstaltung veranstaltung){
-
-        try {
-            return dbr.getUnterblock(student, leistung, veranstaltung);
-        } catch (DatabaseException e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     //TODO: Update-Methoden in DB anlegen
-    /*public void setGruppen(Veranstaltung veranstaltung) {
+    /*
+    public void setGruppen(Veranstaltung veranstaltung) {
 
         try{
             dbr.updateGruppe(veranstaltung);
@@ -208,56 +126,7 @@ public class MainController {
             return;
         }
     }
-
-    public void setLeistungsblock(Student student, Veranstaltung veranstaltung){
-
-        try {
-            dbr.updateLeistung(student, veranstaltung);
-        } catch (DatabaseException e){
-            e.printStackTrace();
-            return;
-        }
-    }
-
-    public void setEinzelleistung(Student student, Leistung leistung, Unterblock unterblock, Veranstaltung veranstaltung){
-
-        try {
-            dbr.updateEinzelleistung(student, leistung, unterblock, veranstaltung);
-        } catch (DatabaseException e){
-            e.printStackTrace();
-            return;
-        }
-    }
-
-    public void setTeamleistung(Gruppe gruppe, Team team, Leistung leistung, Unterblock unterblock, Veranstaltung veranstaltung){
-
-        try {
-            dbr.updateTeamleistung(gruppe, team, leistung, unterblock, veranstaltung);
-        } catch (DatabaseException e){
-            e.printStackTrace();
-            return;
-        }
-    }
-
-    public void setUB(Gruppe gruppe, Team team, Leistung leistung, Veranstaltung veranstaltung){
-
-        try {
-            dbr.updateUnterblock(gruppe, team, leistung, veranstaltung);
-        } catch (DatabaseException e){
-            e.printStackTrace();
-            return;
-        }
-    }
-
-    public void setUB(Student student, Leistung leistung, Veranstaltung veranstaltung){
-
-        try {
-            dbr.updateUnterblock(student, leistung, veranstaltung);
-        } catch (DatabaseException e){
-            e.printStackTrace();
-            return;
-        }
-    }*/
+     */
 
     //erzeugt Verifizierungscode für die Email Bestätigung
     public String generateVerifyingCode() {
