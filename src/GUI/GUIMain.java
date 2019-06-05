@@ -1,8 +1,13 @@
 package GUI;
 
-import javax.swing.*;
-import Controller.*;
+import Controller.MainController;
 
+import javax.swing.*;
+/**
+ * Öffnet die Loginseite beim Aufruf und stellt Methoden zur Änderung des derzeitigen Fensterinhalts bereit.
+ * @author Oleg
+ * @author Kristi
+ */
 public class GUIMain extends JFrame{
 
     private FrameContent content;
@@ -11,7 +16,6 @@ public class GUIMain extends JFrame{
     public GUIMain(int width, int height) {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("GUIMain");
         this.setSize(width, height);
         setContent(new LoginSeite());
         this.setVisible(true);
