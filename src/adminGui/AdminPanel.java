@@ -73,20 +73,25 @@ public class AdminPanel extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==deletebutton) {
-				for(Veranstaltung v: veranstaltungen){
-					if (v.getName().equals(veranstaltungslist.getSelectedValue())) {
-						try {
-							dbr.deleteVeranstaltung(v.getName());
-						} catch (DatabaseException dbe) {
-							System.out.println(dbe.getErrorMsg());
+				if(veranstaltungslist.getSelectedIndex()<0){
+					ErrorDialog eD = new ErrorDialog("keine Veranstaltung ausgewählt");
+					eD.setResizable(false);
+					eD.setLocationRelativeTo(aP);
+					eD.setVisible(true);
+				}else {
+					for (Veranstaltung v : veranstaltungen) {
+						if (v.getName().equals(veranstaltungslist.getSelectedValue())) {
+							try {
+								dbr.deleteVeranstaltung(v.getName());
+							} catch (DatabaseException dbe) {
+								System.out.println(dbe.getErrorMsg());
+							}
+							veranstaltungen.remove(v);
+							break;
 						}
-						veranstaltungen.remove(v);
-						break;
 					}
+					listModel.remove(veranstaltungslist.getSelectedIndex());
 				}
-
-				listModel.remove(veranstaltungslist.getSelectedIndex());
-
 			}
 			if(e.getSource()==addbutton) {
 				CreateDialog cD = new CreateDialog();
@@ -94,7 +99,24 @@ public class AdminPanel extends JPanel{
 				cD.setLocationRelativeTo(aP);
 				cD.setVisible(true);
 			}
+			if(e.getSource()==editbutton) {
+				if (veranstaltungslist.getSelectedIndex() < 0) {
+					ErrorDialog eD = new ErrorDialog("keine Veranstaltung ausgewählt");
+					eD.setResizable(false);
+					eD.setLocationRelativeTo(aP);
+					eD.setVisible(true);
+				} else {
+					for (Veranstaltung v : veranstaltungen) {
+						if (v.getName().equals(veranstaltungslist.getSelectedValue())) {
+							EditDialog eD = new EditDialog(v);
+							eD.setResizable(false);
+							eD.setLocationRelativeTo(aP);
+							eD.setVisible(true);
+							break;
+						}
+					}
+				}
+			}
 		}
-		
 	}
 }
