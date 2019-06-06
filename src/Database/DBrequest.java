@@ -782,10 +782,10 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             try{
                 try{
-                    stmt.executeUpdate("DELETE FROM Leitet WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    stmt.executeUpdate("DELETE FROM Leitet WHERE Name = '" + veranstaltungsname + "'");
                     logwriter.writetoLog("  deletet from Leitet","TRACE");
                 }catch (SQLException e) {
-                    logwriter.writetoLog("  no entries in leitet", "TRACE");
+                    logwriter.writetoLog("  no entries in Leitet", "TRACE");
                 }
                 try{
                     stmt.executeUpdate("DELETE FROM Teamleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
@@ -1587,7 +1587,6 @@ public class DBrequest {
     }
 
     public int resultSize(ResultSet rs){
-        logwriter.writetoLog("     function: resultSize(ResultSet)","TRACE");
         int size =0;
         try {
             if (rs != null) {
@@ -1598,7 +1597,6 @@ public class DBrequest {
         }catch (SQLException ex){
             logwriter.writetoLog("Something went wrong","ERROR");
         }
-        logwriter.writetoLog("     size: " + size,"TRACE");
         return size;
     }
 
