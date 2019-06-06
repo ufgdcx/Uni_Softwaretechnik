@@ -1,21 +1,19 @@
 package adminGui;
 
+import Klassen.Dozent;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
+import javax.swing.*;
 
 public class CreateDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
 	
 	private JScrollPane scrollPane;
+	DefaultListModel listModel = new DefaultListModel();
+	JList<String> dozentenlist;
 	
 	private JButton confirmButton;
 	private JButton deleteButton;
@@ -72,10 +70,9 @@ public class CreateDialog extends JDialog {
 		JLabel DozentenLabel = new JLabel("Dozenten:");
 		DozentenLabel.setBounds(470, 10, 200, 25);
 		add(DozentenLabel);
-		String[] v= {"SWT","ALGO","lange Veranstaltung zum testen wie das ganze angezeigt wird111111111111111111","d","d","d","d","d","d","d","d","d","a"};
-		Dozenten = new JList<String>(v);
-		Dozenten.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		JScrollPane scrollPane = new JScrollPane(Dozenten);
+		dozentenlist = new JList<String>(listModel);
+		dozentenlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		JScrollPane scrollPane = new JScrollPane(dozentenlist);
 		scrollPane.setBounds(470, 30, 200, 205);
 		add(scrollPane);
 		

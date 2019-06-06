@@ -1,5 +1,6 @@
 package adminGui;
 
+import Klassen.Dozent;
 import Klassen.Veranstaltung;
 
 import javax.swing.*;
@@ -10,6 +11,8 @@ public class EditDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	private JScrollPane scrollPane;
+	DefaultListModel listModel = new DefaultListModel();
+	JList<String> dozentenlist;
 
 	private JButton confirmButton;
 	private JButton deleteButton;
@@ -32,6 +35,7 @@ public class EditDialog extends JDialog {
 		add(veranstaltungsnameLabel);
 		veranstaltungsnameField = new JTextField();
 		veranstaltungsnameField.setBounds(30, 30, 200, 25);
+		veranstaltungsnameField.setText(veranstaltung.getName());
 		add(veranstaltungsnameField);
 		
 		JLabel fakultaetLabel = new JLabel("Fakultät:");
@@ -39,6 +43,7 @@ public class EditDialog extends JDialog {
 		add(fakultaetLabel);
 		fakultaetField = new JTextField();
 		fakultaetField.setBounds(30, 90, 200, 25);
+		fakultaetField.setText(veranstaltung.getFakultaet());
 		add(fakultaetField);
 		
 		JLabel teamzahlJeGruppeLabel = new JLabel("Maximale Teams pro Gruppe:");
@@ -46,6 +51,7 @@ public class EditDialog extends JDialog {
 		add(teamzahlJeGruppeLabel);
 		teamzahlJeGruppeField = new JTextField();
 		teamzahlJeGruppeField.setBounds(30, 150, 200, 25);
+		teamzahlJeGruppeField.setText(Integer.toString(veranstaltung.getTeamanzahl()));
 		add(teamzahlJeGruppeField);
 		
 		JLabel teilnehmerzahlJeTeamLabel = new JLabel("maximale Mitglieder pro Team:");
@@ -53,6 +59,7 @@ public class EditDialog extends JDialog {
 		add(teilnehmerzahlJeTeamLabel);
 		teilnehmerzahlJeTeamField = new JTextField();
 		teilnehmerzahlJeTeamField.setBounds(30, 210, 200, 25);
+		teilnehmerzahlJeTeamField.setText(Integer.toString(veranstaltung.getMaxTeilnehmer()));
 		add(teilnehmerzahlJeTeamField);
 		
 		JLabel beschreibungLabel = new JLabel("Beschreibung:");
@@ -60,15 +67,18 @@ public class EditDialog extends JDialog {
 		add(beschreibungLabel);
 		beschreibungField = new JTextField();
 		beschreibungField.setBounds(250, 30, 200, 25);
+		beschreibungField.setText(veranstaltung.getBeschreibung());
 		add(beschreibungField);
-		
+
 		JLabel DozentenLabel = new JLabel("Dozenten:");
 		DozentenLabel.setBounds(470, 10, 200, 25);
 		add(DozentenLabel);
-		String[] v= {"SWT","ALGO","lange Veranstaltung zum testen wie das ganze angezeigt wird111111111111111111","d","d","d","d","d","d","d","d","d","a"};
-		Dozenten = new JList<String>(v);
-		Dozenten.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		JScrollPane scrollPane = new JScrollPane(Dozenten);
+		dozentenlist = new JList<String>(listModel);
+		dozentenlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		for(Dozent d: veranstaltung.getDozenten()){
+			listModel.add(0,d.getEmail());
+		}
+		JScrollPane scrollPane = new JScrollPane(dozentenlist);
 		scrollPane.setBounds(470, 30, 200, 205);
 		add(scrollPane);
 		
