@@ -15,13 +15,12 @@ public class EditDialog extends JDialog {
 	JList<String> dozentenlist;
 
 	private JButton confirmButton;
-	private JButton deleteButton;
-	private JButton addButton;
+	private JButton dozentenButton;
 	private JTextField veranstaltungsnameField;
 	private JTextField fakultaetField;
 	private JTextField teamzahlJeGruppeField;
 	private JTextField teilnehmerzahlJeTeamField;
-	private JTextField beschreibungField;
+	private JTextArea beschreibungField;
 
 	JList<String> Dozenten;
 
@@ -65,8 +64,8 @@ public class EditDialog extends JDialog {
 		JLabel beschreibungLabel = new JLabel("Beschreibung:");
 		beschreibungLabel.setBounds(250, 10, 200, 25);
 		add(beschreibungLabel);
-		beschreibungField = new JTextField();
-		beschreibungField.setBounds(250, 30, 200, 25);
+		beschreibungField = new JTextArea();
+		beschreibungField.setBounds(250, 30, 200, 205);
 		beschreibungField.setText(veranstaltung.getBeschreibung());
 		add(beschreibungField);
 
@@ -79,20 +78,14 @@ public class EditDialog extends JDialog {
 			listModel.add(0,d.getEmail());
 		}
 		JScrollPane scrollPane = new JScrollPane(dozentenlist);
-		scrollPane.setBounds(470, 30, 200, 205);
+		scrollPane.setBounds(470, 30, 200, 175);
 		add(scrollPane);
-		
-		addButton = new JButton("hinzufügen");
-		addButton.setFocusable(false);
-		addButton.setBounds(350, 100, 100, 25);
-		addButton.addActionListener(new Listener());
-		add(addButton);
-		
-		deleteButton = new JButton("löschen");
-		deleteButton.setFocusable(false);
-		deleteButton.setBounds(350, 150, 100, 25);
-		deleteButton.addActionListener(new Listener());
-		add(deleteButton);
+
+		dozentenButton = new JButton("Dozenten hinzufügen/löschen");
+		dozentenButton.setFocusable(false);
+		dozentenButton.setBounds(465, 210, 210, 25);
+		dozentenButton.addActionListener(new Listener());
+		add(dozentenButton);
 		
 		confirmButton = new JButton("OK");
 		confirmButton.setFocusable(false);
