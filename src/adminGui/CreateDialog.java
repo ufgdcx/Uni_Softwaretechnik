@@ -18,6 +18,7 @@ public class CreateDialog extends JDialog {
 	private JButton confirmButton;
 	private JButton dozentenButton;
 	private JButton dataButton;
+	private JButton abortButton;
 	private JTextField veranstaltungsnameField;
 	private JTextField fakultaetField;
 	private JTextField teamzahlJeGruppeField;
@@ -80,16 +81,22 @@ public class CreateDialog extends JDialog {
 		dozentenButton.setBounds(465, 210, 210, 25);
 		dozentenButton.addActionListener(new Listener());
 		add(dozentenButton);
-		
+
+		abortButton = new JButton("abbrechen");
+		abortButton.setFocusable(false);
+		abortButton.setBounds(65, 270, 150, 25);
+		abortButton.addActionListener(new Listener());
+		add(abortButton);
+
 		dataButton = new JButton("aus Datei laden");
 		dataButton.setFocusable(false);
-		dataButton.setBounds(150, 270, 150, 25);
+		dataButton.setBounds(265, 270, 150, 25);
 		dataButton.addActionListener(new Listener());
 		add(dataButton);
 		
 		confirmButton = new JButton("OK");
 		confirmButton.setFocusable(false);
-		confirmButton.setBounds(350, 270, 150, 25);
+		confirmButton.setBounds(465, 270, 150, 25);
 		confirmButton.addActionListener(new Listener());
 		add(confirmButton);
 		
@@ -102,7 +109,14 @@ private class Listener implements ActionListener{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(e.getSource()==confirmButton) {	
+			if(e.getSource()==abortButton) {
+				dispose();
+			}
+			if(e.getSource()==dozentenButton) {
+				DozentenAddRemoveDialog dARD = new DozentenAddRemoveDialog();
+				dARD.setResizable(false);
+				dARD.setLocationRelativeTo(null);
+				dARD.setVisible(true);
 			}
 		}
 		

@@ -16,6 +16,7 @@ public class EditDialog extends JDialog {
 
 	private JButton confirmButton;
 	private JButton dozentenButton;
+	private JButton abortButton;
 	private JTextField veranstaltungsnameField;
 	private JTextField fakultaetField;
 	private JTextField teamzahlJeGruppeField;
@@ -86,10 +87,16 @@ public class EditDialog extends JDialog {
 		dozentenButton.setBounds(465, 210, 210, 25);
 		dozentenButton.addActionListener(new Listener());
 		add(dozentenButton);
-		
+
+		abortButton = new JButton("abbrechen");
+		abortButton.setFocusable(false);
+		abortButton.setBounds(150, 270, 150, 25);
+		abortButton.addActionListener(new Listener());
+		add(abortButton);
+
 		confirmButton = new JButton("OK");
 		confirmButton.setFocusable(false);
-		confirmButton.setBounds(250, 270, 150, 25);
+		confirmButton.setBounds(350, 270, 150, 25);
 		confirmButton.addActionListener(new Listener());
 		add(confirmButton);
 		
@@ -102,7 +109,14 @@ private class Listener implements ActionListener{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(e.getSource()==confirmButton) {	
+			if(e.getSource()==abortButton) {
+				dispose();
+			}
+			if(e.getSource()==dozentenButton) {
+				DozentenAddRemoveDialog dARD = new DozentenAddRemoveDialog();
+				dARD.setResizable(false);
+				dARD.setLocationRelativeTo(null);
+				dARD.setVisible(true);
 			}
 		}
 		
