@@ -1,9 +1,11 @@
 package adminGui;
 
 import Klassen.Dozent;
+import Klassen.Veranstaltung;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
@@ -14,6 +16,7 @@ public class CreateDialog extends JDialog {
 	private JScrollPane scrollPane;
 	DefaultListModel listModel = new DefaultListModel();
 	JList<String> dozentenlist;
+	Veranstaltung veranstaltung;
 	
 	private JButton confirmButton;
 	private JButton dozentenButton;
@@ -28,6 +31,8 @@ public class CreateDialog extends JDialog {
 	JList<String> Dozenten;
 	
 	public CreateDialog() {
+        veranstaltung = new Veranstaltung("", "",0,0, "");
+        veranstaltung.setDozenten(new ArrayList<>());
 		setModal(true);
 		setSize(700, 350);
 		setLayout(null);
@@ -113,7 +118,7 @@ private class Listener implements ActionListener{
 				dispose();
 			}
 			if(e.getSource()==dozentenButton) {
-				DozentenAddRemoveDialog dARD = new DozentenAddRemoveDialog();
+				DozentenAddRemoveDialog dARD = new DozentenAddRemoveDialog(veranstaltung.getDozenten());
 				dARD.setResizable(false);
 				dARD.setLocationRelativeTo(null);
 				dARD.setVisible(true);

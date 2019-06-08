@@ -13,6 +13,7 @@ public class EditDialog extends JDialog {
 	private JScrollPane scrollPane;
 	DefaultListModel listModel = new DefaultListModel();
 	JList<String> dozentenlist;
+	Veranstaltung veranstaltung;
 
 	private JButton confirmButton;
 	private JButton dozentenButton;
@@ -26,6 +27,8 @@ public class EditDialog extends JDialog {
 	JList<String> Dozenten;
 
 	public EditDialog(Veranstaltung veranstaltung) {
+	    this.veranstaltung = veranstaltung;
+
 		setModal(true);
 		setSize(700, 350);
 		setLayout(null);
@@ -113,7 +116,7 @@ private class Listener implements ActionListener{
 				dispose();
 			}
 			if(e.getSource()==dozentenButton) {
-				DozentenAddRemoveDialog dARD = new DozentenAddRemoveDialog();
+				DozentenAddRemoveDialog dARD = new DozentenAddRemoveDialog(veranstaltung.getDozenten());
 				dARD.setResizable(false);
 				dARD.setLocationRelativeTo(null);
 				dARD.setVisible(true);

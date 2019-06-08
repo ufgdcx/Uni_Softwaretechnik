@@ -994,6 +994,23 @@ public class DBrequest {
         return  results;
     }
 
+    public ArrayList<Dozent> getAllDozenten() throws  DatabaseException{
+        logwriter.writetoLog("  function: getAllDozenten()","TRACE");
+        ArrayList<Dozent> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Nutzer.*, Dozent.Fakultaet FROM Nutzer INNER JOIN Dozent ON Nutzer.EMailadresse = Dozent.EMailadresse");
+            while (rs.next()){
+                results.add(new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Fakultaet")));
+            }
+            logwriter.writetoLog("  successfully loaded:" + resultSize(rs),"TRACE");
+        }catch (SQLException ex){
+            logwriter.writetoLog("  Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
+    }
+
     public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) throws  DatabaseException
     {
         logwriter.writetoLog("function: getGruppen(Veranstaltung)","TRACE");
