@@ -25,6 +25,7 @@ public class Team
 
     // Constructor
     /**@author Christoph*/
+    public Team(){}
     public Team(int teamID, String thema, ArrayList<Studienganganteil> anteile, ArrayList<Leistung> teaml, Gruppe gruppe)
     {
         this.teamID = teamID;

@@ -781,6 +781,78 @@ public class DBrequest {
         try {
             Statement stmt = con.createStatement();
             try{
+                try{
+                    stmt.executeUpdate("DELETE FROM Leitet WHERE Name = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Leitet","TRACE");
+                }catch (SQLException e) {
+                    logwriter.writetoLog("  no entries in Leitet", "TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Teamleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Teamleistung","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Teamleistung","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Teamleistungsunterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Teamleistungsunterblock","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Teamleistungsunterblock","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Teamleistungsblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Teamleistungsblock","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Teamleistungsblock","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Studienganganteil WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Studienganganteil","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Studienganganteil","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Gehoert_zu WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Gehoert_zu","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Gehoert_zu","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Team WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Team","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Team","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Gruppe WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Gruppe","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Gruppe","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Einzelleistung","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Einzelleistung","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Unterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Unterblock","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Unterblock","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM Leistungsblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from Leistungsblock","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in Leistungsblock","TRACE");
+                }
+                try{
+                    stmt.executeUpdate("DELETE FROM MaxPunktzahl WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+                    logwriter.writetoLog("  deletet from MaxPunktzahl","TRACE");
+                }catch (SQLException e){
+                    logwriter.writetoLog("  no entries in MaxPunktzahl","TRACE");
+                }
                 stmt.executeUpdate("DELETE FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
                 logwriter.writetoLog("successful","TRACE");
             }catch (SQLException e){
@@ -911,6 +983,23 @@ public class DBrequest {
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Nutzer.*, Dozent.Fakultaet FROM Leitet INNER JOIN (Nutzer INNER JOIN Dozent ON Nutzer.EMailadresse = Dozent.EMailadresse) ON Leitet.EMailadresse = Dozent.EMailadresse WHERE Leitet.Name = '" + veranstaltungsname + "'");
+            while (rs.next()){
+                results.add(new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Fakultaet")));
+            }
+            logwriter.writetoLog("  successfully loaded:" + resultSize(rs),"TRACE");
+        }catch (SQLException ex){
+            logwriter.writetoLog("  Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
+    }
+
+    public ArrayList<Dozent> getAllDozenten() throws  DatabaseException{
+        logwriter.writetoLog("  function: getAllDozenten()","TRACE");
+        ArrayList<Dozent> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Nutzer.*, Dozent.Fakultaet FROM Nutzer INNER JOIN Dozent ON Nutzer.EMailadresse = Dozent.EMailadresse");
             while (rs.next()){
                 results.add(new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Fakultaet")));
             }
@@ -1515,7 +1604,6 @@ public class DBrequest {
     }
 
     public int resultSize(ResultSet rs){
-        logwriter.writetoLog("     function: resultSize(ResultSet)","TRACE");
         int size =0;
         try {
             if (rs != null) {
@@ -1526,7 +1614,6 @@ public class DBrequest {
         }catch (SQLException ex){
             logwriter.writetoLog("Something went wrong","ERROR");
         }
-        logwriter.writetoLog("     size: " + size,"TRACE");
         return size;
     }
 

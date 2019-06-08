@@ -23,6 +23,7 @@ public class Dozent extends Nutzer
     private ArrayList<Gruppe> gruppen;
     private Veranstaltung veranstaltung;
 
+    public Dozent(){}
     public Dozent(String email,String passwort, String titel, String vorname, String name,
                   String fakultaet)
     {

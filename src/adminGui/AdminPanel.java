@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class AdminPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
@@ -36,6 +38,7 @@ public class AdminPanel extends JPanel{
 		}
 		veranstaltungslist = new JList<String>(listModel);
 		veranstaltungslist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		veranstaltungslist.addListSelectionListener(new MyListSelectionListener());
 		for(Veranstaltung v: veranstaltungen){
 			listModel.add(0,v.getName());
 		}
@@ -47,6 +50,7 @@ public class AdminPanel extends JPanel{
 		deletebutton.setFocusable(false);
 		deletebutton.setBounds(20, 350, 100, 25);
 		deletebutton.addActionListener(new Listener(this));
+		deletebutton.setEnabled(false);
 		add(deletebutton);
 		
 		
@@ -60,38 +64,62 @@ public class AdminPanel extends JPanel{
 		editbutton.setFocusable(false);
 		editbutton.setBounds(280, 350, 100, 25);
 		editbutton.addActionListener(new Listener(this));
+		editbutton.setEnabled(false);
 		add(editbutton);
 	}
 	
-	private class Listener implements ActionListener{
+	private class Listener implements ActionListener {
 		AdminPanel aP;
-		
-		Listener(AdminPanel aP){
-			this.aP =aP;
+
+		Listener(AdminPanel aP) {
+			this.aP = aP;
 		}
-		
+
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(e.getSource()==deletebutton) {
-				for(Veranstaltung v: veranstaltungen){
-					try {
-						if (v.getName().equals(veranstaltungslist.getSelectedValue()))
+			if (e.getSource() == deletebutton) {
+				for (Veranstaltung v : veranstaltungen) {
+					if (v.getName().equals(veranstaltungslist.getSelectedValue())) {
+						try {
 							dbr.deleteVeranstaltung(v.getName());
-					}catch(DatabaseException dbe){
-						System.out.println(dbe.getErrorMsg());
+						} catch (DatabaseException dbe) {
+							System.out.println(dbe.getErrorMsg());
+						}
+						veranstaltungen.remove(v);
+						break;
 					}
 				}
-
 				listModel.remove(veranstaltungslist.getSelectedIndex());
-
 			}
-			if(e.getSource()==addbutton) {
+			if (e.getSource() == addbutton) {
 				CreateDialog cD = new CreateDialog();
 				cD.setResizable(false);
 				cD.setLocationRelativeTo(aP);
 				cD.setVisible(true);
 			}
+			if (e.getSource() == editbutton) {
+				for (Veranstaltung v : veranstaltungen) {
+					if (v.getName().equals(veranstaltungslist.getSelectedValue())) {
+						EditDialog eD = new EditDialog(v);
+						eD.setResizable(false);
+						eD.setLocationRelativeTo(aP);
+						eD.setVisible(true);
+						break;
+					}
+				}
+			}
 		}
-		
+	}
+	private class MyListSelectionListener implements ListSelectionListener {
+		@Override
+		public void valueChanged(ListSelectionEvent e) {
+			if(veranstaltungslist.getSelectedIndex()>=0){
+				deletebutton.setEnabled(true);
+				editbutton.setEnabled(true);
+			}else{
+				deletebutton.setEnabled(false);
+				deletebutton.setEnabled(false);
+			}
+		}
 	}
 }
