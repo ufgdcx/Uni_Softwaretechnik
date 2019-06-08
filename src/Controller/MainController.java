@@ -1,17 +1,19 @@
+/**@author Oleg, Diana
+ * Klasse erstellt von Oleg und erweitert von Oleg und Diana
+ *
+ * Steuert Anmeldung, Registrierung und Wechsel zu Dozenten-/Studentencontroller.
+ *
+ */
+
 package Controller;
 
 import Database.*;
 import GUI.*;
 import Klassen.*;
-
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.util.ArrayList;
 import java.util.Random;
-
-
-/**
- * Steuert Anmeldung, Registrierung und Wechsel zu Dozenten-/Studentencontroller.
- * @author Oleg
- */
 
 public class MainController {
 	protected GUIMain mainFrame;
@@ -22,7 +24,7 @@ public class MainController {
 		mainFrame = m;
 		mainFrame.setController(this);
 	}
-	
+	/**@author Oleg */
 	public void login(String email, char[] passwd) {
 		//handle authentification
 		try {
@@ -45,12 +47,12 @@ public class MainController {
 			//creating Student object s to pass the info to StudentController
 			//and transforming Nutzer object n to Student object s
 			Student s = (Student) n;
-			
-			//Student s = new Student("abc@uni-rostock.it","1234","Lord","Hanz","Mueller","Verteidigung gegen die Dunklen Kuenste",987654321);
+
 			new StudentController(mainFrame,s);
 		}
 	}
-	
+
+	/**@author Diana */
 	public ArrayList<Veranstaltung> getVeranstaltungen(Student me){
 		try {
 			return dbr.getVeranstaltungen(me);
@@ -60,7 +62,8 @@ public class MainController {
 		}
 		return null;
 	}
-	
+
+	/**@author Diana */
 	public ArrayList<Veranstaltung> getVeranstaltungen(Dozent me){
 		try {
 			return dbr.getVeranstaltungen(me);
@@ -70,7 +73,8 @@ public class MainController {
 		}
 		return null;
 	}
-	
+
+	/**@author Diana */
 	public void setVBeschreibung(Veranstaltung veranstaltung){
 		try {
 			dbr.updateVeranstaltungBeschreibung(veranstaltung.getName(), veranstaltung.getBeschreibung());
@@ -80,7 +84,59 @@ public class MainController {
 			return;
 		}
 	}
+	/**@author Diana */
+	public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) {
 
+		try{
+			return dbr.getGruppen(veranstaltung);
+		} catch (DatabaseException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	/**@author Diana */
+	public ArrayList<Team> getTeams(Gruppe gruppe) {
+
+		try{
+			return dbr.getTeams(gruppe);
+		} catch (DatabaseException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	/**@author Diana */
+	/*public ArrayList<Student> getStudenten(Team team) {
+
+		try{
+			return dbr.getStudenten(team);
+		} catch (DatabaseException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}*/
+
+	/**@author Diana */
+	public void createGruppenTree(Veranstaltung veranstaltung, JScrollPane tsp) {
+
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
+
+
+		for (Gruppe gruppe: getGruppen(veranstaltung)) {
+			DefaultMutableTreeNode gruppen = new DefaultMutableTreeNode(gruppe.getGruppenID());
+			root.add(gruppen);
+			for (Team team: getTeams(gruppe)) {
+				DefaultMutableTreeNode teams = new DefaultMutableTreeNode(team.getTeamID());
+				gruppen.add(teams);
+				/*for (Student student: getStudenten(team)) {
+					DefaultMutableTreeNode studenten = new DefaultMutableTreeNode(student.getName());
+					teams.add(studenten);
+				}*/
+			}
+
+		}
+		tsp.setViewportView(new JTree(root));
+	}
+	/**@author Diana */
     public ArrayList<Leistung> getLeistung(Team team){
         try {
             return dbr.getLeistung(team);
@@ -90,12 +146,23 @@ public class MainController {
         return null;
     }
 
-    //TODO: Update-Methoden in DB anlegen
-    /*
-    public void setGruppen(Veranstaltung veranstaltung) {
+
+	/**@author Diana */
+	public Team getTeam(Student student, Gruppe gruppe) {
+
+		try{
+			return dbr.getTeam(student, gruppe);
+		} catch (DatabaseException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**@author Diana */
+    public void setGruppen(Gruppe gruppe) {
 
         try{
-            dbr.updateGruppe(veranstaltung);
+            dbr.updateGruppe(gruppe);
 
         } catch (DatabaseException e) {
             System.out.println(e.getErrorMsg());
@@ -103,27 +170,50 @@ public class MainController {
         }
     }
 
-    public void setTeams(Gruppe gruppe) {
+	/**@author Diana */
+    public void setTeam(Team team) {
 
         try{
-            dbr.updateTeams(gruppe);
+            dbr.updateTeam(team);
         } catch (DatabaseException e) {
             System.out.println(e.getErrorMsg());
             return;
         }
     }
 
-    public void setTeam(Student student, Gruppe gruppe) {
+	/**@author Diana */
+	/*public void setGruppenanzahl(String veranstaltungsname, int gruppenanzahl){
+		try{
+			dbr.updateVeranstaltungMaximale_Gruppenanzahl(veranstaltungsname, gruppenanzahl);
+		} catch (DatabaseException e) {
+			System.out.println(e.getErrorMsg());
+			return;
+		}*/
 
-        try{
-            dbr.updateTeam(student, gruppe);
-        } catch (DatabaseException e) {
-            System.out.println(e.getErrorMsg());
-            return;
-        }
-    }
+	/**@author Diana */
+	public void setTeamanzahl(String veranstaltungsname, int teamanzahl) {
+		try {
+			dbr.updateVeranstaltungTeamanzahl_je_Gruppe(veranstaltungsname, teamanzahl);
+		} catch (DatabaseException e) {
+			System.out.println(e.getErrorMsg());
+			return;
+		}
+	}
 
-    public void setLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung){
+	/**@author Diana */
+    public void setTeamgroesse(String veranstaltungsname, int teamgroesse){
+		try{
+		dbr.updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team(veranstaltungsname, teamgroesse);
+	} catch (DatabaseException e) {
+		System.out.println(e.getErrorMsg());
+		return;
+	}
+}
+
+
+
+
+    /*public void setLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung){
 
         try {
             dbr.updateLeistung(gruppe, team, veranstaltung);
@@ -131,8 +221,8 @@ public class MainController {
             System.out.println(e.getErrorMsg());
             return;
         }
-    }
-     */
+    }*/
+
 
     //erzeugt Verifizierungscode für die Email Bestätigung
     public String generateVerifyingCode() {
@@ -151,4 +241,7 @@ public class MainController {
 
         return verifyingCode;
     }
+
+
+
 }

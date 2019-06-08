@@ -1,3 +1,9 @@
+/**
+ * @author Diana
+ *
+ * Klasse für die Verifikation der Nutzer
+ */
+
 package GUI;
 
 import com.intellij.uiDesigner.core.GridConstraints;

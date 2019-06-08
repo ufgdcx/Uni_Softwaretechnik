@@ -1,6 +1,11 @@
+/**@author Kristi, Diana
+ * Klasse erstellt von Kristi und erweitert von Diana
+ *
+ * Fenster in dem der Student alle Veranstaltung einsehen und ausgewählten beitreten kann
+ * */
+
 package GUI;
 
-import Controller.DozentController;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
@@ -13,7 +18,7 @@ import java.util.ArrayList;
 
 public class SAlleVeranstaltungen implements FrameContent {
 
-
+    /**@author Kristi*/
     private GUIMain mainFrame;
 
     private JPanel AlleVeranstaltungen;
@@ -24,9 +29,10 @@ public class SAlleVeranstaltungen implements FrameContent {
     //Button zum Eintragen in die ausgewählte Veranstaltung
     private JButton eintragen;
     private JButton zurueckButton;
+    /**@author Diana*/
     private JButton logoutButton;
 
-
+    /**@author Kristi*/
     public String getName() {
 
         return "Veranstaltungsübersicht - Student";
@@ -42,6 +48,7 @@ public class SAlleVeranstaltungen implements FrameContent {
         mainFrame = m;
     }
 
+    /**@author Diana*/
     public SAlleVeranstaltungen() {
 
         ArrayList<String> veranstaltungen = new ArrayList<>();

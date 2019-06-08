@@ -1,3 +1,9 @@
+/**@author Kristi, Diana
+ * Klasse erstellt von Kristi und erweitert von Diana
+ *
+ * Fenster in dem der Dozent die Informationen der Veranstaltung einsehen kann
+ * */
+
 package GUI;
 
 import Klassen.Veranstaltung;
@@ -13,6 +19,7 @@ import java.util.ArrayList;
 
 public class DVeranstaltungsuebersicht implements FrameContent {
 
+    /**@author Kristi*/
     private GUIMain mainFrame;
 
     private JPanel VeranstaltungsuebersichtPanel;
@@ -21,10 +28,11 @@ public class DVeranstaltungsuebersicht implements FrameContent {
     private DefaultListModel dLV = new DefaultListModel();
     private JScrollPane scrollPane;
     private JButton einsehen;
+    /**@author Diana*/
     private JButton logoutButton;
     private JLabel errorLabel;
 
-
+    /**@author Kristi*/
     public String getName() {
 
         return "Veranstaltungsübersicht - Dozent";
@@ -40,6 +48,7 @@ public class DVeranstaltungsuebersicht implements FrameContent {
         mainFrame = m;
     }
 
+    /**@author Diana*/
     public DVeranstaltungsuebersicht(ArrayList<Veranstaltung> dVL, int index) {
 
         ArrayList<String> veranstaltungen = new ArrayList<String>();

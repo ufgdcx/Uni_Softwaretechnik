@@ -1,13 +1,16 @@
+/**
+ * @author Sven, Christoph
+ * Klasse erstellt von Sven und erweitert von Sven und Christoph
+ *
+ * Klasse für die Verwaltung der Unterbloecke von einer Leistung eines Studenten oder Teams.
+ * Setzt sich aus mehreren Aufgaben zusammen.
+ * z.B. Uebungsserie 1 der Leistung Uebungsserien
+ */
+
 package Klassen;
 
 import java.util.ArrayList;
 
-/**
- * Klasse für die Verwaltung der Unterbloecke von einer Leistung eines Studenten oder Teams.
- * Setzt sich aus mehreren Aufgaben zusammen.
- * z.B. Uebungsserie 1 der Leistung Uebungsserien
- * @author Oleg
- */
 public class Unterblock 
 {
 	// member variables

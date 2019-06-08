@@ -1,3 +1,9 @@
+/**@author Kristi, Diana
+ * Klasse erstellt von Kristi und erweitert von Diana
+ *
+ * Fenster in dem der Student alle Gruppen und Teams einsehen und einem ausgewählten Team beitreten kann
+ * */
+
 package GUI;
 
 import com.intellij.uiDesigner.core.GridConstraints;
@@ -10,7 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SGruppenuebersicht implements FrameContent {
-
+    /**@author Kristi*/
     private GUIMain mainFrame;
 
     private JPanel GruppenuebersichtPanel;
@@ -18,9 +24,10 @@ public class SGruppenuebersicht implements FrameContent {
     private JButton verlassen;
     private JButton zurueckButton;
     private JTree tree1;
+    /**@author Diana*/
     private JButton logoutButton;
 
-
+    /**@author Kristi*/
     public String getName() {
 
         return "Gruppenübersicht - Student";
@@ -36,6 +43,7 @@ public class SGruppenuebersicht implements FrameContent {
         mainFrame = m;
     }
 
+    /**@author Diana*/
     public SGruppenuebersicht() {
         beitreten.addActionListener(new ActionListener() {
             @Override

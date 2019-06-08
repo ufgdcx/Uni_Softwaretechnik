@@ -1,3 +1,8 @@
+/**@author Kristi, Diana
+ * Klasse erstellt von Kristi und erweitert von Diana
+ *
+ * Fenster in dem der Dozent eine Übersicht über die ihm zugehörige Veranstaltungen hat
+ * */
 package GUI;
 
 import Klassen.Dozent;
@@ -14,8 +19,8 @@ import java.util.ArrayList;
 
 public class DVeranstaltung implements FrameContent {
 
+    /**@author Kristi*/
     private GUIMain mainFrame;
-
     public JPanel VeranstaltungPanel;
     private JButton InfosBearbeiten;
     private JButton GrTeEinsehen;
@@ -26,21 +31,13 @@ public class DVeranstaltung implements FrameContent {
     private JLabel dozentField;
     private JButton logoutButton;
 
-    public String getName() {
+    public String getName() { return "Veranstaltung - Dozent"; }
 
-        return "Veranstaltung - Dozent";
-    }
+    public JPanel getPanel() { return VeranstaltungPanel; }
 
-    public JPanel getPanel() {
+    public void setParentFrame(GUIMain m) { mainFrame = m; }
 
-        return VeranstaltungPanel;
-    }
-
-    public void setParentFrame(GUIMain m) {
-
-        mainFrame = m;
-    }
-
+    /**@author Diana*/
     public DVeranstaltung(ArrayList<Veranstaltung> dVL, int index) {
 
         String d = "";
@@ -101,6 +98,7 @@ public class DVeranstaltung implements FrameContent {
         VeranstaltungPanel = new JPanel();
         VeranstaltungPanel.setLayout(new GridLayoutManager(5, 3, new Insets(50, 20, 50, 20), -1, -1));
         infos = new JTextPane();
+        infos.setEditable(false);
         VeranstaltungPanel.add(infos, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         dozent = new JTextPane();
         dozent.setEditable(false);
@@ -133,4 +131,5 @@ public class DVeranstaltung implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return VeranstaltungPanel;
     }
+
 }

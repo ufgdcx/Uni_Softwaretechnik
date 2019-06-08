@@ -1,3 +1,9 @@
+/**
+ * @author Diana
+ *
+ * Klasse für den Login der Nutzer
+ */
+
 package GUI;
 
 import com.intellij.uiDesigner.core.GridConstraints;
@@ -40,7 +46,6 @@ public class LoginSeite implements FrameContent {
     }
 
     public LoginSeite() {
-
 
         registrierenButton.addActionListener(new ActionListener() {
             @Override

@@ -1,20 +1,29 @@
+/**
+ * @author Diana, Sebastian, Sven, Christoph
+ * Klasse erstellt von Diana und erweitert von Sebastian Sven und Christoph
+ *
+ * Klasse für eine Leistungskategorie eines Studenten oder Teams.
+ * Setzt sich aus mehreren Unterbloecken zusammen.
+ * z.B. Uebungsserien (mit den Unterbloecken Serie 1, Serie 2 etc.) oder Projektarbeit (mit den Unterbloecken Lastenheft, Pflichtenheft etc.)
+ */
+
 package Klassen;
 
 import java.util.ArrayList;
 
-/**
- * Klasse für eine Leistungskategorie eines Studenten oder Teams.
- * Setzt sich aus mehreren Unterbloecken zusammen.
- * z.B. Uebungsserien (mit den Unterbloecken Serie 1, Serie 2 etc.) oder Projektarbeit (mit den Unterbloecken Lastenheft, Pflichtenheft etc.)
- * @author Oleg
- */
+
 public class Leistung
 {
     // member variables
+    /**@author Diana*/
     private String lbName;
+    /**@author Sebastian*/
     private Student student;
+    /**@author Diana*/
     private int lbPunkte;
-    private ArrayList<Unterblock> uBloecke; //Unterblöcke
+    //Unterblöcke
+    /**@author Sven*/
+    private ArrayList<Unterblock> uBloecke;
     private Veranstaltung veranstaltung;
     
     // constructor
@@ -33,15 +42,23 @@ public class Leistung
     }
 
     // get methods
+    /**@author Diana*/
     public String getLbName() {return lbName;}
+    /**@author Sebastian*/
     public Student getStudent() {return student;}
+    /**@author Diana*/
     public int getLbPunkte() {return lbPunkte;}
+    /**@author Sven*/
     public ArrayList<Unterblock> getuBloecke() {return uBloecke;}
 
     // set methods
+    /**@author Diana*/
     public void setLbName(String lbName) {this.lbName = lbName;}
+    /**@author Sebastian*/
     public void setStudent(Student student) {this.student = student;}
+    /**@author Diana*/
     public void setLbPunkte(int lbPunkte) {this.lbPunkte = lbPunkte;}
+    /**@author Sven*/
     public void setuBloecke(ArrayList<Unterblock> uBloecke) {this.uBloecke = uBloecke;}
 
     // add Unterblock

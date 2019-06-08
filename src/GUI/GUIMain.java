@@ -1,8 +1,8 @@
 package GUI;
 
 import Controller.MainController;
-
 import javax.swing.*;
+
 /**
  * Oeffnet die Loginseite beim Aufruf und stellt Methoden zur Aenderung des derzeitigen Fensterinhalts bereit.
  * @author Oleg

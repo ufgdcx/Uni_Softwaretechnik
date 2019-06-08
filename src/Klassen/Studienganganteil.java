@@ -1,9 +1,13 @@
+/**
+ * @author Sven, Christoph
+ * Klasse erstellt von Sven und erweitert von Sven und Christoph
+ *
+ * Klasse für die Verwaltung von Studiengangsanteilen bei der Verteilung der Projektteams.
+ *
+ */
+
 package Klassen;
 
-/**
- * Klasse für die Verwaltung von Studiengangsanteilen bei der Verteilung der Projektteams.
- * @author Sebastian
- */
 public class Studienganganteil 
 {
 	// member variables

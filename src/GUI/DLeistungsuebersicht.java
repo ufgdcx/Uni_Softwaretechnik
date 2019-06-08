@@ -1,3 +1,9 @@
+/**@author Kristi, Diana
+ * Klasse erstellt von Kristi und erweitert von Diana
+ *
+ * Fenster in dem der Dozent eine Übersicht über die Leistungen hat
+ * */
+
 package GUI;
 
 import Klassen.Veranstaltung;
@@ -13,8 +19,8 @@ import java.util.ArrayList;
 
 public class DLeistungsuebersicht implements FrameContent {
 
+    /**@author Kristi*/
     private GUIMain mainFrame;
-
     private JLabel BewertungLabel;
     private JButton LBhinzufuegen;
     private JButton UBhinzufuegen;
@@ -43,8 +49,10 @@ public class DLeistungsuebersicht implements FrameContent {
         mainFrame = m;
     }
 
+    /**@author Diana*/
     public DLeistungsuebersicht(ArrayList<Veranstaltung> dVL, int index) {
 
+        //zum Hinzufügen von Einzelleistungen für einen Studenten
         hinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,12 +60,14 @@ public class DLeistungsuebersicht implements FrameContent {
 
             }
         });
+        //zum Hinzufügen von Gruppenleistungen für ein Team
         teambewertungButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //To Do: Teamleistung aus obigem Textfeld einem Team zuordnen + in DB speichern
             }
         });
+        //zum Hinzufügen eines Leistungsblocks als Parent in den Tree
         LBhinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,6 +76,7 @@ public class DLeistungsuebersicht implements FrameContent {
                 mainFrame.setContent(new DLeistungsuebersicht(dVL, index));
             }
         });
+        //zum Hinzufügen eines Unterblocks als Child in den Tree
         UBhinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,6 +85,7 @@ public class DLeistungsuebersicht implements FrameContent {
                 mainFrame.setContent(new DLeistungsuebersicht(dVL, index));
             }
         });
+        //zum Lösschen des ausgewählten Leistungs- oder Unterblocks
         loeschen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -81,6 +93,7 @@ public class DLeistungsuebersicht implements FrameContent {
                 mainFrame.setContent(new DLeistungsuebersicht(dVL, index));
             }
         });
+        //Wechsel zurück zum Fenster Gruppenübersicht in der Dozentenansicht
         zurueckButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,6 +101,7 @@ public class DLeistungsuebersicht implements FrameContent {
                 mainFrame.setContent(new DGruppenuebersicht(dVL, index));
             }
         });
+        //Logout
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -1,33 +1,48 @@
+/**@author Kristi, Diana
+ * Klasse erstellt von Kristi und erweitert von Diana
+ *
+ * Fenster in dem der Dozent die (Uebungs-)Gruppen  und Teams bearbeiten kann
+ * */
+
 package GUI;
 
-import Klassen.Veranstaltung;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
-
 import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+import Klassen.*;
 
 public class DGruppenbearbeiten implements FrameContent {
 
+    /**@author Kristi*/
     private GUIMain mainFrame;
-
     private JButton bestaetigen;
     private JButton zurueckButton;
     private JPanel GruppenbearbeitenPanel;
-    private JPanel TreePanel;
-    private JTree tree;
     private JButton logoutButton;
     private JButton gruppeHinzufuegenButton;
     private JButton teamHinzufuegenButton;
     private JButton gruppeLoeschenButton;
     private JButton teamLoeschenButton;
+    private JTree tree;
+    private JScrollPane treeScrollPane;
+    /**@author Diana */
+    private JLabel gruppenanzahl;
+    private JTextField grAnzahlTextField;
+    private JLabel teamanzahl;
+    private JTextField tAnzahlTextField;
+    private JLabel teamgroesse;
+    private JTextField tGroesseTextField;
 
+    /**@author Kristi*/
     public String getName() {
-
         return "Gruppen und Teams bearbeiten - Dozent";
     }
 
@@ -36,37 +51,53 @@ public class DGruppenbearbeiten implements FrameContent {
     }
 
     public void setParentFrame(GUIMain m) {
-
         mainFrame = m;
     }
 
-
+    /**@author Diana*/
     public DGruppenbearbeiten(ArrayList<Veranstaltung> dVL, int index) {
 
+        //Initialisierung Baum mit Gruppen, Teams und Mitglieder
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode(dVL.get(index).getName());
+        treeScrollPane.setViewportView(new JTree(root));
+
+        //Überprüfung des ScrollPane auf Veränderungen und Aktualisierung der Daten mit Hilfe der Datenbank
+        treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                mainFrame.getController().createGruppenTree(dVL.get(index), treeScrollPane);
+            }
+        });
+
+        //zum Hinzufügen von Gruppen als Parent in den Tree
         gruppeHinzufuegenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
+        //zum Hinzufügen von Teams als Child in den Tree
         teamHinzufuegenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
+        //zum Löschen von Gruppen als Parent in den Tree
         gruppeLoeschenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
+        //zum Löschen von Teams als Child in den Tree
         teamLoeschenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
+        //
         bestaetigen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,6 +105,7 @@ public class DGruppenbearbeiten implements FrameContent {
 
             }
         });
+        //Wechsel zurück zum Fenster Gruppenübersicht in der Dozentenansicht
         zurueckButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -81,6 +113,7 @@ public class DGruppenbearbeiten implements FrameContent {
                 mainFrame.setContent(new DGruppenuebersicht(dVL, index));
             }
         });
+        //für Logout
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,6 +121,7 @@ public class DGruppenbearbeiten implements FrameContent {
                 mainFrame.setContent(new LogoutSeite());
             }
         });
+
     }
 
     {
@@ -106,35 +140,49 @@ public class DGruppenbearbeiten implements FrameContent {
      */
     private void $$$setupUI$$$() {
         GruppenbearbeitenPanel = new JPanel();
-        GruppenbearbeitenPanel.setLayout(new GridLayoutManager(7, 3, new Insets(50, 20, 50, 20), -1, -1));
+        GruppenbearbeitenPanel.setLayout(new GridLayoutManager(10, 4, new Insets(50, 20, 50, 20), -1, -1));
         zurueckButton = new JButton();
         zurueckButton.setText("zurück");
-        GruppenbearbeitenPanel.add(zurueckButton, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        TreePanel = new JPanel();
-        TreePanel.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        GruppenbearbeitenPanel.add(TreePanel, new GridConstraints(0, 0, 7, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        tree = new JTree();
-        TreePanel.add(tree, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
-        logoutButton = new JButton();
-        logoutButton.setText("Logout");
-        GruppenbearbeitenPanel.add(logoutButton, new GridConstraints(0, 2, 3, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        bestaetigen = new JButton();
-        bestaetigen.setText("Änderung bestätigen");
-        GruppenbearbeitenPanel.add(bestaetigen, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(zurueckButton, new GridConstraints(9, 1, 1, 2, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         gruppeHinzufuegenButton = new JButton();
         gruppeHinzufuegenButton.setText("neue Gruppe hinzufügen");
-        GruppenbearbeitenPanel.add(gruppeHinzufuegenButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(gruppeHinzufuegenButton, new GridConstraints(4, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         teamHinzufuegenButton = new JButton();
         teamHinzufuegenButton.setText("neues Team hinzufügen");
-        GruppenbearbeitenPanel.add(teamHinzufuegenButton, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(teamHinzufuegenButton, new GridConstraints(5, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         gruppeLoeschenButton = new JButton();
         gruppeLoeschenButton.setText("Gruppe löschen");
-        GruppenbearbeitenPanel.add(gruppeLoeschenButton, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(gruppeLoeschenButton, new GridConstraints(6, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         teamLoeschenButton = new JButton();
         teamLoeschenButton.setText("Team löschen");
-        GruppenbearbeitenPanel.add(teamLoeschenButton, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(teamLoeschenButton, new GridConstraints(7, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        GruppenbearbeitenPanel.add(spacer1, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(spacer1, new GridConstraints(8, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        treeScrollPane = new JScrollPane();
+        GruppenbearbeitenPanel.add(treeScrollPane, new GridConstraints(0, 0, 10, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        tree = new JTree();
+        treeScrollPane.setViewportView(tree);
+        gruppenanzahl = new JLabel();
+        gruppenanzahl.setText("Gruppenanzahl");
+        GruppenbearbeitenPanel.add(gruppenanzahl, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        grAnzahlTextField = new JTextField();
+        GruppenbearbeitenPanel.add(grAnzahlTextField, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
+        tAnzahlTextField = new JTextField();
+        GruppenbearbeitenPanel.add(tAnzahlTextField, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
+        teamanzahl = new JLabel();
+        teamanzahl.setText("Teamanzahl");
+        GruppenbearbeitenPanel.add(teamanzahl, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        tGroesseTextField = new JTextField();
+        GruppenbearbeitenPanel.add(tGroesseTextField, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
+        teamgroesse = new JLabel();
+        teamgroesse.setText("Teamgröße");
+        GruppenbearbeitenPanel.add(teamgroesse, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bestaetigen = new JButton();
+        bestaetigen.setText("Änderung bestätigen");
+        GruppenbearbeitenPanel.add(bestaetigen, new GridConstraints(3, 1, 1, 2, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        logoutButton = new JButton();
+        logoutButton.setText("Logout");
+        GruppenbearbeitenPanel.add(logoutButton, new GridConstraints(0, 3, 3, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
@@ -143,4 +191,5 @@ public class DGruppenbearbeiten implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return GruppenbearbeitenPanel;
     }
+
 }

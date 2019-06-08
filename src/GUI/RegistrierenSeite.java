@@ -1,3 +1,9 @@
+/**
+ * @author Diana
+ *
+ * Klasse für die Registrierung der Nutzer
+ */
+
 package GUI;
 
 import javax.swing.*;

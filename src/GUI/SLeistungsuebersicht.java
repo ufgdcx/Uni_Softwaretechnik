@@ -1,3 +1,9 @@
+/**@author Kristi, Diana
+ * Klasse erstellt von Kristi und erweitert von Diana
+ *
+ * Fenster in dem der Student alle seine ihm zugehörigen Leistungen einsehen kann
+ * */
+
 package GUI;
 
 import com.intellij.uiDesigner.core.GridConstraints;
@@ -10,15 +16,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SLeistungsuebersicht implements FrameContent {
-
+    /**@author Kristi*/
     private GUIMain mainFrame;
 
     private JPanel LeistungsuebersichtPanel;
     private JButton zurueck;
     private JTree tree1;
+    /**@author Diana*/
     private JButton logoutButton;
 
-
+    /**@author Kristi*/
     public String getName() {
 
         return "Leistungsübersicht - Student";
@@ -33,7 +40,7 @@ public class SLeistungsuebersicht implements FrameContent {
 
         mainFrame = m;
     }
-
+    /**@author Diana*/
     public SLeistungsuebersicht() {
         zurueck.addActionListener(new ActionListener() {
             @Override

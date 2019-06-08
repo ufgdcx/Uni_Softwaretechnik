@@ -1,11 +1,7 @@
 package Controller;
-import Database.DBrequest;
-import GUI.DVeranstaltungsuebersicht;
-import GUI.GUIMain;
-import Klassen.Dozent;
-import Klassen.Gruppe;
-import Klassen.Team;
-import Klassen.Veranstaltung;
+import Database.*;
+import GUI.*;
+import Klassen.*;
 
 import java.util.ArrayList;
 

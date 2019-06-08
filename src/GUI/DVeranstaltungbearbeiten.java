@@ -1,3 +1,9 @@
+/**@author Kristi, Diana
+ * Klasse erstellt von Kristi und erweitert von Diana
+ *
+ * Fenster in dem der Dozent die Informationen der Veranstaltung bearbeiten kann
+ * */
+
 package GUI;
 
 import Klassen.Veranstaltung;
@@ -11,7 +17,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class DVeranstaltungbearbeiten implements FrameContent {
-
+    /**@author Kristi*/
     private GUIMain mainFrame;
 
     private JPanel VeranstaltungbearbeitenPanel;
@@ -39,7 +45,7 @@ public class DVeranstaltungbearbeiten implements FrameContent {
 
         mainFrame = m;
     }
-
+    /**@author Diana*/
     public DVeranstaltungbearbeiten(ArrayList<Veranstaltung> dVL, int index) {
 
         bestaetigen.addActionListener(new ActionListener() {

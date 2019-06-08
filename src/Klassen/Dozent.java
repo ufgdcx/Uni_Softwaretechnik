@@ -1,17 +1,26 @@
+/**
+ * @author Diana, Sebastian, Sven
+ * Klasse erstellt von Diana und erweitert von Sebastian und Sven
+ *
+ * Klasse für die Rolle Dozent (Unterklasse von Nutzer).
+ *
+ */
+
 package Klassen;
 
 import java.util.ArrayList;
 
-/**
- * Klasse für die Rolle Dozent (Unterklasse von Nutzer).
- * @author Sebastian
- */
+
 public class Dozent extends Nutzer
 {
     // member variables
+    /**@author Diana*/
     private String fakultaet;
-    private ArrayList<Veranstaltung> veranstaltungen; // von Dozenten geleitete Veranstaltungen
-    private ArrayList<Gruppe> gruppen; //von Dozenten betreute Gruppen
+    // von Dozenten geleitete Veranstaltungen
+    /**@author Sven*/
+    private ArrayList<Veranstaltung> veranstaltungen;
+    //von Dozenten betreute Gruppen
+    private ArrayList<Gruppe> gruppen;
     private Veranstaltung veranstaltung;
 
     public Dozent(String email,String passwort, String titel, String vorname, String name,
@@ -22,16 +31,21 @@ public class Dozent extends Nutzer
     }
 
     // get methods
+    /**@author Diana*/
     public String getFakultaet() { return fakultaet; }
+    /**@author Sven*/
     public ArrayList<Veranstaltung> getVeranstaltungen(){ return this.veranstaltungen; }
     public ArrayList<Gruppe> getGruppen(){ return this.gruppen; }
 
     // set methods
+    /**@author Diana*/
     public void setFakultaet(String fakultaet) { this.fakultaet = fakultaet; }
+    /**@author Sven*/
     public void setVeranstaltungen(ArrayList<Veranstaltung> veranstaltungen) {this.veranstaltungen = veranstaltungen; }
     public void setGruppen(ArrayList<Gruppe> gruppen){ this.gruppen = gruppen; }
 
     // add Veranstaltung
+    /**@author Christoph*/
     public void addVeranstaltung(Veranstaltung veranstaltung){ this.veranstaltungen.add(veranstaltung); }
     // add Gruppe
     public void addGruppe(Gruppe gruppe){ this.gruppen.add(gruppe); }
@@ -39,6 +53,7 @@ public class Dozent extends Nutzer
     // remove Veranstaltung
     public void removeVeranstaltung(int position){ this.veranstaltungen.remove(position); }
     public void removeVeranstaltung(Veranstaltung veranstaltung){ this.veranstaltungen.remove(veranstaltung); }
+
     // remove Gruppe
     public void removeGruppe(int position){ this.gruppen.remove(position); }
     public void removeGruppe(Gruppe gruppe){ this.gruppen.remove(gruppe); }

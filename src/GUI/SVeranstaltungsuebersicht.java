@@ -1,3 +1,9 @@
+/**@author Kristi, Diana
+ * Klasse erstellt von Kristi und erweitert von Diana
+ *
+ * Fenster in dem der Student alle Veranstaltungen einsehen kann, in die er sich eingetragen hat
+ * */
+
 package GUI;
 
 import com.intellij.uiDesigner.core.GridConstraints;
@@ -10,8 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SVeranstaltungsuebersicht implements FrameContent {
-
-
+    /**@author Kristi*/
     private GUIMain mainFrame;
 
     private JPanel VeranstaltungsuebersichtPanel;
@@ -19,9 +24,10 @@ public class SVeranstaltungsuebersicht implements FrameContent {
     private JButton ansehen;
     private JButton hinzufuegen;
     private JList Veranstaltungen;
+    /**@author Diana*/
     private JButton logoutButton;
 
-
+    /**@author Kristi*/
     public String getName() {
 
         return "Veranstaltungsübersicht - Student";
@@ -37,6 +43,7 @@ public class SVeranstaltungsuebersicht implements FrameContent {
         mainFrame = m;
     }
 
+    /**@author Diana*/
     public SVeranstaltungsuebersicht() {
 
 

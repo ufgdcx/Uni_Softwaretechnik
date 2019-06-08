@@ -1,16 +1,21 @@
+/**
+ * @author Diana, Sebastian, Sven, Christoph
+ * Klasse erstellt von Diana und erweitert von Sebastian, Sven und Christoph
+ *
+ * Klasse für die Rolle Student (Unterklasse von Nutzer).
+ */
+
 package Klassen;
 
 import java.util.ArrayList;
 
-/**
- * Klasse für die Rolle Student (Unterklasse von Nutzer).
- * @author Sebastian
- */
 public class Student extends Nutzer
 {
     // member variables
+    /**@author Diana*/
     private String studiengang;
     public int matrikelnr;
+    /**@author Sven*/
     private ArrayList<Leistung> leistungen;
     private Team team;
 
@@ -24,6 +29,7 @@ public class Student extends Nutzer
         this.team = team;
     }
 
+    /**@author Christoph*/
     public Student(String email,String passwort, String titel, String vorname, String name,
                    String studiengang, int matrikelnr)
     {
@@ -33,14 +39,18 @@ public class Student extends Nutzer
     }
 
     // get methods
+    /**@author Diana*/
     public String getStudiengang() { return studiengang; }
     public int getMatrikelnr() { return matrikelnr; }
+    /**@author Sven*/
     public ArrayList<Leistung> getLeistungsblock(){ return leistungen; }
     public Team getTeam() { return team; }
 
     // set methods
+    /**@author Diana*/
     public void setStudiengang(String studiengang) { this.studiengang = studiengang; }
     public void setMatrikelnr(int matrikelnr) { this.matrikelnr = matrikelnr; }
+    /**@author Sven*/
     public void setLeistungsblock(ArrayList<Leistung> lBloecke){ this.leistungen = lBloecke; }
     public void setTeam(Team team){ this.team = team; }
 

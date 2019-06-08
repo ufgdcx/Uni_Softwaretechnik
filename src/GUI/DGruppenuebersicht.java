@@ -1,19 +1,30 @@
+/**@author Kristi, Diana
+ * Klasse erstellt von Kristi und erweitert von Diana
+ *
+ * Fenster in dem der Dozent eine Übersicht über die (Uebungs-)Gruppen und Teams hat
+ * */
+
 package GUI;
 
-import Klassen.Veranstaltung;
+import Klassen.*;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
 public class DGruppenuebersicht implements FrameContent {
 
-
+    /**
+     * @author Kristi
+     */
     private GUIMain mainFrame;
     private JPanel GruppenuebersichtPanel;
     private JButton einsehen;
@@ -21,25 +32,33 @@ public class DGruppenuebersicht implements FrameContent {
     private JButton zurueck;
     private JButton logoutButton;
     private JTree tree;
+    private JScrollPane treeScrollPane;
 
     public String getName() {
-
         return "Gruppen- und Teamübersicht - Dozent";
     }
 
     public JPanel getPanel() {
-
         return GruppenuebersichtPanel;
     }
 
     public void setParentFrame(GUIMain m) {
-
         mainFrame = m;
     }
 
+    /**@author Diana*/
     public DGruppenuebersicht(ArrayList<Veranstaltung> dVL, int index) {
 
+        //initialisiere den Baum
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode(dVL.get(index).getName());
+        treeScrollPane.setViewportView(new JTree(root));
 
+        treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                mainFrame.getController().createGruppenTree(dVL.get(index), treeScrollPane);
+            }
+        });
         einsehen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,6 +88,7 @@ public class DGruppenuebersicht implements FrameContent {
                 mainFrame.setContent(new LogoutSeite());
             }
         });
+
     }
 
     {
@@ -102,8 +122,10 @@ public class DGruppenuebersicht implements FrameContent {
         GruppenuebersichtPanel.add(bearbeiten, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         GruppenuebersichtPanel.add(spacer1, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        treeScrollPane = new JScrollPane();
+        GruppenuebersichtPanel.add(treeScrollPane, new GridConstraints(0, 0, 4, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         tree = new JTree();
-        GruppenuebersichtPanel.add(tree, new GridConstraints(0, 0, 4, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        treeScrollPane.setViewportView(tree);
     }
 
     /**
@@ -112,4 +134,5 @@ public class DGruppenuebersicht implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return GruppenuebersichtPanel;
     }
+
 }

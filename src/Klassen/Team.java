@@ -1,21 +1,30 @@
+/**
+ * @author Diana, Sven, Christoph
+ * Klasse erstellt von Diana und erweitert von Sven und Christoph
+ *
+ * Klasse für die Verwaltung der Projektteams.
+ */
+
 package Klassen;
 
 import java.util.ArrayList;
 
-/**
- * Klasse für die Verwaltung der Projektteams.
- * @author Sebastian
- */
 public class Team
 {
     // member variables
+    /**@author Sven*/
     private int teamID;
+    /**@author Christoph*/
     private String thema;
-    private ArrayList<Studienganganteil> anteile; //Studienganganteile
-    private ArrayList<Leistung> leistungen; //Teamleistungsblöcke
+    //Studienganganteile
+    /**@author Sven*/
+    private ArrayList<Studienganganteil> anteile;
+    //Teamleistungsblöcke
+    private ArrayList<Leistung> leistungen;
     private Gruppe gruppe;
 
     // Constructor
+    /**@author Christoph*/
     public Team(int teamID, String thema, ArrayList<Studienganganteil> anteile, ArrayList<Leistung> teaml, Gruppe gruppe)
     {
         this.teamID = teamID;
@@ -26,6 +35,7 @@ public class Team
     }
 
     // Constructor for Database
+    /**@author Sven*/
     public Team(int teamID, String thema, Gruppe gruppe)
     {
         this.teamID = teamID;
@@ -34,6 +44,7 @@ public class Team
     }
     
     // set methods
+    /**@author Christoph*/
     public void setTeamID(int teamID) { this.teamID = teamID; }
     public void setThema(String thema) { this.thema = thema; }
     public void setAnteile(ArrayList<Studienganganteil> anteile) { this.anteile = anteile; }
