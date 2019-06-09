@@ -122,6 +122,10 @@ private class Listener implements ActionListener{
 				dARD.setResizable(false);
 				dARD.setLocationRelativeTo(null);
 				dARD.setVisible(true);
+				listModel.clear();
+				for(Dozent d: veranstaltung.getDozenten()){
+					listModel.add(listModel.getSize(),d.getEmail());
+				}
 			}
 		}
 		

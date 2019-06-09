@@ -40,7 +40,7 @@ public class AdminPanel extends JPanel{
 		veranstaltungslist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		veranstaltungslist.addListSelectionListener(new MyListSelectionListener());
 		for(Veranstaltung v: veranstaltungen){
-			listModel.add(0,v.getName());
+			listModel.add(listModel.getSize(),v.getName());
 		}
 		JScrollPane scrollPane = new JScrollPane(veranstaltungslist);
 		scrollPane.setBounds(20, 20, 362, 300);

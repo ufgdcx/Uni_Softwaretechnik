@@ -6,14 +6,15 @@ import Klassen.Veranstaltung;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class EditDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	private JScrollPane scrollPane;
-	DefaultListModel listModel = new DefaultListModel();
-	JList<String> dozentenlist;
-	Veranstaltung veranstaltung;
+	private DefaultListModel listModel = new DefaultListModel();
+	private JList<String> dozentenlist;
+	private Veranstaltung veranstaltung;
 
 	private JButton confirmButton;
 	private JButton dozentenButton;
@@ -27,9 +28,13 @@ public class EditDialog extends JDialog {
 	JList<String> Dozenten;
 
 	public EditDialog(Veranstaltung veranstaltung) {
-	    this.veranstaltung = veranstaltung;
-
-		setModal(true);
+	    this.veranstaltung = new Veranstaltung(veranstaltung.getName(),veranstaltung.getFakultaet(),veranstaltung.getTeamanzahl(),veranstaltung.getMaxTeilnehmer(),veranstaltung.getBeschreibung());
+		ArrayList<Dozent> tempDozenten = new ArrayList<>();
+		for(Dozent d: veranstaltung.getDozenten()){
+			tempDozenten.add(d);
+		}
+		this.veranstaltung.setDozenten(tempDozenten);
+	    setModal(true);
 		setSize(700, 350);
 		setLayout(null);
 		
@@ -79,7 +84,7 @@ public class EditDialog extends JDialog {
 		dozentenlist = new JList<String>(listModel);
 		dozentenlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		for(Dozent d: veranstaltung.getDozenten()){
-			listModel.add(0,d.getEmail());
+			listModel.add(listModel.getSize(),d.getEmail());
 		}
 		JScrollPane scrollPane = new JScrollPane(dozentenlist);
 		scrollPane.setBounds(470, 30, 200, 175);
@@ -120,6 +125,10 @@ private class Listener implements ActionListener{
 				dARD.setResizable(false);
 				dARD.setLocationRelativeTo(null);
 				dARD.setVisible(true);
+				listModel.clear();
+				for(Dozent d: veranstaltung.getDozenten()){
+					listModel.add(listModel.getSize(),d.getEmail());
+				}
 			}
 		}
 		
