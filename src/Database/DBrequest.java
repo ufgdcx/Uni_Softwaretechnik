@@ -976,6 +976,25 @@ public class DBrequest {
         return  results;
     }
 
+    public int getGruppenanzahl(Veranstaltung veranstaltung) throws DatabaseException{
+        String veranstaltungsname = veranstaltung.getName();
+        try {
+            logwriter.writetoLog("function: getGruppenanzahl(Veranstaltung)","TRACE");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Veranstaltung.Gruppenanzahl FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            if(resultSize(rs)!=0) {
+                int result = rs.getInt("Gruppenanzahl");
+                logwriter.writetoLog("successful","TRACE");
+                return result;
+            }
+        }catch (SQLException ex){
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+        logwriter.writetoLog("returned none","TRACE");
+        return  0;
+    }
+
     private ArrayList<Dozent> getDozenten(Veranstaltung veranstaltung) throws  DatabaseException{
         logwriter.writetoLog("  function: getDozenten(Veranstaltung)","TRACE");
         String veranstaltungsname = veranstaltung.getName();
@@ -1002,6 +1021,42 @@ public class DBrequest {
             ResultSet rs = stmt.executeQuery("SELECT Nutzer.*, Dozent.Fakultaet FROM Nutzer INNER JOIN Dozent ON Nutzer.EMailadresse = Dozent.EMailadresse");
             while (rs.next()){
                 results.add(new Dozent(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Fakultaet")));
+            }
+            logwriter.writetoLog("  successfully loaded:" + resultSize(rs),"TRACE");
+        }catch (SQLException ex){
+            logwriter.writetoLog("  Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
+    }
+    public ArrayList<Student> getAllStudenten() throws DatabaseException{
+        logwriter.writetoLog("  function: getAllStudenten()","TRACE");
+        ArrayList<Student> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Nutzer.*, Student.Studiengang, Student.Matrikelnummer FROM Nutzer INNER JOIN Student ON Nutzer.EMailadresse = Student.EMailadresse");
+            while (rs.next()){
+                results.add(new Student(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Studiengang"),rs.getInt("Matrikelnummer")));
+            }
+            logwriter.writetoLog("  successfully loaded:" + resultSize(rs),"TRACE");
+        }catch (SQLException ex){
+            logwriter.writetoLog("  Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
+    }
+
+    public ArrayList<Student> getStudenten(Team team) throws DatabaseException{
+        logwriter.writetoLog("  function: getStudenten(Team)","TRACE");
+        String veranstaltungsname = team.getGruppe().getVeranstaltung().getName();
+        int gruppenID = team.getGruppe().getGruppenID();
+        int teamID = team.getTeamID();
+        ArrayList<Student> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Nutzer.*, Student.Studiengang, Student.Matrikelnummer FROM Gehoert_zu INNER JOIN (Nutzer INNER JOIN Student ON Nutzer.EMailadresse = Student.EMailadresse) ON Gehoert_zu.Matrikelnummer = Student.Matrikelnummer WHERE Gehoert_zu.Veranstaltungsname = '" + veranstaltungsname + "' AND Gehoert_zu.GruppenID = '" + gruppenID + "' AND Gehoert_zu.TeamID = '" + teamID + "'");
+            while (rs.next()){
+                results.add(new Student(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Studiengang"),rs.getInt("Matrikelnummer")));
             }
             logwriter.writetoLog("  successfully loaded:" + resultSize(rs),"TRACE");
         }catch (SQLException ex){
@@ -1523,6 +1578,21 @@ public class DBrequest {
         {
             Statement stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Veranstaltung SET Beschreibung = '" + beschreibung + "' WHERE Veranstaltungsname = '" +veranstaltungsname+"'");
+            logwriter.writetoLog("successful","TRACE");
+        }
+        catch(SQLException ex)
+        {
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
+    public void updateVeranstaltungGruppenanzahl(String veranstaltungsname, int gruppenanzahl) throws DatabaseException {
+        logwriter.writetoLog("function: updateVeranstaltungGruppenanzahl","TRACE");
+        try
+        {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Veranstaltung SET Gruppenanzahl = '" + gruppenanzahl + "' WHERE Veranstaltungsname = '" +veranstaltungsname+"'");
             logwriter.writetoLog("successful","TRACE");
         }
         catch(SQLException ex)
