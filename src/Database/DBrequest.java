@@ -437,16 +437,16 @@ public class DBrequest {
     {
 //        createLeitet(leistungs.getStudent().getMatrikelnr(),
 //                     leistungs.getLbName(),
-//                     leistungs.getVeranstaltungsname()); // no get method TODO: ist drin
+//                     leistungs.getVeranstaltungsname()); // no get method
     }
 
     // Issue: Unterblock braucht getMatrikelnummer, getVeranstaltungsname !?
     public void createUnterblock(Unterblock unterblock)
     {
-//        createUnterblock(unterblock.getMatrikel(), // no get method TODO: ist drin
+//        createUnterblock(unterblock.getMatrikel(), // no get method
 //                        unterblock.getlBlock().getLbName(),
 //                        unterblock.getUbName(),
-//                        unterblock.getVeranstaltungsname(), // no get method TODO: ist drin
+//                        unterblock.getVeranstaltungsname(), // no get method
 //                        unterblock.getUbPunkte());
     }
 
@@ -1353,7 +1353,6 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateNutzerTitle(String email, String title) throws DatabaseException {
         logwriter.writetoLog("function: updateNutzerTitle","TRACE");
         try {
@@ -1365,7 +1364,6 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateNutzerVornamen(String email, String vorname) throws DatabaseException {
         logwriter.writetoLog("function: updateNutzerVornamen","TRACE");
         try {
@@ -1390,12 +1388,11 @@ public class DBrequest {
         }
     }
 
-//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
 //    public Student updateStudentMatrikelnummer(String email, String matrikelnummer) throws DatabaseException {
 //        return null;
 //    }
 
-    //TODO
     public void updateStudentStudiengang(String email, String studiengang) throws DatabaseException {
         logwriter.writetoLog("function: updateStudentStudiengang","TRACE");
         try {
@@ -1407,7 +1404,6 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateDozentFakultaet(String email, String fakultaet) throws DatabaseException {
         logwriter.writetoLog("function: updateDozentFakultaet","TRACE");
         try {
@@ -1420,12 +1416,11 @@ public class DBrequest {
         }
     }
 
-//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+      //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
 //    public Gruppe updateGruppeVeranstaltungsname(int gruppenID, String veranstaltungsname) throws DatabaseException {
 //        return null;
 //    }
 
-    //TODO
     public void updateGruppeEinschreibefrist(int gruppenid, String veranstaltungsname, Date einschreibefrist) throws DatabaseException {
         logwriter.writetoLog("function: updateGruppeEinschreibefrist","TRACE");
         try {
@@ -1450,7 +1445,6 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateGruppeWochentag(int gruppenid, String veranstaltungsname, String wochentag) throws DatabaseException {
         logwriter.writetoLog("function: updateGruppeWochentag","TRACE");
         try {
@@ -1463,7 +1457,6 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateGruppeWochenrhythmus(int gruppenid, String veranstaltungsname, String wochenrhythmus) throws DatabaseException {
         logwriter.writetoLog("function: updateGruppeWochenrhythmus","TRACE");
         try {
@@ -1476,12 +1469,11 @@ public class DBrequest {
         }
     }
 
-//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
 //    public Leistung updateLName(int matrikelnummer, String l_name) throws DatabaseException {
 //        return null;
 //    }
 
-    //TODO
     public void updateEinzelleistungName(int matrikelnummer, String veranstaltungsname, String unterblockname, String oldname, String leistungsblockname, String newname) throws DatabaseException {
         logwriter.writetoLog("function: updateEinzelleistungName","TRACE");
         try
@@ -1527,27 +1519,24 @@ public class DBrequest {
         }
     }
 
-//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
+//
 //    public Studienganganteil updateStudienganganteilGruppenID(int anteil, int gruppenID) throws DatabaseException {
 //        return null;
 //    }
 
-//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
 //    public Studienganganteil updateStudienganganteilTeamID(int anteil, int teamID) throws DatabaseException {
 //        return null;
 //    }
 
-//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
 //    public Studienganganteil updateStudienganganteilVName(int anteil, String vName) throws DatabaseException {
 //        return null;
 //    }
 
-//    //TODO kann man nur aufwenidg aendern da schluessel (nur sehr sehr aufwendig moeglich)
 //    public Team updateTeamGruppenID(int teamID, int gruppenID) throws DatabaseException {
 //        return null;
 //    }
 
-    //TODO
     public void updateTeamThema(int teamID, String thema, int gruppenID, String veranstaltungsname) throws DatabaseException {
         logwriter.writetoLog("function: updateTeamThema","TRACE");
         try
@@ -1562,7 +1551,6 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateTeamleistungPunkte(int teamID, int punkte, int gruppenID, String veranstaltungsname, String teamleistungsblockname, String teamleistungsunterblockname, String teamleistungsname) throws DatabaseException {
         logwriter.writetoLog("function: updateTeamleistungPunkte","TRACE");
         try
@@ -1578,7 +1566,6 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateTeamleistungName(int teamID, String oldname, String newname, int gruppenID, String veranstaltungsname, String teamleistungsblockname, String teamleistungsunterblockname) throws DatabaseException {
         logwriter.writetoLog("function: updateTeamleistungName","TRACE");
         try
@@ -1609,7 +1596,6 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateVeranstaltungBeschreibung(String veranstaltungsname, String beschreibung) throws DatabaseException {
         logwriter.writetoLog("function: updateVeranstaltungBeschreibung","TRACE");
         try
@@ -1640,7 +1626,6 @@ public class DBrequest {
         }
     }
 
-    //TODO
     public void updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team(String veranstaltungsname, int maximale_Teilnehmeranzahl_je_Team) throws DatabaseException {
         logwriter.writetoLog("function: updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team","TRACE");
         try
@@ -1727,19 +1712,16 @@ public class DBrequest {
 
     // Coole Functionen (Functionsparamteter nur Klassen Modelle keine primitive datentypen!!!! afiujdsf)
     //
-    // TODO
     public void updateStudent(Student student)throws DatabaseException
     {
         updateStudentStudiengang(student.getEmail(),student.getStudiengang());
     }
 
-    // TODO
     public void updateDozent(Dozent dozent) throws DatabaseException
     {
         updateDozentFakultaet(dozent.getEmail(),dozent.getFakultaet());
     }
 
-    // TODO
     public void updateVeranstaltung(Veranstaltung veranstaltung) throws DatabaseException
     {
         updateVeranstaltungBeschreibung(veranstaltung.getName(),veranstaltung.getBeschreibung());
@@ -1747,7 +1729,6 @@ public class DBrequest {
         updateVeranstaltungTeamanzahl_je_Gruppe(veranstaltung.getName(),veranstaltung.getTeamanzahl());
     }
 
-    // TODO
     public void updateGruppe(Gruppe gruppe)throws DatabaseException
     {
         updateGruppeEinschreibefrist(gruppe.getGruppenID(),gruppe.getVeranstaltung().getName(),gruppe.getFrist());
@@ -1756,7 +1737,6 @@ public class DBrequest {
         updateGruppeWochentag(gruppe.getGruppenID(),gruppe.getVeranstaltung().getName(),gruppe.getWochentag());
     }
 
-    // TODO
     public void updateTeam(Team team)throws DatabaseException
     {
         updateTeamThema(team.getTeamID(),team.getThema(),team.getGruppe().getGruppenID(),team.getGruppe().getVeranstaltung().getName());
@@ -1767,13 +1747,11 @@ public class DBrequest {
         updateTeamleistungName(team.getTeamID(),"?",teamleistung.getElName(),team.getGruppe().getGruppenID(),team.getGruppe().getVeranstaltung().getName(),teamleistung.getUnterblock().getlBlock().getLbName(),teamleistung.getUnterblock().getUbName());
     }
 
-    // TODO
     public void updateStudienganganteil(Studienganganteil studienganganteil)throws DatabaseException
     {
         updateStudienganganteil(studienganganteil.getStudiengang(),studienganganteil.getAnteil(),studienganganteil.getTeam().getTeamID(),studienganganteil.getTeam().getGruppe().getGruppenID(),studienganganteil.getTeam().getGruppe().getVeranstaltung().getName());
     }
 
-    // TODO
     public void updateEinzelLeistung(Aufgabe einzelLeistung,Veranstaltung veranstaltung)throws DatabaseException
     {
         updateEinzelleistungPunkte(einzelLeistung.getUnterblock().getlBlock().getStudent().getMatrikelnr(),veranstaltung.getName(),einzelLeistung.getUnterblock().getUbName(),einzelLeistung.getElName(),einzelLeistung.getUnterblock().getlBlock().getLbName(),einzelLeistung.getElPunkte());
