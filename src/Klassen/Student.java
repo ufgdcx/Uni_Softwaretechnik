@@ -14,7 +14,7 @@ public class Student extends Nutzer
     // member variables
     /**@author Diana*/
     private String studiengang;
-    public int matrikelnr;
+    protected int matrikelnr;
     /**@author Sven*/
     private ArrayList<Leistung> leistungen;
     private Team team;
