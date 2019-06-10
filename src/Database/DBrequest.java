@@ -46,9 +46,6 @@ public class DBrequest {
         }
     }
 
-//    createNutzer(stud.getEmail(),stud.getTitel(),stud.getVorname(),stud.getNachname(),stud.getPasswort());
-//    createStudent(stud.getEmail(),stud.getMatrikelnr(),stud.getStudiengang());
-
     public void createStudent(String email, int matrikelnummer, String studiengang)throws DatabaseException {
         logwriter.writetoLog("function: createStudent(primitive)","TRACE");
         try {
@@ -528,6 +525,21 @@ public class DBrequest {
 
     }
 
+    public void deleteDozent(Dozent dozent) throws DatabaseException
+    {
+        try
+        {
+            deleteDozent(dozent.getEmail());
+            //TODO Nutzer auch loeschen?
+            deleteNutzer(dozent.getEmail());
+        }
+        catch (DatabaseException e)
+        {
+            logwriter.writetoLog(e.getErrorMsg(), "Error");
+            throw new DatabaseException("Cant delete item");
+        }
+    }
+
     public void deleteGehoertZu(int matrikelnummer,int teamid, int gruppenid, String veranstaltungsname) throws DatabaseException
     {
         logwriter.writetoLog("function: deleteGehoertZu(primitive)","TRACE");
@@ -669,7 +681,11 @@ public class DBrequest {
 
     public void deleteStudent(Student student) throws DatabaseException
     {
-        try{ deleteStudent(student.getEmail()); }
+        try
+        {
+            deleteStudent(student.getEmail());
+            deleteNutzer(student.getEmail());
+        }
         catch (DatabaseException e)
         {
             logwriter.writetoLog(e.getErrorMsg(), "Error");
