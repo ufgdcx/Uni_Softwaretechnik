@@ -1,16 +1,9 @@
 package utilities;
 
-import Klassen.*;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Date;
-import java.sql.Time;
+import java.io.*;
 import java.util.ArrayList;
-import java.io.StringWriter;
-import java.io.FileWriter;
-import java.util.concurrent.ExecutionException;
 
 // Class to handle read
 //
@@ -22,12 +15,11 @@ public class FileHandler <T>
     {
         Yaml yaml = new Yaml(new Constructor(c));
         InputStream inputStream = null;
+        File file = new File(filename);
         ArrayList<T> list = new ArrayList<>();
         try
         {
-            inputStream = this.getClass()
-                              .getClassLoader()
-                              .getResourceAsStream(filename);
+            inputStream = new FileInputStream(file.getAbsolutePath());
             int count = 0;
             for(Object object : yaml.loadAll(inputStream))
             {
@@ -42,13 +34,20 @@ public class FileHandler <T>
         }
         finally
         {
-            try
+            if(inputStream != null)
             {
-                inputStream.close();
+                try
+                {
+                    inputStream.close();
+                }
+                catch (Exception e)
+                {
+                    System.out.println(e);
+                }
             }
-            catch (Exception e)
+            else
             {
-                System.out.println(e);
+                System.out.println("\nNo such file found\n");
             }
         }
         return list;
