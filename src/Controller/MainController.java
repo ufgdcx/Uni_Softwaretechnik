@@ -87,6 +87,7 @@ public class MainController {
 			return;
 		}
 	}
+
 	/**@author Diana */
 	public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) {
 
@@ -97,6 +98,7 @@ public class MainController {
 		}
 		return null;
 	}
+
 	/**@author Diana */
 	public ArrayList<Team> getTeams(Gruppe gruppe) {
 
@@ -153,11 +155,15 @@ public class MainController {
 	/**@author Diana*/
 	public int createGruppenID(Veranstaltung veranstaltung){
 		//TODO: Prüfen ob GruppenID bereits vergeben ist
-		int gruppenanzahl = veranstaltung.getGruppen().size()+1;
+		System.out.println("Hallo");
+		int gruppenanzahl = getGruppen(veranstaltung).size()+1;
+		System.out.println(gruppenanzahl);
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new java.util.Date());
 		int year = cal.get(Calendar.YEAR) % 100;
+		System.out.println(year);
 		String gruppenID = "" + year + gruppenanzahl;
+		System.out.println(gruppenID);
 		return Integer.parseInt(gruppenID);
 	}
 
@@ -167,6 +173,7 @@ public class MainController {
 		//TODO: Prüfen ob TeamID bereits vergeben ist
 		int teamanzahl = gruppe.getTeams().size()+1;
 		String teamID = "" + gruppe.getGruppenID() + teamanzahl;
+		System.out.println(teamID);
 		return Integer.parseInt(teamID);
 	}
 
@@ -267,7 +274,7 @@ public class MainController {
 
 
 
-
+	/**@author Diana*/
     /*public void setLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung){
 
         try {
@@ -280,6 +287,7 @@ public class MainController {
 
 
     //erzeugt Verifizierungscode für die Email Bestätigung
+	/**@author Diana*/
     public String generateVerifyingCode() {
 
         String charvalue = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";

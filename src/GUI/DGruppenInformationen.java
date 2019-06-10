@@ -47,7 +47,10 @@ public class DGruppenInformationen implements FrameContent {
 
     public DGruppenInformationen(ArrayList<Veranstaltung> dVL, int index, int gruppenanzahl, int counter) {
 
+
+        //grIDLabel.setText(mainFrame.getController().createGruppenID(dVL.get(index)) + ":");
         seitenLabel.setText(counter + " / " + gruppenanzahl);
+
         if (gruppenanzahl == counter) {
             weiterButton.setText("OK");
         }

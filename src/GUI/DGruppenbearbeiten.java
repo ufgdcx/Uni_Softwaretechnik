@@ -114,11 +114,11 @@ public class DGruppenbearbeiten implements FrameContent {
                 //textfelder einlesen
                 //if (gruppenanzahl.getText() == "" && teamanzahl.getText() == "" && teamgroesse.getText() == "") {
 
-                    //errorLabel.setVisible(true);
+                //errorLabel.setVisible(true);
                 //} else {
 
-                    mainFrame.setContent(new DGruppenInformationen(dVL, index, 3, 1));
-                    //errorLabel.setVisible(false);
+                //mainFrame.setContent(new DGruppenInformationen(dVL, index, mainFrame.getController().getGruppenanzahl(dVL.get(index)), 1));
+                //errorLabel.setVisible(false);
 
                 //}
 
