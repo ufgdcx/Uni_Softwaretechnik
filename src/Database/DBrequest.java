@@ -25,6 +25,11 @@ public class DBrequest {
     //
     public void createNutzer(String email, String titel, String vorname, String nachname, String passwort)throws DatabaseException {
         logwriter.writetoLog("function: createNutzer(primitive)","TRACE");
+
+        logwriter.writetoLog("Email: " + email, "INFO");
+        logwriter.writetoLog("Vorname.: : " + vorname, "INFO");
+        logwriter.writetoLog("Nachname: " + nachname, "INFO");
+
         try {
             Statement stmt = con.createStatement();
             try {
@@ -41,6 +46,9 @@ public class DBrequest {
         }
     }
 
+//    createNutzer(stud.getEmail(),stud.getTitel(),stud.getVorname(),stud.getNachname(),stud.getPasswort());
+//    createStudent(stud.getEmail(),stud.getMatrikelnr(),stud.getStudiengang());
+
     public void createStudent(String email, int matrikelnummer, String studiengang)throws DatabaseException {
         logwriter.writetoLog("function: createStudent(primitive)","TRACE");
         try {
@@ -55,6 +63,10 @@ public class DBrequest {
                     throw new DatabaseException("Student already exists");
                 } else {
                     logwriter.writetoLog("Parent doesn't exist","ERROR");
+                    logwriter.writetoLog("Email: " + email, "INFO");
+                    logwriter.writetoLog("Matrik.: : " + matrikelnummer, "INFO");
+                    logwriter.writetoLog("Studiengang: " + studiengang, "INFO");
+
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
