@@ -36,7 +36,7 @@ public class Nutzer
     public void setPasswort(String passwort) { this.passwort = passwort; }
     public void setTitel(String titel) { this.titel = titel; }
     public void setVorname(String vorname) { this.vorname = vorname; }
-    public void setNachname(String name) { this.nachname = nachname; }
+    public void setNachname(String nachname) { this.nachname = nachname; }
 
     // get Methods
     /**@author Diana*/

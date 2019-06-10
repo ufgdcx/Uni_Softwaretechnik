@@ -1,0 +1,6 @@
+--- !!Klassen.Dozent {email: ErsterDozent@uni-rostock.de, fakultaet: ABC, gruppen: null,
+                      nachname: Dozent, passwort: '123456', titel: Meister, veranstaltungen: null, vorname: Bob}
+--- !!Klassen.Dozent {email: ZweiterDozent@uni-rostock.de, fakultaet: IEF, gruppen: null,
+                      nachname: Dozent, passwort: '123456', titel: Prof, veranstaltungen: null, vorname: Zweiter}
+--- !!Klassen.Dozent {email: DritterDozent@uni-rostock.de, fakultaet: IEF, gruppen: null,
+                      nachname: Dozent, passwort: '123456', titel: Prof., veranstaltungen: null, vorname: Dritter}

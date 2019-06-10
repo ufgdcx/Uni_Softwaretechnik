@@ -14,12 +14,13 @@ public class Student extends Nutzer
     // member variables
     /**@author Diana*/
     private String studiengang;
-    public int matrikelnr;
+    protected int matrikelnr;
     /**@author Sven*/
     private ArrayList<Leistung> leistungen;
     private Team team;
 
     // Constructors
+    public Student(){}
     public Student(String email,String passwort, String titel, String vorname, String name,
                    String studiengang, int matrikelnr, Team team)
     {
