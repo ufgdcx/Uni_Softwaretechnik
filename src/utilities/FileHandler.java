@@ -5,6 +5,18 @@ import org.yaml.snakeyaml.constructor.Constructor;
 import java.io.*;
 import java.util.ArrayList;
 
+/*
+// How to use the FileHandler Class:
+// Example:
+// reading yaml file:
+FileHandler<Student> fileHandler = new FileHandler<>();
+ArrayList<Student> studenten1 = fileHandler.readFile("Testdata/studenten.yml", Student.class);
+// writing into yaml file:
+FileHandler<Student> studenten2  = new FileHandler<>();
+String filename = ("src/utilities/My_Studenten.yml");
+b.writeFile(filename, studenten1); // studenten1 is a ArrayList!
+ */
+
 // Class to handle read
 //
 public class FileHandler <T>
