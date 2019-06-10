@@ -1,0 +1,25 @@
+!!Klassen.Student
+{
+  email: student1.student@uni-rostock.de,
+  leistungsblock: null,
+  matrikelnr: 201901,
+  nachname: student,
+  passwort: '123456',
+  studiengang: IN,
+  team: null,
+  titel: null,
+  vorname: student1
+}
+---
+!!Klassen.Student
+{
+  email: student2.student@uni-rostock.de,
+  leistungsblock: null,
+  matrikelnr: 201902,
+  nachname: student,
+  passwort: '123456',
+  studiengang: ITTI,
+  team: null,
+  titel: null,
+  vorname: student2
+}
