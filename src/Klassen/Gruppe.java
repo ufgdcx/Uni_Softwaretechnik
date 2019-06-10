@@ -34,7 +34,6 @@ public class Gruppe {
     private ArrayList<Team> teams;
     private Dozent dozent;
 
-    //Constructor for Database
     // Constructor for Database
     public Gruppe(){}
     public Gruppe(int gruppenID, String wochentag, Time zeit, String rhythmus,

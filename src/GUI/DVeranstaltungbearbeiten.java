@@ -9,6 +9,7 @@ package GUI;
 import Klassen.Veranstaltung;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
+import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +18,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class DVeranstaltungbearbeiten implements FrameContent {
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     private GUIMain mainFrame;
 
     private JPanel VeranstaltungbearbeitenPanel;
@@ -27,10 +30,15 @@ public class DVeranstaltungbearbeiten implements FrameContent {
     private JTextArea dozent;
     private JLabel infosLabel;
     private JLabel dozentLabel;
+    /**
+     * Diana
+     */
     private JButton logoutButton;
+    private JLabel errorLabel;
 
-    private String text_infos, text_dozent;
-
+    /**
+     * @author Kristi
+     */
     public String getName() {
 
         return "Veranstaltung bearbeiten - Dozent";
@@ -45,8 +53,13 @@ public class DVeranstaltungbearbeiten implements FrameContent {
 
         mainFrame = m;
     }
-    /**@author Diana*/
+
+    /**
+     * @author Diana
+     */
     public DVeranstaltungbearbeiten(ArrayList<Veranstaltung> dVL, int index) {
+
+        infos.setText(dVL.get(index).getBeschreibung());
 
         bestaetigen.addActionListener(new ActionListener() {
             @Override
@@ -54,6 +67,7 @@ public class DVeranstaltungbearbeiten implements FrameContent {
 
                 dVL.get(index).setBeschreibung(infos.getText());
                 mainFrame.getController().setVBeschreibung(dVL.get(index));
+                errorLabel.setVisible(true);
 
             }
         });
@@ -89,26 +103,33 @@ public class DVeranstaltungbearbeiten implements FrameContent {
      */
     private void $$$setupUI$$$() {
         VeranstaltungbearbeitenPanel = new JPanel();
-        VeranstaltungbearbeitenPanel.setLayout(new GridLayoutManager(4, 3, new Insets(50, 20, 50, 20), -1, -1));
+        VeranstaltungbearbeitenPanel.setLayout(new GridLayoutManager(5, 3, new Insets(50, 20, 50, 20), -1, -1));
         bestaetigen = new JButton();
         bestaetigen.setText("Änderung bestätigen");
         VeranstaltungbearbeitenPanel.add(bestaetigen, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         zurueckButton = new JButton();
         zurueckButton.setText("zurück");
-        VeranstaltungbearbeitenPanel.add(zurueckButton, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        VeranstaltungbearbeitenPanel.add(zurueckButton, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         infos = new JTextArea();
-        VeranstaltungbearbeitenPanel.add(infos, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        VeranstaltungbearbeitenPanel.add(infos, new GridConstraints(1, 0, 2, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         dozent = new JTextArea();
-        VeranstaltungbearbeitenPanel.add(dozent, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        VeranstaltungbearbeitenPanel.add(dozent, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         infosLabel = new JLabel();
         infosLabel.setText("Veranstaltungsinformationen");
         VeranstaltungbearbeitenPanel.add(infosLabel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         dozentLabel = new JLabel();
         dozentLabel.setText("Dozent(en)");
-        VeranstaltungbearbeitenPanel.add(dozentLabel, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        VeranstaltungbearbeitenPanel.add(dozentLabel, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         logoutButton = new JButton();
         logoutButton.setText("Logout");
-        VeranstaltungbearbeitenPanel.add(logoutButton, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        VeranstaltungbearbeitenPanel.add(logoutButton, new GridConstraints(1, 2, 2, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        errorLabel = new JLabel();
+        errorLabel.setForeground(new Color(-16724992));
+        errorLabel.setText("Änderung hinzugefügt");
+        errorLabel.setVisible(false);
+        VeranstaltungbearbeitenPanel.add(errorLabel, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final Spacer spacer1 = new Spacer();
+        VeranstaltungbearbeitenPanel.add(spacer1, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
     }
 
     /**
@@ -117,4 +138,5 @@ public class DVeranstaltungbearbeiten implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return VeranstaltungbearbeitenPanel;
     }
+
 }
