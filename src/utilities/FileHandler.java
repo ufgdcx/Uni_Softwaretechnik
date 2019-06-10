@@ -20,13 +20,10 @@ public class FileHandler <T>
         try
         {
             inputStream = new FileInputStream(file.getAbsolutePath());
-            int count = 0;
             for(Object object : yaml.loadAll(inputStream))
             {
                 list.add((T)object);
-                count++;
             }
-            System.out.printf("Count: %d%n", count);
         }
         catch(Exception e)
         {
