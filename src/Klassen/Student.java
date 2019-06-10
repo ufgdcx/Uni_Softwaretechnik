@@ -20,6 +20,7 @@ public class Student extends Nutzer
     private Team team;
 
     // Constructors
+    public Student(){}
     public Student(String email,String passwort, String titel, String vorname, String name,
                    String studiengang, int matrikelnr, Team team)
     {

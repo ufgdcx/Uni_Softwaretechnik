@@ -16,6 +16,7 @@ public class Aufgabe
     private Unterblock unterblock;
 
     // constructor
+    public Aufgabe(){}
     public Aufgabe(String elName, int elPunkte, Unterblock unterblock)
     {
         this.elName = elName;
