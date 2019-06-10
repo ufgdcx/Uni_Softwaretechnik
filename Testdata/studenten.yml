@@ -2,12 +2,12 @@
 {
   email: student1.student@uni-rostock.de,
   leistungsblock: null,
-  matrikelnr: 201901,
+  matrikelnr: 4242421,
   nachname: student,
   passwort: '123456',
   studiengang: IN,
   team: null,
-  titel: null,
+  titel: '',
   vorname: student1
 }
 ---
@@ -15,11 +15,11 @@
 {
   email: student2.student@uni-rostock.de,
   leistungsblock: null,
-  matrikelnr: 201902,
+  matrikelnr: 4242422,
   nachname: student,
   passwort: '123456',
   studiengang: ITTI,
   team: null,
-  titel: null,
+  titel: '',
   vorname: student2
 }
