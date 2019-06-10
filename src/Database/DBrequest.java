@@ -655,6 +655,16 @@ public class DBrequest {
         }
     }
 
+    public void deleteStudent(Student student) throws DatabaseException
+    {
+        try{ deleteStudent(student.getEmail()); }
+        catch (DatabaseException e)
+        {
+            logwriter.writetoLog(e.getErrorMsg(), "Error");
+            throw new DatabaseException("Cant delete item");
+        }
+    }
+
     public void deleteStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname) throws DatabaseException
     {
         logwriter.writetoLog("function: deleteStudienganganteil(primitive)","TRACE");
