@@ -1141,6 +1141,16 @@ public class DBrequest {
         return  null;
     }
 
+    public Dozent getDozent(Dozent dozent) throws DatabaseException
+    {
+        try{ return getDozent(dozent.getEmail()); }
+        catch (DatabaseException e)
+        {
+            logwriter.writetoLog(e.getErrorMsg(), "Error");
+            throw new DatabaseException("Cant get item");
+        }
+    }
+
     public  ArrayList<Team> getTeams(Gruppe gruppe) throws  DatabaseException
     {
         logwriter.writetoLog("function: getTeams(Gruppe)","TRACE");
