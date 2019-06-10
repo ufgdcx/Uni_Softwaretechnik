@@ -12,7 +12,10 @@ import GUI.*;
 import Klassen.*;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Random;
 
 public class MainController {
@@ -100,12 +103,12 @@ public class MainController {
 		try{
 			return dbr.getTeams(gruppe);
 		} catch (DatabaseException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorMsg());
 		}
 		return null;
 	}
 	/**@author Diana */
-	/*public ArrayList<Student> getStudenten(Team team) {
+	public ArrayList<Student> getStudenten(Team team) {
 
 		try{
 			return dbr.getStudenten(team);
@@ -113,13 +116,12 @@ public class MainController {
 			e.printStackTrace();
 		}
 		return null;
-	}*/
+	}
 
 	/**@author Diana */
 	public void createGruppenTree(Veranstaltung veranstaltung, JScrollPane tsp) {
 
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
-
 
 		for (Gruppe gruppe: getGruppen(veranstaltung)) {
 			DefaultMutableTreeNode gruppen = new DefaultMutableTreeNode(gruppe.getGruppenID());
@@ -127,15 +129,67 @@ public class MainController {
 			for (Team team: getTeams(gruppe)) {
 				DefaultMutableTreeNode teams = new DefaultMutableTreeNode(team.getTeamID());
 				gruppen.add(teams);
-				/*for (Student student: getStudenten(team)) {
-					DefaultMutableTreeNode studenten = new DefaultMutableTreeNode(student.getName());
+				for (Student student: getStudenten(team)) {
+					DefaultMutableTreeNode studenten = new DefaultMutableTreeNode(student.getNachname());
 					teams.add(studenten);
-				}*/
+				}
 			}
 
 		}
 		tsp.setViewportView(new JTree(root));
 	}
+
+	/**@author Diana*/
+	public int getGruppenanzahl(Veranstaltung veranstaltung){
+	    try {
+	        return dbr.getGruppenanzahl(veranstaltung);
+        } catch (DatabaseException e) {
+            System.out.println(e.getErrorMsg());
+        }
+	    return 0;
+    }
+
+	//Erstellt die GruppenID bestehend aus den letzten zwei Zahlen des Jahres und einem Laufindex
+	/**@author Diana*/
+	public int createGruppenID(Veranstaltung veranstaltung){
+		//TODO: Prüfen ob GruppenID bereits vergeben ist
+		int gruppenanzahl = veranstaltung.getGruppen().size()+1;
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new java.util.Date());
+		int year = cal.get(Calendar.YEAR) % 100;
+		String gruppenID = "" + year + gruppenanzahl;
+		return Integer.parseInt(gruppenID);
+	}
+
+	//Erstellt die TeamID bestehend aus der GruppenID und einem Laufindex
+	/**@author Diana*/
+	public int createTeamID(Gruppe gruppe){
+		//TODO: Prüfen ob TeamID bereits vergeben ist
+		int teamanzahl = gruppe.getTeams().size()+1;
+		String teamID = "" + gruppe.getGruppenID() + teamanzahl;
+		return Integer.parseInt(teamID);
+	}
+
+	/**@author Diana*/
+	public void addGruppe (Veranstaltung veranstaltung, String email, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus){
+		try{
+			dbr.createGruppe(createGruppenID(veranstaltung), email, veranstaltung.getName(), einschreibungsfrist, uhrzeit, wochentag, wochenrhytmus);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
+
+	/**@author Diana*/
+	public void addTeam(Veranstaltung veranstaltung, int teamID, int gruppenID, String thema){
+		try {
+			dbr.createTeam(teamID, gruppenID, veranstaltung.getName(), thema);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
+
+
+
 	/**@author Diana */
     public ArrayList<Leistung> getLeistung(Team team){
         try {
@@ -182,13 +236,14 @@ public class MainController {
     }
 
 	/**@author Diana */
-	/*public void setGruppenanzahl(String veranstaltungsname, int gruppenanzahl){
+	public void setGruppenanzahl(String veranstaltungsname, int gruppenanzahl){
 		try{
-			dbr.updateVeranstaltungMaximale_Gruppenanzahl(veranstaltungsname, gruppenanzahl);
+			dbr.updateVeranstaltungGruppenanzahl(veranstaltungsname, gruppenanzahl);
 		} catch (DatabaseException e) {
 			System.out.println(e.getErrorMsg());
 			return;
-		}*/
+		}
+	}
 
 	/**@author Diana */
 	public void setTeamanzahl(String veranstaltungsname, int teamanzahl) {

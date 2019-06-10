@@ -21,27 +21,34 @@ import Klassen.*;
 
 public class DGruppenbearbeiten implements FrameContent {
 
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     private GUIMain mainFrame;
+    private JPanel GruppenbearbeitenPanel;
     private JButton bestaetigen;
     private JButton zurueckButton;
-    private JPanel GruppenbearbeitenPanel;
-    private JButton logoutButton;
-    private JButton gruppeHinzufuegenButton;
-    private JButton teamHinzufuegenButton;
-    private JButton gruppeLoeschenButton;
-    private JButton teamLoeschenButton;
     private JTree tree;
     private JScrollPane treeScrollPane;
-    /**@author Diana */
+    /**
+     * @author Diana
+     */
     private JLabel gruppenanzahl;
     private JTextField grAnzahlTextField;
     private JLabel teamanzahl;
     private JTextField tAnzahlTextField;
     private JLabel teamgroesse;
     private JTextField tGroesseTextField;
+    private JButton gruppeHinzufuegenButton;
+    private JButton teamHinzufuegenButton;
+    private JButton gruppeLoeschenButton;
+    private JButton teamLoeschenButton;
+    private JLabel errorLabel;
+    private JButton logoutButton;
 
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     public String getName() {
         return "Gruppen und Teams bearbeiten - Dozent";
     }
@@ -54,7 +61,9 @@ public class DGruppenbearbeiten implements FrameContent {
         mainFrame = m;
     }
 
-    /**@author Diana*/
+    /**
+     * @author Diana
+     */
     public DGruppenbearbeiten(ArrayList<Veranstaltung> dVL, int index) {
 
         //Initialisierung Baum mit Gruppen, Teams und Mitglieder
@@ -97,11 +106,19 @@ public class DGruppenbearbeiten implements FrameContent {
 
             }
         });
-        //
+        //Button zum bestätigen der Eingaben in den obigen Textfeldern und zum Öffnen des Fensters mit den Gruppeninfos
         bestaetigen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //To Do:
+
+                //textfelder einlesen
+                if(gruppenanzahl.getText() != "" && teamanzahl.getText() != "" && teamgroesse.getText() != ""){
+
+                    new DGruppenInformationen(mainFrame.getController().getGruppenanzahl(dVL.get(index)) - dVL.get(index).getGruppen().size());
+                    errorLabel.setVisible(false);
+                } else {
+                    errorLabel.setVisible(true);
+                }
 
             }
         });
@@ -163,19 +180,19 @@ public class DGruppenbearbeiten implements FrameContent {
         tree = new JTree();
         treeScrollPane.setViewportView(tree);
         gruppenanzahl = new JLabel();
-        gruppenanzahl.setText("Gruppenanzahl");
+        gruppenanzahl.setText("Anzahl der Übungsgruppen");
         GruppenbearbeitenPanel.add(gruppenanzahl, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         grAnzahlTextField = new JTextField();
         GruppenbearbeitenPanel.add(grAnzahlTextField, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
         tAnzahlTextField = new JTextField();
         GruppenbearbeitenPanel.add(tAnzahlTextField, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
         teamanzahl = new JLabel();
-        teamanzahl.setText("Teamanzahl");
+        teamanzahl.setText("Anzahl der Teams");
         GruppenbearbeitenPanel.add(teamanzahl, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         tGroesseTextField = new JTextField();
         GruppenbearbeitenPanel.add(tGroesseTextField, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
         teamgroesse = new JLabel();
-        teamgroesse.setText("Teamgröße");
+        teamgroesse.setText("Anzahl der Teammitglieder");
         GruppenbearbeitenPanel.add(teamgroesse, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         bestaetigen = new JButton();
         bestaetigen.setText("Änderung bestätigen");

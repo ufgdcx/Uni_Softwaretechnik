@@ -1,6 +1,6 @@
 /**
  * @author Diana, Sebastian, Christoph
- *  * Klasse erstellt von Diana und erweitert von Sebastian, Sven und Christoph
+ * Klasse erstellt von Diana und erweitert von Diana, Sebastian, Sven und Christoph
  *
  * Klasse für die Verwaltung von Veranstaltungen.
  */
@@ -20,8 +20,10 @@ public class Veranstaltung
     private int Teamanzahl;
     //maximale Teilnehmeranzahl je Team
     private int maxTeilnehmer;
-    //Gruppen der Veranstaltung
+    //Anzahl der Übungsgruppen
+    private int gruppenanzahl;
     /**@author Sven*/
+    //Gruppen der Veranstaltung
     private ArrayList<Gruppe> gruppen;
     //zugehörige Dozenten
     private ArrayList<Dozent> dozenten;
@@ -30,11 +32,12 @@ public class Veranstaltung
 
     /**@author Christoph*/
     public Veranstaltung(){}
-    public Veranstaltung(String name, String fakultaet, int teamanzahl, int maxTeilnehmer,
+    public Veranstaltung(String name, String fakultaet, int gruppenanzahl, int teamanzahl, int maxTeilnehmer,
                          ArrayList<Gruppe> gruppen, ArrayList<Dozent> dozenten, String beschreibung)
     {
         this.name = name;
         this.fakultaet = fakultaet;
+        this.gruppenanzahl = gruppenanzahl;
         Teamanzahl = teamanzahl;
         this.maxTeilnehmer = maxTeilnehmer;
         this.gruppen = gruppen;
@@ -56,7 +59,8 @@ public class Veranstaltung
     // get methods
     /**@author Diana*/
     public String getName()  {return name;  }
-    public String getFakultaet()  {return fakultaet;  }
+    public String getFakultaet()  { return fakultaet;  }
+    public int getGruppenanzahl() { return gruppenanzahl; }
     public int getTeamanzahl()  {    return Teamanzahl;  }
     public int getMaxTeilnehmer()  {    return maxTeilnehmer;  }
     /**@author Sven*/
@@ -68,6 +72,7 @@ public class Veranstaltung
     /**@author Diana*/
     public void setName(String name)  {    this.name = name;  }
     public void setFakultaet(String fakultaet)  {    this.fakultaet = fakultaet;  }
+    public void setGruppenanzahl(int gruppenanzahl) { this.gruppenanzahl = gruppenanzahl; }
     public void setTeamanzahl(int teamanzahl)  {    Teamanzahl = teamanzahl;  }
     public void setMaxTeilnehmer(int maxTeilnehmer)  {    this.maxTeilnehmer = maxTeilnehmer;  }
     /**@author Sven*/
