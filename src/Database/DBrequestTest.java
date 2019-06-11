@@ -1,4 +1,4 @@
-package Database;
+/*package Database;
 
 import Klassen.*;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DBrequestTest
 {
-    private DBrequest dbrequest = new DBrequest();
+    private DBrequest dbrequest = DBrequest.getIntstance();
     private LogWriter log = LogWriter.getIntstance();
     private boolean eo; // does an exception occur?
 
@@ -409,4 +409,4 @@ class DBrequestTest
     {
     }
 
-}
+}*/

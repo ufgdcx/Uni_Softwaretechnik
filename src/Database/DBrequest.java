@@ -26,10 +26,6 @@ public class DBrequest {
     public void createNutzer(String email, String titel, String vorname, String nachname, String passwort)throws DatabaseException {
         logwriter.writetoLog("function: createNutzer(primitive)","TRACE");
 
-        logwriter.writetoLog("Email: " + email, "INFO");
-        logwriter.writetoLog("Vorname.: : " + vorname, "INFO");
-        logwriter.writetoLog("Nachname: " + nachname, "INFO");
-
         try {
             Statement stmt = con.createStatement();
             try {
@@ -59,11 +55,6 @@ public class DBrequest {
                     logwriter.writetoLog("Student already exists","ERROR");
                     throw new DatabaseException("Student already exists");
                 } else {
-                    logwriter.writetoLog("Parent doesn't exist","ERROR");
-                    logwriter.writetoLog("Email: " + email, "INFO");
-                    logwriter.writetoLog("Matrik.: : " + matrikelnummer, "INFO");
-                    logwriter.writetoLog("Studiengang: " + studiengang, "INFO");
-
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }
@@ -437,7 +428,7 @@ public class DBrequest {
     {
 //        createLeitet(leistungs.getStudent().getMatrikelnr(),
 //                     leistungs.getLbName(),
-//                     leistungs.getVeranstaltungsname()); // no get method
+//                     leistungs.getVeranstaltungsname()); // no get methodcreateVeranstaltung
     }
 
     // Issue: Unterblock braucht getMatrikelnummer, getVeranstaltungsname !?
@@ -530,7 +521,6 @@ public class DBrequest {
         try
         {
             deleteDozent(dozent.getEmail());
-            //TODO Nutzer auch loeschen?
             deleteNutzer(dozent.getEmail());
         }
         catch (DatabaseException e)
@@ -631,6 +621,20 @@ public class DBrequest {
                     throw new DatabaseException("item doesn't exists");
                 }
             }
+        } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+    // TODO parent to child because you need to delete the child first
+    public void deleteLeitet(Veranstaltung veranstaltung) throws DatabaseException
+    {
+        logwriter.writetoLog("function: deleteLeitet(Veranstaltung)","TRACE");
+        String veranstaltungsname = veranstaltung.getName();
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Leitet WHERE Name = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
@@ -907,7 +911,6 @@ public class DBrequest {
     public Nutzer getNutzer(String email, char[] passwd) throws DatabaseException {
         logwriter.writetoLog("function: getNutzer(String,char[])","TRACE");
         //converting char array for password to a string
-        //TODO evaluate, if we need to overwrite the string and/or the char array for better security
         String pwString = new String(passwd);
         try {
             Statement stmt = con.createStatement();
@@ -1621,6 +1624,22 @@ public class DBrequest {
         }
     }
 
+    public void updateVeranstaltungFakultaet(String veranstaltungsname, String fakultaet) throws DatabaseException
+    {
+        logwriter.writetoLog("function: updateVeranstaltungFakultaet","TRACE");
+        try
+        {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE Veranstaltung SET Fakultaet = '" + fakultaet + "' WHERE Veranstaltungsname = '" +veranstaltungsname+"'");
+            logwriter.writetoLog("successful","TRACE");
+        }
+        catch(SQLException ex)
+        {
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
     public void updateVeranstaltungGruppenanzahl(String veranstaltungsname, int gruppenanzahl) throws DatabaseException {
         logwriter.writetoLog("function: updateVeranstaltungGruppenanzahl","TRACE");
         try
@@ -1737,6 +1756,7 @@ public class DBrequest {
         updateVeranstaltungBeschreibung(veranstaltung.getName(),veranstaltung.getBeschreibung());
         updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team(veranstaltung.getName(),veranstaltung.getMaxTeilnehmer());
         updateVeranstaltungTeamanzahl_je_Gruppe(veranstaltung.getName(),veranstaltung.getTeamanzahl());
+        updateVeranstaltungFakultaet(veranstaltung.getName(), veranstaltung.getFakultaet());
     }
 
     public void updateGruppe(Gruppe gruppe)throws DatabaseException

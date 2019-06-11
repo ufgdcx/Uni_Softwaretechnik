@@ -1,10 +1,14 @@
 package adminGui;
 
+import Database.DBrequest;
+import Database.DatabaseException;
 import Klassen.Dozent;
 import Klassen.Veranstaltung;
+import utilities.FileHandler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.DatabaseMetaData;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +18,13 @@ public class CreateDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
 	
 	private JScrollPane scrollPane;
-	DefaultListModel listModel = new DefaultListModel();
-	JList<String> dozentenlist;
-	Veranstaltung veranstaltung;
-	
+	private DefaultListModel listModel = new DefaultListModel();
+	private JList<String> dozentenlist;
+	private Veranstaltung veranstaltung;
+
+	private DBrequest dbrequest = DBrequest.getIntstance();
+	private FileHandler<Veranstaltung> filehandler = new FileHandler<>();
+
 	private JButton confirmButton;
 	private JButton dozentenButton;
 	private JButton dataButton;
@@ -97,6 +104,7 @@ public class CreateDialog extends JDialog {
 		dataButton.setFocusable(false);
 		dataButton.setBounds(265, 270, 150, 25);
 		dataButton.addActionListener(new Listener());
+		dataButton.setEnabled(false);
 		add(dataButton);
 		
 		confirmButton = new JButton("OK");
@@ -114,7 +122,50 @@ private class Listener implements ActionListener{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			if(e.getSource()==dataButton)
+			{
+				JFileChooser chooser = new JFileChooser();
+				int rueckgabeWert = chooser.showOpenDialog(null);
+				if(rueckgabeWert == JFileChooser.APPROVE_OPTION) {
+					ArrayList<Veranstaltung> liste = filehandler.readFile(chooser.getSelectedFile().getName(),Veranstaltung.class);
+
+
+
+					dispose();
+				}
+			}
 			if(e.getSource()==abortButton) {
+				dispose();
+			}
+			if(e.getSource()==confirmButton) {
+				try {
+					veranstaltung.setName(veranstaltungsnameField.getText());
+					veranstaltung.setFakultaet(fakultaetField.getText());
+					veranstaltung.setTeamanzahl(Integer.parseInt(teamzahlJeGruppeField.getText()));
+					veranstaltung.setMaxTeilnehmer(Integer.parseInt(teilnehmerzahlJeTeamField.getText()));
+					veranstaltung.setBeschreibung(beschreibungField.getText());
+				} catch (Exception e2) {
+					ErrorDialog eD = new ErrorDialog("Ungueltige Eingabe");
+					eD.setResizable(false);
+					eD.setLocationRelativeTo(null);
+					eD.setVisible(true);
+					return;
+				}
+				try{
+					dbrequest.createVeranstaltung(veranstaltung);
+					for(Dozent d : veranstaltung.getDozenten())
+					{
+						dbrequest.createLeitet(d, veranstaltung);
+					}
+				}
+				catch(DatabaseException dbe)
+				{
+					ErrorDialog eD = new ErrorDialog(dbe.getErrorMsg());
+					eD.setResizable(false);
+					eD.setLocationRelativeTo(null);
+					eD.setVisible(true);
+					return;
+				}
 				dispose();
 			}
 			if(e.getSource()==dozentenButton) {
