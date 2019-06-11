@@ -1,5 +1,7 @@
 package adminGui;
 
+import Database.DBrequest;
+import Database.DatabaseException;
 import Klassen.Dozent;
 import Klassen.Veranstaltung;
 
@@ -15,11 +17,12 @@ public class EditDialog extends JDialog {
 	private DefaultListModel listModel = new DefaultListModel();
 	private JList<String> dozentenlist;
 	private Veranstaltung veranstaltung;
+	private DBrequest dbrequest = DBrequest.getIntstance();
 
 	private JButton confirmButton;
 	private JButton dozentenButton;
 	private JButton abortButton;
-	private JTextField veranstaltungsnameField;
+	private JLabel veranstaltungsnameField;
 	private JTextField fakultaetField;
 	private JTextField teamzahlJeGruppeField;
 	private JTextField teilnehmerzahlJeTeamField;
@@ -41,7 +44,7 @@ public class EditDialog extends JDialog {
 		JLabel veranstaltungsnameLabel = new JLabel("Name:");
 		veranstaltungsnameLabel.setBounds(30, 10, 200, 25);
 		add(veranstaltungsnameLabel);
-		veranstaltungsnameField = new JTextField();
+		veranstaltungsnameField = new JLabel();
 		veranstaltungsnameField.setBounds(30, 30, 200, 25);
 		veranstaltungsnameField.setText(veranstaltung.getName());
 		add(veranstaltungsnameField);
@@ -118,6 +121,38 @@ private class Listener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==abortButton) {
+				dispose();
+			}
+			if(e.getSource()==confirmButton) {
+				try {
+					veranstaltung.setName(veranstaltungsnameField.getText());
+					veranstaltung.setFakultaet(fakultaetField.getText());
+					veranstaltung.setTeamanzahl(Integer.parseInt(teamzahlJeGruppeField.getText()));
+					veranstaltung.setMaxTeilnehmer(Integer.parseInt(teilnehmerzahlJeTeamField.getText()));
+					veranstaltung.setBeschreibung(beschreibungField.getText());
+				} catch (Exception e2) {
+					ErrorDialog eD = new ErrorDialog("Ungueltige Eingabe");
+					eD.setResizable(false);
+					eD.setLocationRelativeTo(null);
+					eD.setVisible(true);
+					return;
+				}
+				try{
+					dbrequest.updateVeranstaltung(veranstaltung);
+					dbrequest.deleteLeitet(veranstaltung);
+					for(Dozent d : veranstaltung.getDozenten())
+					{
+						dbrequest.createLeitet(d, veranstaltung);
+					}
+				}
+				catch(DatabaseException dbe)
+				{
+					ErrorDialog eD = new ErrorDialog(dbe.getErrorMsg());
+					eD.setResizable(false);
+					eD.setLocationRelativeTo(null);
+					eD.setVisible(true);
+					return;
+				}
 				dispose();
 			}
 			if(e.getSource()==dozentenButton) {

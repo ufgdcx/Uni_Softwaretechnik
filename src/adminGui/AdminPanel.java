@@ -17,13 +17,13 @@ import javax.swing.event.ListSelectionListener;
 public class AdminPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 
-	ArrayList<Veranstaltung> veranstaltungen = new ArrayList<>();
-	JList<String> veranstaltungslist;
-	DefaultListModel listModel = new DefaultListModel();
-	DBrequest dbr = DBrequest.getIntstance();
-	JButton deletebutton;
-	JButton editbutton;
-	JButton addbutton;
+	private ArrayList<Veranstaltung> veranstaltungen = new ArrayList<>();
+	private JList<String> veranstaltungslist;
+	private DefaultListModel listModel = new DefaultListModel();
+	private DBrequest dbr = DBrequest.getIntstance();
+	private JButton deletebutton;
+	private JButton editbutton;
+	private JButton addbutton;
 	
 	public AdminPanel() {
 		setLayout(null);
@@ -96,6 +96,15 @@ public class AdminPanel extends JPanel{
 				cD.setResizable(false);
 				cD.setLocationRelativeTo(aP);
 				cD.setVisible(true);
+				try {
+					veranstaltungen = dbr.getAllVeranstaltungen();
+				}catch (DatabaseException de){
+					System.out.println(de.getErrorMsg());
+				}
+				listModel.clear();
+				for(Veranstaltung v: veranstaltungen){
+					listModel.add(listModel.getSize(),v.getName());
+				}
 			}
 			if (e.getSource() == editbutton) {
 				for (Veranstaltung v : veranstaltungen) {
@@ -106,6 +115,15 @@ public class AdminPanel extends JPanel{
 						eD.setVisible(true);
 						break;
 					}
+				}
+				try {
+					veranstaltungen = dbr.getAllVeranstaltungen();
+				}catch (DatabaseException de){
+					System.out.println(de.getErrorMsg());
+				}
+				listModel.clear();
+				for(Veranstaltung v: veranstaltungen){
+					listModel.add(listModel.getSize(),v.getName());
 				}
 			}
 		}
@@ -118,7 +136,7 @@ public class AdminPanel extends JPanel{
 				editbutton.setEnabled(true);
 			}else{
 				deletebutton.setEnabled(false);
-				deletebutton.setEnabled(false);
+				editbutton.setEnabled(false);
 			}
 		}
 	}
