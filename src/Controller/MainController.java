@@ -123,11 +123,34 @@ public class MainController {
 
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
 
+		System.out.println(root.toString());
+
 		for (Gruppe gruppe: getGruppen(veranstaltung)) {
-			DefaultMutableTreeNode gruppen = new DefaultMutableTreeNode(gruppe.getGruppenID());
+			DefaultMutableTreeNode gruppen = new DefaultMutableTreeNode("Gruppe" + " " + gruppe.getGruppenID());
 			root.add(gruppen);
 			for (Team team: getTeams(gruppe)) {
-				DefaultMutableTreeNode teams = new DefaultMutableTreeNode(team.getTeamID());
+				DefaultMutableTreeNode teams = new DefaultMutableTreeNode("Team" + " " + team.getTeamID());
+				gruppen.add(teams);
+				for (Student student: getStudenten(team)) {
+					DefaultMutableTreeNode studenten = new DefaultMutableTreeNode(student.getVorname()+ " " + student.getNachname());
+					teams.add(studenten);
+				}
+			}
+		}
+		tsp.setViewportView(new JTree(root));
+
+	}
+
+	/**@author Diana */
+	/*public void createLeistungsTree(Veranstaltung veranstaltung, JScrollPane tsp) {
+
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
+
+		for (Gruppe gruppe: getGruppen(veranstaltung)) {
+			DefaultMutableTreeNode gruppen = new DefaultMutableTreeNode("Gruppe" + " " + gruppe.getGruppenID());
+			root.add(gruppen);
+			for (Team team: getTeams(gruppe)) {
+				DefaultMutableTreeNode teams = new DefaultMutableTreeNode("Team" + " " + team.getTeamID());
 				gruppen.add(teams);
 				for (Student student: getStudenten(team)) {
 					DefaultMutableTreeNode studenten = new DefaultMutableTreeNode(student.getVorname()+ " " + student.getNachname());
@@ -137,7 +160,7 @@ public class MainController {
 
 		}
 		tsp.setViewportView(new JTree(root));
-	}
+	}*/
 
 	//Erstellt die GruppenID bestehend aus den letzten zwei Zahlen des Jahres und einem Laufindex
 	/**@author Diana*/
@@ -259,7 +282,6 @@ public class MainController {
         }
     }*/
 
-
 	//Methoden für Studentenansicht
 	/**@author Diana */
 	public ArrayList<Veranstaltung> getVeranstaltungen(Student me){
@@ -273,17 +295,32 @@ public class MainController {
 	}
 
 	/**@author Diana */
-	public void setVeranstaltungen(Student me){
-
-	}
-
-	/**@author Diana */
 	public ArrayList<Veranstaltung> getAlleV(){
 		try {
 			return dbr.getAllVeranstaltungen();
 		}catch (DatabaseException e){
 			System.out.println(e.getErrorMsg());
 			return null;
+		}
+	}
+
+	//Hilfsmethode für Teambeitritt
+	/**@author Diana */
+	public void createGehoertZu(int matrikelnummer, int teamid, int gruppenid, String veranstaltungsname){
+		try {
+			dbr.createGehoertZu(matrikelnummer, teamid, gruppenid, veranstaltungsname);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
+
+	//Hilfsmethode für Teamaustritt
+	/**@author Diana */
+	public void deleteGehoertZu(int matrikelnummer, int teamid, int gruppenid, String veranstaltungsname){
+		try {
+			dbr.deleteGehoertZu(matrikelnummer, teamid, gruppenid, veranstaltungsname);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
 		}
 	}
 

@@ -12,24 +12,34 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
 public class SGruppenuebersicht implements FrameContent {
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     private GUIMain mainFrame;
 
     private JPanel GruppenuebersichtPanel;
     private JButton beitreten;
     private JButton verlassen;
     private JButton zurueckButton;
-    private JTree tree1;
-    /**@author Diana*/
+    private JTree tree;
+    /**
+     * @author Diana
+     */
     private JButton logoutButton;
+    private JScrollPane treeScrollPane;
 
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     public String getName() {
 
         return "Gruppenübersicht - Student";
@@ -45,8 +55,22 @@ public class SGruppenuebersicht implements FrameContent {
         mainFrame = m;
     }
 
-    /**@author Diana*/
+    /**
+     * @author Diana
+     */
     public SGruppenuebersicht(ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index) {
+
+        //initialisiere den Baum
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode(sVL.get(index).getName());
+        treeScrollPane.setViewportView(new JTree(root));
+
+        treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                mainFrame.getController().createGruppenTree(sVL.get(index), treeScrollPane);
+            }
+        });
+
         beitreten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -60,7 +84,6 @@ public class SGruppenuebersicht implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                //To Do: Name des Studenten muss in Gruppe/Team + DB entfernt werden
 
 
                 mainFrame.setContent(new SGruppenuebersicht(alleVL, sVL, index));
@@ -103,8 +126,10 @@ public class SGruppenuebersicht implements FrameContent {
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         GruppenuebersichtPanel.add(panel1, new GridConstraints(0, 0, 4, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        tree1 = new JTree();
-        panel1.add(tree1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        treeScrollPane = new JScrollPane();
+        panel1.add(treeScrollPane, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        tree = new JTree();
+        treeScrollPane.setViewportView(tree);
         verlassen = new JButton();
         verlassen.setText("Team verlassen");
         GruppenuebersichtPanel.add(verlassen, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -124,4 +149,5 @@ public class SGruppenuebersicht implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return GruppenuebersichtPanel;
     }
+
 }

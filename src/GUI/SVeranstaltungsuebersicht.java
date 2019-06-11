@@ -65,7 +65,7 @@ public class SVeranstaltungsuebersicht implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new SAlleVeranstaltungen(alleVL, sVL, index));
+                mainFrame.setContent(new SAlleVeranstaltungen(alleVL, sVL, veranstaltungenList.getSelectedIndex()));
             }
         });
         verlassen.addActionListener(new ActionListener() {
@@ -78,14 +78,14 @@ public class SVeranstaltungsuebersicht implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new SGruppenuebersicht(alleVL, sVL, index));
+                mainFrame.setContent(new SGruppenuebersicht(alleVL, sVL, veranstaltungenList.getSelectedIndex()));
             }
         });
         ansehen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new SLeistungsuebersicht(alleVL, sVL, index));
+                mainFrame.setContent(new SLeistungsuebersicht(alleVL, sVL, veranstaltungenList.getSelectedIndex()));
             }
         });
         logoutButton.addActionListener(new ActionListener() {
