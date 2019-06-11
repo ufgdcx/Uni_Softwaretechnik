@@ -12,60 +12,80 @@ import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
 import java.awt.*;
+import Klassen.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class SVeranstaltungsuebersicht implements FrameContent {
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     private GUIMain mainFrame;
 
     private JPanel VeranstaltungsuebersichtPanel;
+    //Liste, in der die Veranstaltungen zu sehen sind, denen der Student beigetreten ist
+    private JList veranstaltungenList;
+    //Button zum Fenster "Gruppenübersicht", um Übungsgruppe/Team beizutreten oder zu verlassen
     private JButton bearbeiten;
+    //Button zum Fenster "Leistungsübersicht", um studentische Leistungen einzusehen
     private JButton ansehen;
+    //Button zum Fenster mit allen Veranstaltungen, um Veranstaltung(en) beizutreten
     private JButton hinzufuegen;
-    private JList Veranstaltungen;
-    /**@author Diana*/
+    /**
+     * @author Diana
+     */
+    //Button für Logout
     private JButton logoutButton;
+    //Button zum Verlassen einer Veranstaltung
+    private JButton verlassen;
+    //für eine dynamische Liste
+    private DefaultListModel dLM = new DefaultListModel();
 
     /**@author Kristi*/
-    public String getName() {
+    public String getName() { return "Veranstaltungsübersicht - Student"; }
 
-        return "Veranstaltungsübersicht - Student";
-    }
+    public JPanel getPanel() { return VeranstaltungsuebersichtPanel; }
 
-    public JPanel getPanel() {
+    public void setParentFrame(GUIMain m) { mainFrame = m; }
 
-        return VeranstaltungsuebersichtPanel;
-    }
+    /** @author Diana*/
+    public SVeranstaltungsuebersicht(ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index) {
 
-    public void setParentFrame(GUIMain m) {
+        ArrayList<String> veranstaltungen = new ArrayList<String>();
 
-        mainFrame = m;
-    }
+        for (Veranstaltung v : sVL) {
+            veranstaltungen.add(v.getName());
+        }
 
-    /**@author Diana*/
-    public SVeranstaltungsuebersicht() {
-
+        dLM.addAll(veranstaltungen);
+        veranstaltungenList.setModel(dLM);
 
         hinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new SAlleVeranstaltungen());
+                mainFrame.setContent(new SAlleVeranstaltungen(alleVL, sVL, index));
+            }
+        });
+        verlassen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
         bearbeiten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new SGruppenuebersicht());
+                mainFrame.setContent(new SGruppenuebersicht(alleVL, sVL, index));
             }
         });
         ansehen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new SLeistungsuebersicht());
+                mainFrame.setContent(new SLeistungsuebersicht(alleVL, sVL, index));
             }
         });
         logoutButton.addActionListener(new ActionListener() {
@@ -92,23 +112,26 @@ public class SVeranstaltungsuebersicht implements FrameContent {
      */
     private void $$$setupUI$$$() {
         VeranstaltungsuebersichtPanel = new JPanel();
-        VeranstaltungsuebersichtPanel.setLayout(new GridLayoutManager(4, 3, new Insets(50, 20, 50, 20), -1, -1));
-        Veranstaltungen = new JList();
-        VeranstaltungsuebersichtPanel.add(Veranstaltungen, new GridConstraints(0, 0, 4, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        VeranstaltungsuebersichtPanel.setLayout(new GridLayoutManager(5, 3, new Insets(50, 20, 50, 20), -1, -1));
+        veranstaltungenList = new JList();
+        VeranstaltungsuebersichtPanel.add(veranstaltungenList, new GridConstraints(0, 0, 5, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         hinzufuegen = new JButton();
         hinzufuegen.setText("Veranstaltung hinzufügen");
         VeranstaltungsuebersichtPanel.add(hinzufuegen, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         bearbeiten = new JButton();
         bearbeiten.setText("Gruppen und Teams bearbeiten");
-        VeranstaltungsuebersichtPanel.add(bearbeiten, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        VeranstaltungsuebersichtPanel.add(bearbeiten, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         ansehen = new JButton();
         ansehen.setText("Leistung ansehen");
-        VeranstaltungsuebersichtPanel.add(ansehen, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        VeranstaltungsuebersichtPanel.add(ansehen, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        VeranstaltungsuebersichtPanel.add(spacer1, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        VeranstaltungsuebersichtPanel.add(spacer1, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         logoutButton = new JButton();
         logoutButton.setText("Logout");
         VeranstaltungsuebersichtPanel.add(logoutButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        verlassen = new JButton();
+        verlassen.setText("Veranstaltung verlassen");
+        VeranstaltungsuebersichtPanel.add(verlassen, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
@@ -117,4 +140,5 @@ public class SVeranstaltungsuebersicht implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return VeranstaltungsuebersichtPanel;
     }
+
 }

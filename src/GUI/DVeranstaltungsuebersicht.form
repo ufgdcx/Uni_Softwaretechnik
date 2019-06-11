@@ -31,7 +31,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="55dca" class="javax.swing.JList" binding="VeranstalungenList">
+          <component id="55dca" class="javax.swing.JList" binding="VeranstaltungenList">
             <constraints/>
             <properties/>
           </component>

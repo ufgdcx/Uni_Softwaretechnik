@@ -56,17 +56,6 @@ public class MainController {
 	}
 
 	/**@author Diana */
-	public ArrayList<Veranstaltung> getVeranstaltungen(Student me){
-		try {
-			return dbr.getVeranstaltungen(me);
-		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getErrorMsg());
-		}
-		return null;
-	}
-
-	/**@author Diana */
 	public ArrayList<Veranstaltung> getVeranstaltungen(Dozent me){
 		try {
 			return dbr.getVeranstaltungen(me);
@@ -121,6 +110,15 @@ public class MainController {
 	}
 
 	/**@author Diana */
+	public void createGruppe(int gruppenid, Dozent d, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus){
+		try {
+			dbr.createGruppe(gruppenid, d.getEmail(), veranstaltung, einschreibungsfrist, uhrzeit, wochentag, wochenrhytmus);
+		}  catch (DatabaseException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**@author Diana */
 	public void createGruppenTree(Veranstaltung veranstaltung, JScrollPane tsp) {
 
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
@@ -132,7 +130,7 @@ public class MainController {
 				DefaultMutableTreeNode teams = new DefaultMutableTreeNode(team.getTeamID());
 				gruppen.add(teams);
 				for (Student student: getStudenten(team)) {
-					DefaultMutableTreeNode studenten = new DefaultMutableTreeNode(student.getNachname());
+					DefaultMutableTreeNode studenten = new DefaultMutableTreeNode(student.getVorname()+ " " + student.getNachname());
 					teams.add(studenten);
 				}
 			}
@@ -140,16 +138,6 @@ public class MainController {
 		}
 		tsp.setViewportView(new JTree(root));
 	}
-
-	/**@author Diana*/
-	public int getGruppenanzahl(Veranstaltung veranstaltung){
-	    try {
-	        return dbr.getGruppenanzahl(veranstaltung);
-        } catch (DatabaseException e) {
-            System.out.println(e.getErrorMsg());
-        }
-	    return 0;
-    }
 
 	//Erstellt die GruppenID bestehend aus den letzten zwei Zahlen des Jahres und einem Laufindex
 	/**@author Diana*/
@@ -195,8 +183,6 @@ public class MainController {
 		}
 	}
 
-
-
 	/**@author Diana */
     public ArrayList<Leistung> getLeistung(Team team){
         try {
@@ -206,7 +192,6 @@ public class MainController {
         }
         return null;
     }
-
 
 	/**@author Diana */
 	public Team getTeam(Student student, Gruppe gruppe) {
@@ -243,16 +228,6 @@ public class MainController {
     }
 
 	/**@author Diana */
-	public void setGruppenanzahl(String veranstaltungsname, int gruppenanzahl){
-		try{
-			dbr.updateVeranstaltungGruppenanzahl(veranstaltungsname, gruppenanzahl);
-		} catch (DatabaseException e) {
-			System.out.println(e.getErrorMsg());
-			return;
-		}
-	}
-
-	/**@author Diana */
 	public void setTeamanzahl(String veranstaltungsname, int teamanzahl) {
 		try {
 			dbr.updateVeranstaltungTeamanzahl_je_Gruppe(veranstaltungsname, teamanzahl);
@@ -273,7 +248,6 @@ public class MainController {
 }
 
 
-
 	/**@author Diana*/
     /*public void setLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung){
 
@@ -286,7 +260,34 @@ public class MainController {
     }*/
 
 
-    //erzeugt Verifizierungscode für die Email Bestätigung
+	//Methoden für Studentenansicht
+	/**@author Diana */
+	public ArrayList<Veranstaltung> getVeranstaltungen(Student me){
+		try {
+			return dbr.getVeranstaltungen(me);
+		} catch (DatabaseException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getErrorMsg());
+		}
+		return null;
+	}
+
+	/**@author Diana */
+	public void setVeranstaltungen(Student me){
+
+	}
+
+	/**@author Diana */
+	public ArrayList<Veranstaltung> getAlleV(){
+		try {
+			return dbr.getAllVeranstaltungen();
+		}catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+			return null;
+		}
+	}
+
+	//erzeugt Verifizierungscode für die Email Bestätigung
 	/**@author Diana*/
     public String generateVerifyingCode() {
 

@@ -23,22 +23,7 @@ public class StudentController extends MainController{
 	public StudentController(GUIMain m,Student s) {
 		super(m);
 		me = s;
-		buildModel();
 		//changing the content of the main window to the "frontpage" for students
-		mainFrame.setContent(new SVeranstaltungsuebersicht());
-	}
-
-	public void buildModel(){
-		veranstaltungen = this.getVeranstaltungen(me);
-
-		for (Veranstaltung v: veranstaltungen){
-			//für Funktionstest
-			System.out.println(v.getName());
-			vNameS.add(v.getName());
-		}
-
-		//für Funktionstest
-		System.out.println(vNameS);
-		return;
+		mainFrame.setContent(new SVeranstaltungsuebersicht(this.getAlleV(), this.getVeranstaltungen(me), 0));
 	}
 }

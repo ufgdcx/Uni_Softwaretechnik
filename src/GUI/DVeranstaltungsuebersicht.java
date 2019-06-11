@@ -24,8 +24,8 @@ public class DVeranstaltungsuebersicht implements FrameContent {
 
     private JPanel VeranstaltungsuebersichtPanel;
     //JList wird erstellt
-    private JList VeranstalungenList;
-    private DefaultListModel dLV = new DefaultListModel();
+    private JList VeranstaltungenList;
+    private DefaultListModel dLM = new DefaultListModel();
     private JScrollPane scrollPane;
     private JButton einsehen;
     /**@author Diana*/
@@ -57,15 +57,15 @@ public class DVeranstaltungsuebersicht implements FrameContent {
             veranstaltungen.add(v.getName());
         }
 
-        dLV.addAll(veranstaltungen);
-        VeranstalungenList.setModel(dLV);
+        dLM.addAll(veranstaltungen);
+        VeranstaltungenList.setModel(dLM);
 
         einsehen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (VeranstalungenList.getSelectedIndex() >= 0) {
-                    mainFrame.setContent(new DVeranstaltung(dVL, VeranstalungenList.getSelectedIndex()));
+                if (VeranstaltungenList.getSelectedIndex() >= 0) {
+                    mainFrame.setContent(new DVeranstaltung(dVL, VeranstaltungenList.getSelectedIndex()));
                 } else {
                     errorLabel.setVisible(true);
                 }
@@ -106,8 +106,8 @@ public class DVeranstaltungsuebersicht implements FrameContent {
         VeranstaltungsuebersichtPanel.add(logoutButton, new GridConstraints(0, 2, 3, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         scrollPane = new JScrollPane();
         VeranstaltungsuebersichtPanel.add(scrollPane, new GridConstraints(0, 0, 3, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        VeranstalungenList = new JList();
-        scrollPane.setViewportView(VeranstalungenList);
+        VeranstaltungenList = new JList();
+        scrollPane.setViewportView(VeranstaltungenList);
         errorLabel = new JLabel();
         errorLabel.setFocusable(false);
         errorLabel.setForeground(new Color(-52480));

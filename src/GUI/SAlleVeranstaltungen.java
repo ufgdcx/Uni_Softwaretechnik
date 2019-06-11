@@ -6,6 +6,7 @@
 
 package GUI;
 
+import Klassen.Veranstaltung;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
@@ -18,21 +19,29 @@ import java.util.ArrayList;
 
 public class SAlleVeranstaltungen implements FrameContent {
 
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     private GUIMain mainFrame;
 
     private JPanel AlleVeranstaltungen;
     //JList wird erstellt
-    private JList list1;
+    private JList veranstaltungenList;
     private DefaultListModel alleLV = new DefaultListModel();
     private JScrollPane scrollPane;
     //Button zum Eintragen in die ausgewählte Veranstaltung
     private JButton eintragen;
     private JButton zurueckButton;
-    /**@author Diana*/
+    /**
+     * @author Diana
+     */
+    private DefaultListModel dLM = new DefaultListModel();
     private JButton logoutButton;
+    private JLabel errorLabel;
 
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     public String getName() {
 
         return "Veranstaltungsübersicht - Student";
@@ -48,33 +57,37 @@ public class SAlleVeranstaltungen implements FrameContent {
         mainFrame = m;
     }
 
-    /**@author Diana*/
-    public SAlleVeranstaltungen() {
+    /**
+     * @author Diana
+     */
+    public SAlleVeranstaltungen(ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index) {
 
-        ArrayList<String> veranstaltungen = new ArrayList<>();
+        ArrayList<String> veranstaltungen = new ArrayList<String>();
 
+        for (Veranstaltung v : alleVL) {
+            veranstaltungen.add(v.getName());
+        }
 
-        //TODO: Liste aller Varanstaltungen aus DB erhalten und hinzufügen
-
-        //Testveranstaltungen
-        veranstaltungen.add("VL1");
-        veranstaltungen.add("VL2");
-
-        alleLV.addAll(veranstaltungen);
-        list1.setModel(alleLV);
+        dLM.addAll(veranstaltungen);
+        veranstaltungenList.setModel(dLM);
 
         eintragen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //To Do: ausgewählte Veranstaltung muss in Liste + DB eingetragen werden
 
-                mainFrame.setContent(new SVeranstaltungsuebersicht());
+                if (veranstaltungenList.getSelectedIndex() >= 0) {
+                    //mainFrame.getController(new DVeranstaltung(sVL, veranstaltungenList.getSelectedIndex()));
+                    //mainFrame.getController();
+                    mainFrame.setContent(new SGruppenuebersicht(alleVL, sVL, index));
+                } else {
+                    errorLabel.setVisible(true);
+                }
             }
         });
         zurueckButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContent(new SVeranstaltungsuebersicht());
+                mainFrame.setContent(new SVeranstaltungsuebersicht(alleVL, sVL, index));
             }
         });
         logoutButton.addActionListener(new ActionListener() {
@@ -101,12 +114,12 @@ public class SAlleVeranstaltungen implements FrameContent {
      */
     private void $$$setupUI$$$() {
         AlleVeranstaltungen = new JPanel();
-        AlleVeranstaltungen.setLayout(new GridLayoutManager(3, 3, new Insets(20, 50, 50, 20), -1, -1));
+        AlleVeranstaltungen.setLayout(new GridLayoutManager(4, 3, new Insets(20, 50, 50, 20), -1, -1));
         zurueckButton = new JButton();
         zurueckButton.setText("zurück");
-        AlleVeranstaltungen.add(zurueckButton, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        AlleVeranstaltungen.add(zurueckButton, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        AlleVeranstaltungen.add(spacer1, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        AlleVeranstaltungen.add(spacer1, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         eintragen = new JButton();
         eintragen.setText("in Veranstaltung eintragen");
         AlleVeranstaltungen.add(eintragen, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -114,9 +127,14 @@ public class SAlleVeranstaltungen implements FrameContent {
         logoutButton.setText("Logout");
         AlleVeranstaltungen.add(logoutButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         scrollPane = new JScrollPane();
-        AlleVeranstaltungen.add(scrollPane, new GridConstraints(0, 0, 3, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        list1 = new JList();
-        scrollPane.setViewportView(list1);
+        AlleVeranstaltungen.add(scrollPane, new GridConstraints(0, 0, 4, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        veranstaltungenList = new JList();
+        scrollPane.setViewportView(veranstaltungenList);
+        errorLabel = new JLabel();
+        errorLabel.setForeground(new Color(-52480));
+        errorLabel.setText("Keine Veranstaltung ausgewählt");
+        errorLabel.setVisible(false);
+        AlleVeranstaltungen.add(errorLabel, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
@@ -125,4 +143,5 @@ public class SAlleVeranstaltungen implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return AlleVeranstaltungen;
     }
+
 }

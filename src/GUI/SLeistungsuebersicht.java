@@ -6,6 +6,7 @@
 
 package GUI;
 
+import Klassen.Veranstaltung;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
@@ -14,6 +15,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class SLeistungsuebersicht implements FrameContent {
     /**@author Kristi*/
@@ -40,12 +42,13 @@ public class SLeistungsuebersicht implements FrameContent {
 
         mainFrame = m;
     }
-    /**@author Diana*/
-    public SLeistungsuebersicht() {
+    /**@author Diana
+     */
+    public SLeistungsuebersicht(ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index) {
         zurueck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContent(new SVeranstaltungsuebersicht());
+                mainFrame.setContent(new SVeranstaltungsuebersicht(alleVL, sVL, index));
             }
         });
         logoutButton.addActionListener(new ActionListener() {

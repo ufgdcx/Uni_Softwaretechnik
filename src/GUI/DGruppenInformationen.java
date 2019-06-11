@@ -10,12 +10,15 @@ import Klassen.Veranstaltung;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
-import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class DGruppenInformationen implements FrameContent {
@@ -57,11 +60,29 @@ public class DGruppenInformationen implements FrameContent {
         weiterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+                    //Umwandlung des String aus fristTextField in sql-Date
+                    String efrist = frist.getText();
+                    SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+                    java.util.Date date1 = sdf1.parse(efrist);
+                    Date einschreibefrist = new Date(date1.getTime());
 
-                if (gruppenanzahl == counter) {
-                    mainFrame.setContent(new DGruppenbearbeiten(dVL, index));
-                } else {
-                    mainFrame.setContent(new DGruppenInformationen(dVL, index, gruppenanzahl, counter + 1));
+                    //Umwandlung des String aus zeitTextField in sql-Time
+                    String uzeit = zeit.getText();
+                    SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm:ss");
+                    java.util.Date date2 = sdf2.parse(uzeit);
+                    Time uhrzeit = new Time(date2.getTime());
+
+                    mainFrame.getController().createGruppe(mainFrame.getController().createGruppenID(dVL.get(index)), dVL.get(index).getDozenten().get(0), dVL.get(index).getName(), einschreibefrist, uhrzeit, tag.getText(), rhythmus.getText());
+
+                    if (gruppenanzahl == counter) {
+                        mainFrame.setContent(new DGruppenbearbeiten(dVL, index));
+                    } else {
+                        mainFrame.setContent(new DGruppenInformationen(dVL, index, gruppenanzahl, counter + 1));
+                    }
+
+                } catch (ParseException ex) {
+                    ex.printStackTrace();
                 }
             }
         });
@@ -100,12 +121,14 @@ public class DGruppenInformationen implements FrameContent {
         fristLabel.setText("Einschreibefrist");
         DGruppenInformationenPanel.add(fristLabel, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         tag = new JTextField();
+        tag.setToolTipText("Montag, Dienstag, ...");
         DGruppenInformationenPanel.add(tag, new GridConstraints(1, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(100, -1), new Dimension(100, -1), new Dimension(100, -1), 0, false));
         zeit = new JTextField();
         DGruppenInformationenPanel.add(zeit, new GridConstraints(2, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(100, -1), new Dimension(100, -1), new Dimension(100, -1), 0, false));
         rhythmus = new JTextField();
         DGruppenInformationenPanel.add(rhythmus, new GridConstraints(3, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(100, -1), new Dimension(100, -1), new Dimension(100, -1), 0, false));
         frist = new JTextField();
+        frist.setToolTipText("tt-mm-jjjj");
         DGruppenInformationenPanel.add(frist, new GridConstraints(4, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(100, -1), new Dimension(100, -1), new Dimension(100, -1), 0, false));
         seitenLabel = new JLabel();
         seitenLabel.setText("Seitenanzahl");

@@ -6,6 +6,7 @@
 
 package GUI;
 
+import Klassen.Veranstaltung;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
@@ -14,6 +15,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class SGruppenuebersicht implements FrameContent {
     /**@author Kristi*/
@@ -44,14 +46,14 @@ public class SGruppenuebersicht implements FrameContent {
     }
 
     /**@author Diana*/
-    public SGruppenuebersicht() {
+    public SGruppenuebersicht(ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index) {
         beitreten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TO Do: Name des Studenten muss in Gruppe/Team + DB eingetragen werden
 
 
-                mainFrame.setContent(new SGruppenuebersicht());
+                mainFrame.setContent(new SGruppenuebersicht(alleVL, sVL, index));
             }
         });
         verlassen.addActionListener(new ActionListener() {
@@ -61,13 +63,13 @@ public class SGruppenuebersicht implements FrameContent {
                 //To Do: Name des Studenten muss in Gruppe/Team + DB entfernt werden
 
 
-                mainFrame.setContent(new SGruppenuebersicht());
+                mainFrame.setContent(new SGruppenuebersicht(alleVL, sVL, index));
             }
         });
         zurueckButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContent(new SVeranstaltungsuebersicht());
+                mainFrame.setContent(new SVeranstaltungsuebersicht(alleVL, sVL, index));
             }
         });
         logoutButton.addActionListener(new ActionListener() {
