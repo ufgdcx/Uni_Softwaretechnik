@@ -2,7 +2,7 @@
  * @author Diana, Sebastian, Sven
  * Klasse erstellt von Diana und erweitert von Sebastian und Sven
  *
- * Klasse für die Rolle des Nutzers (Oberklasse von Student und Dozent).
+ * Klasse fuer die Rolle des Nutzers (Oberklasse von Student und Dozent).
  */
 
 package Klassen;

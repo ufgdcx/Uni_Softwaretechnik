@@ -2,7 +2,7 @@
  * @author Diana, Sebastian, Christoph
  * Klasse erstellt von Diana und erweitert von Diana, Sebastian, Sven und Christoph
  *
- * Klasse für die Verwaltung von Veranstaltungen.
+ * Klasse fuer die Verwaltung von Veranstaltungen.
  */
 
 package Klassen;

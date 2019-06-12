@@ -2,7 +2,7 @@
  * @author Diana, Sebastian, Sven, Christoph
  * Klasse erstellt von Diana und erweitert von Sebastian, Sven und Christoph
  *
- * Klasse für die Rolle Student (Unterklasse von Nutzer).
+ * Klasse fuer die Rolle Student (Unterklasse von Nutzer).
  */
 
 package Klassen;

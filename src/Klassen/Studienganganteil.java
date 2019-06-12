@@ -1,8 +1,8 @@
 /**
- * @author Sven, Christoph
- * Klasse erstellt von Sven und erweitert von Sven und Christoph
+ * @author Sebastian, Christoph
+ * Klasse erstellt von Sebastian und erweitert von Sven, Christoph
  *
- * Klasse für die Verwaltung von Studiengangsanteilen bei der Verteilung der Projektteams.
+ * Klasse fuer die Verwaltung von Studiengangsanteilen bei der Verteilung der Projektteams.
  *
  */
 
