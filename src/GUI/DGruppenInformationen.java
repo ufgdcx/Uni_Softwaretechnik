@@ -35,6 +35,8 @@ public class DGruppenInformationen implements FrameContent {
     private JLabel tagLabel;
     private JLabel zeitLabel;
     private JLabel seitenLabel;
+    private JLabel dateFormat;
+    private JLabel timeFormat;
 
     public String getName() {
         return "Gruppeninformationen hinzufügen - Dozent";
@@ -108,7 +110,7 @@ public class DGruppenInformationen implements FrameContent {
      */
     private void $$$setupUI$$$() {
         DGruppenInformationenPanel = new JPanel();
-        DGruppenInformationenPanel.setLayout(new GridLayoutManager(6, 3, new Insets(50, 150, 300, 500), -1, -1));
+        DGruppenInformationenPanel.setLayout(new GridLayoutManager(6, 4, new Insets(50, 150, 300, 500), -1, -1));
         grIDLabel = new JLabel();
         grIDLabel.setText("GruppenID");
         DGruppenInformationenPanel.add(grIDLabel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -140,6 +142,12 @@ public class DGruppenInformationen implements FrameContent {
         weiterButton = new JButton();
         weiterButton.setText("weiter");
         DGruppenInformationenPanel.add(weiterButton, new GridConstraints(5, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        timeFormat = new JLabel();
+        timeFormat.setText("HH:mm:ss");
+        DGruppenInformationenPanel.add(timeFormat, new GridConstraints(2, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        dateFormat = new JLabel();
+        dateFormat.setText("dd-MM-yyyy");
+        DGruppenInformationenPanel.add(dateFormat, new GridConstraints(4, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**

@@ -19,7 +19,9 @@ import java.util.ArrayList;
 
 public class DVeranstaltungsuebersicht implements FrameContent {
 
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     private GUIMain mainFrame;
 
     private JPanel VeranstaltungsuebersichtPanel;
@@ -28,11 +30,15 @@ public class DVeranstaltungsuebersicht implements FrameContent {
     private DefaultListModel dLM = new DefaultListModel();
     private JScrollPane scrollPane;
     private JButton einsehen;
-    /**@author Diana*/
+    /**
+     * @author Diana
+     */
     private JButton logoutButton;
     private JLabel errorLabel;
 
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     public String getName() {
 
         return "Veranstaltungsübersicht - Dozent";
@@ -48,16 +54,19 @@ public class DVeranstaltungsuebersicht implements FrameContent {
         mainFrame = m;
     }
 
-    /**@author Diana*/
+    /**
+     * @author Diana
+     */
     public DVeranstaltungsuebersicht(ArrayList<Veranstaltung> dVL, int index) {
 
         ArrayList<String> veranstaltungen = new ArrayList<String>();
 
         for (Veranstaltung v : dVL) {
             veranstaltungen.add(v.getName());
+            dLM.add(dLM.size(), v.getName());
         }
 
-        dLM.addAll(veranstaltungen);
+        //dLM.addAll(veranstaltungen);
         VeranstaltungenList.setModel(dLM);
 
         einsehen.addActionListener(new ActionListener() {
@@ -124,4 +133,5 @@ public class DVeranstaltungsuebersicht implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return VeranstaltungsuebersichtPanel;
     }
+
 }
