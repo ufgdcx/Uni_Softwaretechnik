@@ -55,6 +55,7 @@ public class DBrequest {
                     logwriter.writetoLog("Student already exists","ERROR");
                     throw new DatabaseException("Student already exists");
                 } else {
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
                     throw new DatabaseException("Parent doesn't exist");
                 }
             }

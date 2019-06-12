@@ -82,7 +82,11 @@ public class DGruppenInformationen implements FrameContent {
                     }
 
                 } catch (ParseException ex) {
-                    ex.printStackTrace();
+                    ErrorDialog eD = new ErrorDialog("ups, something went wrong");
+                    eD.setResizable(false);
+                    eD.setLocationRelativeTo(null);
+                    eD.setVisible(true);
+                    return;
                 }
             }
         });
