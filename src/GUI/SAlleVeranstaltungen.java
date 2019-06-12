@@ -6,6 +6,7 @@
 
 package GUI;
 
+import Klassen.Student;
 import Klassen.Veranstaltung;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
@@ -60,13 +61,13 @@ public class SAlleVeranstaltungen implements FrameContent {
     /**
      * @author Diana
      */
-    public SAlleVeranstaltungen(ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index) {
+    public SAlleVeranstaltungen(Student student, ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index, int preview) {
 
         ArrayList<String> veranstaltungen = new ArrayList<String>();
 
         for (Veranstaltung v : alleVL) {
             veranstaltungen.add(v.getName());
-            dLM.add(dLM.size(),v.getName());
+            dLM.add(dLM.size(), v.getName());
         }
 
         //dLM.addAll(veranstaltungen);
@@ -77,9 +78,7 @@ public class SAlleVeranstaltungen implements FrameContent {
             public void actionPerformed(ActionEvent e) {
 
                 if (veranstaltungenList.getSelectedIndex() >= 0) {
-                    //mainFrame.getController(new DVeranstaltung(sVL, veranstaltungenList.getSelectedIndex()));
-                    //mainFrame.getController();
-                    mainFrame.setContent(new SGruppenuebersicht(alleVL, sVL, index));
+                    mainFrame.setContent(new SGruppenuebersicht(student, alleVL, sVL, veranstaltungenList.getSelectedIndex(), 2));
                 } else {
                     errorLabel.setVisible(true);
                 }
@@ -88,7 +87,7 @@ public class SAlleVeranstaltungen implements FrameContent {
         zurueckButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContent(new SVeranstaltungsuebersicht(alleVL, sVL, index));
+                mainFrame.setContent(new SVeranstaltungsuebersicht(student, alleVL, sVL, index, preview));
             }
         });
         logoutButton.addActionListener(new ActionListener() {

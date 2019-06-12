@@ -143,10 +143,10 @@ public class DGruppenInformationen implements FrameContent {
         weiterButton.setText("weiter");
         DGruppenInformationenPanel.add(weiterButton, new GridConstraints(5, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         timeFormat = new JLabel();
-        timeFormat.setText("HH:mm:ss");
+        timeFormat.setText("HH:mm");
         DGruppenInformationenPanel.add(timeFormat, new GridConstraints(2, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         dateFormat = new JLabel();
-        dateFormat.setText("dd-MM-yyyy");
+        dateFormat.setText("dd.MM.yyyy");
         DGruppenInformationenPanel.add(dateFormat, new GridConstraints(4, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 

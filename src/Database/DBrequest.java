@@ -1071,6 +1071,7 @@ public class DBrequest {
         }
         return  results;
     }
+
     public ArrayList<Student> getAllStudenten() throws DatabaseException{
         logwriter.writetoLog("  function: getAllStudenten()","TRACE");
         ArrayList<Student> results = new ArrayList<>();

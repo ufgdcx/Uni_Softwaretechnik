@@ -50,13 +50,12 @@ public class DGruppenuebersicht implements FrameContent {
     public DGruppenuebersicht(ArrayList<Veranstaltung> dVL, int index) {
 
         //initialisiere den Baum
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode(dVL.get(index).getName());
-        treeScrollPane.setViewportView(new JTree(root));
-
+        treeScrollPane.setViewportView(tree);
+        //Überprüfung des ScrollPane auf Veränderungen und Aktualisierung der Daten mit Hilfe der DB
         treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                mainFrame.getController().createGruppenTree(dVL.get(index), treeScrollPane);
+                tree = mainFrame.getController().createGruppenTree(dVL.get(index), treeScrollPane);
             }
         });
         einsehen.addActionListener(new ActionListener() {

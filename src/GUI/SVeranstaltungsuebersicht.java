@@ -60,7 +60,7 @@ public class SVeranstaltungsuebersicht implements FrameContent {
     /**
      * @author Diana
      */
-    public SVeranstaltungsuebersicht(ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index) {
+    public SVeranstaltungsuebersicht(Student student, ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index, int preview) {
 
         ArrayList<String> veranstaltungen = new ArrayList<String>();
 
@@ -76,7 +76,7 @@ public class SVeranstaltungsuebersicht implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new SAlleVeranstaltungen(alleVL, sVL, veranstaltungenList.getSelectedIndex()));
+                mainFrame.setContent(new SAlleVeranstaltungen(student, alleVL, sVL, veranstaltungenList.getSelectedIndex(), preview));
             }
         });
         verlassen.addActionListener(new ActionListener() {
@@ -89,14 +89,14 @@ public class SVeranstaltungsuebersicht implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new SGruppenuebersicht(alleVL, sVL, veranstaltungenList.getSelectedIndex()));
+                mainFrame.setContent(new SGruppenuebersicht(student, alleVL, sVL, veranstaltungenList.getSelectedIndex(), 1));
             }
         });
         ansehen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new SLeistungsuebersicht(alleVL, sVL, veranstaltungenList.getSelectedIndex()));
+                mainFrame.setContent(new SLeistungsuebersicht(student, alleVL, sVL, veranstaltungenList.getSelectedIndex(), preview));
             }
         });
         logoutButton.addActionListener(new ActionListener() {

@@ -6,6 +6,7 @@
 
 package GUI;
 
+import Klassen.Student;
 import Klassen.Veranstaltung;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
@@ -58,41 +59,72 @@ public class SGruppenuebersicht implements FrameContent {
     /**
      * @author Diana
      */
-    public SGruppenuebersicht(ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index) {
+    public SGruppenuebersicht(Student student, ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index, int preview) {
 
         //initialisiere den Baum
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode(sVL.get(index).getName());
-        treeScrollPane.setViewportView(new JTree(root));
-
+        treeScrollPane.setViewportView(tree);
+        //Überprüfung des ScrollPane auf Veränderungen und Aktualisierung der Daten mit Hilfe der DB
         treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                mainFrame.getController().createGruppenTree(sVL.get(index), treeScrollPane);
+                if (preview == 1) {
+                    tree = mainFrame.getController().createGruppenTree(sVL.get(index), treeScrollPane);
+                } else {
+                    tree = mainFrame.getController().createGruppenTree(alleVL.get(index), treeScrollPane);
+                }
+
             }
         });
 
         beitreten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TO Do: Name des Studenten muss in Gruppe/Team + DB eingetragen werden
 
-
-                mainFrame.setContent(new SGruppenuebersicht(alleVL, sVL, index));
+                if (tree.getSelectionPath().getPath().length >= 3) {
+                    //getSelectionPath().getPathComponent gibt Array mit Veranstaltungsname, Gruppe, Team, Student zurück
+                    //Auswahl des 1. Arrayelements
+                    String veranstaltungsname = tree.getSelectionPath().getPathComponent(0).toString();
+                    //Auswahl des 2. Arrayelements und absplitten der GruppenID
+                    String gruppenID = tree.getSelectionPath().getPathComponent(1).toString();
+                    gruppenID = gruppenID.split(" ")[1];
+                    //Auswahl des 3. Arrayelements und absplitten der TeamID
+                    String teamID = tree.getSelectionPath().getPathComponent(2).toString();
+                    teamID = teamID.split(" ")[1];
+                    //DB-Eintrag löschen
+                    mainFrame.getController().createGehoertZu(student.getMatrikelnr(), Integer.parseInt(teamID), Integer.parseInt(gruppenID), veranstaltungsname);
+                    //Fenster Gruppenübersicht aktualisieren
+                    mainFrame.setContent(new SGruppenuebersicht(student, alleVL, sVL, index, preview));
+                } else {
+                    //TODO: ErrorDialog öffnen
+                }
             }
         });
         verlassen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
-
-                mainFrame.setContent(new SGruppenuebersicht(alleVL, sVL, index));
+                if (tree.getSelectionPath().getPath().length >= 3) {
+                    //getSelectionPath().getPathComponent gibt Array mit Veranstaltungsname, Gruppe, Team, Student zurück
+                    //Auswahl des 1. Arrayelements
+                    String veranstaltungsname = tree.getSelectionPath().getPathComponent(0).toString();
+                    //Auswahl des 2. Arrayelements und absplitten der GruppenID
+                    String gruppenID = tree.getSelectionPath().getPathComponent(1).toString();
+                    gruppenID = gruppenID.split(" ")[1];
+                    //Auswahl des 3. Arrayelements und absplitten der TeamID
+                    String teamID = tree.getSelectionPath().getPathComponent(2).toString();
+                    teamID = teamID.split(" ")[1];
+                    //DB-Eintrag löschen
+                    mainFrame.getController().deleteGehoertZu(student.getMatrikelnr(), Integer.parseInt(teamID), Integer.parseInt(gruppenID), veranstaltungsname);
+                    //Fenster Gruppenübersicht aktualisieren
+                    mainFrame.setContent(new SGruppenuebersicht(student, alleVL, sVL, index, preview));
+                } else {
+                    //TODO: ErrorDialog öffnen
+                }
             }
         });
         zurueckButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContent(new SVeranstaltungsuebersicht(alleVL, sVL, index));
+                mainFrame.setContent(new SVeranstaltungsuebersicht(student, alleVL, sVL, index, preview));
             }
         });
         logoutButton.addActionListener(new ActionListener() {

@@ -31,11 +31,26 @@ public class MainController {
 		mainFrame = m;
 		mainFrame.setController(this);
 	}
+
+    /**@author Sebastian*/
+    public char[] getHash(char[] baseChar) {
+        String baseString = baseChar.toString();
+        MessageDigest digest;
+        try {
+            digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(baseString.getBytes(StandardCharsets.UTF_8));
+            return hash.toString().toCharArray();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 	/**@author Oleg */
 	public void login(String email, char[] passwd) {
 		//handle authentification
 		try {
-			System.out.println("Passwort Hash: "+getHash(passwd).toString());
+		    //System.out.println("Passwort Hash: " + getHash(passwd).toString());
 			n = dbr.getNutzer(email,passwd);
 		} catch (DatabaseException e) {
 
@@ -124,11 +139,9 @@ public class MainController {
 	}
 
 	/**@author Diana */
-	public void createGruppenTree(Veranstaltung veranstaltung, JScrollPane tsp) {
+	public JTree createGruppenTree(Veranstaltung veranstaltung, JScrollPane tsp) {
 
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
-
-		System.out.println(root.toString());
 
 		for (Gruppe gruppe: getGruppen(veranstaltung)) {
 			DefaultMutableTreeNode gruppen = new DefaultMutableTreeNode("Gruppe" + " " + gruppe.getGruppenID());
@@ -142,8 +155,9 @@ public class MainController {
 				}
 			}
 		}
-		tsp.setViewportView(new JTree(root));
-
+		JTree tree = new JTree(root);
+		tsp.setViewportView(tree);
+		return tree;
 	}
 
 	/**@author Diana */
@@ -187,7 +201,6 @@ public class MainController {
 		//TODO: Prüfen ob TeamID bereits vergeben ist
 		int teamanzahl = gruppe.getTeams().size()+1;
 		String teamID = "" + gruppe.getGruppenID() + teamanzahl;
-		System.out.println(teamID);
 		return Integer.parseInt(teamID);
 	}
 
@@ -345,19 +358,4 @@ public class MainController {
 
         return verifyingCode;
     }
-    
-    /**@author Sebastian*/
-    public char[] getHash(char[] baseChar) {
-    	String baseString = baseChar.toString();
-    	MessageDigest digest;
-		try {
-			digest = MessageDigest.getInstance("SHA-256");
-	    	byte[] hash = digest.digest(baseString.getBytes(StandardCharsets.UTF_8));
-			return hash.toString().toCharArray();
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		}
-		return null;
-    }
-    
 }

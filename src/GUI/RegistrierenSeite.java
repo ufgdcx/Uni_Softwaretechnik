@@ -105,7 +105,7 @@ public class RegistrierenSeite implements FrameContent {
                 String EMail = emailadresse.getText() + "@uni-rostock.de";
                 String Passwort = String.valueOf(passwort.getPassword());
 
-                DBrequest b = new DBrequest();
+                DBrequest dbr = new DBrequest();
 
 
                 if (studentRadioButton.isSelected()) {
@@ -114,12 +114,12 @@ public class RegistrierenSeite implements FrameContent {
                     String Studiengang = studiengang.getText();
 
                     try {
-                        b.createNutzer(EMail, Titel, Vorname, Nachname, Passwort);
+                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, Passwort);
                     } catch (DatabaseException databaseException) {
                         databaseException.printStackTrace();
                     }
                     try {
-                        b.createStudent(EMail, Matrikel, Studiengang);
+                        dbr.createStudent(EMail, Matrikel, Studiengang);
                     } catch (DatabaseException databaseException) {
                         databaseException.printStackTrace();
                     }
@@ -130,12 +130,12 @@ public class RegistrierenSeite implements FrameContent {
                     String Fakultaet = fakultaet.getText();
 
                     try {
-                        b.createNutzer(EMail, Titel, Vorname, Nachname, Passwort);
+                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, Passwort);
                     } catch (DatabaseException databaseException) {
                         databaseException.printStackTrace();
                     }
                     try {
-                        b.createDozent(EMail, Fakultaet);
+                        dbr.createDozent(EMail, Fakultaet);
                     } catch (DatabaseException databaseException) {
                         databaseException.printStackTrace();
                     }
@@ -143,16 +143,16 @@ public class RegistrierenSeite implements FrameContent {
 
                 //TODO: Passwort und Passwort wiederholen abgleichen
 
-                if (passwort.getPassword() != passwortwdh.getPassword()) {
+                /*if (passwort.getPassword() != passwortwdh.getPassword()) {
 
                     errorLabel.setVisible(true);
-                } else {
+                } else {*/
                     //TODO: Email mit Verifizierungscode senden
 
                     String verifyingCode = mainFrame.getController().generateVerifyingCode();
 
                     mainFrame.setContent(new VerifikationsSeite());
-                }
+                //}
             }
         });
         abbrechenButton.addActionListener(new ActionListener() {

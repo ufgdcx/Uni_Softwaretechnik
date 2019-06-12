@@ -113,6 +113,7 @@ public class DVeranstaltungbearbeiten implements FrameContent {
         infos = new JTextArea();
         VeranstaltungbearbeitenPanel.add(infos, new GridConstraints(1, 0, 2, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         dozent = new JTextArea();
+        dozent.setEditable(false);
         VeranstaltungbearbeitenPanel.add(dozent, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         infosLabel = new JLabel();
         infosLabel.setText("Veranstaltungsinformationen");

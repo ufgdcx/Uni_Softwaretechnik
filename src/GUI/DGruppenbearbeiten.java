@@ -67,15 +67,13 @@ public class DGruppenbearbeiten implements FrameContent {
     public DGruppenbearbeiten(ArrayList<Veranstaltung> dVL, int index) {
 
         //Initialisierung Baum mit Gruppen, Teams und Mitglieder
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode(dVL.get(index).getName());
-        treeScrollPane.setViewportView(new JTree(root));
-        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+        treeScrollPane.setViewportView(tree);
 
         //Überprüfung des ScrollPane auf Veränderungen und Aktualisierung der Daten mit Hilfe der Datenbank
         treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                mainFrame.getController().createGruppenTree(dVL.get(index), treeScrollPane);
+                tree = mainFrame.getController().createGruppenTree(dVL.get(index), treeScrollPane);
             }
         });
 
@@ -105,7 +103,7 @@ public class DGruppenbearbeiten implements FrameContent {
         teamLoeschenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                root.remove(selectedNode);
+                System.out.println(tree.getSelectionPath().toString());
             }
         });
         //Wechsel zurück zum Fenster Gruppenübersicht in der Dozentenansicht
