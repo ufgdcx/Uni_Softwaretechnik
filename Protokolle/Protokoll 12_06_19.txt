@@ -1,0 +1,163 @@
+Anwesende:
+Sven Christoph Diana Oleg Seb
+
+Besprochen welche Funktionalitäten noch fehlen.
+Andere Kleinigkeiten, die besprochen wurden:
+- Gesamtpunktzahl von student ausrechnen
+- unterschiedliche Namen bei Leistungsteilen von Modell und Datenbank beachten
+- beim Guppen hinzufügen Uhrzeit und Datumseingaben vereinfachen (nicht auf sekunde genau)
+- singleton pattern anwenden (nicht immer neue dbr objekte erstellen)
+- Gewichtung von Leistungen ist noch nicht implementiert
+- Dozenten anzeigen bei Veranstaltung öfter aktualisieren (nicht nur bei login)
+
+Es folgen die Funktionen aus dem Pflichtenheft, oder welche, die anderweitig besprochen wurden.
+[] = noch nicht fertig [x] = funktioniert
+
+Dokumentation:
+
+Handbuch für den Studenten (kristi, seb)
+Handbuch für den Dozenten  (kristi, seb)
+Handbuch für den Admin     (chh)
+
+Installation Handbuch (Set up datei) (chh)
+
+
+Musskriterien:
+
+[] - Verwaltung der Anmeldung
+[] - Verwaltung der Uebungsgruppen und -termine
+[] - Verwaltung der Einschreibung in Gruppen und Teams
+[] - Verwaltung der Bewertung von Leistungen der Uebung, Hausaufgaben und Gruppenarbeit
+[] - Verwalten der Studenten
+[] - Verwaltung der Dozenten
+[] - Einhaltung der Datenschutzrichtlinien
+[] - personenspezifische Einsicht der Leistungsbewertung (Hausaufgaben, Uebung)
+[] - gruppenspezifische Einsicht der Gruppenleistungen (Gruppenarbeit)
+
+Sicherheit:
+[] - Passwörter hashen:
+	- sollte einfach umzusetzen sein: beim Registrieren und Login eine Hashfunktion anwenden, vor der Datenbank anfrage
+	
+[] - Datenbanklogin für jeden Nutzer:
+	- relativ schwer realisierbar
+
+[x] - SQL-Injection vermeiden:
+	- sieht bisher nicht nach einem Problem aus. Beim manuellen testen lies sich keine injection finden.
+
+Produktfunktion:
+
+[] - Registrierung: Nutzer  ist  im  System  mit  den  entsprechenden  Daten  registriert  und  kann  das  Programm  mit  dem  erstellten  Account verwenden
+	
+	- Matrikelnummer existiert schon fuehrt zu fehler
+	- Fehlermeldung und programm bleibt stehen troz korrekter datenbank eintrages
+
+
+[] - Bestätigung der Registrierung: E-Mail-Adresse des Nutzer verifizieren (chh)
+	
+	- habe noch keine email bekommen
+
+
+[x] - Anmeldung nach der Registrierung: Nutzer ist angemeldet und kann das Programm verwenden
+
+[x] - Abmeldung eines Nutzers: Nutzer ist abgemeldet und kann das Programm erst nach Anmeldung wieder verwenden
+
+
+[] - Verlust des Passwortes: Nutzer erhält ein neues (temporäres) Passwort und kann sich wieder anmelden
+	
+	- es gibt nicht mal einen knopf dafuer!
+
+
+[] - Passwort aendern: Nutzer hat ein neues Passwort
+	
+	- es gibt nicht mal einen knopf dafuer!
+
+
+[x] - Verteilung der Rollen: Nutzer hat Rolle
+ 	
+ 	- Anmerkung: Die Nutzer koenne sich ihre rolle mehr oder weniger selbt aussuchen :D
+
+
+[] - Teambeitritt: Studenten sollen einem Team zugeteilt sein
+	
+	- student kann keinem team geschweige denn eine Veranstaltung aswaehlen
+
+[] - Teamwechsel: Studenten sollen aus ihrem urspr ̈unglichen Team entfernt undeinem neuen Team zugeteilt sein
+	
+	- man kommt noch in kein team
+
+[] - Entfernen von Studenten aus einem Team: der  vom  Dozenten  ausgew ̈ahlte  Student  ist  nicht  mehr  Teilseines Teams
+	
+	- derzeit noch nicht (kommt nicht in die admin dings ...)
+
+
+[] - Anderung der Teamzugeh ̈origkeit eines Studenten: der vom Dozenten ausgew ̈ahlte Student hat eine neue Team-zugehoerigkeit
+
+	- noe
+
+[] - Zuweisung eines Themas zu einem Team: dem vom Dozenten ausgew ̈ahltem Team wird ein Thema zu-gewiesen
+	
+	- nein
+
+
+[] - Anlegen von Leistungsbl ̈ocken: Leistungsbl ̈ocke zur Bewertung der Studenten sollen angelegtsein
+
+	- nein
+
+[] - Gewichtung der Leistungsbl ̈ocke festlegen: dem vom Dozenten ausgew ̈ahlte Leistungsblock wird eine Ge-wichtung zugeordne
+
+	- die knoepfe sind da aber funktionieren noch nicht ... und ist komisch ...
+
+
+[] - Teamgr ̈oße festlegen: die Teamgr ̈oße ist f ̈ur alle Teams festgelegt
+
+	- nein 
+
+
+[] - Teamgröße eines Teams festlegen: die  Teamgr ̈oße  ist  für  die  vom  Dozenten  ausgewählte  Team
+
+	- noch nicht ... aber es sind jtextfelder vorhanden
+
+
+[] - Team erstellen: eine neues Team soll erstellt sein
+
+	- nein
+
+
+[] - Teamanteil von Studieng ̈angen festlegen: der Teamanteil von Studieng ̈angen soll festgelegt sein
+
+	- allgemein() in der datenbank ist es vorhanden aber noch nicht in der GUI moeglich ...
+
+
+[] - Teamanteil von Studieng ̈angen eines Teams festlegen: der Teamanteil von Studiengängen der, vom Dozenten gewählten, Teams soll festgelegt sein
+	
+	- nein, geht nicht 
+
+
+[] - Team einer Gruppe zuordnen: die Gruppe des vom Dozenten gewählten Teams soll der, vom Dozenten festgelegten, Gruppe entsprechen
+
+	- das passiert hoffentlich, wenn die Teams erstellt werden was noch nicht funktioniert
+
+
+[] - Exportieren  der  Nutzerdaten  und  Leistungen  eines Teams: dem  Dozenten  soll  eine  csv  Datei  mit  allen  Studenten  einesTeams, deren Nutzerdaten sowie deren Leistungen ausgegeben werden
+
+	- :D aber sowas von nicht 
+
+[] - Endbewertung: dem  Dozenten soll  eine  Liste  mit  allen  Teilnehmern,  derenEndbewertung sowie, ob eine Prüfungszulassung erteilt wird,angezeigt werden
+
+	- EXISITERT SO GARNICHT ...
+
+
+[] - Leistungseinsicht: Studenten  wird  eine  Liste  mit  all  ihren  Leistungen  (Einzel-,Gruppenleistung) angezeigt
+
+	- den Button gibt es schon...
+
+
+[] - Einstellung der Sprache: Die  Sprache  der  Benutzeroberfl ̈ache  soll,  der  vom  Benutzerausgew ̈ahlten Sprache, entsprechen
+
+	- Machen wir nicht! (SEB?)
+
+[] - Suchen eines Nutzers: Dem Dozenten soll ein Nutzer angezeigt werden
+	 
+	 - gibt es noch nicht
+
+[] - TEST!

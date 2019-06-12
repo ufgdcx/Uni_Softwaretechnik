@@ -2,7 +2,7 @@
  * @author Diana, Sebastian, Sven
  * Klasse erstellt von Diana und erweitert von Sebastian und Sven
  *
- * Klasse für die Rolle Dozent (Unterklasse von Nutzer).
+ * Klasse fuer die Rolle Dozent (Unterklasse von Nutzer).
  *
  */
 

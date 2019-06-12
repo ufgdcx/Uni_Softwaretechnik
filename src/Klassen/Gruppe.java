@@ -2,7 +2,7 @@
  * @author Diana, Sebastian, Sven, Christoph
  * Klasse erstellt von Diana und erweitert von Sebastian, Sven und Christoph
  *
- * Klasse für die Verwaltung der Uebungsgruppen.
+ * Klasse fuer die Verwaltung der Uebungsgruppen.
  *
  */
 

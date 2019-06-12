@@ -1,8 +1,8 @@
 /**
- * @author Sven, Christoph
- * Klasse erstellt von Sven und erweitert von Sven und Christoph
+ * @author Sebastian, Sven, Christoph
+ * Klasse erstellt von Sebastian und erweitert von Sven und Christoph
  *
- * Klasse für die Verwaltung der Unterbloecke von einer Leistung eines Studenten oder Teams.
+ * Klasse fuer die Verwaltung der Unterbloecke von einer Leistung eines Studenten oder Teams.
  * Setzt sich aus mehreren Aufgaben zusammen.
  * z.B. Uebungsserie 1 der Leistung Uebungsserien
  */

@@ -1,8 +1,8 @@
 /**
- * @author Sven
- * Klasse erstellt und erweitert von Sven
+ * @author Sven, Sebastian
+ * Klasse erstellt von Sebastian und erweitert von Sven
  *
- * Klasse für die Verwaltung der Aufgaben von einem Unterblock eines Studenten oder Teams.
+ * Klasse fuer die Verwaltung der Aufgaben von einem Unterblock eines Studenten oder Teams.
  * z.B. Aufgabe 1 des Unterblocks Uebungsserie 1
  */
 

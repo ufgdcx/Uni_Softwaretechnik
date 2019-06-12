@@ -26,5 +26,6 @@
     <orderEntry type="library" exported="" name="forms_rt" level="project" />
     <orderEntry type="library" name="snakeyaml-1.24" level="project" />
     <orderEntry type="library" name="org.junit.jupiter:junit-jupiter-api:5.4.2" level="project" />
+    <orderEntry type="library" name="snakeyaml-1.24" level="project" />
   </component>
 </module>

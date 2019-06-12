@@ -10,7 +10,7 @@ dozenten:
         titel: Meister,
         veranstaltungen: null,
         vorname: Bob
-    }
+  }
   - {
         email: ZweiterDozent@uni-rostock.de,
         fakultaet: IEF,

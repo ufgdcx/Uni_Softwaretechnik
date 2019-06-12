@@ -1,8 +1,8 @@
 /**
- * @author Diana, Sven, Christoph
- * Klasse erstellt von Diana und erweitert von Sven und Christoph
+ * @author Diana, Sebastian, Sven, Christoph
+ * Klasse erstellt von Diana und erweitert von Sebastian, Sven, Christoph
  *
- * Klasse für die Verwaltung der Projektteams.
+ * Klasse fuer die Verwaltung der Projektteams.
  */
 
 package Klassen;

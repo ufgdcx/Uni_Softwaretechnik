@@ -1,5 +1,5 @@
 /**@author Oleg, Diana
- * Klasse erstellt von Oleg und erweitert von Oleg und Diana
+ * Klasse erstellt von Oleg und erweitert von Oleg, Diana, Sebastian
  *
  * Steuert Anmeldung, Registrierung und Wechsel zu Dozenten-/Studentencontroller.
  *
@@ -12,6 +12,10 @@ import GUI.*;
 import Klassen.*;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
+
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -31,6 +35,7 @@ public class MainController {
 	public void login(String email, char[] passwd) {
 		//handle authentification
 		try {
+			System.out.println("Passwort Hash: "+getHash(passwd).toString());
 			n = dbr.getNutzer(email,passwd);
 		} catch (DatabaseException e) {
 
@@ -340,7 +345,19 @@ public class MainController {
 
         return verifyingCode;
     }
-
-
-
+    
+    /**@author Sebastian*/
+    public char[] getHash(char[] baseChar) {
+    	String baseString = baseChar.toString();
+    	MessageDigest digest;
+		try {
+			digest = MessageDigest.getInstance("SHA-256");
+	    	byte[] hash = digest.digest(baseString.getBytes(StandardCharsets.UTF_8));
+			return hash.toString().toCharArray();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return null;
+    }
+    
 }

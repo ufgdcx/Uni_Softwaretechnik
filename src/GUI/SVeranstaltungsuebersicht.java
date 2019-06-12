@@ -42,23 +42,34 @@ public class SVeranstaltungsuebersicht implements FrameContent {
     //für eine dynamische Liste
     private DefaultListModel dLM = new DefaultListModel();
 
-    /**@author Kristi*/
-    public String getName() { return "Veranstaltungsübersicht - Student"; }
+    /**
+     * @author Kristi
+     */
+    public String getName() {
+        return "Veranstaltungsübersicht - Student";
+    }
 
-    public JPanel getPanel() { return VeranstaltungsuebersichtPanel; }
+    public JPanel getPanel() {
+        return VeranstaltungsuebersichtPanel;
+    }
 
-    public void setParentFrame(GUIMain m) { mainFrame = m; }
+    public void setParentFrame(GUIMain m) {
+        mainFrame = m;
+    }
 
-    /** @author Diana*/
+    /**
+     * @author Diana
+     */
     public SVeranstaltungsuebersicht(ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index) {
 
         ArrayList<String> veranstaltungen = new ArrayList<String>();
 
         for (Veranstaltung v : sVL) {
             veranstaltungen.add(v.getName());
+            dLM.add(dLM.size(), v.getName());
         }
 
-        dLM.addAll(veranstaltungen);
+        //dLM.addAll(veranstaltungen);
         veranstaltungenList.setModel(dLM);
 
         hinzufuegen.addActionListener(new ActionListener() {

@@ -2,7 +2,7 @@
  * @author Diana, Sebastian, Sven, Christoph
  * Klasse erstellt von Diana und erweitert von Sebastian Sven und Christoph
  *
- * Klasse für eine Leistungskategorie eines Studenten oder Teams.
+ * Klasse fuer eine Leistungskategorie eines Studenten oder Teams.
  * Setzt sich aus mehreren Unterbloecken zusammen.
  * z.B. Uebungsserien (mit den Unterbloecken Serie 1, Serie 2 etc.) oder Projektarbeit (mit den Unterbloecken Lastenheft, Pflichtenheft etc.)
  */
