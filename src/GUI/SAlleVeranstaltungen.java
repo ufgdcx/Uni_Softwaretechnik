@@ -66,9 +66,10 @@ public class SAlleVeranstaltungen implements FrameContent {
 
         for (Veranstaltung v : alleVL) {
             veranstaltungen.add(v.getName());
+            dLM.add(dLM.size(),v.getName());
         }
 
-        dLM.addAll(veranstaltungen);
+        //dLM.addAll(veranstaltungen);
         veranstaltungenList.setModel(dLM);
 
         eintragen.addActionListener(new ActionListener() {
