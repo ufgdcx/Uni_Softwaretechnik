@@ -1,0 +1,17 @@
+1. Einleitung
+
+Dieses Nutzerhandbuch soll eine Orientierung in der Software und die einfache Bedienung für Nutzer ermöglichen.
+
+1.1 Zielbestimmung
+
+Die Lehrstühle der Universität Rostock sollen durch das Produkt in der Lage sein, die im Zusammenhang mit den Lehrveranstaltungen notwendigen Verwaltungsaktivitäten durch eine Software zu verwalten.
+
+1.2 Nutzerrollen
+
+Es gibt die drei Nutzerrollen Administrator, Dozent und Student, welche jeweils eine verschiedene Ansicht auf die Software haben.
+Der Administrator muss die Veranstaltung für einen Lehrstuhl, der die Software nutzen möchte, initial einzutragen und die zuständigen Dozenten festlegen.
+Alle weiteren Einstellungen und die Verwaltung der Übungsgruppen, Projektteams usw. werden von den Dozenten vorgenommen.
+
+1.3 Installation
+
+....
