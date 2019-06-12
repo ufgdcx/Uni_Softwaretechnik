@@ -1,0 +1,151 @@
+TODO
+---
+
+Anwesende:
+Sven christoph diana oleg seb
+
+Besprochen welche Funktionalitaeten noch fehlen.
+
+
+Dokumentation:
+
+Handbuch fuer den Studenten (kristi, seb)
+Handbuch fuer den Dozenten  (kristi, seb)
+Handbuch fuer den Admin     (chh)
+
+Instalation Handbuch (Set up datei) (chh)
+
+
+
+Laden der Informationen aus der datei 
+abpeichern in die Datenbank
+
+
+[] - Verwaltung der Anmeldung
+[] - Verwaltung der Uebungsgruppen und -termine
+[] - Verwaltung der Einschreibung in Gruppen und Teams
+[] - Verwaltung der Bewertung von Leistungen der Uebung, Hausaufgaben und Gruppenarbeit
+[] - Verwalten der Studenten
+[] - Verwaltung der Dozenten
+[] - Einhaltung der Datenschutzrichtlinien
+[] - personenspezifische Einsicht der Leistungsbewertung (Hausaufgaben, Uebung)
+[] - gruppenspezifische Einsicht der Gruppenleistungen (Gruppenarbeit)
+
+
+Produktfunktion:
+
+[] - Registrierung: Nutzer  ist  im  System  mit  den  entsprechenden  Daten  regis-triert  und  kann  das  Programm  mit  dem  erstellten  Account verwenden
+	
+	- Matrikelnummer existiert schon fuehrt zu fehler
+	- Fehlermeldung und programm beliebt stehen troz korrekter datenbank eintrages
+
+
+[] - Bestaetigung der Registrierung: E-Mail-Adresse des Nutzer verifizieren (chh)
+	
+	- habe noch keine email bekommen
+
+
+[x] - Anmeldung nach der Registrierung: Nutzer ist angemeldet und kann das Programm verwenden
+
+[x] - Abmeldung eines Nutzers: Nutzer ist abgemeldet und kann das Programm erst nach An-meldung wieder verwenden
+
+
+[] - Verlust des Passwortes: Nutzer erh ̈alt ein neues (tempor ̈ares) Passwort und kann sichwieder anmelden
+	
+	- es gibt nicht mal einen knopf dafuer!
+
+
+[] - Passwort aendern: Nutzer hat ein neues Passwort
+	
+	- es gibt nicht mal einen knopf dafuer!
+
+
+[x] - Verteilung der Rollen: Nutzer hat Rolle
+ 	
+ 	- Anmerkung: Die Nutzer koenne sich ihre rolle mehr oder weniger selbt aussuchen :D
+
+
+[] - Teambeitritt: Studenten sollen einem Team zugeteilt sein
+	
+	- student kann keinem team geschweige denn eine Veranstaltung aswaehlen
+
+[] - Teamwechsel: Studenten sollen aus ihrem urspr ̈unglichen Team entfernt undeinem neuen Team zugeteilt sein
+	
+	- man kommt noch in kein team
+
+[] - Entfernen von Studenten aus einem Team: der  vom  Dozenten  ausgew ̈ahlte  Student  ist  nicht  mehr  Teilseines Teams
+	
+	- derzeit noch nicht (kommt nicht in die admin dings ...)
+
+
+[] - Anderung der Teamzugeh ̈origkeit eines Studenten: der vom Dozenten ausgew ̈ahlte Student hat eine neue Team-zugehoerigkeit
+
+	- noe
+
+[] - Zuweisung eines Themas zu einem Team: dem vom Dozenten ausgew ̈ahltem Team wird ein Thema zu-gewiesen
+	
+	- nein
+
+
+[] - Anlegen von Leistungsbl ̈ocken: Leistungsbl ̈ocke zur Bewertung der Studenten sollen angelegtsein
+
+	- nein
+
+[] - Gewichtung der Leistungsbl ̈ocke festlegen: dem vom Dozenten ausgew ̈ahlte Leistungsblock wird eine Ge-wichtung zugeordne
+
+	- die knoepfe sind da aber funktionieren noch nicht ... und ist komisch ...
+
+
+[] - Teamgr ̈oße festlegen: die Teamgr ̈oße ist f ̈ur alle Teams festgelegt
+
+	- nein 
+
+
+[] - Teamgr ̈oße eines Teams festlegen: die  Teamgr ̈oße  ist  f ̈ur  die  vom  Dozenten  ausgew ̈ahlte  Team
+
+	- noch nicht ... aber es sind jtextfelder vorhanden
+
+
+[] - Team erstellen: eine neues Team soll erstellt sein
+
+	- noe
+
+
+[] - Teamanteil von Studieng ̈angen festlegen: der Teamanteil von Studieng ̈angen soll festgelegt sein
+
+	- allgemein() in der datenbank ist es vorhanden aber noch nicht in der GUI moeglich ...
+
+
+[] - Teamanteil von Studieng ̈angen eines Teams festlegen: der   Teamanteil   von   Studieng ̈angen   der   vom   Dozentengew ̈ahlten Teams soll festgelegt sein
+	
+	- noe geht nicht 
+
+
+[] - Team einer Gruppe zuordnen: die Gruppe des vom Dozenten gew ̈ahlten Teams soll der vomDozenten festgelegten Gruppe entsprechen
+
+	- das passiert hoffentlich wenn die teams erstellt werden was noch nicht funktioniert
+
+
+[] - Exportieren  der  Nutzerdaten  und  Leistungen  einesTeams: dem  Dozenten  soll  eine  csv  Datei  mit  allen  Studenten  einesTeams, deren Nutzerdaten sowie deren Leistungen ausgegeben werden
+
+	- :D aber sowas von nicht 
+
+[] - Endbewertung: dem  Dozenten  soll  eine  Liste  mit  allen  Teilnehmern,  derenEndbewertung sowie, ob eine Pr ̈ufungszulassung erteilt wird,angezeigt werden
+
+	- EXISITERT SO GARNICHT ...
+
+
+[] - Leistungseinsicht: Studenten  wird  eine  Liste  mit  all  ihren  Leistungen  (Einzel-,Gruppenleistung) angezeig
+
+	- der button gibt es schon...
+
+
+[] - Einstellung der Sprache: Die  Sprache  der  Benutzeroberfl ̈ache  soll,  der  vom  Benutzerausgew ̈ahlten Sprache, entsprechen
+
+	- Machen wir nicht! (SEB?)
+
+[] - Suchen eines Nutzers: Dem Dozenten soll ein Nutzer angezeigt werden
+	 
+	 - gibt es noich
+
+[] - TEST!
