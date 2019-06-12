@@ -166,15 +166,13 @@ public class MainController {
 	/**@author Diana*/
 	public int createGruppenID(Veranstaltung veranstaltung){
 		//TODO: Prüfen ob GruppenID bereits vergeben ist
-		System.out.println("Hallo");
+
 		int gruppenanzahl = getGruppen(veranstaltung).size()+1;
-		System.out.println(gruppenanzahl);
+
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new java.util.Date());
 		int year = cal.get(Calendar.YEAR) % 100;
-		System.out.println(year);
 		String gruppenID = "" + year + gruppenanzahl;
-		System.out.println(gruppenID);
 		return Integer.parseInt(gruppenID);
 	}
 

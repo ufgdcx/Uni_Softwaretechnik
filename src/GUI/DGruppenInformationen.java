@@ -63,13 +63,13 @@ public class DGruppenInformationen implements FrameContent {
                 try {
                     //Umwandlung des String aus fristTextField in sql-Date
                     String efrist = frist.getText();
-                    SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+                    SimpleDateFormat sdf1 = new SimpleDateFormat("dd.MM.yyyy");
                     java.util.Date date1 = sdf1.parse(efrist);
                     Date einschreibefrist = new Date(date1.getTime());
 
                     //Umwandlung des String aus zeitTextField in sql-Time
                     String uzeit = zeit.getText();
-                    SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm:ss");
+                    SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
                     java.util.Date date2 = sdf2.parse(uzeit);
                     Time uhrzeit = new Time(date2.getTime());
 

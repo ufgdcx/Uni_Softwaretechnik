@@ -11,6 +11,7 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.MutableTreeNode;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -68,6 +69,7 @@ public class DGruppenbearbeiten implements FrameContent {
         //Initialisierung Baum mit Gruppen, Teams und Mitglieder
         DefaultMutableTreeNode root = new DefaultMutableTreeNode(dVL.get(index).getName());
         treeScrollPane.setViewportView(new JTree(root));
+        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
 
         //Überprüfung des ScrollPane auf Veränderungen und Aktualisierung der Daten mit Hilfe der Datenbank
         treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
@@ -103,7 +105,7 @@ public class DGruppenbearbeiten implements FrameContent {
         teamLoeschenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                root.remove(selectedNode);
             }
         });
         //Wechsel zurück zum Fenster Gruppenübersicht in der Dozentenansicht
