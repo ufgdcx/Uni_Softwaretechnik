@@ -1,4 +1,4 @@
-/*package Database;
+package Database;
 
 import Klassen.*;
 import org.junit.jupiter.api.Test;
@@ -12,11 +12,15 @@ class DBrequestTest
     private LogWriter log = LogWriter.getIntstance();
     private boolean eo; // does an exception occur?
 
+    // Load test student data
     private FileHandler<Student> fh_student = new FileHandler<>();
     private ArrayList<Student> student = fh_student.readFile("Testdata/studenten.yml", Student.class);
-
+    // Load test dozent data
     private FileHandler<Dozent> fh_dozent = new FileHandler<>();
     private ArrayList<Dozent> dozent = fh_dozent.readFile("Testdata/dozenten.yml", Dozent.class);
+    // Load test Veranstaltung data
+    private FileHandler<Veranstaltung> fh_veranstaltung = new FileHandler<>();
+    private ArrayList<Veranstaltung> veranstaltung = fh_veranstaltung.readFile("Testdata/veranstaltungen.yml", Veranstaltung.class);
 
     // Test create methods
     //
@@ -36,6 +40,9 @@ class DBrequestTest
         assertFalse(eo);
 
         // create Veranstaltung
+        eo = false;
+        createVeranstaltung();
+        assertFalse(eo);
 
         // create Leistungsblock
 
@@ -71,6 +78,11 @@ class DBrequestTest
         // Delete Student
         eo = false;
         deleteStudent();
+        assertFalse(eo);
+
+        // Delete Veranstaltung
+        eo = false;
+        deleteVeranstaltung();
         assertFalse(eo);
     }
 
@@ -142,10 +154,12 @@ class DBrequestTest
     
     void createVeranstaltung()
     {
-    }
-    
-    void createVeranstaltung1()
-    {
+        for(Veranstaltung v : veranstaltung)
+        {
+            log.writetoLog("Veranstaltung: " + v.getName(), "INFO");
+            try{ dbrequest.createVeranstaltung(v); }
+            catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        }
     }
 
     void createGehoert_zu()
@@ -165,7 +179,7 @@ class DBrequestTest
         for(Dozent v : dozent)
         {
             log.writetoLog("Email: " + v.getEmail(), "INFO");
-            try{ dbrequest.deleteDozent(v.getEmail()); }
+            try{ dbrequest.deleteDozent(v); }
             catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         }
     }
@@ -218,6 +232,12 @@ class DBrequestTest
 
     void deleteVeranstaltung()
     {
+        for(Veranstaltung v : veranstaltung)
+        {
+            log.writetoLog("Veranstaltung: " + v.getName(), "INFO");
+            try{ dbrequest.deleteVeranstaltung(v.getName()); }
+            catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        }
     }
     
     void getNutzer()
@@ -409,4 +429,4 @@ class DBrequestTest
     {
     }
 
-}*/
+}
