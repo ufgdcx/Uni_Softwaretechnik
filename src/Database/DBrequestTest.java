@@ -1,11 +1,12 @@
 package Database;
 
 import Klassen.*;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import utilities.FileHandler;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class DBrequestTest
 {
     private DBrequest dbrequest = DBrequest.getIntstance();
@@ -22,107 +23,79 @@ class DBrequestTest
     private FileHandler<Veranstaltung> fh_veranstaltung = new FileHandler<>();
     private ArrayList<Veranstaltung> veranstaltung = fh_veranstaltung.readFile("Testdata/veranstaltungen.yml", Veranstaltung.class);
 
-    // Test create methods
-    //
-    @Test
-    void dbRequestTest()
-    {
-        // Create methods
-        // ==================================
-        // create Dozent
-        eo = false;
-        createDozent();
-        assertFalse(eo);
-
-        // create Student
-        eo = false;
-        createStudent();
-        assertFalse(eo);
-
-        // create Veranstaltung
-        eo = false;
-        createVeranstaltung();
-        assertFalse(eo);
-
-        // create Leistungsblock
-
-
-        // Update methods
-        // ==================================
-        // Update Dozent
-        eo = false;
-        student.get(0).setStudiengang("CBA"); // change Studiengang
-        updateDozent(); // change Fakultaet from ABC to CBA
-        assertFalse(eo);
-
-        // Update Student
-        eo = false;
-        dozent.get(0).setFakultaet("BIO"); // change fakultaet
-        updateStudent(); // change Studiengang from IN to BIO
-        assertFalse(eo);
-
-        // Get methods
-        // ==================================
-        eo = false;
-        // TODO add get test methods
-        assertFalse(eo);
-
-
-        // Delete methods
-        // ==================================
-        // Delete Dozent
-        eo = false;
-        deleteDozent();
-        assertFalse(eo);
-
-        // Delete Student
-        eo = false;
-        deleteStudent();
-        assertFalse(eo);
-
-        // Delete Veranstaltung
-        eo = false;
-        deleteVeranstaltung();
-        assertFalse(eo);
-    }
-
     // All DBrequest methods
     //
+    @Test
+    @Order(1)
     void createStudent()
     {
+        eo = false;
         for(Student v : student)
         {
             log.writetoLog("Email: " + v.getEmail(), "INFO");
             try{ dbrequest.createStudent(v); }
             catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         }
+        assertFalse(eo);
     }
 
+    @Test
+    @Order(2)
     void createDozent()
     {
+        eo = false;
         for(Dozent v : dozent)
         {
             log.writetoLog("Email: " + v.getEmail(), "INFO");
             try{ dbrequest.createDozent(v); }
             catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         }
+        assertFalse(eo);
     }
 
+    @Test
+    @Order(3)
+    void createVeranstaltung()
+    {
+        eo = false;
+        for(Veranstaltung v : veranstaltung)
+        {
+            log.writetoLog("Veranstaltung: " + v.getName(), "INFO");
+            try{ dbrequest.createVeranstaltung(v); }
+            catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(4)
+    void createLeitet()
+    {
+        // braucht
+        // dozenten und veranstaltung
+    }
+
+    @Test
+    @Order(5)
+    void createGruppe()
+    {
+        // braucht
+        // veranstaltung und dozenten
+    }
+
+    @Test
+    @Order(6)
     void createLeistungsblock()
     {
     }
-    
+
+
     void createGehoertZu()
     {
     }
     
-    void createGruppe()
-    {
-    }
-    
-    void createLeitet()
-    {
-    }
+
+
 
     void createStudienganganteil()
     {
@@ -151,16 +124,6 @@ class DBrequestTest
     void createEinzelleistung()
     {
     }
-    
-    void createVeranstaltung()
-    {
-        for(Veranstaltung v : veranstaltung)
-        {
-            log.writetoLog("Veranstaltung: " + v.getName(), "INFO");
-            try{ dbrequest.createVeranstaltung(v); }
-            catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
-        }
-    }
 
     void createGehoert_zu()
     {
@@ -174,14 +137,18 @@ class DBrequestTest
     {
     }
 
+    @Test
+    @Order(100)
     void deleteDozent()
     {
+        eo = false;
         for(Dozent v : dozent)
         {
             log.writetoLog("Email: " + v.getEmail(), "INFO");
             try{ dbrequest.deleteDozent(v); }
             catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         }
+        assertFalse(eo);
     }
     
     void deleteGehoertZu()
@@ -200,14 +167,18 @@ class DBrequestTest
     {
     }
 
+    @Test
+    @Order(101)
     void deleteStudent()
     {
+        eo = false;
         for(Student v : student)
         {
             log.writetoLog("Email: " + v.getEmail(), "INFO");
             try{ dbrequest.deleteStudent(v); }
             catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         }
+        assertFalse(eo);
     }
 
     void deleteStudienganganteil()
@@ -230,14 +201,18 @@ class DBrequestTest
     {
     }
 
+    @Test
+    @Order(99)
     void deleteVeranstaltung()
     {
+        eo = false;
         for(Veranstaltung v : veranstaltung)
         {
             log.writetoLog("Veranstaltung: " + v.getName(), "INFO");
             try{ dbrequest.deleteVeranstaltung(v.getName()); }
             catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         }
+        assertFalse(eo);
     }
     
     void getNutzer()
@@ -375,8 +350,14 @@ class DBrequestTest
     {
     }
 
+    @Test
+    @Order(999)
     void deleteAll()
     {
+        eo = false;
+        try{ dbrequest.deleteAll(); }
+        catch (DatabaseException e){ System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
     }
 
     void getIntstance()
@@ -390,18 +371,25 @@ class DBrequestTest
     void resultSize()
     {
     }
-    
+
+    @Test
+    @Order(50)
     void updateStudent()
     {
+        eo = false;
         try{ dbrequest.updateStudent(student.get(0)); } // update the database
         catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
     }
 
-    
+    @Test
+    @Order(51)
     void updateDozent()
     {
+        eo = false;
         try{ dbrequest.updateDozent(dozent.get(0)); } // update the database
         catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
     }
 
     
