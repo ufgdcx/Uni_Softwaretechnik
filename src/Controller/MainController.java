@@ -33,7 +33,7 @@ public class MainController {
 	}
 
     /**@author Sebastian*/
-    public char[] getHash(char[] base) {
+    public static char[] getHash(char[] base) {
     	String baseString = "";
     	for(int i=0;i<base.length;i++)
     		baseString = baseString + base[i];

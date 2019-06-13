@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import Controller.MainController;
 import Database.*;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
@@ -114,7 +115,7 @@ public class RegistrierenSeite implements FrameContent {
                     String Studiengang = studiengang.getText();
 
                     try {
-                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, Passwort);
+                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, MainController.getHash(Passwort.toCharArray()).toString());
                     } catch (DatabaseException databaseException) {
                         databaseException.printStackTrace();
                     }
@@ -130,7 +131,7 @@ public class RegistrierenSeite implements FrameContent {
                     String Fakultaet = fakultaet.getText();
 
                     try {
-                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, Passwort);
+                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, MainController.getHash(Passwort.toCharArray()).toString());
                     } catch (DatabaseException databaseException) {
                         databaseException.printStackTrace();
                     }
