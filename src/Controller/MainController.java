@@ -69,6 +69,27 @@ public class MainController {
 		}
 	}
 
+    /**@author Diana
+     * erzeugt Verifizierungscode für die Email Bestätigung
+     * @return verifyingCode
+     */
+    public String generateVerifyingCode() {
+
+        String charvalue = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        char[] chars = charvalue.toCharArray();
+
+        String verifyingCode = "";
+        Random random = new Random();
+
+        for (int i=0; i<= 16; i++) {
+            verifyingCode += chars[random.nextInt(chars.length-1)];
+        }
+
+        System.out.println(verifyingCode);
+
+        return verifyingCode;
+    }
+
 	/**@author Diana
 	 * Hilfsmethode zur Anzeige der Veranstaltungen eines Dozenten
 	 * @param me
@@ -78,7 +99,6 @@ public class MainController {
 		try {
 			return dbr.getVeranstaltungen(me);
 		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getErrorMsg());
 		}
 		return null;
@@ -388,7 +408,6 @@ public class MainController {
 		try {
 			return dbr.getVeranstaltungen(me);
 		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getErrorMsg());
 		}
 		return null;
@@ -436,26 +455,4 @@ public class MainController {
 			System.out.println(e.getErrorMsg());
 		}
 	}
-
-
-	/**@author Diana
-	 * erzeugt Verifizierungscode für die Email Bestätigung
-	 * @return verifyingCode
-	 */
-    public String generateVerifyingCode() {
-
-        String charvalue = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-        char[] chars = charvalue.toCharArray();
-
-        String verifyingCode = "";
-        Random random = new Random();
-
-        for (int i=0; i<= 16; i++) {
-            verifyingCode += chars[random.nextInt(chars.length-1)];
-        }
-
-        System.out.println(verifyingCode);
-
-        return verifyingCode;
-    }
 }
