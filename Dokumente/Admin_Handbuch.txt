@@ -2,14 +2,14 @@
 
 ## Starten der Anwendung.
 
-Wenn Sie die Anwendung gestartet haben, erscheint ein Fenster mit allen derzeit verfügbaren Veranstaltungen.
+Wenn Sie die Anwendung gestartet haben, erscheint ein Fenster mit allen derzeitig verfügbaren Veranstaltungen.
 
 [img_adminGUI_01.png]
 
 ## Veranstaltung hinzufügen
 
-Um eine Veranstaltung der Veranstaltungsliste hinzuzufügen klicken Sie auf <hinzuf...>.
-Danach erscheint ein neues Fenster mit den Informationen über die zu erstellenden Veranstaltung.
+Um eine Veranstaltung zu der Veranstaltungsliste hinzuzufügen, klicken Sie auf <hinzuf...>.
+Danach erscheint ein neues Fenster mit den Informationen über die zu erstellende Veranstaltung.
 
 [img_adminGUI_02.png]
 
@@ -17,34 +17,34 @@ Dort können Sie Ihre Informationen eintragen.
 
 [img_adminGUI_03.png]
 
-Um der Veranstaltung Dozenten zuzuweisen, klicken Sie auf <Dozenten hinzufügen/I...>.
-Danach erscheint ein neues Fenster, mit allen Dozenten die man der Veranstaltung hinzufügen kann auf der linken Seite und einer Liste mit allen Dozenten die der Veranstaltung zugeordnet worden sind. Da wir eine neue Veranstaltung erstellt haben ist die rechte Liste natürlich noch leer.
+Um der Veranstaltung Dozenten zuzuweisen, klicken Sie auf <Dozenten hinzufügen/l...>.
+Danach erscheint ein neues Fenster mit allen Dozenten, die man der Veranstaltung hinzufügen kann auf der linken Seite und einer Liste mit allen Dozenten, die der Veranstaltung zugeordnet worden sind auf der rechten Seite. Da wir eine neue Veranstaltung erstellt haben ist die rechte Liste natürlich noch leer.
 
 [img_adminGUI_04.png]
 
-Um einen verfügbaren Dozenten zu der neu erstellten Veranstaltung hinzuzufügen klicken sie auf den gewünschten Dozenten in der linken Liste und dann auf den oberen Button der beiden Buttons zwischen der rechten und linken Liste.
+Um einen verfügbaren Dozenten zu der neu erstellten Veranstaltung hinzuzufügen klicken sie auf den gewünschten Dozenten in der linken Liste und dann auf den oberen der beiden Buttons zwischen der rechten und linken Liste.
 
 [img_adminGUI_05.png]
 
-Jetzt wurde der Dozent der neuen Veranstaltung hinzugefügt. Damit wurde er auch aus der Liste, der für diese Veranstaltung zur Verfügung stehenden Dozenten, entfernt. Beachten Sie aber das ein Dozent natürlich mehrere (verschieden) Veranstaltungen zugeordnet werden können.
+Jetzt wurde der Dozent zu der neuen Veranstaltung hinzugefügt. Damit wurde er auch aus der Liste, der für diese Veranstaltung zur Verfügung stehenden Dozenten, entfernt. Beachten Sie aber, dass ein Dozent natürlich mehreren (verschiedenen) Veranstaltungen zugeordnet sein kann.
 
 [img_adminGUI_06.png]
 
-Mit <OK> bestätigen sie Ihre Auswahl und sie gelangen zurück zum vorherigen Fenster, in der nun die Dozenten in der Dozenten Liste eingetragen worden sind.
+Mit <OK> bestätigen sie Ihre Auswahl und gelangen zurück zum vorherigen Fenster, in der nun die Dozenten in der Dozentenliste eingetragen worden sind.
 
 [img_adminGUI_07.png]
 
-Bestätigen Sie Ihre eingaben in dem Sie auf <OK> klicken und Sie gelangen wieder zur Übersicht aller Veranstaltungen. In dieser Liste steht nun die gerade neu erstellte Veranstaltung.
+Bestätigen Sie Ihre Eingaben, indem Sie auf <OK> klicken, und Sie gelangen wieder zur Übersicht aller Veranstaltungen. In dieser Liste steht nun die gerade neu erstellte Veranstaltung.
 
 [img_adminGUI_08.png]
 
 ## Veranstaltung bearbeiten
 
-Falls Sie eine Veranstaltung überarbeiten möchten, können Sie die entsprechende Veranstaltung mit Rechtsklick auswählen und dann auf <bearbe...> klicken und sie gelangen zur Veranstaltung überarbeiten Fenster. Dabei sind alle Felder wieder bearbeitbar außer der Name der Veranstaltung. Dieser lässt sich nach dem Anlegen einer Veranstaltung nicht mehr nachträglich ändern.
+Falls Sie eine Veranstaltung überarbeiten möchten, können Sie die entsprechende Veranstaltung mit einem Linksklick auswählen und dann auf <bearbe...> klicken. Sie gelangen zum "Veranstaltung bearbeiten" Fenster. Dabei können Sie alle Felder außer den Namen der Veranstaltung ändern. Dieser lässt sich nach dem Anlegen einer Veranstaltung nicht mehr ändern.
 
 [img_adminGUI_09.png]
 
-Jetzt könne sie mit <OK> Ihre Änderungen bestätigen und diese werden in der Datenbank übernommen.
+Jetzt könne sie mit <OK> Ihre Änderungen bestätigen und diese werden in das System übernommen.
 
 [img_adminGUI_10.png]
 
@@ -54,7 +54,7 @@ Um eine Veranstaltung zu löschen, wählen Sie die zu löschenden Veranstaltung 
 
 [img_adminGUI_11.png]
 
-Klicken Sie auf den <löschen> Button. Achten Sie dabei darauf das es keine weitere Abfrage gibt, ob Sie diese Veranstaltung auch wirklich löschen wollen. Wir halten von solchen nervigen Mehrfachbestätigungen nichts und gehen davon aus, dass Sie wissen was sie wollen und sich der Konsequenzen Ihres Handelns bewusst sind.
+Klicken Sie auf den <löschen> Button. Achten Sie dabei darauf, dass es keine weitere Abfrage gibt, ob Sie diese Veranstaltung wirklich löschen wollen. Wir halten von solchen nervigen Mehrfachbestätigungen nichts und gehen davon aus, dass Sie wissen was sie wollen und sich der Konsequenzen Ihres Handelns bewusst sind.
 
 [img_adminGUI_12.png]
 
