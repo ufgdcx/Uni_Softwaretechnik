@@ -66,34 +66,71 @@ public class MainController {
 			new StudentController(mainFrame,s);
 		}
 	}
+	
+	/**@author Diana
+	 * erzeugt Verifizierungscode für die Email Bestätigung
+	 */
+    public String generateVerifyingCode() {
+        String charvalue = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        char[] chars = charvalue.toCharArray();
+        String verifyingCode = "";
+        Random random = new Random();
 
+        for (int i=0; i<= 16; i++) {
+            verifyingCode += chars[random.nextInt(chars.length-1)];
+        }
+        
+        System.out.println(verifyingCode);
+        return verifyingCode;
+    }
+
+	/**@author Diana */
+	public ArrayList<Veranstaltung> getAlleV(){
+		try {
+			return dbr.getAllVeranstaltungen();
+		}catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+		return null;
+	}
+	
 	/**@author Diana */
 	public ArrayList<Veranstaltung> getVeranstaltungen(Dozent me){
 		try {
 			return dbr.getVeranstaltungen(me);
 		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
+			System.out.println(e.getErrorMsg());
+		}
+		return null;
+	}
+	
+	/**@author Diana */
+	public ArrayList<Veranstaltung> getVeranstaltungen(Student me){
+		try {
+			return dbr.getVeranstaltungen(me);
+		} catch (DatabaseException e) {
 			System.out.println(e.getErrorMsg());
 		}
 		return null;
 	}
 
-	//Hilfsmethode zum Bearbteiten der Veranstaltungsinformationen in DVeranstaltungsuebersicht und -bearbeiten
-	/**@author Diana */
+	/**@author Diana 
+	 * Hilfsmethode zum Bearbteiten der Veranstaltungsinformationen in 
+	 * DVeranstaltungsuebersicht und -bearbeiten
+	 */
 	public void setVBeschreibung(Veranstaltung veranstaltung){
 		try {
 			dbr.updateVeranstaltungBeschreibung(veranstaltung.getName(), veranstaltung.getBeschreibung());
 		}
 		catch (DatabaseException e){
 			System.out.println(e.getErrorMsg());
-			return;
 		}
 	}
 
-	//Hilfsmethode für createGruppenTree
-	/**@author Diana */
+	/**@author Diana 
+	 * Hilfsmethode für createGruppenTree
+	 */
 	public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) {
-
 		try{
 			return dbr.getGruppen(veranstaltung);
 		} catch (DatabaseException e) {
@@ -102,10 +139,10 @@ public class MainController {
 		return null;
 	}
 
-	//Hilfsmethode für createGruppenTree
-	/**@author Diana */
+	/**@author Diana 
+	 * Hilfsmethode für createGruppenTree
+	 */
 	public ArrayList<Team> getTeams(Gruppe gruppe) {
-
 		try{
 			return dbr.getTeams(gruppe);
 		} catch (DatabaseException e) {
@@ -114,10 +151,10 @@ public class MainController {
 		return null;
 	}
 
-	//Hilfsmethode für createGruppenTree
-	/**@author Diana */
+	/**@author Diana 
+	 * Hilfsmethode für createGruppenTree
+	 */
 	public ArrayList<Student> getStudenten(Team team) {
-
 		try{
 			return dbr.getStudenten(team);
 		} catch (DatabaseException e) {
@@ -126,10 +163,10 @@ public class MainController {
 		return null;
 	}
 
-	//Methode zum erstellen der GruppenTrees in Dozenten- und Studentenansticht
-	/**@author Diana */
+	/**@author Diana 
+	 * Methode zum erstellen der GruppenTrees in Dozenten- und Studentenansticht
+	 */
 	public JTree createGruppenTree(Veranstaltung veranstaltung, JScrollPane tsp) {
-
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
 
 		for (Gruppe gruppe: getGruppen(veranstaltung)) {
@@ -149,8 +186,9 @@ public class MainController {
 		return tree;
 	}
 
-	//Erstellt die GruppenID bestehend aus den letzten zwei Zahlen des Jahres und einem Laufindex
-	/**@author Diana*/
+	/**@author Diana
+	 * Erstellt die GruppenID bestehend aus den letzten zwei Zahlen des Jahres und einem Laufindex
+	 */
 	public int createGruppenID(Veranstaltung veranstaltung){
 		//TODO: Prüfen ob GruppenID bereits vergeben ist
 
@@ -163,8 +201,9 @@ public class MainController {
 		return Integer.parseInt(gruppenID);
 	}
 
-	//Erstellt die TeamID bestehend aus der GruppenID und einem Laufindex
-	/**@author Diana*/
+	/**@author Diana
+	 * Erstellt die TeamID bestehend aus der GruppenID und einem Laufindex
+	 */
 	public int createTeamID(Gruppe gruppe){
 		//TODO: Prüfen ob TeamID bereits vergeben ist
 		int teamanzahl = gruppe.getTeams().size()+1;
@@ -172,8 +211,9 @@ public class MainController {
 		return Integer.parseInt(teamID);
 	}
 
-	//Hilfsmethode für GruppenTree in DGruppenuebersicht und -bearbeiten
-	/**@author Diana */
+	/**@author Diana 
+	 * Hilfsmethode für GruppenTree in DGruppenuebersicht und -bearbeiten
+	 */
 	public void createGruppe(int gruppenid, Dozent d, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus){
 		try {
 			dbr.createGruppe(gruppenid, d.getEmail(), veranstaltung, einschreibungsfrist, uhrzeit, wochentag, wochenrhytmus);
@@ -191,51 +231,6 @@ public class MainController {
 		}
 		return null;
 	}
-
-	/**@author Diana */
-	/*public ArrayList<Unterblock> getUnterblock(Student student, Leistung leistungsblock, Veranstaltung veranstaltung){
-		try {
-			return dbr.getLeistungsblock(student, leistungsblock, veranstaltung);
-		} catch (DatabaseException e){
-			System.out.println(e.getErrorMsg());
-		}
-		return null;
-	}*/
-
-	/**@author Diana */
-	/*public ArrayList<Aufgabe> getAufgabe(Student student, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung){
-		try {
-			return dbr.getEinzelleistung(student, leistungsblock, unterblock, veranstaltung);
-		} catch (DatabaseException e){
-			System.out.println(e.getErrorMsg());
-		}
-		return null;
-	}*/
-
-	/**@author Diana */
-	/*public JTree createLeistungsTree(Veranstaltung veranstaltung, Student student, JScrollPane tsp) {
-
-		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
-
-		for (Leistung leistung: getLeistungsblock(student, veranstaltung)) {
-			DefaultMutableTreeNode leistungen = new DefaultMutableTreeNode("leistung");
-			root.add(leistungen);
-			for (Unterblock ub: getUnterblock(student, leistungsblock, veranstaltung)) {
-				DefaultMutableTreeNode unterbloecke = new DefaultMutableTreeNode("Unterblock");
-				leistungen.add(unterbloecke);
-				for (Leistung el: getEinzelleistung(student, leistungsblock, unterblock, veranstaltung)) {
-					DefaultMutableTreeNode aufgaben = new DefaultMutableTreeNode("Aufgabe");
-					aufgaben.add(unterbloecke);
-				}
-			}
-
-		}
-		JTree tree = new JTree(root);
-		tsp.setViewportView(tree);
-		return tree;
-	}*/
-
-
 
 	/**@author Diana*/
 	public void addGruppe (Veranstaltung veranstaltung, String email, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus){
@@ -280,7 +275,6 @@ public class MainController {
 
 	/**@author Diana */
     public void setTeam(Team team) {
-
         try{
             dbr.updateTeam(team);
         } catch (DatabaseException e) {
@@ -302,49 +296,16 @@ public class MainController {
 	/**@author Diana */
     public void setTeamgroesse(String veranstaltungsname, int teamgroesse){
 		try{
-		dbr.updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team(veranstaltungsname, teamgroesse);
-	} catch (DatabaseException e) {
-		System.out.println(e.getErrorMsg());
-		return;
-	}
-}
-
-
-	/**@author Diana*/
-    /*public void setLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung){
-
-        try {
-            dbr.updateLeistung(gruppe, team, veranstaltung);
-        } catch (DatabaseException e){
-            System.out.println(e.getErrorMsg());
-            return;
-        }
-    }*/
-
-	//Methoden für Studentenansicht
-	/**@author Diana */
-	public ArrayList<Veranstaltung> getVeranstaltungen(Student me){
-		try {
-			return dbr.getVeranstaltungen(me);
+			dbr.updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team(veranstaltungsname, teamgroesse);
 		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getErrorMsg());
+			return;
 		}
-		return null;
-	}
+    }
 
-	/**@author Diana */
-	public ArrayList<Veranstaltung> getAlleV(){
-		try {
-			return dbr.getAllVeranstaltungen();
-		}catch (DatabaseException e){
-			System.out.println(e.getErrorMsg());
-			return null;
-		}
-	}
-
-	//Hilfsmethode für Teambeitritt
-	/**@author Diana */
+	/**@author Diana 
+	 * Hilfsmethode für Teambeitritt
+	 */
 	public void createGehoertZu(int matrikelnummer, int teamid, int gruppenid, String veranstaltungsname){
 		try {
 			dbr.createGehoertZu(matrikelnummer, teamid, gruppenid, veranstaltungsname);
@@ -353,8 +314,9 @@ public class MainController {
 		}
 	}
 
-	//Hilfsmethode für Teamaustritt
-	/**@author Diana */
+	/**@author Diana 
+	 * Hilfsmethode für Teamaustritt
+	 */
 	public void deleteGehoertZu(int matrikelnummer, int teamid, int gruppenid, String veranstaltungsname){
 		try {
 			dbr.deleteGehoertZu(matrikelnummer, teamid, gruppenid, veranstaltungsname);
@@ -363,22 +325,59 @@ public class MainController {
 		}
 	}
 
-	//erzeugt Verifizierungscode für die Email Bestätigung
-	/**@author Diana*/
-    public String generateVerifyingCode() {
 
-        String charvalue = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-        char[] chars = charvalue.toCharArray();
+/**@author Diana */
+/*public ArrayList<Unterblock> getUnterblock(Student student, Leistung leistungsblock, Veranstaltung veranstaltung){
+	try {
+		return dbr.getLeistungsblock(student, leistungsblock, veranstaltung);
+	} catch (DatabaseException e){
+		System.out.println(e.getErrorMsg());
+	}
+	return null;
+}*/
 
-        String verifyingCode = "";
-        Random random = new Random();
+/**@author Diana */
+/*public ArrayList<Aufgabe> getAufgabe(Student student, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung){
+	try {
+		return dbr.getEinzelleistung(student, leistungsblock, unterblock, veranstaltung);
+	} catch (DatabaseException e){
+		System.out.println(e.getErrorMsg());
+	}
+	return null;
+}*/
 
-        for (int i=0; i<= 16; i++) {
-            verifyingCode += chars[random.nextInt(chars.length-1)];
-        }
+/**@author Diana */
+/*public JTree createLeistungsTree(Veranstaltung veranstaltung, Student student, JScrollPane tsp) {
 
-        System.out.println(verifyingCode);
+	DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
 
-        return verifyingCode;
+	for (Leistung leistung: getLeistungsblock(student, veranstaltung)) {
+		DefaultMutableTreeNode leistungen = new DefaultMutableTreeNode("leistung");
+		root.add(leistungen);
+		for (Unterblock ub: getUnterblock(student, leistungsblock, veranstaltung)) {
+			DefaultMutableTreeNode unterbloecke = new DefaultMutableTreeNode("Unterblock");
+			leistungen.add(unterbloecke);
+			for (Leistung el: getEinzelleistung(student, leistungsblock, unterblock, veranstaltung)) {
+				DefaultMutableTreeNode aufgaben = new DefaultMutableTreeNode("Aufgabe");
+				aufgaben.add(unterbloecke);
+			}
+		}
+
+	}
+	JTree tree = new JTree(root);
+	tsp.setViewportView(tree);
+	return tree;
+}*/
+
+/**@author Diana*/
+/*public void setLeistung(Gruppe gruppe, Team team, Veranstaltung veranstaltung){
+
+    try {
+        dbr.updateLeistung(gruppe, team, veranstaltung);
+    } catch (DatabaseException e){
+        System.out.println(e.getErrorMsg());
+        return;
     }
-}
+}*/
+    
+} //schliesst Klasse
