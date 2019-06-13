@@ -1019,26 +1019,7 @@ public class DBrequest {
         return  results;
     }
 
-    public int getGruppenanzahl(Veranstaltung veranstaltung) throws DatabaseException{
-        String veranstaltungsname = veranstaltung.getName();
-        try {
-            logwriter.writetoLog("function: getGruppenanzahl(Veranstaltung)","TRACE");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT Veranstaltung.Gruppenanzahl FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-            if(resultSize(rs)!=0) {
-                int result = rs.getInt("Gruppenanzahl");
-                logwriter.writetoLog("successful","TRACE");
-                return result;
-            }
-        }catch (SQLException ex){
-            logwriter.writetoLog("Connection Failed","ERROR");
-            throw new DatabaseException("Connection Failed");
-        }
-        logwriter.writetoLog("returned none","TRACE");
-        return  0;
-    }
-
-    private ArrayList<Dozent> getDozenten(Veranstaltung veranstaltung) throws  DatabaseException{
+    public ArrayList<Dozent> getDozenten(Veranstaltung veranstaltung) throws  DatabaseException{
         logwriter.writetoLog("  function: getDozenten(Veranstaltung)","TRACE");
         String veranstaltungsname = veranstaltung.getName();
         ArrayList<Dozent> results = new ArrayList<>();
@@ -1221,7 +1202,7 @@ public class DBrequest {
         return  results;
     }
 
-    private ArrayList<Unterblock> getUnterblock(Student student, Leistung leistungsblock, Veranstaltung veranstaltung) throws  DatabaseException
+    public ArrayList<Unterblock> getUnterblock(Student student, Leistung leistungsblock, Veranstaltung veranstaltung) throws  DatabaseException
     {
         logwriter.writetoLog("function: getUnterblock(Student, Leistung, Veranstaltung)","TRACE");
         String veranstaltungsname = veranstaltung.getName();
@@ -1244,7 +1225,7 @@ public class DBrequest {
         return  results;
     }
 
-    private ArrayList<Aufgabe> getEinzelleistung(Student student, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung) throws  DatabaseException
+    public ArrayList<Aufgabe> getEinzelleistung(Student student, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung) throws  DatabaseException
     {
         logwriter.writetoLog("function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)","TRACE");
         String veranstaltungsname = veranstaltung.getName();
@@ -1289,7 +1270,7 @@ public class DBrequest {
         return  results;
     }
 
-    private ArrayList<Unterblock> getUnterblock( Team team, Leistung leistungsblock) throws  DatabaseException
+    public ArrayList<Unterblock> getUnterblock( Team team, Leistung leistungsblock) throws  DatabaseException
     {
         logwriter.writetoLog("function: getLeistung(Team, Leistung)","TRACE");
         String veranstaltungsname = team.getGruppe().getVeranstaltung().getName();
@@ -1313,7 +1294,7 @@ public class DBrequest {
         return  results;
     }
 
-    private ArrayList<Aufgabe> getTeamleistung(Team team, Leistung leistungsblock, Unterblock unterblock) throws  DatabaseException
+    public ArrayList<Aufgabe> getTeamleistung(Team team, Leistung leistungsblock, Unterblock unterblock) throws  DatabaseException
     {
         logwriter.writetoLog("function: getTeamleistung(Team, Leistung, Unterblock)", "TRACE");
         String veranstaltungsname = team.getGruppe().getVeranstaltung().getName();

@@ -115,10 +115,10 @@ public class RegistrierenSeite implements FrameContent {
                     String Studiengang = studiengang.getText();
 
                     try {
-                    	char[] hashChar = MainController.getHash(Passwort.toCharArray());
-                    	String hashString = "";
-                    	for(int i=0;i<hashChar.length;i++)
-                    		hashString = hashString + hashChar[i];
+                        char[] hashChar = MainController.getHash(Passwort.toCharArray());
+                        String hashString = "";
+                        for (int i = 0; i < hashChar.length; i++)
+                            hashString = hashString + hashChar[i];
                         dbr.createNutzer(EMail, Titel, Vorname, Nachname, hashString);
                     } catch (DatabaseException databaseException) {
                         databaseException.printStackTrace();
@@ -135,10 +135,10 @@ public class RegistrierenSeite implements FrameContent {
                     String Fakultaet = fakultaet.getText();
 
                     try {
-                    	char[] hashChar = MainController.getHash(Passwort.toCharArray());
-                    	String hashString = "";
-                    	for(int i=0;i<hashChar.length;i++)
-                    		hashString = hashString + hashChar[i];
+                        char[] hashChar = MainController.getHash(Passwort.toCharArray());
+                        String hashString = "";
+                        for (int i = 0; i < hashChar.length; i++)
+                            hashString = hashString + hashChar[i];
                         dbr.createNutzer(EMail, Titel, Vorname, Nachname, hashString);
                     } catch (DatabaseException databaseException) {
                         databaseException.printStackTrace();
@@ -156,11 +156,11 @@ public class RegistrierenSeite implements FrameContent {
 
                     errorLabel.setVisible(true);
                 } else {*/
-                    //TODO: Email mit Verifizierungscode senden
+                //TODO: Email mit Verifizierungscode senden
 
-                    String verifyingCode = mainFrame.getController().generateVerifyingCode();
+                String verifyingCode = mainFrame.getController().generateVerifyingCode();
 
-                    mainFrame.setContent(new VerifikationsSeite());
+                mainFrame.setContent(new VerifikationsSeite());
                 //}
             }
         });
@@ -277,4 +277,5 @@ public class RegistrierenSeite implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return RegistrierenPanel;
     }
+
 }

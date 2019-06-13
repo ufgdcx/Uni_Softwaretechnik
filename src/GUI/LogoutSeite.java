@@ -54,7 +54,7 @@ public class LogoutSeite implements FrameContent {
      */
     private void $$$setupUI$$$() {
         LogoutPanel = new JPanel();
-        LogoutPanel.setLayout(new GridLayoutManager(3, 3, new Insets(50, 50, 300, 50), -1, -1));
+        LogoutPanel.setLayout(new GridLayoutManager(3, 3, new Insets(150, 50, 400, 50), -1, -1));
         logoutLabel = new JLabel();
         logoutLabel.setText("Sie haben sich erfolgreich ausgeloggt.");
         LogoutPanel.add(logoutLabel, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -76,4 +76,5 @@ public class LogoutSeite implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return LogoutPanel;
     }
+
 }

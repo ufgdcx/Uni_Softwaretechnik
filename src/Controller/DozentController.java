@@ -3,7 +3,8 @@ package Controller;
 import GUI.*;
 import Klassen.*;
 
-/**@author Oleg
+/**@author Oleg, Diana
+ * Klasse erstellt von Oleg und erweitert von Diana
  *
  * Steuert die Dozentenansicht.
  */

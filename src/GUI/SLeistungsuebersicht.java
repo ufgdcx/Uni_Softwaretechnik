@@ -6,7 +6,9 @@
 
 package GUI;
 
+import Klassen.Leistung;
 import Klassen.Student;
+import Klassen.Unterblock;
 import Klassen.Veranstaltung;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
@@ -16,19 +18,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
 public class SLeistungsuebersicht implements FrameContent {
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     private GUIMain mainFrame;
 
     private JPanel LeistungsuebersichtPanel;
     private JButton zurueck;
-    private JTree tree1;
-    /**@author Diana*/
+    /**
+     * @author Diana
+     */
     private JButton logoutButton;
+    private JTree tree;
+    private JScrollPane treeScrollPane;
 
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     public String getName() {
 
         return "Leistungsübersicht - Student";
@@ -43,9 +54,24 @@ public class SLeistungsuebersicht implements FrameContent {
 
         mainFrame = m;
     }
-    /**@author Diana
+
+    /**
+     * @author Diana
      */
     public SLeistungsuebersicht(Student student, ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index, int preview) {
+
+        //initialisiere den Baum
+        treeScrollPane.setViewportView(tree);
+        //Überprüfung des ScrollPane auf Veränderungen und Aktualisierung der Daten mit Hilfe der DB
+        treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+
+                tree = mainFrame.getController().createLeistungsTree(sVL.get(index), student, treeScrollPane);
+
+            }
+        });
+
         zurueck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,20 +103,19 @@ public class SLeistungsuebersicht implements FrameContent {
      */
     private void $$$setupUI$$$() {
         LeistungsuebersichtPanel = new JPanel();
-        LeistungsuebersichtPanel.setLayout(new GridLayoutManager(2, 3, new Insets(20, 50, 50, 20), -1, -1));
-        final JPanel panel1 = new JPanel();
-        panel1.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        LeistungsuebersichtPanel.add(panel1, new GridConstraints(0, 0, 2, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(187, 24), null, 0, false));
-        tree1 = new JTree();
-        panel1.add(tree1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
-        zurueck = new JButton();
-        zurueck.setText("zurück");
-        LeistungsuebersichtPanel.add(zurueck, new GridConstraints(0, 1, 2, 1, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        LeistungsuebersichtPanel.setLayout(new GridLayoutManager(3, 2, new Insets(20, 50, 50, 20), -1, -1));
         logoutButton = new JButton();
         logoutButton.setText("Logout");
-        LeistungsuebersichtPanel.add(logoutButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        LeistungsuebersichtPanel.add(logoutButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        treeScrollPane = new JScrollPane();
+        LeistungsuebersichtPanel.add(treeScrollPane, new GridConstraints(0, 0, 3, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        tree = new JTree();
+        treeScrollPane.setViewportView(tree);
+        zurueck = new JButton();
+        zurueck.setText("zurück");
+        LeistungsuebersichtPanel.add(zurueck, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        LeistungsuebersichtPanel.add(spacer1, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        LeistungsuebersichtPanel.add(spacer1, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
     }
 
     /**
@@ -99,4 +124,5 @@ public class SLeistungsuebersicht implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return LeistungsuebersichtPanel;
     }
+
 }
