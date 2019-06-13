@@ -138,7 +138,7 @@ public class RegistrierenSeite implements FrameContent {
                     	char[] hashChar = MainController.getHash(Passwort.toCharArray());
                     	String hashString = "";
                     	for(int i=0;i<hashChar.length;i++)
-                    		hashString = hashString + hashChar[i];asdf
+                    		hashString = hashString + hashChar[i];
                         dbr.createNutzer(EMail, Titel, Vorname, Nachname, hashString);
                     } catch (DatabaseException databaseException) {
                         databaseException.printStackTrace();
