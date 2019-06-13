@@ -88,8 +88,9 @@ public class SVeranstaltungsuebersicht implements FrameContent {
         bearbeiten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                mainFrame.setContent(new SGruppenuebersicht(student, alleVL, sVL, veranstaltungenList.getSelectedIndex(), 1));
+                if (veranstaltungenList.getSelectedIndex() >= 0) {
+                    mainFrame.setContent(new SGruppenuebersicht(student, alleVL, sVL, veranstaltungenList.getSelectedIndex(), 1));
+                }
             }
         });
         ansehen.addActionListener(new ActionListener() {

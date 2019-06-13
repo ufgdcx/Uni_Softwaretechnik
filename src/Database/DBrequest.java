@@ -910,6 +910,7 @@ public class DBrequest {
 
     //getter(primitiv)
     public Nutzer getNutzer(String email, char[] passwd) throws DatabaseException {
+        System.out.println(passwd);
         logwriter.writetoLog("function: getNutzer(String,char[])","TRACE");
         //converting char array for password to a string
         String pwString = new String(passwd);
@@ -1691,15 +1692,15 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Studienganganteil");
             stmt = con.createStatement();
-            stmt.executeUpdate("DELETE FROM Team");
-            stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Gehoert_zu");
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Team");
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Gruppe");
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Student");
             stmt = con.createStatement();
-            stmt.executeUpdate("DELETE FROM leitet");
+            stmt.executeUpdate("DELETE FROM Leitet");
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Dozent");
             stmt = con.createStatement();
