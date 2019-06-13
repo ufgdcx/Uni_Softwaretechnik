@@ -115,7 +115,11 @@ public class RegistrierenSeite implements FrameContent {
                     String Studiengang = studiengang.getText();
 
                     try {
-                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, MainController.getHash(Passwort.toCharArray()).toString());
+                    	char[] hashChar = MainController.getHash(Passwort.toCharArray());
+                    	String hashString = "";
+                    	for(int i=0;i<hashChar.length;i++)
+                    		hashString = hashString + hashChar[i];
+                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, hashString);
                     } catch (DatabaseException databaseException) {
                         databaseException.printStackTrace();
                     }
@@ -131,7 +135,11 @@ public class RegistrierenSeite implements FrameContent {
                     String Fakultaet = fakultaet.getText();
 
                     try {
-                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, MainController.getHash(Passwort.toCharArray()).toString());
+                    	char[] hashChar = MainController.getHash(Passwort.toCharArray());
+                    	String hashString = "";
+                    	for(int i=0;i<hashChar.length;i++)
+                    		hashString = hashString + hashChar[i];
+                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, hashString);
                     } catch (DatabaseException databaseException) {
                         databaseException.printStackTrace();
                     }
