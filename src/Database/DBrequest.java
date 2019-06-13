@@ -1700,7 +1700,7 @@ public class DBrequest {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Student");
             stmt = con.createStatement();
-            stmt.executeUpdate("DELETE FROM leitet");
+            stmt.executeUpdate("DELETE FROM Leitet");
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Dozent");
             stmt = con.createStatement();
