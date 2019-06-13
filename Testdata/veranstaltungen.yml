@@ -1,46 +1,16 @@
 !!Klassen.Veranstaltung
 beschreibung: Test1
-dozenten:
-  - {
-        email: ErsterDozent@uni-rostock.de,
-        fakultaet: ABC,
-        gruppen: null,
-        nachname: Dozent,
-        passwort: '123456',
-        titel: Meister,
-        veranstaltungen: null,
-        vorname: Bob
-  }
-  - {
-        email: ZweiterDozent@uni-rostock.de,
-        fakultaet: IEF,
-        gruppen: null,
-        nachname: Dozent,
-        passwort: '123456',
-        titel: Prof,
-        veranstaltungen: null,
-        vorname: Zweiter
-    }
-fakultaet: Veranstaltung
+dozenten: null
+fakultaet: VER
 gruppen: null
 maxTeilnehmer: 4
-name: ErsteVeranstaltung
+name: AAErsteVeranstaltung
 teamanzahl: 2
 --- !!Klassen.Veranstaltung
 beschreibung: Test2
-dozenten:
-  - {
-        email: DritterDozent@uni-rostock.de,
-        fakultaet: IEF,
-        gruppen: null,
-        nachname: Dozent,
-        passwort: '123456',
-        titel: Prof.,
-        veranstaltungen: null,
-        vorname: Dritter
-    }
-fakultaet: IEF
+dozenten: null
+fakultaet: VER
 gruppen: null
 maxTeilnehmer: 42
-name: "Aktuelle Test-Daten 2019\r\n"
+name: AAZweiteVeranstaltung
 teamanzahl: 42

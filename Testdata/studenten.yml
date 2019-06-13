@@ -1,8 +1,8 @@
 !!Klassen.Student
 {
-  email: student1.student@uni-rostock.de,
+  email: aastudent1.student@uni-rostock.de,
   leistungsblock: null,
-  matrikelnr: 4242421,
+  matrikelnr: 1142424,
   nachname: student,
   passwort: '123456',
   studiengang: IN,
@@ -13,9 +13,9 @@
 ---
 !!Klassen.Student
 {
-  email: student2.student@uni-rostock.de,
+  email: aastudent2.student@uni-rostock.de,
   leistungsblock: null,
-  matrikelnr: 4242422,
+  matrikelnr: 1242424,
   nachname: student,
   passwort: '123456',
   studiengang: ITTI,
