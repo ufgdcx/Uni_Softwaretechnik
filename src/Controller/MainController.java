@@ -86,6 +86,7 @@ public class MainController {
 		return null;
 	}
 
+	//Hilfsmethode zum Bearbteiten der Veranstaltungsinformationen in DVeranstaltungsuebersicht und -bearbeiten
 	/**@author Diana */
 	public void setVBeschreibung(Veranstaltung veranstaltung){
 		try {
@@ -97,6 +98,7 @@ public class MainController {
 		}
 	}
 
+	//Hilfsmethode für createGruppenTree
 	/**@author Diana */
 	public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) {
 
@@ -108,6 +110,7 @@ public class MainController {
 		return null;
 	}
 
+	//Hilfsmethode für createGruppenTree
 	/**@author Diana */
 	public ArrayList<Team> getTeams(Gruppe gruppe) {
 
@@ -118,6 +121,8 @@ public class MainController {
 		}
 		return null;
 	}
+
+	//Hilfsmethode für createGruppenTree
 	/**@author Diana */
 	public ArrayList<Student> getStudenten(Team team) {
 
@@ -129,15 +134,7 @@ public class MainController {
 		return null;
 	}
 
-	/**@author Diana */
-	public void createGruppe(int gruppenid, Dozent d, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus){
-		try {
-			dbr.createGruppe(gruppenid, d.getEmail(), veranstaltung, einschreibungsfrist, uhrzeit, wochentag, wochenrhytmus);
-		}  catch (DatabaseException e) {
-			e.printStackTrace();
-		}
-	}
-
+	//Methode zum erstellen der GruppenTrees in Dozenten- und Studentenansticht
 	/**@author Diana */
 	public JTree createGruppenTree(Veranstaltung veranstaltung, JScrollPane tsp) {
 
@@ -159,27 +156,6 @@ public class MainController {
 		tsp.setViewportView(tree);
 		return tree;
 	}
-
-	/**@author Diana */
-	/*public void createLeistungsTree(Veranstaltung veranstaltung, JScrollPane tsp) {
-
-		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
-
-		for (Gruppe gruppe: getGruppen(veranstaltung)) {
-			DefaultMutableTreeNode gruppen = new DefaultMutableTreeNode("Gruppe" + " " + gruppe.getGruppenID());
-			root.add(gruppen);
-			for (Team team: getTeams(gruppe)) {
-				DefaultMutableTreeNode teams = new DefaultMutableTreeNode("Team" + " " + team.getTeamID());
-				gruppen.add(teams);
-				for (Student student: getStudenten(team)) {
-					DefaultMutableTreeNode studenten = new DefaultMutableTreeNode(student.getVorname()+ " " + student.getNachname());
-					teams.add(studenten);
-				}
-			}
-
-		}
-		tsp.setViewportView(new JTree(root));
-	}*/
 
 	//Erstellt die GruppenID bestehend aus den letzten zwei Zahlen des Jahres und einem Laufindex
 	/**@author Diana*/
@@ -204,6 +180,71 @@ public class MainController {
 		return Integer.parseInt(teamID);
 	}
 
+	//Hilfsmethode für GruppenTree in DGruppenuebersicht und -bearbeiten
+	/**@author Diana */
+	public void createGruppe(int gruppenid, Dozent d, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus){
+		try {
+			dbr.createGruppe(gruppenid, d.getEmail(), veranstaltung, einschreibungsfrist, uhrzeit, wochentag, wochenrhytmus);
+		}  catch (DatabaseException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**@author Diana */
+	public ArrayList<Leistung> getLeistungsblock(Student student, Veranstaltung veranstaltung){
+		try {
+			return dbr.getLeistungsblock(student, veranstaltung);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+		return null;
+	}
+
+	/**@author Diana */
+	/*public ArrayList<Unterblock> getUnterblock(Student student, Leistung leistungsblock, Veranstaltung veranstaltung){
+		try {
+			return dbr.getLeistungsblock(student, leistungsblock, veranstaltung);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+		return null;
+	}*/
+
+	/**@author Diana */
+	/*public ArrayList<Aufgabe> getAufgabe(Student student, Leistung leistungsblock, Unterblock unterblock, Veranstaltung veranstaltung){
+		try {
+			return dbr.getEinzelleistung(student, leistungsblock, unterblock, veranstaltung);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+		return null;
+	}*/
+
+	/**@author Diana */
+	/*public JTree createLeistungsTree(Veranstaltung veranstaltung, Student student, JScrollPane tsp) {
+
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
+
+		for (Leistung leistung: getLeistungsblock(student, veranstaltung)) {
+			DefaultMutableTreeNode leistungen = new DefaultMutableTreeNode("leistung");
+			root.add(leistungen);
+			for (Unterblock ub: getUnterblock(student, leistungsblock, veranstaltung)) {
+				DefaultMutableTreeNode unterbloecke = new DefaultMutableTreeNode("Unterblock");
+				leistungen.add(unterbloecke);
+				for (Leistung el: getEinzelleistung(student, leistungsblock, unterblock, veranstaltung)) {
+					DefaultMutableTreeNode aufgaben = new DefaultMutableTreeNode("Aufgabe");
+					aufgaben.add(unterbloecke);
+				}
+			}
+
+		}
+		JTree tree = new JTree(root);
+		tsp.setViewportView(tree);
+		return tree;
+	}*/
+
+
+
 	/**@author Diana*/
 	public void addGruppe (Veranstaltung veranstaltung, String email, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus){
 		try{
@@ -221,16 +262,6 @@ public class MainController {
 			System.out.println(e.getErrorMsg());
 		}
 	}
-
-	/**@author Diana */
-    public ArrayList<Leistung> getLeistung(Team team){
-        try {
-            return dbr.getLeistung(team);
-        } catch (DatabaseException e){
-            System.out.println(e.getErrorMsg());
-        }
-        return null;
-    }
 
 	/**@author Diana */
 	public Team getTeam(Student student, Gruppe gruppe) {
