@@ -33,27 +33,19 @@ public class MainController {
 	}
 
     /**@author Sebastian*/
-    public char[] getHash(char[] baseChar) {
-        String baseString = baseChar.toString();
-        MessageDigest digest;
-        try {
-            digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(baseString.getBytes(StandardCharsets.UTF_8));
-            return hash.toString().toCharArray();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public char[] getHash(char[] base) {
+    	String baseString = "";
+    	for(int i=0;i<base.length;i++)
+    		baseString = baseString + base[i];
+    	return String.valueOf(baseString.hashCode()).toCharArray();
     }
 
 	/**@author Oleg */
 	public void login(String email, char[] passwd) {
 		//handle authentification
 		try {
-		    //System.out.println("Passwort Hash: " + getHash(passwd).toString());
-			n = dbr.getNutzer(email,passwd);
+			n = dbr.getNutzer(email,getHash(passwd));
 		} catch (DatabaseException e) {
-
 			System.out.println(e.getErrorMsg());
             return;
 		}
