@@ -6,14 +6,12 @@
 
 package GUI;
 
-import Klassen.Student;
-import Klassen.Veranstaltung;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import Controller.StudentController;
-
+import Klassen.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -61,14 +59,14 @@ public class SAlleVeranstaltungen implements FrameContent {
     }
 
     /**
-     * @author Oleg, Diana
+     * @author Diana, Oleg
      */
     public SAlleVeranstaltungen(GUIMain m) {
-    	mainFrame = m;
-    	StudentController ctr = (StudentController) mainFrame.getController();
-    	Student student = (Student) ctr.getSubject();
-    	ArrayList<Veranstaltung> alleVL = ctr.getAlleV();
-    	ArrayList<Veranstaltung> sVL = ctr.getVeranstaltungen();
+        mainFrame = m;
+        StudentController ctr = (StudentController) mainFrame.getController();
+        Student student = (Student) ctr.getSubject();
+        ArrayList<Veranstaltung> alleVL = ctr.getAlleV();
+        ArrayList<Veranstaltung> sVL = ctr.getVeranstaltungen();
         ArrayList<String> veranstaltungen = new ArrayList<String>();
 
         for (Veranstaltung v : alleVL) {
@@ -76,7 +74,6 @@ public class SAlleVeranstaltungen implements FrameContent {
             dLM.add(dLM.size(), v.getName());
         }
 
-        //dLM.addAll(veranstaltungen);
         veranstaltungenList.setModel(dLM);
 
         eintragen.addActionListener(new ActionListener() {
@@ -84,8 +81,8 @@ public class SAlleVeranstaltungen implements FrameContent {
             public void actionPerformed(ActionEvent e) {
                 if (veranstaltungenList.getSelectedIndex() >= 0) {
                 	Veranstaltung v = alleVL.get(veranstaltungenList.getSelectedIndex());
-                	//eintragen wird vom Controller übernommen (wechselt das Fenster)
                 	ctr.eintragen(v);
+                    mainFrame.setContent(new SGruppenuebersicht(mainFrame,v));
                 } else {
                     errorLabel.setVisible(true);
                 }

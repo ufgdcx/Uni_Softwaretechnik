@@ -53,7 +53,6 @@ public class DVeranstaltung implements FrameContent {
         InfosBearbeiten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 mainFrame.setContent(new DVeranstaltungbearbeiten(dVL, index));
             }
         });

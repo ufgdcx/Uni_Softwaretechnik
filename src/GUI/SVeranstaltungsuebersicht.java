@@ -1,5 +1,5 @@
 /**@author Kristi, Diana
- * Klasse erstellt von Kristi und erweitert von Diana
+ * Klasse erstellt von Kristi und erweitert von Diana, Oleg
  *
  * Fenster in dem der Student alle Veranstaltungen einsehen kann, in die er sich eingetragen hat
  * */
@@ -19,9 +19,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class SVeranstaltungsuebersicht implements FrameContent {
-    /**
-     * @author Kristi
-     */
+    /**@author Kristi*/
     private GUIMain mainFrame;
 
     private JPanel VeranstaltungsuebersichtPanel;
@@ -33,9 +31,7 @@ public class SVeranstaltungsuebersicht implements FrameContent {
     private JButton ansehen;
     //Button zum Fenster mit allen Veranstaltungen, um Veranstaltung(en) beizutreten
     private JButton hinzufuegen;
-    /**
-     * @author Diana
-     */
+    /**@author Diana*/
     //Button für Logout
     private JButton logoutButton;
     //Button zum Verlassen einer Veranstaltung
@@ -59,23 +55,22 @@ public class SVeranstaltungsuebersicht implements FrameContent {
     }
 
     /**
-     * @author Oleg, Diana
+     * @author Diana, Oleg
      */
     public SVeranstaltungsuebersicht(GUIMain m) {
-    	mainFrame = m;
-    	StudentController ctr = (StudentController) mainFrame.getController();
-    	Student student = (Student) ctr.getSubject();
-    	ArrayList<Veranstaltung> VL = ctr.getVeranstaltungen();
-    	int preview = 1;
-    	
-    	ArrayList<String> veranstaltungen = new ArrayList<String>();
+        mainFrame = m;
+        StudentController ctr = (StudentController) mainFrame.getController();
+        Student student = (Student) ctr.getSubject();
+        ArrayList<Veranstaltung> VL = ctr.getVeranstaltungen();
+        int preview = 1;
+
+        ArrayList<String> veranstaltungen = new ArrayList<String>();
 
         for (Veranstaltung v : VL) {
             veranstaltungen.add(v.getName());
             dLM.add(dLM.size(), v.getName());
         }
 
-        //dLM.addAll(veranstaltungen);
         veranstaltungenList.setModel(dLM);
 
         hinzufuegen.addActionListener(new ActionListener() {
@@ -87,30 +82,30 @@ public class SVeranstaltungsuebersicht implements FrameContent {
         verlassen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	if (veranstaltungenList.getSelectedIndex() >= 0) {
-	            	Veranstaltung v = VL.get(veranstaltungenList.getSelectedIndex());
-	            	ctr.austragen(v);
-	            	//Uebersicht neu laden
-	            	mainFrame.setContent(new SVeranstaltungsuebersicht(mainFrame));
-            	}
+                if (veranstaltungenList.getSelectedIndex() >= 0) {
+                    Veranstaltung v = VL.get(veranstaltungenList.getSelectedIndex());
+                    ctr.austragen(v);
+                    //Uebersicht neu laden
+                    mainFrame.setContent(new SVeranstaltungsuebersicht(mainFrame));
+                }
             }
         });
         bearbeiten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (veranstaltungenList.getSelectedIndex() >= 0) {
-                	Veranstaltung v = VL.get(veranstaltungenList.getSelectedIndex());
-                    mainFrame.setContent(new SGruppenuebersicht(mainFrame,v));
+                    Veranstaltung v = VL.get(veranstaltungenList.getSelectedIndex());
+                    mainFrame.setContent(new SGruppenuebersicht(mainFrame, v));
                 }
             }
         });
         ansehen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	if (veranstaltungenList.getSelectedIndex() >= 0) {
-            		Veranstaltung v = VL.get(veranstaltungenList.getSelectedIndex());
-            		mainFrame.setContent(new SLeistungsuebersicht(mainFrame, v));
-            	}
+                if (veranstaltungenList.getSelectedIndex() >= 0) {
+                    Veranstaltung v = VL.get(veranstaltungenList.getSelectedIndex());
+                    mainFrame.setContent(new SLeistungsuebersicht(mainFrame, v));
+                }
             }
         });
         logoutButton.addActionListener(new ActionListener() {
@@ -120,58 +115,6 @@ public class SVeranstaltungsuebersicht implements FrameContent {
             }
         });
     }
-    
-    /**
-     * @author Diana, Oleg
-     *//*
-    public SVeranstaltungsuebersicht(Student student, ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index, int preview) {
-
-        ArrayList<String> veranstaltungen = new ArrayList<String>();
-
-        for (Veranstaltung v : sVL) {
-            veranstaltungen.add(v.getName());
-            dLM.add(dLM.size(), v.getName());
-        }
-
-        //dLM.addAll(veranstaltungen);
-        veranstaltungenList.setModel(dLM);
-
-        hinzufuegen.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                mainFrame.setContent(new SAlleVeranstaltungen(student, alleVL, sVL, veranstaltungenList.getSelectedIndex(), preview));
-            }
-        });
-        verlassen.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        bearbeiten.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (veranstaltungenList.getSelectedIndex() >= 0) {
-                    mainFrame.setContent(new SGruppenuebersicht(student, alleVL, sVL, veranstaltungenList.getSelectedIndex(), 1));
-                }
-            }
-        });
-        ansehen.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            	if (veranstaltungenList.getSelectedIndex() >= 0) {
-            		mainFrame.setContent(new SLeistungsuebersicht(student, alleVL, sVL, veranstaltungenList.getSelectedIndex(), preview));
-            	}
-            }
-        });
-        logoutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainFrame.setContent(new LogoutSeite());
-            }
-        });
-    }*/
 
     {
 // GUI initializer generated by IntelliJ IDEA GUI Designer

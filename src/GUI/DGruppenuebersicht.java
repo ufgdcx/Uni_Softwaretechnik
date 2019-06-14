@@ -46,7 +46,9 @@ public class DGruppenuebersicht implements FrameContent {
         mainFrame = m;
     }
 
-    /**@author Diana*/
+    /**
+     * @author Diana
+     */
     public DGruppenuebersicht(ArrayList<Veranstaltung> dVL, int index) {
 
         //initialisiere den Baum
@@ -61,8 +63,31 @@ public class DGruppenuebersicht implements FrameContent {
         einsehen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                mainFrame.setContent(new DLeistungsuebersicht(dVL, index));
+                if (tree.getSelectionPath().getPath().length >= 4) {
+                    //tree.getSelectionPath().getPathComponent(index).toString() gibt Array mit Veranstaltungsname, Gruppe, Team, Student zurück
+                    //Auswahl des 2. Arrayelements und absplitten der GruppenID
+                    String gruppenID = tree.getSelectionPath().getPathComponent(1).toString();
+                    gruppenID = gruppenID.split(" ")[1];
+                    //Auswahl des 3. Arrayelements und absplitten der TeamID
+                    String teamID = tree.getSelectionPath().getPathComponent(2).toString();
+                    teamID = teamID.split(" ")[1];
+                    //Auswahl des 3. Arrayelements
+                    String selectedStudent = tree.getSelectionPath().getPathComponent(3).toString();
+                    selectedStudent = selectedStudent.split(" ")[1];
+                    for (Gruppe g : mainFrame.getController().getGruppen(dVL.get(index))) {
+                        if (g.getGruppenID() == Integer.parseInt(gruppenID)) {
+                            for (Team t : mainFrame.getController().getTeams(g)) {
+                                if (t.getTeamID() == Integer.parseInt(teamID)) {
+                                    for (Student student : mainFrame.getController().getStudenten(t)) {
+                                        if (student.getNachname().equals(selectedStudent)) {
+                                            mainFrame.setContent(new DLeistungsuebersicht(dVL, student, index));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         });
         bearbeiten.addActionListener(new ActionListener() {

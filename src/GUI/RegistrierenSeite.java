@@ -104,50 +104,21 @@ public class RegistrierenSeite implements FrameContent {
                 String Vorname = vorname.getText();
                 String Nachname = nachname.getText();
                 String EMail = emailadresse.getText() + "@uni-rostock.de";
-                String Passwort = String.valueOf(passwort.getPassword());
+                char[] Passwort = passwort.getPassword();
 
-                DBrequest dbr = new DBrequest();
-
+                char[] hashChar = MainController.getHash(Passwort);
+                String hashString = "";
+                for (int i = 0; i < hashChar.length; i++)
+                    hashString = hashString + hashChar[i];
 
                 if (studentRadioButton.isSelected()) {
-
-                    int Matrikel = Integer.parseInt(matrikelnummer.getText());
-                    String Studiengang = studiengang.getText();
-
-                    try {
-                        char[] hashChar = MainController.getHash(Passwort.toCharArray());
-                        String hashString = "";
-                        for (int i = 0; i < hashChar.length; i++)
-                            hashString = hashString + hashChar[i];
-                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, hashString);
-                    } catch (DatabaseException databaseException) {
-                        databaseException.printStackTrace();
-                    }
-                    try {
-                        dbr.createStudent(EMail, Matrikel, Studiengang);
-                    } catch (DatabaseException databaseException) {
-                        databaseException.printStackTrace();
-                    }
+                        mainFrame.getController().createNutzer(EMail, Titel, Vorname, Nachname, hashString);
+                        mainFrame.getController().createStudent(EMail, Integer.parseInt(matrikelnummer.getText()), studiengang.getText());
                 }
 
                 if (dozentRadioButton.isSelected()) {
-
-                    String Fakultaet = fakultaet.getText();
-
-                    try {
-                        char[] hashChar = MainController.getHash(Passwort.toCharArray());
-                        String hashString = "";
-                        for (int i = 0; i < hashChar.length; i++)
-                            hashString = hashString + hashChar[i];
-                        dbr.createNutzer(EMail, Titel, Vorname, Nachname, hashString);
-                    } catch (DatabaseException databaseException) {
-                        databaseException.printStackTrace();
-                    }
-                    try {
-                        dbr.createDozent(EMail, Fakultaet);
-                    } catch (DatabaseException databaseException) {
-                        databaseException.printStackTrace();
-                    }
+                        mainFrame.getController().createNutzer(EMail, Titel, Vorname, Nachname, hashString);
+                        mainFrame.getController().createDozent(EMail, fakultaet.getText());
                 }
 
                 //TODO: Passwort und Passwort wiederholen abgleichen
