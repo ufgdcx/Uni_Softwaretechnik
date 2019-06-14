@@ -1,412 +1,112 @@
-[TRACE] 2019-06-12 at 22:45:03 - function: getNutzer(String,char[])
-[TRACE] 2019-06-12 at 22:45:03 - successful(Student)
-[TRACE] 2019-06-12 at 22:45:03 - function: getAllVeranstaltungen()
-[TRACE] 2019-06-12 at 22:45:03 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:03 -   successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:03 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:03 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:03 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:03 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:03 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:3
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:04 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:04 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:05 -   successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:05 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:05 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:05 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:05 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:05 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:05 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:05 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:05 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:05 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:05 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:05 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:05 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:05 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:05 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:05 - successfully loaded:32
-[TRACE] 2019-06-12 at 22:45:05 - function: getVeranstaltung(Student)
-[TRACE] 2019-06-12 at 22:45:05 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:05 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:05 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:05 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:05 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:11 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:11 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:11 - successful
-[TRACE] 2019-06-12 at 22:45:11 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:11 - successful
-[TRACE] 2019-06-12 at 22:45:11 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:11 - successful
-[TRACE] 2019-06-12 at 22:45:11 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:45:11 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:12 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:12 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:12 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:12 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:12 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:12 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:12 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:12 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:12 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:12 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:12 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:12 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:12 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:12 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:12 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:12 - successful
-[TRACE] 2019-06-12 at 22:45:12 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:12 - successful
-[TRACE] 2019-06-12 at 22:45:12 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:12 - successful
-[TRACE] 2019-06-12 at 22:45:12 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:45:12 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:12 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:12 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:12 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:45:12 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:12 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:12 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:12 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:12 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:12 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:12 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:12 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:12 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:12 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:20 - function: deleteGehoertZu(primitive)
-[TRACE] 2019-06-12 at 22:45:21 - successful
-[TRACE] 2019-06-12 at 22:45:21 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:21 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:21 - successful
-[TRACE] 2019-06-12 at 22:45:21 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:21 - successful
-[TRACE] 2019-06-12 at 22:45:21 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:21 - successful
-[TRACE] 2019-06-12 at 22:45:21 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:45:21 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:21 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:21 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:21 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:21 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:21 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:21 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:21 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:21 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:21 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:21 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:21 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:21 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:21 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:21 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:21 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:21 - successful
-[TRACE] 2019-06-12 at 22:45:21 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:21 - successful
-[TRACE] 2019-06-12 at 22:45:21 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:21 - successful
-[TRACE] 2019-06-12 at 22:45:21 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:45:21 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:21 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:21 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:21 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:21 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:21 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:21 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:21 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:21 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:21 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:21 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:22 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:22 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:22 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:22 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:22 - successful
-[TRACE] 2019-06-12 at 22:45:22 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:22 - successful
-[TRACE] 2019-06-12 at 22:45:22 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:22 - successful
-[TRACE] 2019-06-12 at 22:45:22 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:45:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:22 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:22 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:22 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:22 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:22 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:22 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:22 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:22 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:22 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:22 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:22 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:22 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:22 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:22 - successful
-[TRACE] 2019-06-12 at 22:45:22 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:22 - successful
-[TRACE] 2019-06-12 at 22:45:22 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:22 - successful
-[TRACE] 2019-06-12 at 22:45:22 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:45:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:22 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:22 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:22 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:22 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:22 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:22 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:22 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:22 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:22 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:22 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:23 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:24 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:25 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:25 - successful
-[TRACE] 2019-06-12 at 22:45:25 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:25 - successful
-[TRACE] 2019-06-12 at 22:45:25 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:25 - successful
-[TRACE] 2019-06-12 at 22:45:25 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:45:25 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:25 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:25 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:25 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:25 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:25 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:25 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:25 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:25 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:25 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:25 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:25 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:25 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:25 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:25 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:25 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:25 - successful
-[TRACE] 2019-06-12 at 22:45:25 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:25 - successful
-[TRACE] 2019-06-12 at 22:45:25 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:25 - successful
-[TRACE] 2019-06-12 at 22:45:25 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:45:25 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:25 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:25 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:25 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:25 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:25 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:25 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:25 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:25 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:25 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:25 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:25 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:25 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:25 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:42 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:42 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:42 - successful
-[TRACE] 2019-06-12 at 22:45:42 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:42 - successful
-[TRACE] 2019-06-12 at 22:45:42 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:42 - successful
-[TRACE] 2019-06-12 at 22:45:42 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:45:42 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:42 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:42 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:42 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:42 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:42 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:42 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:42 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:42 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:42 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:42 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:43 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:43 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:43 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:43 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:45:43 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:43 - successful
-[TRACE] 2019-06-12 at 22:45:43 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:43 - successful
-[TRACE] 2019-06-12 at 22:45:43 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:45:43 - successful
-[TRACE] 2019-06-12 at 22:45:43 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:45:43 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:43 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:43 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:43 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:43 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:43 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:43 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:43 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:45:43 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:43 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:43 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:45:43 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:45:43 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:45:43 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:46:01 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:01 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:46:01 - successful
-[TRACE] 2019-06-12 at 22:46:01 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:46:01 - successful
-[TRACE] 2019-06-12 at 22:46:01 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:46:01 - successful
-[TRACE] 2019-06-12 at 22:46:01 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:46:01 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:46:01 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:46:01 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:46:01 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:46:01 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:46:01 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:46:01 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:46:01 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:46:01 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:46:01 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:46:01 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:46:02 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:46:02 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:46:02 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:46:02 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:02 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:46:02 - successful
-[TRACE] 2019-06-12 at 22:46:02 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:46:02 - successful
-[TRACE] 2019-06-12 at 22:46:02 - function: getDozent(String)
-[TRACE] 2019-06-12 at 22:46:02 - successful
-[TRACE] 2019-06-12 at 22:46:02 - successfully loaded:3
-[TRACE] 2019-06-12 at 22:46:02 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:46:02 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:46:02 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:46:02 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:46:02 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:46:02 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:46:02 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:46:02 - successfully loaded:2
-[TRACE] 2019-06-12 at 22:46:02 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:46:02 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:46:02 -   function: getStudenten(Team)
-[TRACE] 2019-06-12 at 22:46:02 -   successfully loaded:0
-[TRACE] 2019-06-12 at 22:46:02 - function: getTeams(Gruppe)
-[TRACE] 2019-06-12 at 22:46:02 - successfully loaded:0
-[TRACE] 2019-06-12 at 22:46:15 - function: getNutzer(String,char[])
-[TRACE] 2019-06-12 at 22:46:15 - successful(Student)
-[TRACE] 2019-06-12 at 22:46:15 - function: getAllVeranstaltungen()
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:2
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:2
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:2
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:2
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:3
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:16 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:16 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:17 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:17 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:17 -   successfully loaded:2
-[TRACE] 2019-06-12 at 22:46:17 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:17 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:17 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:17 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:17 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:17 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:17 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:17 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:17 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:17 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:17 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:17 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:17 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:17 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:17 - successfully loaded:32
-[TRACE] 2019-06-12 at 22:46:17 - function: getVeranstaltung(Student)
-[TRACE] 2019-06-12 at 22:46:17 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-12 at 22:46:17 -   successfully loaded:1
-[TRACE] 2019-06-12 at 22:46:17 - successfully loaded:1
+[TRACE] 2019-06-14 at 17:50:28 - function: getNutzer(String,char[])
+[TRACE] 2019-06-14 at 17:50:28 - successful(Dozent)
+[TRACE] 2019-06-14 at 17:50:29 - function: getVeranstaltung(Dozent)
+[TRACE] 2019-06-14 at 17:50:29 -   function: getDozenten(Veranstaltung)
+[TRACE] 2019-06-14 at 17:50:29 -   successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:29 -   function: getDozenten(Veranstaltung)
+[TRACE] 2019-06-14 at 17:50:29 -   successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:29 - successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:35 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-14 at 17:50:35 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:35 - successful
+[TRACE] 2019-06-14 at 17:50:35 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:35 - successful
+[TRACE] 2019-06-14 at 17:50:35 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:35 - successful
+[TRACE] 2019-06-14 at 17:50:35 - successfully loaded:3
+[TRACE] 2019-06-14 at 17:50:35 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:35 - successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:35 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:35 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:35 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:35 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:35 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:35 - successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:35 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:36 -   successfully loaded:3
+[TRACE] 2019-06-14 at 17:50:36 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:36 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:36 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:36 - successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:36 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-14 at 17:50:36 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:36 - successful
+[TRACE] 2019-06-14 at 17:50:36 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:36 - successful
+[TRACE] 2019-06-14 at 17:50:36 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:36 - successful
+[TRACE] 2019-06-14 at 17:50:36 - successfully loaded:3
+[TRACE] 2019-06-14 at 17:50:36 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:36 - successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:36 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:36 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:36 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:36 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:36 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:36 - successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:36 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:36 -   successfully loaded:3
+[TRACE] 2019-06-14 at 17:50:36 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:36 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:36 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:36 - successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:44 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-14 at 17:50:44 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:45 - successful
+[TRACE] 2019-06-14 at 17:50:45 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:45 - successful
+[TRACE] 2019-06-14 at 17:50:45 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:45 - successful
+[TRACE] 2019-06-14 at 17:50:45 - successfully loaded:3
+[TRACE] 2019-06-14 at 17:50:45 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:45 - successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:45 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:45 -   successfully loaded:3
+[TRACE] 2019-06-14 at 17:50:45 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-14 at 17:50:45 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:45 - successful
+[TRACE] 2019-06-14 at 17:50:45 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:45 - successful
+[TRACE] 2019-06-14 at 17:50:45 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:45 - successful
+[TRACE] 2019-06-14 at 17:50:45 - successfully loaded:3
+[TRACE] 2019-06-14 at 17:50:45 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:45 - successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:45 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:45 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:45 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:45 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:45 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:45 - successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:45 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:45 -   successfully loaded:3
+[TRACE] 2019-06-14 at 17:50:45 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:45 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:45 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:45 - successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:45 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-14 at 17:50:45 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:45 - successful
+[TRACE] 2019-06-14 at 17:50:45 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:45 - successful
+[TRACE] 2019-06-14 at 17:50:45 - function: getDozent(String)
+[TRACE] 2019-06-14 at 17:50:45 - successful
+[TRACE] 2019-06-14 at 17:50:45 - successfully loaded:3
+[TRACE] 2019-06-14 at 17:50:45 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:45 - successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:45 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:46 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:46 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:46 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:46 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:46 - successfully loaded:2
+[TRACE] 2019-06-14 at 17:50:46 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:46 -   successfully loaded:3
+[TRACE] 2019-06-14 at 17:50:46 -   function: getStudenten(Team)
+[TRACE] 2019-06-14 at 17:50:46 -   successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:46 - function: getTeams(Gruppe)
+[TRACE] 2019-06-14 at 17:50:46 - successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:46 - function: getLeistungsblock(Student, Veranstaltung)
+[TRACE] 2019-06-14 at 17:50:46 - successfully loaded:0
+[TRACE] 2019-06-14 at 17:50:46 - function: getLeistungsblock(Student, Veranstaltung)
+[TRACE] 2019-06-14 at 17:50:46 - successfully loaded:0
