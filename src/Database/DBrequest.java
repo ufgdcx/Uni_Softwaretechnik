@@ -526,6 +526,37 @@ public class DBrequest {
         createMaxPunktzahl(a);
     }
 
+    public void createLeistungTeam(Veranstaltung veranstaltung, String leistungsname)throws DatabaseException{
+        ArrayList<Team> teams = new ArrayList<>();
+        for(Gruppe g: getGruppen(veranstaltung)) {
+            teams.addAll(g.getTeams()) ;
+        }
+        for (Team t:teams) {
+            createLeistungTeam(new Leistung(leistungsname,veranstaltung),t);
+        }
+    }
+    public void createUnterblockTeam(Veranstaltung veranstaltung, String leistungsname, String unterblockname)throws DatabaseException{
+        ArrayList<Team> teams = new ArrayList<>();
+        for(Gruppe g: getGruppen(veranstaltung)) {
+            teams.addAll(g.getTeams()) ;
+        }
+        for (Team t:teams) {
+            createUnterblockTeam(new Unterblock(unterblockname, new Leistung(leistungsname,veranstaltung)),t);
+        }
+    }
+    public void createAufgabeTeam(Veranstaltung veranstaltung, String leistungsname, String unterblockname, String aufgabename, int maxPunkte)throws DatabaseException{
+        ArrayList<Team> teams = new ArrayList<>();
+        for(Gruppe g: getGruppen(veranstaltung)) {
+            teams.addAll(g.getTeams()) ;
+        }
+        for (Team t:teams) {
+            createAufgabeTeam(new Aufgabe(aufgabename,0,new Unterblock(unterblockname, new Leistung(leistungsname,veranstaltung))),t);
+        }
+        Aufgabe a = new Aufgabe(aufgabename,0,new Unterblock(unterblockname, new Leistung(leistungsname,veranstaltung)));
+        a.setMaxPunkte(maxPunkte);
+        createMaxPunktzahl(a);
+    }
+
     //deleter(primitiv)
     //
     public void deleteUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname) throws DatabaseException
@@ -1073,7 +1104,9 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT `Gruppe`.* FROM `Veranstaltung` INNER JOIN `Gruppe` ON `Gruppe`.`Veranstaltungsname` = `Veranstaltung`.`Veranstaltungsname` WHERE Veranstaltung.Veranstaltungsname = '" + veranstaltungsname + "'");
             while (rs.next()){
-                results.add(new Gruppe(rs.getInt("GruppenID"), rs.getString("Wochentag"),rs.getTime("Uhrzeit"),rs.getString("Wochenrhytmus"),rs.getDate("Einschreibungsfrist"),veranstaltung,getDozent(rs.getString("EMailadresse"))));
+                Gruppe gruppe =new Gruppe(rs.getInt("GruppenID"), rs.getString("Wochentag"),rs.getTime("Uhrzeit"),rs.getString("Wochenrhytmus"),rs.getDate("Einschreibungsfrist"),veranstaltung,getDozent(rs.getString("EMailadresse")));
+                gruppe.setTeams(getTeams(gruppe));
+                results.add(gruppe);
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
         }catch (SQLException ex){
