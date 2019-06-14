@@ -991,7 +991,7 @@ public class DBrequest {
         ArrayList<Veranstaltung> results = new ArrayList<>();
         try {
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT Veranstaltung.* FROM Gehoert_zu INNER JOIN Veranstaltung ON Veranstaltung.Veranstaltungsname = Gehoert_zu.Veranstaltungsname WHERE Matrikelnummer = '" + matrikelnr + "'");
+            ResultSet rs = stmt.executeQuery("SELECT DISTINCT Veranstaltung.* FROM Gehoert_zu INNER JOIN Veranstaltung ON Veranstaltung.Veranstaltungsname = Gehoert_zu.Veranstaltungsname WHERE Matrikelnummer = '" + matrikelnr + "'");
             while (rs.next()){
                 Veranstaltung veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"), rs.getString("Beschreibung"));
                 veranstaltung.setDozenten(getDozenten(veranstaltung));
