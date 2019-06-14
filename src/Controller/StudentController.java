@@ -125,11 +125,19 @@ public class StudentController extends MainController{
 	 * Regelt das Austragen des Studenten aus einem Team.
 	 */
 	public void teamAustragen(String[] slc) {
+		Team delT = null;
 		for(Team t : eingetrageneT) {
-			if(t.getTeamID() == Integer.parseInt(slc[2])) {
-				eingetrageneT.remove(t);
-				super.deleteGehoertZu(me.getMatrikelnr(), Integer.parseInt(slc[2]), Integer.parseInt(slc[1]), slc[0]);
+			if(t.getTeamID() == Integer.parseInt(slc[2]) 
+				&& t.getGruppe().getGruppenID() == Integer.parseInt(slc[1]) 
+				&& t.getGruppe().getVeranstaltung().getName().equals(slc[0]))
+			{
+				delT = t;
 			}
+		}
+		//loescht das evtl. gefundene Team (in der Schleife nicht moeglich)
+		if(delT != null) {
+			eingetrageneT.remove(delT);
+			super.deleteGehoertZu(me.getMatrikelnr(), Integer.parseInt(slc[2]), Integer.parseInt(slc[1]), slc[0]);
 		}
 		//System.out.println(eingetrageneT);
 	}
@@ -161,7 +169,9 @@ public class StudentController extends MainController{
 		for(Team t : eingetrageneT) {
 			//testet, ob ein Team in der zu loeschenden Veranstaltung ist
 			Gruppe g = t.getGruppe();
-			if(g.getVeranstaltung() == v) {
+			//System.out.println(g.getVeranstaltung() + " vs " + v);
+			if(g.getVeranstaltung().getName().equals(v.getName())) {
+				System.out.println("automatically deletet Team in " + v.getName());
 				delT = t;
 				delG = g;
 			}
