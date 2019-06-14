@@ -12,7 +12,7 @@ public class ErrorDialog extends JDialog {
 	JList<String> Dozenten;
 
 	public ErrorDialog(String errormsg) {
-		setTitle("                                     Fehler");
+		setTitle("Fehler");
 		setModal(true);
 		setSize(300, 130);
 		setLayout(null);

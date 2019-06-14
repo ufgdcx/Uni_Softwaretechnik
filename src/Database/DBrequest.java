@@ -181,6 +181,29 @@ public class DBrequest {
         }
     }
 
+    private void createMaxPunktzahl(String leistungsblockname, String unterblockname, String veranstaltungsname, String leistungsname, int punkte)throws DatabaseException {
+        logwriter.writetoLog("function: createMaxPunktzahl(primitive)","TRACE");
+        try {
+            Statement stmt = con.createStatement();
+            try {
+                stmt.executeUpdate("INSERT INTO MaxPunktzahl (Leistungsblock_name, Unterblock_name, Veranstaltungsname, Leistung_name,Punkte) VALUES ('" + leistungsblockname + "', '" + unterblockname + "', '" + veranstaltungsname + "', '" + leistungsname + "', '" + punkte + "')");
+                logwriter.writetoLog("successful","TRACE");
+            }catch (SQLException e){
+                ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Einzelleistung_name, Leistungsblock_name, Unterblock_name, Veranstaltungsname FROM MaxPunktzahl WHERE  Leistung_name = '" + leistungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                if(resultSize(rs)!=0){
+                    logwriter.writetoLog("MaxPunktzahl already exists","ERROR");
+                    throw new DatabaseException("MaxPunktzahl already exists");
+                }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
+                    throw new DatabaseException("Parent doesn't exist");
+                }
+            }
+        } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
     public void createStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname, int anteil)throws DatabaseException {
         logwriter.writetoLog("function: createStudienganganteil(primitive)","TRACE");
         try {
@@ -424,22 +447,30 @@ public class DBrequest {
     }
 
     // Issue: Leistung braucht Veranstaltungsname !?
-    // TODO: ist createLeitet richtig? createLeistungsblock passt zu den Parametern
-    public void createLeistungsblock(Leistung leistungs)
+    public void createLeistungEinzel(Leistung leistungs) throws DatabaseException
     {
-//        createLeitet(leistungs.getStudent().getMatrikelnr(),
-//                     leistungs.getLbName(),
-//                     leistungs.getVeranstaltungsname()); // no get methodcreateVeranstaltung
+        createLeistungsblock(leistungs.getStudent().getMatrikelnr(),
+                     leistungs.getLbName(),
+                     leistungs.getVeranstaltung().getName()); // no get methodcreateVeranstaltung
     }
 
     // Issue: Unterblock braucht getMatrikelnummer, getVeranstaltungsname !?
-    public void createUnterblock(Unterblock unterblock)
+    public void createUnterblockEinzel(Unterblock unterblock) throws DatabaseException
     {
-//        createUnterblock(unterblock.getMatrikel(), // no get method
-//                        unterblock.getlBlock().getLbName(),
-//                        unterblock.getUbName(),
-//                        unterblock.getVeranstaltungsname(), // no get method
-//                        unterblock.getUbPunkte());
+        createUnterblock(unterblock.getlBlock().getStudent().getMatrikelnr(),
+                        unterblock.getlBlock().getLbName(),
+                        unterblock.getUbName(),
+                        unterblock.getlBlock().getVeranstaltung().getName());
+    }
+
+    public void createEinzelAufgabe(Aufgabe aufgabe) throws DatabaseException
+    {
+               createEinzelleistung(aufgabe.getUnterblock().getlBlock().getStudent().getMatrikelnr(),
+                        aufgabe.getUnterblock().getlBlock().getLbName(),
+                        aufgabe.getUnterblock().getUbName(),
+                        aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(), // no get method
+                        aufgabe.getElName(),
+                        aufgabe.getUnterblock().getUbPunkte());
     }
 
     //deleter(primitiv)
@@ -1190,7 +1221,7 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Leistungsblock.* FROM Student INNER JOIN Leistungsblock ON Student.Matrikelnummer = Leistungsblock.Matrikelnummer WHERE Student.Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock.Veranstaltungsname = '" + veranstaltungsname + "'");
             while (rs.next()){
-                Leistung leistung = new Leistung(rs.getString("Leistungsblock_name"));
+                Leistung leistung = new Leistung(rs.getString("Leistungsblock_name"),veranstaltung);
                 leistung.setuBloecke(getUnterblock(student,leistung,veranstaltung));
                 results.add(leistung);
             }
