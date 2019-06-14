@@ -44,6 +44,12 @@ public class Leistung
         this.student = student;
     }
 
+    public Leistung(String lbName, Veranstaltung veranstaltung)
+    {
+        this.lbName = lbName;
+        this.veranstaltung = veranstaltung;
+    }
+
     public Leistung(String lbName)
     {
         this.lbName = lbName;
