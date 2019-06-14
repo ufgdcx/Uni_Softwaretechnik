@@ -14,6 +14,8 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
+import Controller.StudentController;
+
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
@@ -59,8 +61,94 @@ public class SGruppenuebersicht implements FrameContent {
     }
 
     /**
-     * @author Diana
+     * @author Oleg, Diana
      */
+    public SGruppenuebersicht(GUIMain m, Veranstaltung v) {
+    	mainFrame = m;
+    	StudentController ctr = (StudentController) mainFrame.getController();
+    	Student student = (Student) ctr.getSubject();
+    	ArrayList<Veranstaltung> alleVL = ctr.getAlleV();
+    	ArrayList<Veranstaltung> sVL = ctr.getVeranstaltungen();
+        ArrayList<String> veranstaltungen = new ArrayList<String>();
+        
+        //initialisiere den Baum
+        treeScrollPane.setViewportView(tree);
+        //Überprüfung des ScrollPane auf Veränderungen und Aktualisierung der Daten mit Hilfe der DB
+        treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                    tree = mainFrame.getController().createGruppenTree(v, treeScrollPane);
+            }
+        });
+
+        beitreten.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (tree.getSelectionPath().getPath().length >= 3) {
+                    //getSelectionPath().getPathComponent gibt Array mit Veranstaltungsname, Gruppe, Team, Student zurück
+                    //Auswahl des 1. Arrayelements
+                    String veranstaltungsname = tree.getSelectionPath().getPathComponent(0).toString();
+                    //Auswahl des 2. Arrayelements und absplitten der GruppenID
+                    String gruppenID = tree.getSelectionPath().getPathComponent(1).toString();
+                    gruppenID = gruppenID.split(" ")[1];
+                    //Auswahl des 3. Arrayelements und absplitten der TeamID
+                    String teamID = tree.getSelectionPath().getPathComponent(2).toString();
+                    teamID = teamID.split(" ")[1];
+                    //DB-Eintrag löschen
+                    mainFrame.getController().createGehoertZu(student.getMatrikelnr(), Integer.parseInt(teamID), Integer.parseInt(gruppenID), veranstaltungsname);
+                    //Fenster Gruppenübersicht aktualisieren
+                    mainFrame.setContent(new SGruppenuebersicht(mainFrame, v));
+                } else {
+                    //TODO: ErrorDialog öffnen
+                }
+            }
+        });
+        verlassen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    if (tree.getSelectionPath().getPath().length >= 3) {
+                        //tree.getSelectionPath().getPathComponent(index).toString() gibt Array mit Veranstaltungsname, Gruppe, Team, Student zurück
+                        //Auswahl des 1. Arrayelements
+                        String veranstaltungsname = tree.getSelectionPath().getPathComponent(0).toString();
+                        //Auswahl des 2. Arrayelements und absplitten der GruppenID
+                        String gruppenID = tree.getSelectionPath().getPathComponent(1).toString();
+                        gruppenID = gruppenID.split(" ")[1];
+                        //Auswahl des 3. Arrayelements und absplitten der TeamID
+                        String teamID = tree.getSelectionPath().getPathComponent(2).toString();
+                        teamID = teamID.split(" ")[1];
+                        //DB-Eintrag löschen
+                        mainFrame.getController().deleteGehoertZu(student.getMatrikelnr(), Integer.parseInt(teamID), Integer.parseInt(gruppenID), veranstaltungsname);
+                        //Fenster Gruppenübersicht aktualisieren
+                        mainFrame.setContent(new SGruppenuebersicht(mainFrame,v));
+                    }
+                } catch (Exception ex) {
+                    ErrorDialog eD = new ErrorDialog("ups, something went wrong");
+                    eD.setResizable(false);
+                    eD.setLocationRelativeTo(null);
+                    eD.setVisible(true);
+                    return;
+                }
+            }
+        });
+        zurueckButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.setContent(new SVeranstaltungsuebersicht(mainFrame));
+            }
+        });
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.setContent(new LogoutSeite());
+            }
+        });
+    }
+    
+    /**
+     * @author Diana
+     *//*
     public SGruppenuebersicht(Student student, ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index, int preview) {
 
         //initialisiere den Baum
@@ -141,7 +229,7 @@ public class SGruppenuebersicht implements FrameContent {
                 mainFrame.setContent(new LogoutSeite());
             }
         });
-    }
+    }*/
 
     {
 // GUI initializer generated by IntelliJ IDEA GUI Designer

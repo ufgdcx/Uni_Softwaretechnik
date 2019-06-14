@@ -14,6 +14,8 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
+import Controller.StudentController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -54,10 +56,41 @@ public class SLeistungsuebersicht implements FrameContent {
 
         mainFrame = m;
     }
+    
+    /**
+     * @author Oleg, Diana
+     */
+    public SLeistungsuebersicht(GUIMain m,Veranstaltung v) {
+    	mainFrame = m;
+    	StudentController ctr = (StudentController) mainFrame.getController();
+    	
+        //initialisiere den Baum
+        treeScrollPane.setViewportView(tree);
+        //Überprüfung des ScrollPane auf Veränderungen und Aktualisierung der Daten mit Hilfe der DB
+        treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                tree = ctr.createLeistungsTree(v,treeScrollPane);
+            }
+        });
 
+        zurueck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.setContent(new SVeranstaltungsuebersicht(mainFrame));
+            }
+        });
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.setContent(new LogoutSeite());
+            }
+        });
+    }
+    
     /**
      * @author Diana
-     */
+     *//*
     public SLeistungsuebersicht(Student student, ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index, int preview) {
 
         //initialisiere den Baum
@@ -84,7 +117,7 @@ public class SLeistungsuebersicht implements FrameContent {
                 mainFrame.setContent(new LogoutSeite());
             }
         });
-    }
+    }*/
 
 
     {
