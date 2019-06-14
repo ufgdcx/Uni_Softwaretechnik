@@ -181,6 +181,29 @@ public class DBrequest {
         }
     }
 
+    private void createMaxPunktzahl(String leistungsblockname, String unterblockname, String veranstaltungsname, String leistungsname, int punkte)throws DatabaseException {
+        logwriter.writetoLog("function: createMaxPunktzahl(primitive)","TRACE");
+        try {
+            Statement stmt = con.createStatement();
+            try {
+                stmt.executeUpdate("INSERT INTO MaxPunktzahl (Leistungsblock_name, Unterblock_name, Veranstaltungsname, Leistung_name,Punkte) VALUES ('" + leistungsblockname + "', '" + unterblockname + "', '" + veranstaltungsname + "', '" + leistungsname + "', '" + punkte + "')");
+                logwriter.writetoLog("successful","TRACE");
+            }catch (SQLException e){
+                ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Einzelleistung_name, Leistungsblock_name, Unterblock_name, Veranstaltungsname FROM MaxPunktzahl WHERE  Leistung_name = '" + leistungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+                if(resultSize(rs)!=0){
+                    logwriter.writetoLog("MaxPunktzahl already exists","ERROR");
+                    throw new DatabaseException("MaxPunktzahl already exists");
+                }else{
+                    logwriter.writetoLog("Parent doesn't exist","ERROR");
+                    throw new DatabaseException("Parent doesn't exist");
+                }
+            }
+        } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
     public void createStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname, int anteil)throws DatabaseException {
         logwriter.writetoLog("function: createStudienganganteil(primitive)","TRACE");
         try {
@@ -423,23 +446,57 @@ public class DBrequest {
                                 studienganganteil.getAnteil());
     }
 
-    // Issue: Leistung braucht Veranstaltungsname !?
-    // TODO: ist createLeitet richtig? createLeistungsblock passt zu den Parametern
-    public void createLeistungsblock(Leistung leistungs)
+    public void createLeistungEinzel(Leistung leistungs) throws DatabaseException
     {
-//        createLeitet(leistungs.getStudent().getMatrikelnr(),
-//                     leistungs.getLbName(),
-//                     leistungs.getVeranstaltungsname()); // no get methodcreateVeranstaltung
+        createLeistungsblock(leistungs.getStudent().getMatrikelnr(),
+                     leistungs.getLbName(),
+                     leistungs.getVeranstaltung().getName());
     }
 
-    // Issue: Unterblock braucht getMatrikelnummer, getVeranstaltungsname !?
-    public void createUnterblock(Unterblock unterblock)
+    public void createUnterblockEinzel(Unterblock unterblock) throws DatabaseException
     {
-//        createUnterblock(unterblock.getMatrikel(), // no get method
-//                        unterblock.getlBlock().getLbName(),
-//                        unterblock.getUbName(),
-//                        unterblock.getVeranstaltungsname(), // no get method
-//                        unterblock.getUbPunkte());
+        createUnterblock(unterblock.getlBlock().getStudent().getMatrikelnr(),
+                        unterblock.getlBlock().getLbName(),
+                        unterblock.getUbName(),
+                        unterblock.getlBlock().getVeranstaltung().getName());
+    }
+
+    public void createAufgabeEinzel(Aufgabe aufgabe) throws DatabaseException
+    {
+               createEinzelleistung(aufgabe.getUnterblock().getlBlock().getStudent().getMatrikelnr(),
+                        aufgabe.getUnterblock().getlBlock().getLbName(),
+                        aufgabe.getUnterblock().getUbName(),
+                        aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),
+                        aufgabe.getElName(),
+                        aufgabe.getUnterblock().getUbPunkte());
+    }
+
+    public void createLeistungTeam(Leistung leistungs,Team team) throws DatabaseException
+    {
+        createTeamLeistungsblock(leistungs.getLbName(),
+                team.getTeamID(),
+                team.getGruppe().getGruppenID(),
+                leistungs.getVeranstaltung().getName());
+    }
+
+    public void createUnterblockTeam(Unterblock unterblock, Team team) throws DatabaseException
+    {
+        createTeamLeistungsUnterblock(unterblock.getlBlock().getLbName(),
+                unterblock.getUbName(),
+                team.getTeamID(),
+                team.getGruppe().getGruppenID(),
+                unterblock.getlBlock().getVeranstaltung().getName());
+    }
+
+    public void createAufgabeTeam(Aufgabe aufgabe, Team team) throws DatabaseException
+    {
+        createTeamleistung(aufgabe.getUnterblock().getlBlock().getLbName(),
+                aufgabe.getUnterblock().getUbName(),
+                aufgabe.getElName(),
+                team.getTeamID(),
+                team.getGruppe().getGruppenID(),
+                aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),
+                aufgabe.getElPunkte());
     }
 
     //deleter(primitiv)
@@ -449,19 +506,10 @@ public class DBrequest {
         logwriter.writetoLog("function: deleteUnterblock(primitive)","TRACE");
         try {
             Statement stmt = con.createStatement();
-            try {
-                stmt.executeUpdate("DELETE FROM Unterblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                logwriter.writetoLog("successful","TRACE");
-            } catch (SQLException e) {
-                ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Leistungsblock_name, Unterblock_name, Veranstaltungsname FROM Unterblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                if (resultSize(rs) != 0) {
-                    logwriter.writetoLog("delete Parent first","ERROR");
-                    throw new DatabaseException("delete Parent first");
-                } else {
-                    logwriter.writetoLog("item doesn't exists","ERROR");
-                    throw new DatabaseException("item doesn't exists");
-                }
-            }
+            stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "'");
+            logwriter.writetoLog("  deleted from Einzelleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM Unterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "'");
+            logwriter.writetoLog("  deleted from Unterblock","TRACE");
         }catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
@@ -473,19 +521,8 @@ public class DBrequest {
         logwriter.writetoLog("function: deleteEinzelleistung(primitive)","TRACE");
         try {
             Statement stmt = con.createStatement();
-            try {
-                stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Einzelleistung_name = '" + einzelleistungsname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                logwriter.writetoLog("successful","TRACE");
-            } catch (SQLException e) {
-                ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Leistungsblock_name, Unterblock_name, Einzelleistung_name, Veranstaltungsname FROM Einzelleistung WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Einzelleistung_name = '" + einzelleistungsname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                if (resultSize(rs) != 0) {
-                    logwriter.writetoLog("delete Parent first","ERROR");
-                    throw new DatabaseException("delete Parent first");
-                } else {
-                    logwriter.writetoLog("item doesn't exists","ERROR");
-                    throw new DatabaseException("item doesn't exists");
-                }
-            }
+            stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Einzelleistung_name = '" + einzelleistungsname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("successful","TRACE");
         }catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
@@ -536,19 +573,8 @@ public class DBrequest {
         logwriter.writetoLog("function: deleteGehoertZu(primitive)","TRACE");
         try {
             Statement stmt = con.createStatement();
-            try{
-                stmt.executeUpdate("DELETE FROM Gehoert_zu WHERE matrikelnummer = '" + matrikelnummer + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                logwriter.writetoLog("successful","TRACE");
-            }catch (SQLException e) {
-                ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, TeamID, GruppenID, Veranstaltungsname  FROM Gehoert_zu WHERE Matrikelnummer = '" + matrikelnummer + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                if (resultSize(rs) != 0) {
-                    logwriter.writetoLog("delete Parent first","ERROR");
-                    throw new DatabaseException("delete Parent first");
-                } else {
-                    logwriter.writetoLog("item doesn't exists","ERROR");
-                    throw new DatabaseException("item doesn't exists");
-                }
-            }
+            stmt.executeUpdate("DELETE FROM Gehoert_zu WHERE matrikelnummer = '" + matrikelnummer + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
@@ -560,19 +586,20 @@ public class DBrequest {
         logwriter.writetoLog("function: deleteGruppe(primitive)","TRACE");
         try {
             Statement stmt = con.createStatement();
-            try{
-                stmt.executeUpdate("DELETE FROM Gruppe WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                logwriter.writetoLog("successful","TRACE");
-            }catch (SQLException e){
-                ResultSet rs = stmt.executeQuery("SELECT GruppenID, Veranstaltungsname FROM Gruppe WHERE GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                if(resultSize(rs)!=0){
-                    logwriter.writetoLog("delete Parent first","ERROR");
-                    throw new DatabaseException("delete Parent first");
-                }else{
-                    logwriter.writetoLog("item doesn't exists","ERROR");
-                    throw new DatabaseException("item doesn't exists");
-                }
-            }
+            stmt.executeUpdate("DELETE FROM Teamleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+            logwriter.writetoLog("  deleted from Teamleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM Teamleistungsunterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+            logwriter.writetoLog("  deleted from Teamleistungsunterblock","TRACE");
+            stmt.executeUpdate("DELETE FROM Teamleistungsblock WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+            logwriter.writetoLog("  deleted from Teamleistungsblock","TRACE");
+            stmt.executeUpdate("DELETE FROM Studienganganteil WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+            logwriter.writetoLog("  deleted from Studienganganteil","TRACE");
+            stmt.executeUpdate("DELETE FROM Gehoert_zu WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+            logwriter.writetoLog("  deleted from Gehoert_zu","TRACE");
+            stmt.executeUpdate("DELETE FROM Team WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+            logwriter.writetoLog("  deleted from Team","TRACE");
+            stmt.executeUpdate("DELETE FROM Gruppe WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+            logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
@@ -584,19 +611,12 @@ public class DBrequest {
         logwriter.writetoLog("function: deleteLeistungsblock(primitive)","TRACE");
         try {
             Statement stmt = con.createStatement();
-            try{
-                stmt.executeUpdate("DELETE FROM Leistungsblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                logwriter.writetoLog("successful","TRACE");
-            }catch (SQLException e){
-                ResultSet rs = stmt.executeQuery("SELECT Matrikelnummer, Leistungsblock_name, Veranstaltungsname FROM Leistungsblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                if(resultSize(rs)!=0){
-                    logwriter.writetoLog("delete Parent first","ERROR");
-                    throw new DatabaseException("delete Parent first");
-                }else{
-                    logwriter.writetoLog("item doesn't exists","ERROR");
-                    throw new DatabaseException("item doesn't exists");
-                }
-            }
+            stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "'");
+            logwriter.writetoLog("  deleted from Einzelleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM Unterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "'");
+            logwriter.writetoLog("  deleted from Unterblock","TRACE");
+            stmt.executeUpdate("DELETE FROM Leistungsblock WHERE Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
@@ -609,19 +629,8 @@ public class DBrequest {
         logwriter.writetoLog("function: deleteLeitet(primitive)","TRACE");
         try {
             Statement stmt = con.createStatement();
-            try{
-                stmt.executeUpdate("DELETE FROM Leitet WHERE Name = '" + name + "' AND Emailadresse = '" + email + "'");
-                logwriter.writetoLog("successful","TRACE");
-            }catch (SQLException e){
-                ResultSet rs = stmt.executeQuery("SELECT Name, Emailadresse FROM Leitet WHERE Name = '" + name + "' AND Emailadresse = '" + email + "'");
-                if(resultSize(rs)!=0){
-                    logwriter.writetoLog("delete Parent first","ERROR");
-                    throw new DatabaseException("delete Parent first");
-                }else{
-                    logwriter.writetoLog("item doesn't exists","ERROR");
-                    throw new DatabaseException("item doesn't exists");
-                }
-            }
+            stmt.executeUpdate("DELETE FROM Leitet WHERE Name = '" + name + "' AND Emailadresse = '" + email + "'");
+            logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
@@ -703,19 +712,8 @@ public class DBrequest {
         logwriter.writetoLog("function: deleteStudienganganteil(primitive)","TRACE");
         try {
             Statement stmt = con.createStatement();
-            try{
-                stmt.executeUpdate("DELETE FROM Studienganganteil WHERE Studiengang = '" + studiengang + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                logwriter.writetoLog("successful","TRACE");
-            }catch (SQLException e) {
-                ResultSet rs = stmt.executeQuery("SELECT Studiengang, TeamID, GruppenID, Veranstaltungsname FROM Studienganganteil WHERE Studiengang = '" + studiengang + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                if(resultSize(rs)!=0){
-                    logwriter.writetoLog("delete Parent first","ERROR");
-                    throw new DatabaseException("delete Parent first");
-                }else{
-                    logwriter.writetoLog("item doesn't exists","ERROR");
-                    throw new DatabaseException("item doesn't exists");
-                }
-            }
+            stmt.executeUpdate("DELETE FROM Studienganganteil WHERE Studiengang = '" + studiengang + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
@@ -728,6 +726,16 @@ public class DBrequest {
         try {
             Statement stmt = con.createStatement();
             try{
+                stmt.executeUpdate("DELETE FROM Teamleistung WHERE TeamID = '" + teamid + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+                logwriter.writetoLog("  deleted from Teamleistung","TRACE");
+                stmt.executeUpdate("DELETE FROM Teamleistungsunterblock WHERE TeamID = '" + teamid + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+                logwriter.writetoLog("  deleted from Teamleistungsunterblock","TRACE");
+                stmt.executeUpdate("DELETE FROM Teamleistungsblock WHERE TeamID = '" + teamid + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+                logwriter.writetoLog("  deleted from Teamleistungsblock","TRACE");
+                stmt.executeUpdate("DELETE FROM Studienganganteil WHERE TeamID = '" + teamid + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+                logwriter.writetoLog("  deleted from Studienganganteil","TRACE");
+                stmt.executeUpdate("DELETE FROM Gehoert_zu WHERE TeamID = '" + teamid + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+                logwriter.writetoLog("  deleted from Gehoert_zu","TRACE");
                 stmt.executeUpdate("DELETE FROM Team WHERE TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
                 logwriter.writetoLog("successful","TRACE");
             }catch (SQLException e){
@@ -752,19 +760,12 @@ public class DBrequest {
         logwriter.writetoLog("function: deleteTeamleistungsblock(primitive)","TRACE");
         try {
             Statement stmt = con.createStatement();
-            try{
-                stmt.executeUpdate("DELETE FROM Teamleistungsblock WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                logwriter.writetoLog("successful","TRACE");
-            }catch (SQLException e) {
-                ResultSet rs = stmt.executeQuery("SELECT Teamleistungsblockname, TeamID, GruppenID, Veranstaltungsname FROM Teamleistungsblock WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                if(resultSize(rs)!=0){
-                    logwriter.writetoLog("delete Parent first","ERROR");
-                    throw new DatabaseException("delete Parent first");
-                }else{
-                    logwriter.writetoLog("item doesn't exists","ERROR");
-                    throw new DatabaseException("item doesn't exists");
-                }
-            }
+            stmt.executeUpdate("DELETE FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND TeamID = '" + teamid + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+            logwriter.writetoLog("  deleted from Teamleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM Teamleistungsunterblock Teamleistungsblockname = '" + teamleistungsblockname + "' AND WHERE TeamID = '" + teamid + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+            logwriter.writetoLog("  deleted from Teamleistungsunterblock","TRACE");
+            stmt.executeUpdate("DELETE FROM Teamleistungsblock WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             throw new DatabaseException("Connection Failed");
         }
@@ -775,19 +776,10 @@ public class DBrequest {
         logwriter.writetoLog("function: deleteTeamleistungsUnterblock(primitive)","TRACE");
         try {
             Statement stmt = con.createStatement();
-            try{
-                stmt.executeUpdate("DELETE FROM Teamleistungsunterblock WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                logwriter.writetoLog("successful","TRACE");
-            }catch (SQLException e) {
-                ResultSet rs = stmt.executeQuery("SELECT Teamleistungsblockname, TeamID, GruppenID, Veranstaltungsname FROM Teamleistungsunterblock WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                if(resultSize(rs)!=0){
-                    logwriter.writetoLog("delete Parent first","ERROR");
-                    throw new DatabaseException("delete Parent first");
-                }else{
-                    logwriter.writetoLog("item doesn't exists","ERROR");
-                    throw new DatabaseException("item doesn't exists");
-                }
-            }
+            stmt.executeUpdate("DELETE FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND TeamID = '" + teamid + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND GruppenID = '" + gruppenid + "'");
+            logwriter.writetoLog("  deleted from Teamleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM Teamleistungsunterblock WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
@@ -799,19 +791,8 @@ public class DBrequest {
         logwriter.writetoLog("function: deleteTeamleistung(primitive)","TRACE");
         try {
             Statement stmt = con.createStatement();
-            try{
-                stmt.executeUpdate("DELETE FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND Teamleistungsname = '" + teamleistungsname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                logwriter.writetoLog("successful","TRACE");
-            }catch (SQLException e) {
-                ResultSet rs = stmt.executeQuery("SELECT Teamleistungsblockname, Teamleistungsname, TeamID, GruppenID, Veranstaltungsname FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "'  AND Teamleistungsname = '" + teamleistungsname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
-                if(resultSize(rs)!=0){
-                    logwriter.writetoLog("delete Parent first","ERROR");
-                    throw new DatabaseException("delete Parent first");
-                }else{
-                    logwriter.writetoLog("item doesn't exists","ERROR");
-                    throw new DatabaseException("item doesn't exists");
-                }
-            }
+            stmt.executeUpdate("DELETE FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistungsunterblockname = '" + teamleistungsunterblockname + "' AND Teamleistungsname = '" + teamleistungsname + "' AND TeamID = '" + teamid + "' AND GruppenID = '" + gruppenid + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
@@ -823,85 +804,32 @@ public class DBrequest {
         logwriter.writetoLog("function: deleteVeranstaltung(primitive)","TRACE");
         try {
             Statement stmt = con.createStatement();
-            try{
-                try{
-                    stmt.executeUpdate("DELETE FROM Leitet WHERE Name = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from Leitet","TRACE");
-                }catch (SQLException e) {
-                    logwriter.writetoLog("  no entries in Leitet", "TRACE");
-                }
-                try{
-                    stmt.executeUpdate("DELETE FROM Teamleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from Teamleistung","TRACE");
-                }catch (SQLException e){
-                    logwriter.writetoLog("  no entries in Teamleistung","TRACE");
-                }
-                try{
-                    stmt.executeUpdate("DELETE FROM Teamleistungsunterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from Teamleistungsunterblock","TRACE");
-                }catch (SQLException e){
-                    logwriter.writetoLog("  no entries in Teamleistungsunterblock","TRACE");
-                }
-                try{
-                    stmt.executeUpdate("DELETE FROM Teamleistungsblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from Teamleistungsblock","TRACE");
-                }catch (SQLException e){
-                    logwriter.writetoLog("  no entries in Teamleistungsblock","TRACE");
-                }
-                try{
-                    stmt.executeUpdate("DELETE FROM Studienganganteil WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from Studienganganteil","TRACE");
-                }catch (SQLException e){
-                    logwriter.writetoLog("  no entries in Studienganganteil","TRACE");
-                }
-                try{
-                    stmt.executeUpdate("DELETE FROM Gehoert_zu WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from Gehoert_zu","TRACE");
-                }catch (SQLException e){
-                    logwriter.writetoLog("  no entries in Gehoert_zu","TRACE");
-                }
-                try{
-                    stmt.executeUpdate("DELETE FROM Team WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from Team","TRACE");
-                }catch (SQLException e){
-                    logwriter.writetoLog("  no entries in Team","TRACE");
-                }
-                try{
-                    stmt.executeUpdate("DELETE FROM Gruppe WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from Gruppe","TRACE");
-                }catch (SQLException e){
-                    logwriter.writetoLog("  no entries in Gruppe","TRACE");
-                }
-                try{
-                    stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from Einzelleistung","TRACE");
-                }catch (SQLException e){
-                    logwriter.writetoLog("  no entries in Einzelleistung","TRACE");
-                }
-                try{
-                    stmt.executeUpdate("DELETE FROM Unterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from Unterblock","TRACE");
-                }catch (SQLException e){
-                    logwriter.writetoLog("  no entries in Unterblock","TRACE");
-                }
-                try{
-                    stmt.executeUpdate("DELETE FROM Leistungsblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from Leistungsblock","TRACE");
-                }catch (SQLException e){
-                    logwriter.writetoLog("  no entries in Leistungsblock","TRACE");
-                }
-                try{
-                    stmt.executeUpdate("DELETE FROM MaxPunktzahl WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                    logwriter.writetoLog("  deletet from MaxPunktzahl","TRACE");
-                }catch (SQLException e){
-                    logwriter.writetoLog("  no entries in MaxPunktzahl","TRACE");
-                }
-                stmt.executeUpdate("DELETE FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
-                logwriter.writetoLog("successful","TRACE");
-            }catch (SQLException e){
-                logwriter.writetoLog("item doesn't exists","ERROR");
-                throw new DatabaseException("item doesn't exists");
-            }
+            stmt.executeUpdate("DELETE FROM Leitet WHERE Name = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Leitet","TRACE");
+            stmt.executeUpdate("DELETE FROM Teamleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Teamleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM Teamleistungsunterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Teamleistungsunterblock","TRACE");
+            stmt.executeUpdate("DELETE FROM Teamleistungsblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Teamleistungsblock","TRACE");
+            stmt.executeUpdate("DELETE FROM Studienganganteil WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Studienganganteil","TRACE");
+            stmt.executeUpdate("DELETE FROM Gehoert_zu WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Gehoert_zu","TRACE");
+            stmt.executeUpdate("DELETE FROM Team WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Team","TRACE");
+            stmt.executeUpdate("DELETE FROM Gruppe WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Gruppe","TRACE");
+            stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Einzelleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM Unterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Unterblock","TRACE");
+            stmt.executeUpdate("DELETE FROM Leistungsblock WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Leistungsblock","TRACE");
+            stmt.executeUpdate("DELETE FROM MaxPunktzahl WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from MaxPunktzahl","TRACE");
+            stmt.executeUpdate("DELETE FROM Veranstaltung WHERE Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
@@ -1190,7 +1118,7 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Leistungsblock.* FROM Student INNER JOIN Leistungsblock ON Student.Matrikelnummer = Leistungsblock.Matrikelnummer WHERE Student.Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock.Veranstaltungsname = '" + veranstaltungsname + "'");
             while (rs.next()){
-                Leistung leistung = new Leistung(rs.getString("Leistungsblock_name"));
+                Leistung leistung = new Leistung(rs.getString("Leistungsblock_name"),veranstaltung, student);
                 leistung.setuBloecke(getUnterblock(student,leistung,veranstaltung));
                 results.add(leistung);
             }

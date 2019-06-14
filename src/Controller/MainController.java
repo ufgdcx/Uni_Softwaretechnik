@@ -95,7 +95,7 @@ public class MainController {
 			System.out.println(e.getErrorMsg());
             return;
 		}
-
+		
 		//switch to StudentController or DozentController
 		if(n instanceof Dozent){
 			//creating Dozent object d to pass the info to DozentController
@@ -412,7 +412,7 @@ public class MainController {
 		return tree;
 	}
 
-	
+
 
 	//Methoden für Studentenansicht
 

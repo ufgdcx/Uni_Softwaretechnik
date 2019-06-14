@@ -37,6 +37,13 @@ public class Leistung
     }
 
     // constructor for Database
+    public Leistung(String lbName, Veranstaltung veranstaltung,Student student)
+    {
+        this.lbName = lbName;
+        this.veranstaltung = veranstaltung;
+        this.student = student;
+    }
+
     public Leistung(String lbName)
     {
         this.lbName = lbName;
@@ -51,6 +58,9 @@ public class Leistung
     public int getLbPunkte() {return lbPunkte;}
     /**@author Sven*/
     public ArrayList<Unterblock> getuBloecke() {return uBloecke;}
+    public Veranstaltung getVeranstaltung() {return veranstaltung;}
+
+
 
     // set methods
     /**@author Diana*/
@@ -61,6 +71,7 @@ public class Leistung
     public void setLbPunkte(int lbPunkte) {this.lbPunkte = lbPunkte;}
     /**@author Sven*/
     public void setuBloecke(ArrayList<Unterblock> uBloecke) {this.uBloecke = uBloecke;}
+    public void setVeranstaltung(Veranstaltung veranstaltung) {this.veranstaltung = veranstaltung;}
 
     // add Unterblock
     public void addUnterblock(Unterblock unterblock){this.uBloecke.add(unterblock);}
