@@ -403,7 +403,7 @@ public class MainController {
 				leistungen.add(unterbloecke);
 				for (Aufgabe aufgabe: getAufgabe(student, leistungsblock, unterblock, veranstaltung)) {
 					DefaultMutableTreeNode aufgaben = new DefaultMutableTreeNode(aufgabe.getElName());
-					aufgaben.add(unterbloecke);
+					unterbloecke.add(aufgaben);
 				}
 			}
 		}
@@ -412,11 +412,48 @@ public class MainController {
 		return tree;
 	}
 
-	//createLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname)
+	/**@author Diana
+	 * Hilfsmethode zum Hinzufuegen von Leistungen in den LeistungsTree in DLeistungsuebersicht
+	 * @param leistungsname
+	 * @param veranstaltung
+	 */
+	public void createLeistung(Veranstaltung veranstaltung, String leistungsname){
+		try {
+			dbr.createLeistungEinzel(veranstaltung, leistungsname);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
 
-	//createUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname)
+	/**@author Diana
+	 * Hilfsmethode zum Hinzufuegen von Unterbloecken in den LeistungsTree in DLeistungsuebersicht
+     * @param veranstaltung
+     * @param leistungsname
+     * @param unterblockname
+	 */
+	public void createUnterblock(Veranstaltung veranstaltung, String leistungsname, String unterblockname){
+		try {
+			dbr.createUnterblockEinzel(veranstaltung, leistungsname, unterblockname);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
 
-	//createEinzelleistung(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname, String einzelleistungsname, int punkte)
+	/**@author Diana
+	 * Hilfsmethode zum Hinzufuegen von Aufgaben in den LeistungsTree in DLeistungsuebersicht
+     * @param veranstaltung
+     * @param leistungsname
+     * @param unterblockname
+	 * @param aufgabename
+	 * @param maxPunkte
+	 */
+	public void createAufgabe(Veranstaltung veranstaltung, String leistungsname, String unterblockname, String aufgabename, int maxPunkte){
+		try {
+			dbr.createAufgabeEinzel(veranstaltung, leistungsname, unterblockname, aufgabename, maxPunkte);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
 
 	//Methoden für Studentenansicht
 

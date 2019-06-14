@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.DAufgabenInformationen">
+  <grid id="27dc6" binding="DAufgabenInformationenPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="250" left="200" bottom="250" right="250"/>
+    <constraints>
+      <xy x="20" y="20" width="748" height="604"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="fd6f9" class="javax.swing.JLabel" binding="aufgabenNameLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Aufgabenname:"/>
+        </properties>
+      </component>
+      <component id="5676f" class="javax.swing.JTextField" binding="aufgabenNameTextField">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="-1"/>
+            <preferred-size width="80" height="-1"/>
+            <maximum-size width="80" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="d121" class="javax.swing.JLabel" binding="seitenanzahlLabel">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Seitenanzahl"/>
+        </properties>
+      </component>
+      <component id="48c48" class="javax.swing.JButton" binding="weiterButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="weiter"/>
+        </properties>
+      </component>
+      <component id="71a2c" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Gesamtpunktzahl"/>
+        </properties>
+      </component>
+      <component id="58d6f" class="javax.swing.JTextField" binding="gesamtPunktzahlTextField">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="-1"/>
+            <preferred-size width="80" height="-1"/>
+            <maximum-size width="80" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+    </children>
+  </grid>
+</form>

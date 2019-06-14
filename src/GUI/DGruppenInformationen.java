@@ -6,7 +6,6 @@
 
 package GUI;
 
-import Klassen.Veranstaltung;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
@@ -15,6 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Klassen.*;
 import java.sql.Date;
 import java.sql.Time;
 import java.text.ParseException;
