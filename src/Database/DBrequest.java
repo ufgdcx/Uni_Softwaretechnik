@@ -499,6 +499,10 @@ public class DBrequest {
                 aufgabe.getElPunkte());
     }
 
+    public  void createMaxPunktzahl(Aufgabe aufgabe) throws DatabaseException{
+        createMaxPunktzahl(aufgabe.getUnterblock().getlBlock().getLbName(),aufgabe.getUnterblock().getUbName(),aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),aufgabe.getElName(),aufgabe.getMaxPunkte());
+    }
+
     //deleter(primitiv)
     //
     public void deleteUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname) throws DatabaseException
@@ -1056,16 +1060,6 @@ public class DBrequest {
         return  null;
     }
 
-    public Dozent getDozent(Dozent dozent) throws DatabaseException
-    {
-        try{ return getDozent(dozent.getEmail()); }
-        catch (DatabaseException e)
-        {
-            logwriter.writetoLog(e.getErrorMsg(), "Error");
-            throw new DatabaseException("Cant get item");
-        }
-    }
-
     public  ArrayList<Team> getTeams(Gruppe gruppe) throws  DatabaseException
     {
         logwriter.writetoLog("function: getTeams(Gruppe)","TRACE");
@@ -1165,7 +1159,9 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Einzelleistung.* FROM Unterblock INNER JOIN Einzelleistung ON Unterblock.Matrikelnummer = Einzelleistung.Matrikelnummer AND Unterblock.Leistungsblock_name = Einzelleistung.Leistungsblock_name AND Unterblock.Unterblock_name = Einzelleistung.Unterblock_name WHERE Einzelleistung.Matrikelnummer = '" + matrikelnummer + "' AND Einzelleistung.Leistungsblock_name = '" + leistungsblockname + "' AND Einzelleistung.Veranstaltungsname = '" + veranstaltungsname + "' AND Einzelleistung.Unterblock_name = '" + unterblockname + "'");
             while (rs.next()){
-                results.add(new Aufgabe(rs.getString("Einzelleistung_name"),rs.getInt("Punkte"),unterblock));
+                Aufgabe a = new Aufgabe(rs.getString("Einzelleistung_name"),rs.getInt("Punkte"),unterblock);
+                a.setMaxPunkte(getMaxPunkte(a,veranstaltung));
+                results.add(a);
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
         }catch (SQLException ex){
@@ -1173,6 +1169,28 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
         return  results;
+    }
+
+    public int getMaxPunkte(Aufgabe aufgabe, Veranstaltung veranstaltung) throws  DatabaseException
+    {
+        logwriter.writetoLog("  function: getMaxPunkte(Aufgabe)","TRACE");
+        String veranstaltungsname = veranstaltung.getName();
+        String leistungsblockname = aufgabe.getUnterblock().getlBlock().getLbName();
+        String unterblockname = aufgabe.getUnterblock().getUbName();
+        String leistungsname = aufgabe.getElName();
+        ArrayList<Aufgabe> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT MaxPunktzahl.* FROM MaxPunktzahl WHERE Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND Unterblock_name = '" + unterblockname + "' AND  Leistung_name = '" + leistungsname + "'");
+            if(resultSize(rs)!=0){
+                logwriter.writetoLog("  successful","TRACE");
+                return rs.getInt("Punkte");
+            }
+        }catch (SQLException ex){
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+        throw new DatabaseException("Entry doesn't exist");
     }
 
     public ArrayList <Leistung> getLeistung(Team team) throws  DatabaseException
@@ -1235,7 +1253,9 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("Select Teamleistung.* FROM Teamleistungsunterblock INNER JOIN Teamleistung ON Teamleistung.TeamID = Teamleistungsunterblock.TeamID AND Teamleistung.GruppenID = Teamleistungsunterblock.GruppenID AND Teamleistung.Veranstaltungsname = Teamleistungsunterblock.Veranstaltungsname AND Teamleistung.Teamleistungsblockname = Teamleistungsunterblock.Teamleistungsblockname AND Teamleistung.Teamleistungsunterblockname = Teamleistungsunterblock.Teamleistungsunterblockname WHERE Teamleistung.Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistung.TeamID = '" + teamID + "' AND Teamleistung.GruppenID = '" + gruppenID + "' AND Teamleistung.Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistung.Teamleistungsunterblockname = '" + teamunterblockname + "'");
             while (rs.next()){
-                results.add(new Aufgabe(rs.getString("Teamleistungsname"),rs.getInt("Punkte"),unterblock));
+                Aufgabe a = new Aufgabe(rs.getString("Teamleistungsname"),rs.getInt("Punkte"),unterblock);
+                a.setMaxPunkte(getMaxPunkte(a,team.getGruppe().getVeranstaltung()));
+                results.add(a);
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
         }catch (SQLException ex){
