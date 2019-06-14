@@ -973,6 +973,7 @@ public class DBrequest {
             while (rs.next()){
                 Veranstaltung veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"), rs.getString("Beschreibung"));
                 veranstaltung.setDozenten(getDozenten(veranstaltung));
+                veranstaltung.setGruppen(this.getGruppen(veranstaltung));
                 results.add(veranstaltung);
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
@@ -995,6 +996,7 @@ public class DBrequest {
             while (rs.next()){
                 Veranstaltung veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"), rs.getString("Beschreibung"));
                 veranstaltung.setDozenten(getDozenten(veranstaltung));
+                veranstaltung.setGruppen(this.getGruppen(veranstaltung));
                 results.add(veranstaltung);
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
@@ -1348,6 +1350,7 @@ public class DBrequest {
             while (rs.next()){
                 Veranstaltung veranstaltung = new Veranstaltung(rs.getString("Veranstaltungsname"),rs.getString("Fakultaet"),rs.getInt("Teamanzahl_je_Gruppe"),rs.getInt("maximale_Teilnehmeranzahl_je_Team"), rs.getString("Beschreibung"));
                 veranstaltung.setDozenten(getDozenten(veranstaltung));
+                veranstaltung.setGruppen(this.getGruppen(veranstaltung));
                 results.add(veranstaltung);
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
