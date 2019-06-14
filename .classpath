@@ -3,5 +3,14 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/External Library"/>
+	<classpathentry kind="lib" path="bin/External Library/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="lib" path="src/External Library/apiguardian-api-1.0.0.jar"/>
+	<classpathentry kind="lib" path="src/External Library/forms_rt.jar"/>
+	<classpathentry kind="lib" path="src/External Library/junit-jupiter-api-5.4.2.jar"/>
+	<classpathentry kind="lib" path="src/External Library/junit-platform-commons-1.4.2.jar"/>
+	<classpathentry kind="lib" path="src/External Library/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="lib" path="src/External Library/mysql-connector-java-8.0.16.zip"/>
+	<classpathentry kind="lib" path="src/External Library/opentest4j-1.1.1.jar"/>
+	<classpathentry kind="lib" path="src/External Library/snakeyaml-1.24.jar"/>
 	<classpathentry kind="output" path="out/production/Uni_Softwaretechnik"/>
 </classpath>

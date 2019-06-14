@@ -412,7 +412,11 @@ public class MainController {
 		return tree;
 	}
 
+	//createLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname)
 
+	//createUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname)
+
+	//createEinzelleistung(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname, String einzelleistungsname, int punkte)
 
 	//Methoden für Studentenansicht
 

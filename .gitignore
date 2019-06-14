@@ -72,3 +72,5 @@ Logdata/
 logdata*
 *.iml
 *.yml
+/.project
+/Logdata.txt
