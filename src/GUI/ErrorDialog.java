@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**@author Sven
+ *
+ */
 public class ErrorDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
 
@@ -17,6 +20,7 @@ public class ErrorDialog extends JDialog {
 		setSize(300, 130);
 		setLayout(null);
 		
+        
 		JLabel errorLabel = new JLabel(errormsg,SwingConstants.CENTER);
 		errorLabel.setBounds(0, 10, 275, 25);
 		add(errorLabel);
@@ -27,6 +31,9 @@ public class ErrorDialog extends JDialog {
 		confirmButton.addActionListener(new Listener());
 		add(confirmButton);
 		
+		setResizable(false);
+        setLocationRelativeTo(null);
+        setVisible(true);
 	}
 
 private class Listener implements ActionListener{

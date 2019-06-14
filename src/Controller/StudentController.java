@@ -111,8 +111,7 @@ public class StudentController extends MainController{
 		for(Team t : eingetrageneT) {
 			//testet, ob es schon ein eingetragenes Team in der selben Veranstaltung gibt
 			if(t.getGruppe().getVeranstaltung().getName().equals(slc[0])) {
-				//TODO: Fehlernachricht ausgeben
-				System.out.println("schon in einem Team");
+				createError("schon in einem Team");
 				return;
 			}
 		}

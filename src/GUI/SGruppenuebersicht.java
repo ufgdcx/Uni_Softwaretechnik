@@ -90,19 +90,11 @@ public class SGruppenuebersicht implements FrameContent {
         verlassen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    if (tree.getSelectionPath().getPath().length >= 3) {
-                    	String[] slc = getTreeSelection();
-                        ctr.teamAustragen(slc);
-                        //Fenster Gruppenübersicht aktualisieren
-                        mainFrame.setContent(new SGruppenuebersicht(mainFrame, v));
-                    }
-                } catch (Exception ex) {
-                    ErrorDialog eD = new ErrorDialog("ups, something went wrong");
-                    eD.setResizable(false);
-                    eD.setLocationRelativeTo(null);
-                    eD.setVisible(true);
-                    return;
+                if (tree.getSelectionPath().getPath().length >= 3) {
+                	String[] slc = getTreeSelection();
+                    ctr.teamAustragen(slc);
+                    //Fenster Gruppenübersicht aktualisieren
+                    mainFrame.setContent(new SGruppenuebersicht(mainFrame, v));
                 }
             }
         });

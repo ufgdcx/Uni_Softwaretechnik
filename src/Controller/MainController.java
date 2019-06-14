@@ -476,4 +476,14 @@ public class MainController {
 			System.out.println(e.getErrorMsg());
 		}
 	}
+	
+	/**@author Oleg
+	 * Erzeugt ein Fenster mit der Fehlermeldung, die als Parameter uebergeben wurde
+	 * @param msg
+	 * @return 
+	 */
+	public void createError(String msg) {
+		ErrorDialog eD = new ErrorDialog(msg);
+        return;
+	}
 }
