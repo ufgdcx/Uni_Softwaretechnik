@@ -381,8 +381,8 @@ public class DBrequest {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
-
     }
+
 
     // creater(objects)
     //
@@ -497,6 +497,33 @@ public class DBrequest {
                 team.getGruppe().getGruppenID(),
                 aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),
                 aufgabe.getElPunkte());
+    }
+
+    public  void createMaxPunktzahl(Aufgabe aufgabe) throws DatabaseException{
+        createMaxPunktzahl(aufgabe.getUnterblock().getlBlock().getLbName(),aufgabe.getUnterblock().getUbName(),aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),aufgabe.getElName(),aufgabe.getMaxPunkte());
+    }
+
+
+    public void createLeistungEinzel(Veranstaltung veranstaltung, String leistungsname)throws DatabaseException{
+        ArrayList<Student> studenten = getStudenten(veranstaltung);
+        for (Student s:studenten) {
+            createLeistungEinzel(new Leistung(leistungsname,veranstaltung,s));
+        }
+    }
+    public void createUnterblockEinzel(Veranstaltung veranstaltung, String leistungsname, String unterblockname)throws DatabaseException{
+        ArrayList<Student> studenten = getStudenten(veranstaltung);
+        for (Student s:studenten) {
+            createUnterblockEinzel(new Unterblock(unterblockname, new Leistung(leistungsname,veranstaltung,s)));
+        }
+    }
+    public void createAufgabeEinzel(Veranstaltung veranstaltung, String leistungsname, String unterblockname, String aufgabename, int maxPunkte)throws DatabaseException{
+        ArrayList<Student> studenten = getStudenten(veranstaltung);
+        for (Student s:studenten) {
+            createAufgabeEinzel(new Aufgabe(aufgabename,0,new Unterblock(unterblockname, new Leistung(leistungsname,veranstaltung,s))));
+        }
+        Aufgabe a = new Aufgabe(aufgabename,0,new Unterblock(unterblockname, new Leistung(leistungsname,veranstaltung)));
+        a.setMaxPunkte(maxPunkte);
+        createMaxPunktzahl(a);
     }
 
     //deleter(primitiv)
@@ -1019,6 +1046,24 @@ public class DBrequest {
         return  results;
     }
 
+    public ArrayList<Student> getStudenten(Veranstaltung veranstaltung) throws DatabaseException{
+        logwriter.writetoLog("  function: getStudenten(Veranstaltung)","TRACE");
+        String veranstaltungsname = veranstaltung.getName();
+        ArrayList<Student> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Nutzer.*, Student.Studiengang, Student.Matrikelnummer FROM Gehoert_zu INNER JOIN (Nutzer INNER JOIN Student ON Nutzer.EMailadresse = Student.EMailadresse) ON Gehoert_zu.Matrikelnummer = Student.Matrikelnummer WHERE Gehoert_zu.Veranstaltungsname = '" + veranstaltungsname + "'");
+            while (rs.next()){
+                results.add(new Student(rs.getString("EMailadresse"),rs.getString("Passwort"),rs.getString("Titel"),rs.getString("Vorname"),rs.getString("Nachname"),rs.getString("Studiengang"),rs.getInt("Matrikelnummer")));
+            }
+            logwriter.writetoLog("  successfully loaded:" + resultSize(rs),"TRACE");
+        }catch (SQLException ex){
+            logwriter.writetoLog("  Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+        return  results;
+    }
+
     public ArrayList<Gruppe> getGruppen(Veranstaltung veranstaltung) throws  DatabaseException
     {
         logwriter.writetoLog("function: getGruppen(Veranstaltung)","TRACE");
@@ -1054,16 +1099,6 @@ public class DBrequest {
         }
         logwriter.writetoLog("returned none","TRACE");
         return  null;
-    }
-
-    public Dozent getDozent(Dozent dozent) throws DatabaseException
-    {
-        try{ return getDozent(dozent.getEmail()); }
-        catch (DatabaseException e)
-        {
-            logwriter.writetoLog(e.getErrorMsg(), "Error");
-            throw new DatabaseException("Cant get item");
-        }
     }
 
     public  ArrayList<Team> getTeams(Gruppe gruppe) throws  DatabaseException
@@ -1165,7 +1200,9 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Einzelleistung.* FROM Unterblock INNER JOIN Einzelleistung ON Unterblock.Matrikelnummer = Einzelleistung.Matrikelnummer AND Unterblock.Leistungsblock_name = Einzelleistung.Leistungsblock_name AND Unterblock.Unterblock_name = Einzelleistung.Unterblock_name WHERE Einzelleistung.Matrikelnummer = '" + matrikelnummer + "' AND Einzelleistung.Leistungsblock_name = '" + leistungsblockname + "' AND Einzelleistung.Veranstaltungsname = '" + veranstaltungsname + "' AND Einzelleistung.Unterblock_name = '" + unterblockname + "'");
             while (rs.next()){
-                results.add(new Aufgabe(rs.getString("Einzelleistung_name"),rs.getInt("Punkte"),unterblock));
+                Aufgabe a = new Aufgabe(rs.getString("Einzelleistung_name"),rs.getInt("Punkte"),unterblock);
+                a.setMaxPunkte(getMaxPunkte(a,veranstaltung));
+                results.add(a);
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
         }catch (SQLException ex){
@@ -1173,6 +1210,28 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
         return  results;
+    }
+
+    public int getMaxPunkte(Aufgabe aufgabe, Veranstaltung veranstaltung) throws  DatabaseException
+    {
+        logwriter.writetoLog("  function: getMaxPunkte(Aufgabe)","TRACE");
+        String veranstaltungsname = veranstaltung.getName();
+        String leistungsblockname = aufgabe.getUnterblock().getlBlock().getLbName();
+        String unterblockname = aufgabe.getUnterblock().getUbName();
+        String leistungsname = aufgabe.getElName();
+        ArrayList<Aufgabe> results = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT MaxPunktzahl.* FROM MaxPunktzahl WHERE Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND Unterblock_name = '" + unterblockname + "' AND  Leistung_name = '" + leistungsname + "'");
+            if(resultSize(rs)!=0){
+                logwriter.writetoLog("  successful","TRACE");
+                return rs.getInt("Punkte");
+            }
+        }catch (SQLException ex){
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+        throw new DatabaseException("Entry doesn't exist");
     }
 
     public ArrayList <Leistung> getLeistung(Team team) throws  DatabaseException
@@ -1235,7 +1294,9 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("Select Teamleistung.* FROM Teamleistungsunterblock INNER JOIN Teamleistung ON Teamleistung.TeamID = Teamleistungsunterblock.TeamID AND Teamleistung.GruppenID = Teamleistungsunterblock.GruppenID AND Teamleistung.Veranstaltungsname = Teamleistungsunterblock.Veranstaltungsname AND Teamleistung.Teamleistungsblockname = Teamleistungsunterblock.Teamleistungsblockname AND Teamleistung.Teamleistungsunterblockname = Teamleistungsunterblock.Teamleistungsunterblockname WHERE Teamleistung.Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistung.TeamID = '" + teamID + "' AND Teamleistung.GruppenID = '" + gruppenID + "' AND Teamleistung.Teamleistungsblockname = '" + teamleistungsblockname + "' AND Teamleistung.Teamleistungsunterblockname = '" + teamunterblockname + "'");
             while (rs.next()){
-                results.add(new Aufgabe(rs.getString("Teamleistungsname"),rs.getInt("Punkte"),unterblock));
+                Aufgabe a = new Aufgabe(rs.getString("Teamleistungsname"),rs.getInt("Punkte"),unterblock);
+                a.setMaxPunkte(getMaxPunkte(a,team.getGruppe().getVeranstaltung()));
+                results.add(a);
             }
             logwriter.writetoLog("successfully loaded:" + resultSize(rs),"TRACE");
         }catch (SQLException ex){
