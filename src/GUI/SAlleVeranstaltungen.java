@@ -84,11 +84,8 @@ public class SAlleVeranstaltungen implements FrameContent {
             public void actionPerformed(ActionEvent e) {
                 if (veranstaltungenList.getSelectedIndex() >= 0) {
                 	Veranstaltung v = alleVL.get(veranstaltungenList.getSelectedIndex());
+                	//eintragen wird vom Controller übernommen (wechselt das Fenster)
                 	ctr.eintragen(v);
-                	//zurueck zur Uebersicht
-                	mainFrame.setContent(new SVeranstaltungsuebersicht(mainFrame));
-                	//alternativ gleich die neue Veranstaltung betrachten
-                    //mainFrame.setContent(new SGruppenuebersicht(mainFrame,v));
                 } else {
                     errorLabel.setVisible(true);
                 }
