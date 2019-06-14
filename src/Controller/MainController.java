@@ -19,7 +19,7 @@ import java.util.*;
 public class MainController {
 	protected GUIMain mainFrame;
 	private Nutzer n;
-	protected DBrequest dbr = new DBrequest();
+	protected DBrequest dbr = DBrequest.getIntstance();
 
 	/**@author Diana
 	 * Hilfsmethode fuer die Registrierung eines neuen Nutzers
@@ -512,5 +512,15 @@ public class MainController {
 		} catch (DatabaseException e){
 			System.out.println(e.getErrorMsg());
 		}
+	}
+	
+	/**@author Oleg
+	 * Erzeugt ein Fenster mit der Fehlermeldung, die als Parameter uebergeben wurde
+	 * @param msg
+	 * @return 
+	 */
+	public void createError(String msg) {
+		ErrorDialog eD = new ErrorDialog(msg);
+        return;
 	}
 }

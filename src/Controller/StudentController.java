@@ -49,7 +49,7 @@ public class StudentController extends MainController{
 				System.out.println(e.getErrorMsg());
 			}
 		}
-		//System.out.println(eingetrageneT);
+		//System.out.println("In folgenden Teams eingetragen: "eingetrageneT);
 	}
 	
 	/**@author Oleg
@@ -80,6 +80,8 @@ public class StudentController extends MainController{
 	 * Gibt eine Liste von den Veranstaltungen zurueck, in denen der Nutzer eingetrage ist.
 	 */
 	public ArrayList<Veranstaltung> getVeranstaltungen(){
+		//update aus der Datenbank, damit Veranstaltungen aktuell sind
+		eingetrageneV = super.getVeranstaltungen(me);
 		return eingetrageneV;
 	}
 	
@@ -87,26 +89,56 @@ public class StudentController extends MainController{
 	 * Regelt das Eintragen des Studenten in ein Team.
 	 */
 	public void teamEintragen(String[] slc) {
+		Team newT = null;
+		//findet das ausgewaehlte Team im Model
+		for(Veranstaltung v : eingetrageneV) {
+			if(slc[0].equals(v.getName()))
+			{
+				//System.out.println("Team in Veranstaltung: " + v.getName());
+				for(Gruppe g : v.getGruppen()) {
+					if(Integer.parseInt(slc[1]) == g.getGruppenID()) {
+						//System.out.println("Team in Gruppe: " + g.getGruppenID());
+						for(Team t : g.getTeams()) {
+							if(Integer.parseInt(slc[2]) == t.getTeamID()) {
+								//System.out.println("Team ist: " + t.getTeamID());
+								newT = t;
+							}
+						}
+					}
+				}
+			}
+		}
 		for(Team t : eingetrageneT) {
 			//testet, ob es schon ein eingetragenes Team in der selben Veranstaltung gibt
-			if(t.getGruppe().getVeranstaltung().getName() == slc[0]) {
-				//TODO: Fehlernachricht ausgeben
+			if(t.getGruppe().getVeranstaltung().getName().equals(slc[0])) {
+				createError("schon in einem Team");
 				return;
 			}
 		}
 		super.createGehoertZu(me.getMatrikelnr(), Integer.parseInt(slc[2]), Integer.parseInt(slc[1]), slc[0]);
+		eingetrageneT.add(newT);
+		//System.out.println(eingetrageneT);
 	}
 	
 	/**@author Oleg
 	 * Regelt das Austragen des Studenten aus einem Team.
 	 */
 	public void teamAustragen(String[] slc) {
+		Team delT = null;
 		for(Team t : eingetrageneT) {
-			if(t.getTeamID() == Integer.parseInt(slc[2])) {
-				eingetrageneT.remove(t);
-				super.deleteGehoertZu(me.getMatrikelnr(), Integer.parseInt(slc[2]), Integer.parseInt(slc[1]), slc[0]);
+			if(t.getTeamID() == Integer.parseInt(slc[2]) 
+				&& t.getGruppe().getGruppenID() == Integer.parseInt(slc[1]) 
+				&& t.getGruppe().getVeranstaltung().getName().equals(slc[0]))
+			{
+				delT = t;
 			}
 		}
+		//loescht das evtl. gefundene Team (in der Schleife nicht moeglich)
+		if(delT != null) {
+			eingetrageneT.remove(delT);
+			super.deleteGehoertZu(me.getMatrikelnr(), Integer.parseInt(slc[2]), Integer.parseInt(slc[1]), slc[0]);
+		}
+		//System.out.println(eingetrageneT);
 	}
 	
 	/**@author Oleg
@@ -136,7 +168,9 @@ public class StudentController extends MainController{
 		for(Team t : eingetrageneT) {
 			//testet, ob ein Team in der zu loeschenden Veranstaltung ist
 			Gruppe g = t.getGruppe();
-			if(g.getVeranstaltung() == v) {
+			//System.out.println(g.getVeranstaltung() + " vs " + v);
+			if(g.getVeranstaltung().getName().equals(v.getName())) {
+				System.out.println("automatically deletet Team in " + v.getName());
 				delT = t;
 				delG = g;
 			}
