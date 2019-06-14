@@ -19,7 +19,7 @@ import java.util.*;
 public class MainController {
 	protected GUIMain mainFrame;
 	private Nutzer n;
-	protected DBrequest dbr = new DBrequest();
+	protected DBrequest dbr = DBrequest.getIntstance();
 
 	/**@author Diana
 	 * Hilfsmethode fuer die Registrierung eines neuen Nutzers
