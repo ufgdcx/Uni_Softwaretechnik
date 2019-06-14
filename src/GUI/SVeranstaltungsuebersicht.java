@@ -58,7 +58,7 @@ public class SVeranstaltungsuebersicht implements FrameContent {
     }
 
     /**
-     * @author Diana
+     * @author Diana, Oleg
      */
     public SVeranstaltungsuebersicht(Student student, ArrayList<Veranstaltung> alleVL, ArrayList<Veranstaltung> sVL, int index, int preview) {
 
@@ -96,8 +96,9 @@ public class SVeranstaltungsuebersicht implements FrameContent {
         ansehen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                mainFrame.setContent(new SLeistungsuebersicht(student, alleVL, sVL, veranstaltungenList.getSelectedIndex(), preview));
+            	if (veranstaltungenList.getSelectedIndex() >= 0) {
+            		mainFrame.setContent(new SLeistungsuebersicht(student, alleVL, sVL, veranstaltungenList.getSelectedIndex(), preview));
+            	}
             }
         });
         logoutButton.addActionListener(new ActionListener() {
