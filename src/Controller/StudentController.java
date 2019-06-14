@@ -49,7 +49,7 @@ public class StudentController extends MainController{
 				System.out.println(e.getErrorMsg());
 			}
 		}
-		//System.out.println(eingetrageneT);
+		//System.out.println("In folgenden Teams eingetragen: "eingetrageneT);
 	}
 	
 	/**@author Oleg
@@ -80,6 +80,8 @@ public class StudentController extends MainController{
 	 * Gibt eine Liste von den Veranstaltungen zurueck, in denen der Nutzer eingetrage ist.
 	 */
 	public ArrayList<Veranstaltung> getVeranstaltungen(){
+		//update aus der Datenbank, damit Veranstaltungen aktuell sind
+		eingetrageneV = super.getVeranstaltungen(me);
 		return eingetrageneV;
 	}
 	
@@ -87,14 +89,36 @@ public class StudentController extends MainController{
 	 * Regelt das Eintragen des Studenten in ein Team.
 	 */
 	public void teamEintragen(String[] slc) {
+		Team newT = null;
+		//findet das ausgewaehlte Team im Model
+		for(Veranstaltung v : eingetrageneV) {
+			if(slc[0].equals(v.getName()))
+			{
+				//System.out.println("Team in Veranstaltung: " + v.getName());
+				for(Gruppe g : v.getGruppen()) {
+					if(Integer.parseInt(slc[1]) == g.getGruppenID()) {
+						//System.out.println("Team in Gruppe: " + g.getGruppenID());
+						for(Team t : g.getTeams()) {
+							if(Integer.parseInt(slc[2]) == t.getTeamID()) {
+								//System.out.println("Team ist: " + t.getTeamID());
+								newT = t;
+							}
+						}
+					}
+				}
+			}
+		}
 		for(Team t : eingetrageneT) {
 			//testet, ob es schon ein eingetragenes Team in der selben Veranstaltung gibt
-			if(t.getGruppe().getVeranstaltung().getName() == slc[0]) {
+			if(t.getGruppe().getVeranstaltung().getName().equals(slc[0])) {
 				//TODO: Fehlernachricht ausgeben
+				System.out.println("schon in einem Team");
 				return;
 			}
 		}
 		super.createGehoertZu(me.getMatrikelnr(), Integer.parseInt(slc[2]), Integer.parseInt(slc[1]), slc[0]);
+		eingetrageneT.add(newT);
+		//System.out.println(eingetrageneT);
 	}
 	
 	/**@author Oleg
@@ -107,6 +131,7 @@ public class StudentController extends MainController{
 				super.deleteGehoertZu(me.getMatrikelnr(), Integer.parseInt(slc[2]), Integer.parseInt(slc[1]), slc[0]);
 			}
 		}
+		//System.out.println(eingetrageneT);
 	}
 	
 	/**@author Oleg
