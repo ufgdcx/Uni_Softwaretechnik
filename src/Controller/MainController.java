@@ -20,7 +20,51 @@ public class MainController {
 	protected GUIMain mainFrame;
 	private Nutzer n;
 	protected DBrequest dbr = new DBrequest();
-	
+
+	/**@author Diana
+	 * Hilfsmethode fuer die Registrierung eines neuen Nutzers
+	 * @param email
+	 * @param titel
+	 * @param vorname
+	 * @param nachname
+	 * @param passwort
+	 */
+	public void createNutzer(String email, String titel, String vorname, String nachname, String passwort){
+		try {
+			dbr.createNutzer(email, titel, vorname, nachname, passwort);
+		}  catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
+
+	/**@author Diana
+	 * Hilfsmethode fuer die Registrierung eines neuen Dozenten
+	 * Qparam email
+	 * @param fakultaet
+	 *
+	 */
+	public void createDozent(String email, String fakultaet){
+		try {
+			dbr.createDozent(email, fakultaet);
+		}  catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
+
+	/**@author Diana
+	 * Hilfsmethode fuer die Registrierung eines neuen Studenten
+	 * Qparam email
+	 * @param matrikelnummer
+	 * @param studiengang
+	 */
+	public void createStudent(String email, int matrikelnummer, String studiengang){
+		try {
+			dbr.createStudent(email, matrikelnummer, studiengang);
+		}  catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
+
 	public MainController(GUIMain m) {
 		mainFrame = m;
 		mainFrame.setController(this);
@@ -33,7 +77,7 @@ public class MainController {
 	 */
 	public static char[] getHash(char[] base) {
     	String baseString = "";
-    	for(int i=0;i<base.length;i++)
+    	for(int i = 0; i < base.length; i++)
     		baseString = baseString + base[i];
     	return String.valueOf(baseString.hashCode()).toCharArray();
     }
@@ -51,7 +95,7 @@ public class MainController {
 			System.out.println(e.getErrorMsg());
             return;
 		}
-		
+
 		//switch to StudentController or DozentController
 		if(n instanceof Dozent){
 			//creating Dozent object d to pass the info to DozentController
@@ -220,7 +264,7 @@ public class MainController {
 	}
 
 	/**@author Diana
-	 * Hilfsmethode zum Erstellen von Gruppen fuer GruppenTree in DGruppenuebersicht und -bearbeiten
+	 * Hilfsmethode zum Erstellen von Gruppen fuer GruppenTree in S-/DGruppenuebersicht und -bearbeiten
 	 * @param gruppenid
 	 * @param d
 	 * @param veranstaltung
@@ -238,7 +282,7 @@ public class MainController {
 	}
 
 	/**@author Diana
-	 * Hilfsmethode zum Erstellen von Teams fuer GruppenTree in DGruppenuebersicht und -bearbeiten
+	 * Hilfsmethode zum Erstellen von Teams fuer GruppenTree in S-/DGruppenuebersicht und -bearbeiten
 	 * @param gruppenid
 	 * @param teamid
 	 * @param veranstaltungsname
@@ -293,7 +337,7 @@ public class MainController {
 	}
 
 	/**@author Diana
-	 * Hilfsmethode fuer createLeistungsTree
+	 * Hilfsmethode fuer createLeistungsTree in S-/Dleistungsuebersicht
 	 * @param student
 	 * @param veranstaltung
 	 * @return
@@ -308,7 +352,7 @@ public class MainController {
 	}
 
 	/**@author Diana
-	 * Hilfsmethode fuer createLeistungsTree
+	 * Hilfsmethode fuer createLeistungsTree in S-/Dleistungsuebersicht
 	 * @param student
 	 * @param leistungsblock
 	 * @param veranstaltung
@@ -324,7 +368,7 @@ public class MainController {
 	}
 
 	/**@author Diana
-	 * Hilfsmethode fuer createLeistungsTree
+	 * Hilfsmethode fuer createLeistungsTree in D-/SLeistungsuebersicht
 	 * @param student
 	 * @param leistungsblock
 	 * @param unterblock
@@ -368,39 +412,10 @@ public class MainController {
 		return tree;
 	}
 
-	/**@author Diana
-	 *
-	 * @param gruppe
-	 */
-    public void setGruppen(Gruppe gruppe) {
-
-        try{
-            dbr.updateGruppe(gruppe);
-
-        } catch (DatabaseException e) {
-            System.out.println(e.getErrorMsg());
-            return;
-        }
-    }
-
-	/**@author Diana
-	 *
-	 * @param team
-	 */
-    public void setTeam(Team team) {
-
-        try{
-            dbr.updateTeam(team);
-        } catch (DatabaseException e) {
-            System.out.println(e.getErrorMsg());
-            return;
-        }
-    }
-
 	//Methoden für Studentenansicht
 
 	/**@author Diana
-	 *
+	 * Hilfsmethode zur Anzeige der Veranstaltungen eines Studenten in SVeranstaltungsuebersicht
 	 * @param me
 	 * @return
 	 */
@@ -414,7 +429,7 @@ public class MainController {
 	}
 
 	/**@author Diana
-	 *
+	 * Hilfsmethode zur Anzeige aller Veranstaltungen in SAlleVeranstaltungen
 	 * @return
 	 */
 	public ArrayList<Veranstaltung> getAlleV(){
@@ -427,7 +442,7 @@ public class MainController {
 	}
 
 	/**@author Diana
-	 * Hilfsmethode für Teambeitritt
+	 * Hilfsmethode für Teambeitritt in SGruppenuebersicht
 	 * @param matrikelnummer
 	 * @param teamid
 	 * @param gruppenid
@@ -442,7 +457,7 @@ public class MainController {
 	}
 
 	/**@author Diana
-	 * Hilfsmethode für Teamaustritt
+	 * Hilfsmethode für Teamaustritt in SGruppenuebersicht
 	 * @param matrikelnummer
 	 * @param teamid
 	 * @param gruppenid

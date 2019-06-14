@@ -6,34 +6,45 @@
 
 package GUI;
 
-import Klassen.Veranstaltung;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
 import java.awt.*;
+import Klassen.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
 public class DLeistungsuebersicht implements FrameContent {
 
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     private GUIMain mainFrame;
     private JLabel BewertungLabel;
-    private JButton LBhinzufuegen;
+    private JButton leistungHinzufuegen;
     private JButton UBhinzufuegen;
     private JButton loeschen;
     private JTextField Bewertung;
     private JPanel LeistungsuebersichtPanel;
     private JButton zurueckButton;
-    private JTree tree1;
-    private JButton logoutButton;
     private JButton teambewertungButton;
     private JButton hinzufuegen;
+    private JScrollPane treeScrollPane;
+    private JTree tree;
+    /**
+     * @author Diana
+     */
+    private JButton logoutButton;
+    private JButton aufgabeHinzufuegen;
 
-
+    /**
+     * @author Kristi
+     */
     public String getName() {
 
         return "Leistungsübersicht - Dozent";
@@ -49,10 +60,51 @@ public class DLeistungsuebersicht implements FrameContent {
         mainFrame = m;
     }
 
-    /**@author Diana*/
-    public DLeistungsuebersicht(ArrayList<Veranstaltung> dVL, int index) {
+    /**
+     * @param dVL
+     * @param student
+     * @param index
+     * @author Diana
+     */
+    public DLeistungsuebersicht(ArrayList<Veranstaltung> dVL, Student student, int index) {
 
-        //zum Hinzufügen von Einzelleistungen für einen Studenten
+        //Initialisierung Baum mit Gruppen, Teams und Mitglieder
+        treeScrollPane.setViewportView(tree);
+
+        //Überpruefung des ScrollPane auf Veraenderungen und Aktualisierung der Daten mit Hilfe der Datenbank
+        treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                tree = mainFrame.getController().createLeistungsTree(dVL.get(index), student, treeScrollPane);
+            }
+        });
+
+        //zum Hinzufuegen eines Leistungsblocks als Parent in den Tree
+        leistungHinzufuegen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //To Do: neuen LB in Tree und DB hinzufügen
+
+                mainFrame.setContent(new DLeistungsuebersicht(dVL, student, index));
+            }
+        });
+        //zum Hinzufuegen eines Unterblocks als Child in den Tree
+        UBhinzufuegen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //To Do: neuen UB in Tree und DB hinzufügen
+
+                mainFrame.setContent(new DLeistungsuebersicht(dVL, student, index));
+            }
+        });
+        //zum Hinzufuegen einer Aufgabe (z.b. Aufgabe 1 von Hausaufgabe 1)
+        aufgabeHinzufuegen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        //zum Hinzufuegen von Einzelleistungen für einen Studenten
         hinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -60,37 +112,19 @@ public class DLeistungsuebersicht implements FrameContent {
 
             }
         });
-        //zum Hinzufügen von Gruppenleistungen für ein Team
+        //zum Hinzufuegen von Gruppenleistungen für ein Team
         teambewertungButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //To Do: Teamleistung aus obigem Textfeld einem Team zuordnen + in DB speichern
             }
         });
-        //zum Hinzufügen eines Leistungsblocks als Parent in den Tree
-        LBhinzufuegen.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //To Do: neuen LB in Tree und DB hinzufügen
-
-                mainFrame.setContent(new DLeistungsuebersicht(dVL, index));
-            }
-        });
-        //zum Hinzufügen eines Unterblocks als Child in den Tree
-        UBhinzufuegen.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //To Do: neuen UB in Tree und DB hinzufügen
-
-                mainFrame.setContent(new DLeistungsuebersicht(dVL, index));
-            }
-        });
-        //zum Lösschen des ausgewählten Leistungs- oder Unterblocks
+        //zum Loeschen des ausgewaehlten Leistungs- oder Unterblocks
         loeschen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new DLeistungsuebersicht(dVL, index));
+                mainFrame.setContent(new DLeistungsuebersicht(dVL, student, index));
             }
         });
         //Wechsel zurück zum Fenster Gruppenübersicht in der Dozentenansicht
@@ -127,41 +161,45 @@ public class DLeistungsuebersicht implements FrameContent {
      */
     private void $$$setupUI$$$() {
         LeistungsuebersichtPanel = new JPanel();
-        LeistungsuebersichtPanel.setLayout(new GridLayoutManager(8, 4, new Insets(50, 20, 50, 20), -1, -1));
+        LeistungsuebersichtPanel.setLayout(new GridLayoutManager(10, 4, new Insets(50, 20, 50, 20), -1, -1));
         hinzufuegen = new JButton();
         hinzufuegen.setText("Einzelbewertung hinzufügen");
-        LeistungsuebersichtPanel.add(hinzufuegen, new GridConstraints(1, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        UBhinzufuegen = new JButton();
-        UBhinzufuegen.setText("Unterblock hinzufügen");
-        LeistungsuebersichtPanel.add(UBhinzufuegen, new GridConstraints(4, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        LeistungsuebersichtPanel.add(hinzufuegen, new GridConstraints(5, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         loeschen = new JButton();
         loeschen.setText("Element löschen");
-        LeistungsuebersichtPanel.add(loeschen, new GridConstraints(5, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JPanel panel1 = new JPanel();
-        panel1.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        LeistungsuebersichtPanel.add(panel1, new GridConstraints(0, 0, 8, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(165, 24), null, 0, false));
-        tree1 = new JTree();
-        panel1.add(tree1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
-        LBhinzufuegen = new JButton();
-        LBhinzufuegen.setText("Leistungsblock hinzufügen");
-        LeistungsuebersichtPanel.add(LBhinzufuegen, new GridConstraints(3, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        LeistungsuebersichtPanel.add(loeschen, new GridConstraints(7, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         BewertungLabel = new JLabel();
         BewertungLabel.setText("Bewertung");
-        LeistungsuebersichtPanel.add(BewertungLabel, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        LeistungsuebersichtPanel.add(BewertungLabel, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         zurueckButton = new JButton();
         zurueckButton.setText("zurück");
-        LeistungsuebersichtPanel.add(zurueckButton, new GridConstraints(7, 1, 1, 2, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        LeistungsuebersichtPanel.add(zurueckButton, new GridConstraints(9, 1, 1, 2, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        teambewertungButton = new JButton();
+        teambewertungButton.setText("Teambewertung hinzufügen");
+        LeistungsuebersichtPanel.add(teambewertungButton, new GridConstraints(6, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        Bewertung = new JTextField();
+        Bewertung.setText("");
+        LeistungsuebersichtPanel.add(Bewertung, new GridConstraints(4, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(50, -1), new Dimension(50, -1), new Dimension(50, -1), 0, false));
+        final Spacer spacer1 = new Spacer();
+        LeistungsuebersichtPanel.add(spacer1, new GridConstraints(8, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        treeScrollPane = new JScrollPane();
+        LeistungsuebersichtPanel.add(treeScrollPane, new GridConstraints(0, 0, 10, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        tree = new JTree();
+        treeScrollPane.setViewportView(tree);
+        leistungHinzufuegen = new JButton();
+        leistungHinzufuegen.setText("Leistung hinzufügen");
+        LeistungsuebersichtPanel.add(leistungHinzufuegen, new GridConstraints(0, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        UBhinzufuegen = new JButton();
+        UBhinzufuegen.setText("Unterblock hinzufügen");
+        LeistungsuebersichtPanel.add(UBhinzufuegen, new GridConstraints(1, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         logoutButton = new JButton();
         logoutButton.setText("Logout");
         LeistungsuebersichtPanel.add(logoutButton, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        teambewertungButton = new JButton();
-        teambewertungButton.setText("Teambewertung hinzufügen");
-        LeistungsuebersichtPanel.add(teambewertungButton, new GridConstraints(2, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        Bewertung = new JTextField();
-        Bewertung.setText("");
-        LeistungsuebersichtPanel.add(Bewertung, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(50, -1), new Dimension(50, -1), new Dimension(50, -1), 0, false));
-        final Spacer spacer1 = new Spacer();
-        LeistungsuebersichtPanel.add(spacer1, new GridConstraints(6, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        aufgabeHinzufuegen = new JButton();
+        aufgabeHinzufuegen.setText("Aufgabe hinzufügen");
+        LeistungsuebersichtPanel.add(aufgabeHinzufuegen, new GridConstraints(2, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final Spacer spacer2 = new Spacer();
+        LeistungsuebersichtPanel.add(spacer2, new GridConstraints(3, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
     }
 
     /**
@@ -170,4 +208,5 @@ public class DLeistungsuebersicht implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return LeistungsuebersichtPanel;
     }
+
 }

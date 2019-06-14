@@ -65,8 +65,6 @@ public class DVeranstaltungsuebersicht implements FrameContent {
             veranstaltungen.add(v.getName());
             dLM.add(dLM.size(), v.getName());
         }
-
-        //dLM.addAll(veranstaltungen);
         VeranstaltungenList.setModel(dLM);
 
         einsehen.addActionListener(new ActionListener() {
