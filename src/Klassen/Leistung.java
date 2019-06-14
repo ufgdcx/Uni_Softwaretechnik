@@ -37,10 +37,11 @@ public class Leistung
     }
 
     // constructor for Database
-    public Leistung(String lbName, Veranstaltung veranstaltung)
+    public Leistung(String lbName, Veranstaltung veranstaltung,Student student)
     {
         this.lbName = lbName;
         this.veranstaltung = veranstaltung;
+        this.student = student;
     }
 
     public Leistung(String lbName)

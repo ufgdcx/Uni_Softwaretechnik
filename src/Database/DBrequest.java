@@ -446,15 +446,13 @@ public class DBrequest {
                                 studienganganteil.getAnteil());
     }
 
-    // Issue: Leistung braucht Veranstaltungsname !?
     public void createLeistungEinzel(Leistung leistungs) throws DatabaseException
     {
         createLeistungsblock(leistungs.getStudent().getMatrikelnr(),
                      leistungs.getLbName(),
-                     leistungs.getVeranstaltung().getName()); // no get methodcreateVeranstaltung
+                     leistungs.getVeranstaltung().getName());
     }
 
-    // Issue: Unterblock braucht getMatrikelnummer, getVeranstaltungsname !?
     public void createUnterblockEinzel(Unterblock unterblock) throws DatabaseException
     {
         createUnterblock(unterblock.getlBlock().getStudent().getMatrikelnr(),
@@ -463,14 +461,42 @@ public class DBrequest {
                         unterblock.getlBlock().getVeranstaltung().getName());
     }
 
-    public void createEinzelAufgabe(Aufgabe aufgabe) throws DatabaseException
+    public void createAufgabeEinzel(Aufgabe aufgabe) throws DatabaseException
     {
                createEinzelleistung(aufgabe.getUnterblock().getlBlock().getStudent().getMatrikelnr(),
                         aufgabe.getUnterblock().getlBlock().getLbName(),
                         aufgabe.getUnterblock().getUbName(),
-                        aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(), // no get method
+                        aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),
                         aufgabe.getElName(),
                         aufgabe.getUnterblock().getUbPunkte());
+    }
+
+    public void createLeistungTeam(Leistung leistungs,Team team) throws DatabaseException
+    {
+        createTeamLeistungsblock(leistungs.getLbName(),
+                team.getTeamID(),
+                team.getGruppe().getGruppenID(),
+                leistungs.getVeranstaltung().getName());
+    }
+
+    public void createUnterblockTeam(Unterblock unterblock, Team team) throws DatabaseException
+    {
+        createTeamLeistungsUnterblock(unterblock.getlBlock().getLbName(),
+                unterblock.getUbName(),
+                team.getTeamID(),
+                team.getGruppe().getGruppenID(),
+                unterblock.getlBlock().getVeranstaltung().getName());
+    }
+
+    public void createAufgabeTeam(Aufgabe aufgabe, Team team) throws DatabaseException
+    {
+        createTeamleistung(aufgabe.getUnterblock().getlBlock().getLbName(),
+                aufgabe.getUnterblock().getUbName(),
+                aufgabe.getElName(),
+                team.getTeamID(),
+                team.getGruppe().getGruppenID(),
+                aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),
+                aufgabe.getElPunkte());
     }
 
     //deleter(primitiv)
@@ -1221,7 +1247,7 @@ public class DBrequest {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Leistungsblock.* FROM Student INNER JOIN Leistungsblock ON Student.Matrikelnummer = Leistungsblock.Matrikelnummer WHERE Student.Matrikelnummer = '" + matrikelnummer + "' AND Leistungsblock.Veranstaltungsname = '" + veranstaltungsname + "'");
             while (rs.next()){
-                Leistung leistung = new Leistung(rs.getString("Leistungsblock_name"),veranstaltung);
+                Leistung leistung = new Leistung(rs.getString("Leistungsblock_name"),veranstaltung, student);
                 leistung.setuBloecke(getUnterblock(student,leistung,veranstaltung));
                 results.add(leistung);
             }
