@@ -65,13 +65,12 @@ public class SVeranstaltungsuebersicht implements FrameContent {
     	mainFrame = m;
     	StudentController ctr = (StudentController) mainFrame.getController();
     	Student student = (Student) ctr.getSubject();
-    	ArrayList<Veranstaltung> alleVL = ctr.getAlleV();
-    	ArrayList<Veranstaltung> sVL = ctr.getVeranstaltungen();
+    	ArrayList<Veranstaltung> VL = ctr.getVeranstaltungen();
     	int preview = 1;
     	
     	ArrayList<String> veranstaltungen = new ArrayList<String>();
 
-        for (Veranstaltung v : sVL) {
+        for (Veranstaltung v : VL) {
             veranstaltungen.add(v.getName());
             dLM.add(dLM.size(), v.getName());
         }
@@ -82,21 +81,25 @@ public class SVeranstaltungsuebersicht implements FrameContent {
         hinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 mainFrame.setContent(new SAlleVeranstaltungen(mainFrame));
             }
         });
         verlassen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            	if (veranstaltungenList.getSelectedIndex() >= 0) {
+	            	Veranstaltung v = VL.get(veranstaltungenList.getSelectedIndex());
+	            	ctr.austragen(v);
+	            	//Uebersicht neu laden
+	            	mainFrame.setContent(new SVeranstaltungsuebersicht(mainFrame));
+            	}
             }
         });
         bearbeiten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (veranstaltungenList.getSelectedIndex() >= 0) {
-                	Veranstaltung v = sVL.get(veranstaltungenList.getSelectedIndex());
+                	Veranstaltung v = VL.get(veranstaltungenList.getSelectedIndex());
                     mainFrame.setContent(new SGruppenuebersicht(mainFrame,v));
                 }
             }
@@ -105,7 +108,7 @@ public class SVeranstaltungsuebersicht implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if (veranstaltungenList.getSelectedIndex() >= 0) {
-            		Veranstaltung v = sVL.get(veranstaltungenList.getSelectedIndex());
+            		Veranstaltung v = VL.get(veranstaltungenList.getSelectedIndex());
             		mainFrame.setContent(new SLeistungsuebersicht(mainFrame, v));
             	}
             }

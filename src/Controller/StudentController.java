@@ -49,4 +49,15 @@ public class StudentController extends MainController{
 	public ArrayList<Veranstaltung> getVeranstaltungen(){
 		return eingetrageneV;
 	}
+	
+	public void eintragen(Veranstaltung v) {
+		eingetrageneV.add(v);
+		//TODO: Datenbank updaten
+	}
+	
+	public void austragen(Veranstaltung v) {
+		//System.out.println("Removing: "+ v + " at index: " + eingetrageneV.indexOf(v));
+		eingetrageneV.remove(v);
+		//TODO: Nochmal nachfragen und Datenbank updaten
+	}
 }
