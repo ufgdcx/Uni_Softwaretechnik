@@ -70,6 +70,7 @@ fabric.properties
 # not needed files
 Logdata/
 logdata*
+logdata.txt
 *.iml
 *.yml
 /.project
