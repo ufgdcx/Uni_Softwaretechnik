@@ -1,1480 +1,400 @@
-[TRACE] 2019-06-14 at 23:05:28 - function: getNutzer(String,char[])
-[TRACE] 2019-06-14 at 23:05:28 - successful(Dozent)
-[TRACE] 2019-06-14 at 23:05:28 - function: getVeranstaltung(Dozent)
-[TRACE] 2019-06-14 at 23:05:28 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:29 -   successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:29 -   function: getDozenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:29 -   successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:29 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:34 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:34 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:34 - successful
-[TRACE] 2019-06-14 at 23:05:34 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:34 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:34 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:34 - successful
-[TRACE] 2019-06-14 at 23:05:34 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:34 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:34 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:34 - successful
-[TRACE] 2019-06-14 at 23:05:34 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:34 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:34 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:05:34 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:34 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:34 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:34 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:34 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:34 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:34 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:34 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:34 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:34 -   successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:34 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:34 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:34 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:34 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:34 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:34 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:34 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:34 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:34 - successful
-[TRACE] 2019-06-14 at 23:05:34 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:34 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:34 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:34 - successful
-[TRACE] 2019-06-14 at 23:05:34 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:34 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:34 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:34 - successful
-[TRACE] 2019-06-14 at 23:05:34 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:35 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:35 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:05:35 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:35 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:35 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:35 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:35 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:35 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:35 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:35 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:35 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:35 -   successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:35 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:35 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:35 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:35 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:35 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:35 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:39 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:39 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:39 - successful
-[TRACE] 2019-06-14 at 23:05:39 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:40 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:40 - successful
-[TRACE] 2019-06-14 at 23:05:40 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:40 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:40 - successful
-[TRACE] 2019-06-14 at 23:05:40 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:05:40 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:40 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:40 -   successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:40 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:40 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:40 - successful
-[TRACE] 2019-06-14 at 23:05:40 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:40 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:40 - successful
-[TRACE] 2019-06-14 at 23:05:40 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:40 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:40 - successful
-[TRACE] 2019-06-14 at 23:05:40 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:05:40 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:40 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:40 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:40 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:40 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:40 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:40 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:40 -   successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:40 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:40 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:40 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:40 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:40 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:40 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:40 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:41 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:41 - successful
-[TRACE] 2019-06-14 at 23:05:41 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:41 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:41 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:41 - successful
-[TRACE] 2019-06-14 at 23:05:41 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:41 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:41 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:05:41 - successful
-[TRACE] 2019-06-14 at 23:05:41 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:41 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:41 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:05:41 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:41 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:41 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:41 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:41 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:41 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:41 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:41 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:41 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:41 -   successfully loaded:2
-[TRACE] 2019-06-14 at 23:05:41 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:41 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:41 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:05:41 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:41 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:05:41 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:05:41 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:41 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:41 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:41 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:48 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:48 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:48 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:48 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:05:56 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:05:56 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:05:56 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:05:56 - successful
-[TRACE] 2019-06-14 at 23:05:56 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:05:57 - successful
-[TRACE] 2019-06-14 at 23:05:57 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:05:57 - successful
-[TRACE] 2019-06-14 at 23:05:57 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:05:57 - successful
-[TRACE] 2019-06-14 at 23:06:03 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:03 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:06:03 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:06:03 - successful
-[TRACE] 2019-06-14 at 23:06:03 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:06:03 - successful
-[TRACE] 2019-06-14 at 23:06:03 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:06:03 - successful
-[TRACE] 2019-06-14 at 23:06:03 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:06:03 - successful
-[TRACE] 2019-06-14 at 23:06:08 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:08 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:06:08 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:06:08 - successful
-[TRACE] 2019-06-14 at 23:06:08 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:06:08 - successful
-[TRACE] 2019-06-14 at 23:06:08 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:06:08 - successful
-[TRACE] 2019-06-14 at 23:06:08 - function: createLeistungsblock(primitive)
-[TRACE] 2019-06-14 at 23:06:09 - successful
-[TRACE] 2019-06-14 at 23:06:09 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:09 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:09 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:19 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:19 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:06:19 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:20 - successful
-[TRACE] 2019-06-14 at 23:06:20 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:20 - successful
-[TRACE] 2019-06-14 at 23:06:20 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:20 - successful
-[TRACE] 2019-06-14 at 23:06:20 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:20 - successful
-[TRACE] 2019-06-14 at 23:06:24 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:24 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:06:24 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:24 - successful
-[TRACE] 2019-06-14 at 23:06:24 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:24 - successful
-[TRACE] 2019-06-14 at 23:06:24 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:24 - successful
-[TRACE] 2019-06-14 at 23:06:24 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:24 - successful
-[TRACE] 2019-06-14 at 23:06:28 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:28 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:06:28 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:29 - successful
-[TRACE] 2019-06-14 at 23:06:29 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:29 - successful
-[TRACE] 2019-06-14 at 23:06:29 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:29 - successful
-[TRACE] 2019-06-14 at 23:06:29 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:29 - successful
-[TRACE] 2019-06-14 at 23:06:29 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:29 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:29 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:29 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:29 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:29 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:29 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:29 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:29 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:29 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:29 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:29 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:29 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:30 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:30 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:30 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:30 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:30 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:39 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:39 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:39 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:39 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:39 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:39 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:39 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:39 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:39 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:39 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:39 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:40 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:40 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:40 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:40 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:40 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:45 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:45 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:06:45 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:45 - successful
-[TRACE] 2019-06-14 at 23:06:45 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:45 - successful
-[TRACE] 2019-06-14 at 23:06:45 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:45 - successful
-[TRACE] 2019-06-14 at 23:06:45 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:45 - successful
-[TRACE] 2019-06-14 at 23:06:51 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:51 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:06:51 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:51 - successful
-[TRACE] 2019-06-14 at 23:06:51 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:51 - successful
-[TRACE] 2019-06-14 at 23:06:51 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:52 - successful
-[TRACE] 2019-06-14 at 23:06:52 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:06:52 - successful
-[TRACE] 2019-06-14 at 23:06:52 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:52 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:52 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:52 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:06:52 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:53 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:53 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:06:53 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:06:53 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:01 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:01 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:01 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:01 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:01 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:02 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:02 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:02 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:02 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:03 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:03 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:03 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:03 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:13 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:13 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:07:13 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:14 - successful
-[TRACE] 2019-06-14 at 23:07:14 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:14 - successful
-[TRACE] 2019-06-14 at 23:07:14 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:14 - successful
-[TRACE] 2019-06-14 at 23:07:14 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:14 - successful
-[TRACE] 2019-06-14 at 23:07:14 - function: createMaxPunktzahl(primitive)
-[TRACE] 2019-06-14 at 23:07:14 - successful
-[TRACE] 2019-06-14 at 23:07:22 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:22 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:07:22 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:22 - successful
-[TRACE] 2019-06-14 at 23:07:22 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:22 - successful
-[TRACE] 2019-06-14 at 23:07:22 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:23 - successful
-[TRACE] 2019-06-14 at 23:07:23 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:23 - successful
-[TRACE] 2019-06-14 at 23:07:23 - function: createMaxPunktzahl(primitive)
-[TRACE] 2019-06-14 at 23:07:23 - successful
-[TRACE] 2019-06-14 at 23:07:31 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:31 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:07:31 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:31 - successful
-[TRACE] 2019-06-14 at 23:07:31 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:32 - successful
-[TRACE] 2019-06-14 at 23:07:32 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:32 - successful
-[TRACE] 2019-06-14 at 23:07:32 - function: createEinzelleistung(primitive)
-[TRACE] 2019-06-14 at 23:07:32 - successful
-[TRACE] 2019-06-14 at 23:07:32 - function: createMaxPunktzahl(primitive)
-[TRACE] 2019-06-14 at 23:07:32 - successful
-[TRACE] 2019-06-14 at 23:07:32 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:32 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:32 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:32 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:32 -   successful
-[TRACE] 2019-06-14 at 23:07:32 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:32 -   successful
-[TRACE] 2019-06-14 at 23:07:32 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:32 -   successful
-[TRACE] 2019-06-14 at 23:07:32 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:32 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:32 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:32 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:32 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:32 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:32 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:32 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:32 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:32 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:32 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:32 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:32 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:32 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:32 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:32 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:32 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:32 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:32 -   successful
-[TRACE] 2019-06-14 at 23:07:32 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:33 -   successful
-[TRACE] 2019-06-14 at 23:07:33 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:33 -   successful
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:33 -   successful
-[TRACE] 2019-06-14 at 23:07:33 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:33 -   successful
-[TRACE] 2019-06-14 at 23:07:33 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:33 -   successful
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:33 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:33 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:33 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:33 -   successful
-[TRACE] 2019-06-14 at 23:07:33 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:33 -   successful
-[TRACE] 2019-06-14 at 23:07:33 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:33 -   successful
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:33 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:33 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:33 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:34 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:34 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:34 -   successful
-[TRACE] 2019-06-14 at 23:07:34 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:34 -   successful
-[TRACE] 2019-06-14 at 23:07:34 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:34 -   successful
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:34 -   successful
-[TRACE] 2019-06-14 at 23:07:34 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:34 -   successful
-[TRACE] 2019-06-14 at 23:07:34 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:34 -   successful
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:34 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:34 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:34 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:34 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:48 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:48 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:49 -   successful
-[TRACE] 2019-06-14 at 23:07:49 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:49 -   successful
-[TRACE] 2019-06-14 at 23:07:49 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:49 -   successful
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:49 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:49 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:49 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:49 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:49 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:49 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:49 -   successful
-[TRACE] 2019-06-14 at 23:07:49 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:49 -   successful
-[TRACE] 2019-06-14 at 23:07:49 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:49 -   successful
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:49 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:49 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:49 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:49 -   successful
-[TRACE] 2019-06-14 at 23:07:49 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:49 -   successful
-[TRACE] 2019-06-14 at 23:07:49 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:49 -   successful
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:49 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:49 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:49 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:49 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:49 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:50 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:50 -   successful
-[TRACE] 2019-06-14 at 23:07:50 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:50 -   successful
-[TRACE] 2019-06-14 at 23:07:50 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:50 -   successful
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:50 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:50 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:50 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:50 -   successful
-[TRACE] 2019-06-14 at 23:07:50 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:50 -   successful
-[TRACE] 2019-06-14 at 23:07:50 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:50 -   successful
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:50 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:50 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:51 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:51 -   successful
-[TRACE] 2019-06-14 at 23:07:51 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:51 -   successful
-[TRACE] 2019-06-14 at 23:07:51 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:07:51 -   successful
-[TRACE] 2019-06-14 at 23:07:51 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:07:51 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:51 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:51 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:51 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:51 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:51 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:51 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:51 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:51 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:51 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:51 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:51 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:07:51 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:51 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:51 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:51 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:07:59 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:07:59 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:07:59 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:07:59 - successful
-[TRACE] 2019-06-14 at 23:07:59 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:07:59 - successful
-[TRACE] 2019-06-14 at 23:07:59 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:07:59 - successful
-[TRACE] 2019-06-14 at 23:07:59 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:07:59 - successful
-[TRACE] 2019-06-14 at 23:08:05 -   function: getStudenten(Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:05 -   successfully loaded:4
-[TRACE] 2019-06-14 at 23:08:05 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:08:05 - successful
-[TRACE] 2019-06-14 at 23:08:05 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:08:05 - successful
-[TRACE] 2019-06-14 at 23:08:05 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:08:05 - successful
-[TRACE] 2019-06-14 at 23:08:05 - function: createUnterblock(primitive)
-[TRACE] 2019-06-14 at 23:08:05 - successful
-[TRACE] 2019-06-14 at 23:08:05 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:05 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:05 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:05 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:05 -   successful
-[TRACE] 2019-06-14 at 23:08:05 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:05 -   successful
-[TRACE] 2019-06-14 at 23:08:05 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:05 -   successful
-[TRACE] 2019-06-14 at 23:08:05 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:05 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:06 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:06 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:06 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:06 -   successful
-[TRACE] 2019-06-14 at 23:08:06 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:06 -   successful
-[TRACE] 2019-06-14 at 23:08:06 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:06 -   successful
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:06 -   successful
-[TRACE] 2019-06-14 at 23:08:06 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:06 -   successful
-[TRACE] 2019-06-14 at 23:08:06 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:06 -   successful
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:06 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:06 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:07 -   successful
-[TRACE] 2019-06-14 at 23:08:07 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:07 -   successful
-[TRACE] 2019-06-14 at 23:08:07 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:07 -   successful
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:07 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:07 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:07 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:07 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:07 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:07 -   successful
-[TRACE] 2019-06-14 at 23:08:07 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:08 -   successful
-[TRACE] 2019-06-14 at 23:08:08 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:08 -   successful
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:08 -   successful
-[TRACE] 2019-06-14 at 23:08:08 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:08 -   successful
-[TRACE] 2019-06-14 at 23:08:08 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:08 -   successful
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:08 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:08 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:08 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:08 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:09 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:12 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:12 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:12 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:12 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:12 -   successful
-[TRACE] 2019-06-14 at 23:08:12 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:12 -   successful
-[TRACE] 2019-06-14 at 23:08:12 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:12 -   successful
-[TRACE] 2019-06-14 at 23:08:12 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:12 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:12 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:12 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:12 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:12 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:12 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:12 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:12 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:12 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:12 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:12 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:13 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:13 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:13 -   successful
-[TRACE] 2019-06-14 at 23:08:13 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:13 -   successful
-[TRACE] 2019-06-14 at 23:08:13 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:13 -   successful
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:13 -   successful
-[TRACE] 2019-06-14 at 23:08:13 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:13 -   successful
-[TRACE] 2019-06-14 at 23:08:13 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:13 -   successful
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:13 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:13 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:14 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:14 -   successful
-[TRACE] 2019-06-14 at 23:08:14 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:14 -   successful
-[TRACE] 2019-06-14 at 23:08:14 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:14 -   successful
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:14 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:14 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:14 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:14 -   successful
-[TRACE] 2019-06-14 at 23:08:14 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:14 -   successful
-[TRACE] 2019-06-14 at 23:08:14 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:14 -   successful
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:14 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:14 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:14 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:15 -   successful
-[TRACE] 2019-06-14 at 23:08:15 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:15 -   successful
-[TRACE] 2019-06-14 at 23:08:15 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:15 -   successful
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:15 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:15 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:15 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:15 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:15 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:15 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:15 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:15 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:15 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:15 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:15 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:15 - successful
-[TRACE] 2019-06-14 at 23:08:15 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:15 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:15 - successful
-[TRACE] 2019-06-14 at 23:08:15 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:15 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:15 - successful
-[TRACE] 2019-06-14 at 23:08:15 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:15 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:15 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:15 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:15 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:15 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:15 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:15 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:16 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:16 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:16 -   successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:16 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:16 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:16 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:16 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:16 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:16 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:16 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:16 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:16 - successful
-[TRACE] 2019-06-14 at 23:08:16 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:16 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:16 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:16 - successful
-[TRACE] 2019-06-14 at 23:08:16 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:16 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:16 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:16 - successful
-[TRACE] 2019-06-14 at 23:08:16 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:16 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:16 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:16 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:16 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:16 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:16 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:16 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:16 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:16 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:16 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:16 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:16 -   successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:16 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:16 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:16 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:16 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:16 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:16 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:22 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:22 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:22 - successful
-[TRACE] 2019-06-14 at 23:08:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:22 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:22 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:22 - successful
-[TRACE] 2019-06-14 at 23:08:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:22 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:22 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:22 - successful
-[TRACE] 2019-06-14 at 23:08:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:22 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:22 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:22 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:22 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:22 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:22 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:22 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:22 - successful
-[TRACE] 2019-06-14 at 23:08:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:22 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:22 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:22 - successful
-[TRACE] 2019-06-14 at 23:08:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:22 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:22 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:22 - successful
-[TRACE] 2019-06-14 at 23:08:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:22 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:22 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:22 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:22 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:22 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:22 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:22 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:22 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:23 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:23 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:23 -   successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:23 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:23 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:23 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:23 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:23 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:23 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:23 - function: getGruppen(Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:23 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:23 - successful
-[TRACE] 2019-06-14 at 23:08:23 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:23 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:23 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:23 - successful
-[TRACE] 2019-06-14 at 23:08:23 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:23 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:23 - function: getDozent(String)
-[TRACE] 2019-06-14 at 23:08:23 - successful
-[TRACE] 2019-06-14 at 23:08:23 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:23 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:23 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:23 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:23 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:23 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:23 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:23 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:23 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:23 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:23 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:23 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:23 -   successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:23 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:23 -   successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:23 - function: getTeams(Gruppe)
-[TRACE] 2019-06-14 at 23:08:23 - successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:23 -   function: getStudenten(Team)
-[TRACE] 2019-06-14 at 23:08:23 -   successfully loaded:1
-[TRACE] 2019-06-14 at 23:08:23 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:23 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:23 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:23 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:23 -   successful
-[TRACE] 2019-06-14 at 23:08:23 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:24 -   successful
-[TRACE] 2019-06-14 at 23:08:24 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:24 -   successful
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:24 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:24 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:24 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:24 -   successful
-[TRACE] 2019-06-14 at 23:08:24 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:24 -   successful
-[TRACE] 2019-06-14 at 23:08:24 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:24 -   successful
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:24 -   successful
-[TRACE] 2019-06-14 at 23:08:24 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:24 -   successful
-[TRACE] 2019-06-14 at 23:08:24 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:24 -   successful
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:24 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:24 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - function: getLeistungsblock(Student, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:25 -   successful
-[TRACE] 2019-06-14 at 23:08:25 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:25 -   successful
-[TRACE] 2019-06-14 at 23:08:25 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:25 -   successful
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:25 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:25 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:25 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:25 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:25 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:26 -   successful
-[TRACE] 2019-06-14 at 23:08:26 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:26 -   successful
-[TRACE] 2019-06-14 at 23:08:26 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:26 -   successful
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:26 -   successful
-[TRACE] 2019-06-14 at 23:08:26 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:26 -   successful
-[TRACE] 2019-06-14 at 23:08:26 -   function: getMaxPunkte(Aufgabe)
-[TRACE] 2019-06-14 at 23:08:26 -   successful
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:3
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:26 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:26 - function: getUnterblock(Student, Leistung, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:2
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
-[TRACE] 2019-06-14 at 23:08:26 - function: getEinzelleistung(Student, Leistung, Unterblock, Veranstaltung)
-[TRACE] 2019-06-14 at 23:08:26 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:49:52 - function: getNutzer(String,char[])
+[TRACE] 2019-06-15 at 18:49:52 - successful(Dozent)
+[TRACE] 2019-06-15 at 18:49:52 - function: getVeranstaltung(Dozent)
+[TRACE] 2019-06-15 at 18:49:52 -   function: getDozenten(Veranstaltung)
+[TRACE] 2019-06-15 at 18:49:52 -   successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:52 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:49:52 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:49:52 - successful
+[TRACE] 2019-06-15 at 18:49:52 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:52 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:49:52 - successfully loaded:1
+[TRACE] 2019-06-15 at 18:49:52 -   function: getDozenten(Veranstaltung)
+[TRACE] 2019-06-15 at 18:49:53 -   successfully loaded:3
+[TRACE] 2019-06-15 at 18:49:53 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:49:53 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:49:53 - successful
+[TRACE] 2019-06-15 at 18:49:53 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:53 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:53 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:49:53 - successful
+[TRACE] 2019-06-15 at 18:49:53 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:53 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:53 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:49:53 - successful
+[TRACE] 2019-06-15 at 18:49:53 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:53 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:49:53 - successfully loaded:3
+[TRACE] 2019-06-15 at 18:49:53 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:57 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:49:57 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:49:57 - successful
+[TRACE] 2019-06-15 at 18:49:57 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:57 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:57 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:49:57 - successful
+[TRACE] 2019-06-15 at 18:49:57 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:57 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:57 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:49:57 - successful
+[TRACE] 2019-06-15 at 18:49:57 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:57 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:49:57 - successfully loaded:3
+[TRACE] 2019-06-15 at 18:49:57 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:57 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:57 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:49:57 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:49:57 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:49:57 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:49:57 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:57 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:57 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:49:58 -   successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:58 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:49:58 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:49:58 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:58 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:49:58 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:49:58 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:49:58 - successful
+[TRACE] 2019-06-15 at 18:49:58 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:58 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:58 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:49:58 - successful
+[TRACE] 2019-06-15 at 18:49:58 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:58 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:58 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:49:58 - successful
+[TRACE] 2019-06-15 at 18:49:58 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:58 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:49:58 - successfully loaded:3
+[TRACE] 2019-06-15 at 18:49:58 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:58 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:58 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:49:58 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:49:58 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:49:58 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:49:58 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:58 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:58 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:49:58 -   successfully loaded:2
+[TRACE] 2019-06-15 at 18:49:58 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:49:58 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:49:58 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:49:58 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:01 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:02 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:02 - successful
+[TRACE] 2019-06-15 at 18:50:02 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:02 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:02 - successful
+[TRACE] 2019-06-15 at 18:50:02 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:02 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:02 - successful
+[TRACE] 2019-06-15 at 18:50:02 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:3
+[TRACE] 2019-06-15 at 18:50:02 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:02 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:02 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:02 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:02 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:02 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:02 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:02 -   successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:02 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:02 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:02 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:02 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:02 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:02 - successful
+[TRACE] 2019-06-15 at 18:50:02 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:02 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:02 - successful
+[TRACE] 2019-06-15 at 18:50:02 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:02 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:02 - successful
+[TRACE] 2019-06-15 at 18:50:02 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:3
+[TRACE] 2019-06-15 at 18:50:02 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:02 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:02 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:02 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:02 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:02 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:02 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:03 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:03 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:03 -   successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:03 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:03 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:03 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:03 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:03 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:03 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:03 - successful
+[TRACE] 2019-06-15 at 18:50:03 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:03 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:03 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:03 - successful
+[TRACE] 2019-06-15 at 18:50:03 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:03 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:03 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:03 - successful
+[TRACE] 2019-06-15 at 18:50:03 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:03 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:03 - successfully loaded:3
+[TRACE] 2019-06-15 at 18:50:03 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:03 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:03 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:03 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:03 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:03 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:03 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:03 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:03 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:03 -   successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:03 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:03 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:03 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:03 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:03 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:03 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:03 - successful
+[TRACE] 2019-06-15 at 18:50:03 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:03 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:03 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:03 - successful
+[TRACE] 2019-06-15 at 18:50:03 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:03 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:03 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:04 - successful
+[TRACE] 2019-06-15 at 18:50:04 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:04 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:04 - successfully loaded:3
+[TRACE] 2019-06-15 at 18:50:04 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:04 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:04 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:04 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:04 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:04 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:04 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:04 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:04 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:04 -   successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:04 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:04 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:04 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:04 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:06 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:06 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:06 - successful
+[TRACE] 2019-06-15 at 18:50:06 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:06 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:06 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:07 - successful
+[TRACE] 2019-06-15 at 18:50:07 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:07 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:07 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:07 - successful
+[TRACE] 2019-06-15 at 18:50:07 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:07 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:07 - successfully loaded:3
+[TRACE] 2019-06-15 at 18:50:07 - function: deleteGruppe(primitive)
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Teamleistung
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Teamleistungsunterblock
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Teamleistungsblock
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Studienganganteil
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Gehoert_zu
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Team
+[TRACE] 2019-06-15 at 18:50:07 - successful
+[TRACE] 2019-06-15 at 18:50:07 - function: deleteGruppe(primitive)
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Teamleistung
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Teamleistungsunterblock
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Teamleistungsblock
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Studienganganteil
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Gehoert_zu
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Team
+[TRACE] 2019-06-15 at 18:50:07 - successful
+[TRACE] 2019-06-15 at 18:50:07 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:07 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:07 - function: deleteGruppe(primitive)
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Teamleistung
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Teamleistungsunterblock
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Teamleistungsblock
+[TRACE] 2019-06-15 at 18:50:07 -   deleted from Studienganganteil
+[TRACE] 2019-06-15 at 18:50:08 -   deleted from Gehoert_zu
+[TRACE] 2019-06-15 at 18:50:08 -   deleted from Team
+[TRACE] 2019-06-15 at 18:50:08 - successful
+[TRACE] 2019-06-15 at 18:50:08 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:08 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:08 - successful
+[TRACE] 2019-06-15 at 18:50:08 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:08 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:08 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:08 - successful
+[TRACE] 2019-06-15 at 18:50:08 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:08 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:08 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:08 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:08 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:08 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:08 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:08 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:08 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:08 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:08 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:08 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:08 -   successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:08 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:08 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:08 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:08 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:08 - successful
+[TRACE] 2019-06-15 at 18:50:08 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:08 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:08 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:08 - successful
+[TRACE] 2019-06-15 at 18:50:08 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:08 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:08 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:08 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:08 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:08 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:08 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:08 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:08 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:08 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:08 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:08 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:09 -   successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:09 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:09 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:09 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:09 - successful
+[TRACE] 2019-06-15 at 18:50:09 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:09 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:09 - successful
+[TRACE] 2019-06-15 at 18:50:09 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:09 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:09 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:09 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:09 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:09 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:09 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:09 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:09 -   successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:09 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:09 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:09 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:09 - successful
+[TRACE] 2019-06-15 at 18:50:09 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:09 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:09 - successful
+[TRACE] 2019-06-15 at 18:50:09 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:09 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:09 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:09 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:09 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:09 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:09 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:09 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:09 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:10 -   successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:10 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:10 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:22 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:22 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:22 - successful
+[TRACE] 2019-06-15 at 18:50:22 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:22 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:22 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:22 - successful
+[TRACE] 2019-06-15 at 18:50:22 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:22 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:22 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:22 - function: deleteGruppe(primitive)
+[TRACE] 2019-06-15 at 18:50:22 -   deleted from Teamleistung
+[TRACE] 2019-06-15 at 18:50:22 -   deleted from Teamleistungsunterblock
+[TRACE] 2019-06-15 at 18:50:22 -   deleted from Teamleistungsblock
+[TRACE] 2019-06-15 at 18:50:22 -   deleted from Studienganganteil
+[TRACE] 2019-06-15 at 18:50:22 -   deleted from Gehoert_zu
+[TRACE] 2019-06-15 at 18:50:23 -   deleted from Team
+[TRACE] 2019-06-15 at 18:50:23 - successful
+[TRACE] 2019-06-15 at 18:50:23 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:23 - successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:23 - function: deleteGruppe(primitive)
+[TRACE] 2019-06-15 at 18:50:23 -   deleted from Teamleistung
+[TRACE] 2019-06-15 at 18:50:23 -   deleted from Teamleistungsunterblock
+[TRACE] 2019-06-15 at 18:50:23 -   deleted from Teamleistungsblock
+[TRACE] 2019-06-15 at 18:50:23 -   deleted from Studienganganteil
+[TRACE] 2019-06-15 at 18:50:23 -   deleted from Gehoert_zu
+[TRACE] 2019-06-15 at 18:50:23 -   deleted from Team
+[TRACE] 2019-06-15 at 18:50:23 - successful
+[TRACE] 2019-06-15 at 18:50:23 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:23 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:23 - successful
+[TRACE] 2019-06-15 at 18:50:23 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:23 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:23 - successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:23 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:23 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:23 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:23 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:23 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:23 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:23 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:23 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:23 - successful
+[TRACE] 2019-06-15 at 18:50:23 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:24 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:24 - successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:24 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:24 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:24 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:24 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:24 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:24 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:24 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:24 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:24 - successful
+[TRACE] 2019-06-15 at 18:50:24 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:24 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:24 - successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:24 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:24 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:24 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:24 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:24 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:24 -   successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:24 - function: getGruppen(Veranstaltung)
+[TRACE] 2019-06-15 at 18:50:24 - function: getDozent(String)
+[TRACE] 2019-06-15 at 18:50:24 - successful
+[TRACE] 2019-06-15 at 18:50:24 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:24 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:24 - successfully loaded:1
+[TRACE] 2019-06-15 at 18:50:24 - function: getTeams(Gruppe)
+[TRACE] 2019-06-15 at 18:50:24 - successfully loaded:2
+[TRACE] 2019-06-15 at 18:50:24 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:24 -   successfully loaded:0
+[TRACE] 2019-06-15 at 18:50:24 -   function: getStudenten(Team)
+[TRACE] 2019-06-15 at 18:50:24 -   successfully loaded:1

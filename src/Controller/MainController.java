@@ -310,20 +310,20 @@ public class MainController {
 	}
 
 	/**@author Diana
-	 * Hilfsmethode zum Löschen von Gruppen fuer GruppenTree in DGruppenuebersicht und -bearbeiten
+	 * Hilfsmethode zum Löschen von Gruppen fuer GruppenTree in DGruppenbearbeiten
 	 * @param gruppenid
-	 * @param d
+	 * @param veranstaltung
 	 */
-	public void deleteGruppe(int gruppenid, Dozent d){
+	public void deleteGruppe(int gruppenid, Veranstaltung veranstaltung){
 		try {
-			dbr.deleteGruppe(gruppenid, d.getEmail());
+			dbr.deleteGruppe(gruppenid, veranstaltung.getName());
 		}  catch (DatabaseException e){
 			System.out.println(e.getErrorMsg());
 		}
 	}
 
 	/**@author Diana
-	 * Hilfsmethode zum Löschen von Teams fuer GruppenTree in DGruppenuebersicht und -bearbeiten
+	 * Hilfsmethode zum Löschen von Teams fuer GruppenTree in DGruppenbearbeiten
 	 * @param gruppenid
 	 * @param teamid
 	 * @param veranstaltungsname
@@ -331,6 +331,18 @@ public class MainController {
 	public void deleteTeam(int gruppenid, int teamid, String veranstaltungsname){
 		try {
 			dbr.deleteTeam(teamid, gruppenid, veranstaltungsname);
+		}  catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
+
+	/**@author Diana
+	 * Hilfsmethode zum Löschen von Studenten fuer GruppenTree in DGruppenbearbeiten
+	 * @param student
+	 */
+	public void deleteStudent(Student student){
+		try {
+			dbr.deleteStudent(student);
 		}  catch (DatabaseException e){
 			System.out.println(e.getErrorMsg());
 		}

@@ -1,7 +1,7 @@
 /**@author Diana
  * Klasse erstellt und erweitert von Diana
  *
- * Fenster zum Einlesen der Namen der Aufgaben in der Dozentenansicht
+ * Fenster zum Einlesen der Namen und Gesamtpunktzahl der Aufgaben in der Dozentenansicht
  */
 
 package GUI;
