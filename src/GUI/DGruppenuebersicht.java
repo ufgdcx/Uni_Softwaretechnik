@@ -72,15 +72,16 @@ public class DGruppenuebersicht implements FrameContent {
                     String teamID = tree.getSelectionPath().getPathComponent(2).toString();
                     teamID = teamID.split(" ")[1];
                     //Auswahl des 3. Arrayelements
-                    String selectedStudent = tree.getSelectionPath().getPathComponent(3).toString();
-                    selectedStudent = selectedStudent.split(" ")[1];
+                    String student = tree.getSelectionPath().getPathComponent(3).toString();
+                    String vornameStudent = student.split(" ")[0];
+                    String nachnameStudent = student.split(" ")[1];
                     for (Gruppe g : mainFrame.getController().getGruppen(dVL.get(index))) {
                         if (g.getGruppenID() == Integer.parseInt(gruppenID)) {
                             for (Team t : mainFrame.getController().getTeams(g)) {
                                 if (t.getTeamID() == Integer.parseInt(teamID)) {
-                                    for (Student student : mainFrame.getController().getStudenten(t)) {
-                                        if (student.getNachname().equals(selectedStudent)) {
-                                            mainFrame.setContent(new DLeistungsuebersicht(dVL, student, index));
+                                    for (Student s : mainFrame.getController().getStudenten(t)) {
+                                        if (s.getVorname().equals(vornameStudent) && s.getNachname().equals(nachnameStudent)) {
+                                            mainFrame.setContent(new DLeistungsuebersicht(dVL, s, index));
                                         }
                                     }
                                 }

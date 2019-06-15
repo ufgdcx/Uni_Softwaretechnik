@@ -418,7 +418,7 @@ public class MainController {
 	 */
 	public JTree createLeistungsTree(Veranstaltung veranstaltung, Student student, JScrollPane tsp) {
 
-		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode(student.getVorname() + " " + student.getNachname());
 
 		for (Leistung leistungsblock: getLeistungsblock(student, veranstaltung)) {
 			DefaultMutableTreeNode leistungen = new DefaultMutableTreeNode(leistungsblock.getLbName());

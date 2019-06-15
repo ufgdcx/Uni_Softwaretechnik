@@ -193,19 +193,19 @@ public class DLeistungsuebersicht implements FrameContent {
      */
     private void $$$setupUI$$$() {
         LeistungsuebersichtPanel = new JPanel();
-        LeistungsuebersichtPanel.setLayout(new GridLayoutManager(13, 4, new Insets(50, 20, 50, 20), -1, -1));
+        LeistungsuebersichtPanel.setLayout(new GridLayoutManager(14, 4, new Insets(50, 20, 50, 20), -1, -1));
         hinzufuegen = new JButton();
         hinzufuegen.setText("Einzelbewertung hinzufügen");
         LeistungsuebersichtPanel.add(hinzufuegen, new GridConstraints(8, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         loeschen = new JButton();
         loeschen.setText("Element löschen");
-        LeistungsuebersichtPanel.add(loeschen, new GridConstraints(10, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        LeistungsuebersichtPanel.add(loeschen, new GridConstraints(11, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         BewertungLabel = new JLabel();
         BewertungLabel.setText("Bewertung");
         LeistungsuebersichtPanel.add(BewertungLabel, new GridConstraints(7, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         zurueckButton = new JButton();
         zurueckButton.setText("zurück");
-        LeistungsuebersichtPanel.add(zurueckButton, new GridConstraints(12, 1, 1, 2, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        LeistungsuebersichtPanel.add(zurueckButton, new GridConstraints(13, 1, 1, 2, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         teambewertungButton = new JButton();
         teambewertungButton.setText("Teambewertung hinzufügen");
         LeistungsuebersichtPanel.add(teambewertungButton, new GridConstraints(9, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -213,9 +213,9 @@ public class DLeistungsuebersicht implements FrameContent {
         Bewertung.setText("");
         LeistungsuebersichtPanel.add(Bewertung, new GridConstraints(7, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(50, -1), new Dimension(50, -1), new Dimension(50, -1), 0, false));
         final Spacer spacer1 = new Spacer();
-        LeistungsuebersichtPanel.add(spacer1, new GridConstraints(11, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        LeistungsuebersichtPanel.add(spacer1, new GridConstraints(12, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         treeScrollPane = new JScrollPane();
-        LeistungsuebersichtPanel.add(treeScrollPane, new GridConstraints(0, 0, 13, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        LeistungsuebersichtPanel.add(treeScrollPane, new GridConstraints(0, 0, 14, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         tree = new JTree();
         treeScrollPane.setViewportView(tree);
         UBhinzufuegen = new JButton();
@@ -247,6 +247,8 @@ public class DLeistungsuebersicht implements FrameContent {
         LeistungsuebersichtPanel.add(aufgabenAnzahlLabel, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         aufgabeAnzahl = new JTextField();
         LeistungsuebersichtPanel.add(aufgabeAnzahl, new GridConstraints(4, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
+        final Spacer spacer3 = new Spacer();
+        LeistungsuebersichtPanel.add(spacer3, new GridConstraints(10, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
     }
 
     /**
