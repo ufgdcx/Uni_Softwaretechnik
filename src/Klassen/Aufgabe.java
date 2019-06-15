@@ -24,6 +24,13 @@ public class Aufgabe
         this.elPunkte = elPunkte;
         this.unterblock = unterblock;
     }
+    public Aufgabe(String elName, int elPunkte, Unterblock unterblock, int maxPunkte)
+    {
+        this.elName = elName;
+        this.elPunkte = elPunkte;
+        this.unterblock = unterblock;
+        this.maxPunkte =maxPunkte;
+    }
 
     // get methods
     public String getElName(){return elName;}

@@ -16,6 +16,7 @@ public class Unterblock
 	// member variables
 	private String ubName;
 	private int ubPunkte;
+	private int maxPunkte;
 	private Leistung oberL;
 	private ArrayList<Aufgabe> aufgaben;
 	private Veranstaltung veranstaltung;
@@ -24,6 +25,16 @@ public class Unterblock
 	
 	// constructor
 	public Unterblock(){}
+	public Unterblock(String ubName, int ubPunkte, int maxPunkte, Leistung l, ArrayList<Aufgabe> a, int matrikel)
+	{
+		this.ubName = ubName;
+		this.ubPunkte = ubPunkte;
+		this.maxPunkte = maxPunkte;
+		this.oberL = l;
+		this.aufgaben = a;
+		this.matrikel = matrikel;
+	}
+
 	public Unterblock(String ubName, int ubPunkte, Leistung l, ArrayList<Aufgabe> a, int matrikel)
 	{
 		this.ubName = ubName;
@@ -43,6 +54,7 @@ public class Unterblock
 	// get methods
 	public String getUbName(){return ubName;}
 	public int getUbPunkte(){return ubPunkte;}
+	public int getMaxPunkte(){return maxPunkte;}
 	public Leistung getlBlock(){return oberL;}
 	public ArrayList<Aufgabe> getAufgaben() {return aufgaben;}
 	public int getMatrikel(){return  student.matrikelnr;}
@@ -50,6 +62,7 @@ public class Unterblock
 	// set methods
 	public void setUbName(String ubName){this.ubName = ubName;}
 	public void setUbPunkte(int ubPunkte){this.ubPunkte = ubPunkte;}
+    public void setMaxPunkte(int maxPunkte) {this.maxPunkte = maxPunkte;}
 	public void setLeistung(Leistung l){this.oberL = l;}
 	public void setAufgaben(ArrayList<Aufgabe> a){this.aufgaben = a;}
 	public void setMatrikel(int matrikel) {	this.student.matrikelnr = matrikel;	}

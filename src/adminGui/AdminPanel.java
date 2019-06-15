@@ -30,7 +30,7 @@ public class AdminPanel extends JPanel{
 		setMaximumSize(new Dimension(400, 400));
 		setPreferredSize(new Dimension(400, 400));
 		setSize(300,400);
-		//setBackground(Color.GREEN);
+		setBackground(Color.LIGHT_GRAY);
 		try {
 			veranstaltungen = dbr.getAllVeranstaltungen();
 		}catch (DatabaseException de){

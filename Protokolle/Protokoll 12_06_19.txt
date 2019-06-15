@@ -35,7 +35,7 @@ Musskriterien:
 [] - gruppenspezifische Einsicht der Gruppenleistungen (Gruppenarbeit)
 
 Sicherheit:
-[] - Passwörter hashen:
+[x] - Passwörter hashen:
 	- sollte einfach umzusetzen sein: beim Registrieren und Login eine Hashfunktion anwenden, vor der Datenbank anfrage
 	
 [] - Datenbanklogin für jeden Nutzer:
@@ -46,13 +46,13 @@ Sicherheit:
 
 Produktfunktion:
 
-[] - Registrierung: Nutzer  ist  im  System  mit  den  entsprechenden  Daten  registriert  und  kann  das  Programm  mit  dem  erstellten  Account verwenden
+[x] - Registrierung: Nutzer  ist  im  System  mit  den  entsprechenden  Daten  registriert  und  kann  das  Programm  mit  dem  erstellten  Account verwenden
 	
 	- Matrikelnummer existiert schon fuehrt zu fehler
 	- Fehlermeldung und programm bleibt stehen troz korrekter datenbank eintrages
 
 
-[] - Bestätigung der Registrierung: E-Mail-Adresse des Nutzer verifizieren (chh)
+[] - Bestätigung der Registrierung: E-Mail-Adresse des Nutzer verifizieren
 	
 	- habe noch keine email bekommen
 
@@ -77,11 +77,11 @@ Produktfunktion:
  	- Anmerkung: Die Nutzer koenne sich ihre rolle mehr oder weniger selbt aussuchen :D
 
 
-[] - Teambeitritt: Studenten sollen einem Team zugeteilt sein
+[x] - Teambeitritt: Studenten sollen einem Team zugeteilt sein
 	
 	- student kann keinem team geschweige denn eine Veranstaltung aswaehlen
 
-[] - Teamwechsel: Studenten sollen aus ihrem urspr ̈unglichen Team entfernt undeinem neuen Team zugeteilt sein
+[x] - Teamwechsel: Studenten sollen aus ihrem urspr ̈unglichen Team entfernt undeinem neuen Team zugeteilt sein
 	
 	- man kommt noch in kein team
 
@@ -90,16 +90,16 @@ Produktfunktion:
 	- derzeit noch nicht (kommt nicht in die admin dings ...)
 
 
-[] - Anderung der Teamzugeh ̈origkeit eines Studenten: der vom Dozenten ausgew ̈ahlte Student hat eine neue Team-zugehoerigkeit
+[] - Anderung der Teamzugehoeorigkeit eines Studenten: der vom Dozenten ausgew ̈ahlte Student hat eine neue Team-zugehoerigkeit
 
 	- noe
 
-[] - Zuweisung eines Themas zu einem Team: dem vom Dozenten ausgew ̈ahltem Team wird ein Thema zu-gewiesen
+[x] - Zuweisung eines Themas zu einem Team: dem vom Dozenten ausgew ̈ahltem Team wird ein Thema zu-gewiesen
 	
 	- nein
 
 
-[] - Anlegen von Leistungsbl ̈ocken: Leistungsbl ̈ocke zur Bewertung der Studenten sollen angelegtsein
+[] - Anlegen von Leistungsbloecken: Leistungsbloeocke zur Bewertung der Studenten sollen angelegtsein
 
 	- nein
 
@@ -108,7 +108,7 @@ Produktfunktion:
 	- die knoepfe sind da aber funktionieren noch nicht ... und ist komisch ...
 
 
-[] - Teamgr ̈oße festlegen: die Teamgr ̈oße ist f ̈ur alle Teams festgelegt
+[] - Teamgroeße festlegen: die Teamgroeße ist fuer alle Teams festgelegt
 
 	- nein 
 
@@ -118,7 +118,7 @@ Produktfunktion:
 	- noch nicht ... aber es sind jtextfelder vorhanden
 
 
-[] - Team erstellen: eine neues Team soll erstellt sein
+[x] - Team erstellen: eine neues Team soll erstellt sein
 
 	- nein
 
@@ -133,9 +133,7 @@ Produktfunktion:
 	- nein, geht nicht 
 
 
-[] - Team einer Gruppe zuordnen: die Gruppe des vom Dozenten gewählten Teams soll der, vom Dozenten festgelegten, Gruppe entsprechen
-
-	- das passiert hoffentlich, wenn die Teams erstellt werden was noch nicht funktioniert
+[x] - Team einer Gruppe zuordnen: die Gruppe des vom Dozenten gewählten Teams soll der, vom Dozenten festgelegten, Gruppe entsprechen
 
 
 [] - Exportieren  der  Nutzerdaten  und  Leistungen  eines Teams: dem  Dozenten  soll  eine  csv  Datei  mit  allen  Studenten  einesTeams, deren Nutzerdaten sowie deren Leistungen ausgegeben werden

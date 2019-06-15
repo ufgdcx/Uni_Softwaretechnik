@@ -3,6 +3,9 @@ package Database;
 import Klassen.*;
 import org.junit.jupiter.api.*;
 import utilities.FileHandler;
+
+import java.sql.Date;
+import java.sql.Time;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,7 +26,17 @@ class DBrequestTest
     private FileHandler<Veranstaltung> fh_veranstaltung = new FileHandler<>();
     private ArrayList<Veranstaltung> veranstaltung = fh_veranstaltung.readFile("Testdata/veranstaltungen.yml", Veranstaltung.class);
 
+    private Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
+                                    new Date(System.currentTimeMillis()), veranstaltung.get(0), null, dozent.get(0) );
+    private Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
+    private Unterblock u = new Unterblock("Unterblock 1", 42, l, null, student.get(0).getMatrikelnr());
+    private Team t = new Team(1, "Theam 1", null, null, g);
+    private Aufgabe a = new Aufgabe("Aufgabe 1", 42, u, 42);
+    private Studienganganteil sa = new Studienganganteil("SAnteil", 42, t);
+
     // All DBrequest methods
+    //
+    // Create
     //
     @Test
     @Order(1)
@@ -73,6 +86,13 @@ class DBrequestTest
     {
         // braucht
         // dozenten und veranstaltung
+
+        eo = false;
+        log.writetoLog("Dozent: " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.createLeitet(dozent.get(0), veranstaltung.get(0)); } // Erster Dozent Leitete Erste Veranstaltung
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+
     }
 
     @Test
@@ -81,54 +101,153 @@ class DBrequestTest
     {
         // braucht
         // veranstaltung und dozenten
+
+        eo = false;
+        log.writetoLog("Dozent: " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.createGruppe(g); } // Erste Veranstaltung und Erster Dozent
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
     }
 
     @Test
     @Order(6)
     void createLeistungsblock()
     {
+
+//        createLeistungsblock(
+//        leistungs.getStudent().getMatrikelnr(),
+//        leistungs.getLbName(),
+//        leistungs.getVeranstaltung().getName());
+
+        Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
+
+        eo = false;
+        // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.createLeistungEinzel(l); } // this also test createLeistungsBlock
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+
     }
 
-
-    void createGehoertZu()
-    {
-    }
-    
-
-
-
-    void createStudienganganteil()
-    {
-    }
-
-    void createTeam()
-    {
-    }
-
-    void createTeamleistung()
-    {
-    }
-
-    void createTeamLeistungsUnterblock()
-    {
-    }
-
-    void createTeamLeistungsblock()
-    {
-    }
-
+    @Test
+    @Order(7)
     void createUnterblock()
     {
+        Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
+        Unterblock u = new Unterblock("Unterblock 1", 42, l, null, student.get(0).getMatrikelnr());
+
+        eo = false;
+        // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.createUnterblockEinzel(u); } // this also test  createUnterblock
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+
     }
-    
+
+    @Test
+    @Order(8)
     void createEinzelleistung()
     {
+        eo = false;
+        // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.createAufgabeEinzel(a); } // this also test  createAufgabeEinzel,createEinzelleistung
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+
     }
 
+    @Test
+    @Order(9)
+    void createTeam()
+    {
+        eo = false;
+        // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.createTeam(t); } // this also test  createAufgabeEinzel,createEinzelleistung
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(10)
+    void createTeamLeistungsblock()
+    {
+        Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
+                new Date(System.currentTimeMillis()),
+                veranstaltung.get(0), null, dozent.get(0) );
+        Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
+        Team t = new Team(1, "Theam 1", null, null, g);
+
+        eo = false;
+        // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.createLeistungTeam(l,t); } // this also test createTeamLeistungsblock
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+
+    }
+
+    @Test
+    @Order(11)
+    void createTeamLeistungsUnterblock() // createUnterblockTeam
+    {
+        Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
+                new Date(System.currentTimeMillis()),
+                veranstaltung.get(0), null, dozent.get(0) );
+        Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
+        Unterblock u = new Unterblock("Unterblock 1", 42, l, null, student.get(0).getMatrikelnr());
+        Team t = new Team(1, "Theam 1", null, null, g);
+
+        eo = false;
+        // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.createUnterblockTeam(u, t); } // this also test createTeamLeistungsblock
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(12)
+    void createTeamleistung()
+    {
+        eo = false;
+        // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.createAufgabeTeam(a, t); } // this also test createTeamLeistungsblock
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(13)
+    void createStudienganganteil() // createLeistungTeam
+    {
+        Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
+                new Date(System.currentTimeMillis()),
+                veranstaltung.get(0), null, dozent.get(0) );
+        Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
+        Unterblock u = new Unterblock("Unterblock 1", 42, l, null, student.get(0).getMatrikelnr());
+        Team t = new Team(1, "Theam 1", null, null, g);
+        Studienganganteil sa = new Studienganganteil("SAnteil", 42, t);
+
+        eo = false;
+        // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.createStudienganganteil(sa); } // this also test createLeistungTeam
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+
+    @Test
+    @Order(14)
     void createGehoert_zu()
     {
+        eo = false;
+        // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.createGehoert_zu(student.get(0), t); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
     }
 
+
+    // Delete
+    //
     void deleteUnterblock()
     {
     }
@@ -138,7 +257,7 @@ class DBrequestTest
     }
 
     @Test
-    @Order(100)
+    @Order(191)
     void deleteDozent()
     {
         eo = false;
@@ -163,12 +282,14 @@ class DBrequestTest
     {
     }
 
+
     void deleteLeitet()
     {
+
     }
 
     @Test
-    @Order(101)
+    @Order(192)
     void deleteStudent()
     {
         eo = false;
@@ -202,7 +323,7 @@ class DBrequestTest
     }
 
     @Test
-    @Order(99)
+    @Order(190)
     void deleteVeranstaltung()
     {
         eo = false;
@@ -214,7 +335,8 @@ class DBrequestTest
         }
         assertFalse(eo);
     }
-    
+
+
     void getNutzer()
     {
     }
