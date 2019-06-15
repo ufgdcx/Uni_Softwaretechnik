@@ -309,6 +309,19 @@ public class MainController {
 		}
 	}
 
+    /**@author Diana
+     *
+     * @return
+     */
+	public ArrayList<Student> getAlleStudenten(){
+        try {
+            return dbr.getAllStudenten();
+        }  catch (DatabaseException e){
+            System.out.println(e.getErrorMsg());
+        }
+        return null;
+    }
+
 	/**@author Diana
 	 * Hilfsmethode zum Löschen von Gruppen fuer GruppenTree in DGruppenbearbeiten
 	 * @param gruppenid
