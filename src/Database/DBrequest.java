@@ -480,6 +480,7 @@ public class DBrequest {
                         aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),
                         aufgabe.getElName(),
                         aufgabe.getUnterblock().getUbPunkte());
+               createMaxPunktzahl(aufgabe);
     }
 
     public void createLeistungTeam(Leistung leistungs,Team team) throws DatabaseException
@@ -508,6 +509,7 @@ public class DBrequest {
                 team.getGruppe().getGruppenID(),
                 aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),
                 aufgabe.getElPunkte());
+        createMaxPunktzahl(aufgabe);
     }
 
     public  void createMaxPunktzahl(Aufgabe aufgabe) throws DatabaseException{
