@@ -18,11 +18,11 @@ public class AdminFrame extends JFrame{
 		BufferedImage myImage;
 		setLayout(new FlowLayout());
 		try {
-			myImage = ImageIO.read(new File("src\\adminGui\\testbild.jpg"));
+			myImage = ImageIO.read(new File("Media\\universitaet-rostock-logo-2009.png"));
 			setContentPane(new ImagePanel(myImage));
 		} catch (IOException er) {
 			try {
-				myImage = ImageIO.read(new File("src/adminGui/testbild.jpg"));
+				myImage = ImageIO.read(new File("Media/universitaet-rostock-logo-2009.png"));
 				setContentPane(new ImagePanel(myImage));
 			} catch (IOException e) {
 				e.printStackTrace();

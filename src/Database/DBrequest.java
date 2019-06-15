@@ -679,7 +679,6 @@ public class DBrequest {
             logwriter.writetoLog("Connection Failed","ERROR");
             throw new DatabaseException("Connection Failed");
         }
-
     }
 
     public void deleteLeitet(String name, String email) throws DatabaseException
@@ -890,6 +889,96 @@ public class DBrequest {
             logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
+    public void deleteLeistungEinzel(Veranstaltung veranstaltung, String leistungsblockname)throws  DatabaseException{
+        logwriter.writetoLog("function: deleteLeistungEinzel(Veranstaltung, String)","TRACE");
+        String veranstaltungsname = veranstaltung.getName();
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "'");
+            logwriter.writetoLog("  deleted from Einzelleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM Unterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "'");
+            logwriter.writetoLog("  deleted from Unterblock","TRACE");
+            stmt.executeUpdate("DELETE FROM Leistungsblock WHERE Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("successful","TRACE");
+        } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
+    public void deleteUnterblockEinzel(Veranstaltung veranstaltung,String leistungsblockname, String unterblockname)throws  DatabaseException{
+        logwriter.writetoLog("function: deleteUnterblockEinzel(Veranstaltung, String, String)","TRACE");
+        String veranstaltungsname = veranstaltung.getName();
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "'");
+            logwriter.writetoLog("  deleted from Einzelleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM Unterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "'");
+            logwriter.writetoLog("successful","TRACE");
+        } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
+    public void deleteAufgabeEinzel(Veranstaltung veranstaltung,String leistungsblockname, String unterblockname, String aufgabenname)throws  DatabaseException{
+        logwriter.writetoLog("function: deleteLeistungEinzel(Veranstaltung, String, Strin, String)","TRACE");
+        String veranstaltungsname = veranstaltung.getName();
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Einzelleistung_name = '" + aufgabenname + "'");
+            logwriter.writetoLog("successful","TRACE");
+        } catch (SQLException ex) {
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
+    public void deleteLeistungTeam(Veranstaltung veranstaltung, String teamleistungsblockname) throws DatabaseException
+    {
+        logwriter.writetoLog("function: deleteLeistungTeam(Veranstaltung, String)","TRACE");
+        String veranstaltungsname = veranstaltung.getName();
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Teamleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM Teamleistungsunterblock Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Teamleistungsunterblock","TRACE");
+            stmt.executeUpdate("DELETE FROM Teamleistungsblock WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("successful","TRACE");
+        } catch (SQLException ex) {
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
+    public void deleteUnterblockTeam(Veranstaltung veranstaltung, String teamleistungsblockname, String unterblockname) throws DatabaseException
+    {
+        logwriter.writetoLog("function: deleteUnterblockTeam(Veranstaltung, String, String)","TRACE");
+        String veranstaltungsname = veranstaltung.getName();
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsunterblockname = '" + unterblockname + "'");
+            logwriter.writetoLog("  deleted from Teamleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM Teamleistungsunterblock Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsunterblockname = '" + unterblockname + "'");
+           logwriter.writetoLog("successful","TRACE");
+        } catch (SQLException ex) {
+            throw new DatabaseException("Connection Failed");
+        }
+    }
+
+    public void deleteAufgabeTeam(Veranstaltung veranstaltung, String teamleistungsblockname, String unterblockname, String aufgabenname) throws DatabaseException
+    {
+        logwriter.writetoLog("function: deleteAufgabeTeam(Veranstaltung, String, String, String)","TRACE");
+        String veranstaltungsname = veranstaltung.getName();
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsunterblockname = '" + unterblockname + "' AND Teamleistungsname = '" + aufgabenname + "'");
+            logwriter.writetoLog("successful","TRACE");
+        } catch (SQLException ex) {
             throw new DatabaseException("Connection Failed");
         }
     }
