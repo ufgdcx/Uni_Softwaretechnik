@@ -26,6 +26,14 @@ class DBrequestTest
     private FileHandler<Veranstaltung> fh_veranstaltung = new FileHandler<>();
     private ArrayList<Veranstaltung> veranstaltung = fh_veranstaltung.readFile("Testdata/veranstaltungen.yml", Veranstaltung.class);
 
+    private Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
+                                    new Date(System.currentTimeMillis()), veranstaltung.get(0), null, dozent.get(0) );
+    private Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
+    private Unterblock u = new Unterblock("Unterblock 1", 42, l, null, student.get(0).getMatrikelnr());
+    private Team t = new Team(1, "Theam 1", null, null, g);
+    private Aufgabe a = new Aufgabe("Aufgabe 1", 42, u, 42);
+    private Studienganganteil sa = new Studienganganteil("SAnteil", 42, t);
+
     // All DBrequest methods
     //
     // Create
@@ -94,10 +102,6 @@ class DBrequestTest
         // braucht
         // veranstaltung und dozenten
 
-        Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
-                new Date(System.currentTimeMillis()),
-                veranstaltung.get(0), null, dozent.get(0) );
-
         eo = false;
         log.writetoLog("Dozent: " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.createGruppe(g); } // Erste Veranstaltung und Erster Dozent
@@ -129,12 +133,6 @@ class DBrequestTest
     @Order(7)
     void createUnterblock()
     {
-//        this.ubName = ubName;
-//        this.ubPunkte = ubPunkte;
-//        this.oberL = l;
-//        this.aufgaben = a;
-//        this.matrikel = matrikel;
-
         Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
         Unterblock u = new Unterblock("Unterblock 1", 42, l, null, student.get(0).getMatrikelnr());
 
@@ -150,16 +148,6 @@ class DBrequestTest
     @Order(8)
     void createEinzelleistung()
     {
-        // aufrufen createAufgabeEinzel
-//        this.elName = elName;
-//        this.elPunkte = elPunkte;
-//        this.unterblock = unterblock;
-//        this.maxPunkte =maxPunkte;
-
-        Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
-        Unterblock u = new Unterblock("Unterblock 1", 42, l, null, student.get(0).getMatrikelnr());
-        Aufgabe a = new Aufgabe("Aufgabe 1", 42, u, 42);
-
         eo = false;
         // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.createAufgabeEinzel(a); } // this also test  createAufgabeEinzel,createEinzelleistung
@@ -172,26 +160,6 @@ class DBrequestTest
     @Order(9)
     void createTeam()
     {
-//        public Team(int teamID, String thema, ArrayList<Studienganganteil> anteile, ArrayList<Leistung> teaml, Gruppe gruppe)
-//        {
-//            this.teamID = teamID;
-//            this.thema = thema;
-//            this.anteile = anteile;
-//            this.leistungen = teaml;
-//            this.gruppe = gruppe;
-////        }
-//        createTeam(team.getTeamID(),
-//                team.getGruppe().getGruppenID(),
-//                team.getGruppe().getVeranstaltung().getName(),
-//                team.getThema());
-//    }
-
-        Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
-                new Date(System.currentTimeMillis()),
-                veranstaltung.get(0), null, dozent.get(0) );
-
-        Team t = new Team(1, "Theam 1", null, null, g);
-
         eo = false;
         // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.createTeam(t); } // this also test  createAufgabeEinzel,createEinzelleistung
@@ -203,14 +171,6 @@ class DBrequestTest
     @Order(10)
     void createTeamLeistungsblock()
     {
-//        public void createLeistungTeam(Leistung leistungs,Team team) throws DatabaseException
-//        {
-//            createTeamLeistungsblock(leistungs.getLbName(),
-//                    team.getTeamID(),
-//                    team.getGruppe().getGruppenID(),
-//                    leistungs.getVeranstaltung().getName());
-//        }
-
         Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
                 new Date(System.currentTimeMillis()),
                 veranstaltung.get(0), null, dozent.get(0) );
@@ -229,13 +189,6 @@ class DBrequestTest
     @Order(11)
     void createTeamLeistungsUnterblock() // createUnterblockTeam
     {
-        // createUnterblockTeam(Unterblock unterblock, Team team)
-//        createTeamLeistungsUnterblock(unterblock.getlBlock().getLbName(),
-//                unterblock.getUbName(),
-//                team.getTeamID(),
-//                team.getGruppe().getGruppenID(),
-//                unterblock.getlBlock().getVeranstaltung().getName());
-
         Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
                 new Date(System.currentTimeMillis()),
                 veranstaltung.get(0), null, dozent.get(0) );
@@ -254,14 +207,6 @@ class DBrequestTest
     @Order(12)
     void createTeamleistung()
     {
-        Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
-                new Date(System.currentTimeMillis()),
-                veranstaltung.get(0), null, dozent.get(0) );
-        Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
-        Unterblock u = new Unterblock("Unterblock 1", 42, l, null, student.get(0).getMatrikelnr());
-        Team t = new Team(1, "Theam 1", null, null, g);
-        Aufgabe a = new Aufgabe("Aufgabe 1", 42, u, 42);
-
         eo = false;
         // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.createAufgabeTeam(a, t); } // this also test createTeamLeistungsblock
@@ -293,20 +238,11 @@ class DBrequestTest
     @Order(14)
     void createGehoert_zu()
     {
-        Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
-                new Date(System.currentTimeMillis()),
-                veranstaltung.get(0), null, dozent.get(0) );
-        Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
-        Unterblock u = new Unterblock("Unterblock 1", 42, l, null, student.get(0).getMatrikelnr());
-        Team t = new Team(1, "Theam 1", null, null, g);
-        Studienganganteil sa = new Studienganganteil("SAnteil", 42, t);
-
         eo = false;
         // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.createGehoert_zu(student.get(0), t); }
         catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         assertFalse(eo);
-
     }
 
 
