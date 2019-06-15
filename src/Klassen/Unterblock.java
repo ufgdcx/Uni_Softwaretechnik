@@ -35,6 +35,15 @@ public class Unterblock
 		this.matrikel = matrikel;
 	}
 
+	public Unterblock(String ubName, int ubPunkte, Leistung l, ArrayList<Aufgabe> a, int matrikel)
+	{
+		this.ubName = ubName;
+		this.ubPunkte = ubPunkte;
+		this.oberL = l;
+		this.aufgaben = a;
+		this.matrikel = matrikel;
+	}
+
 	// constructor for Database
 	public Unterblock(String ubName, Leistung l)
 	{

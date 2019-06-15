@@ -203,6 +203,9 @@ class DBrequestTest
 //                    leistungs.getVeranstaltung().getName());
 //        }
 
+        Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
+                new Date(System.currentTimeMillis()),
+                veranstaltung.get(0), null, dozent.get(0) );
         Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
         Team t = new Team(1, "Theam 1", null, null, g);
 
