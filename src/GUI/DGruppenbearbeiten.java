@@ -142,7 +142,7 @@ public class DGruppenbearbeiten implements FrameContent {
                                 //DB-Eintrag hinzufügen
                                 mainFrame.getController().createGehoertZu(s.getMatrikelnr(), Integer.parseInt(teamID), Integer.parseInt(gruppenID), dVL.get(index).getName());
                                 break;
-                            } 
+                            }
                         }
                         //Fenster Gruppenübersicht aktualisieren
                         mainFrame.setContent(new DGruppenbearbeiten(dVL, index));

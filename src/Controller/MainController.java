@@ -221,7 +221,7 @@ public class MainController {
 			DefaultMutableTreeNode gruppen = new DefaultMutableTreeNode("Gruppe" + " " + gruppe.getGruppenID());
 			root.add(gruppen);
 			for (Team team: getTeams(gruppe)) {
-				DefaultMutableTreeNode teams = new DefaultMutableTreeNode("Team" + " " + team.getTeamID());
+				DefaultMutableTreeNode teams = new DefaultMutableTreeNode("Team" + " " + team.getTeamID() + " " + "\t(" + getStudenten(team).size() + "/" + veranstaltung.getMaxTeilnehmer() + ")");
 				gruppen.add(teams);
 				for (Student student: getStudenten(team)) {
 					DefaultMutableTreeNode studenten = new DefaultMutableTreeNode(student.getVorname()+ " " + student.getNachname());
@@ -310,7 +310,7 @@ public class MainController {
 	}
 
     /**@author Diana
-     *
+     * Hilfsmethode zum Hinzufuegen eines Studenten in ein Team fuer GruppenTree in DGruppenbearbeiten
      * @return
      */
 	public ArrayList<Student> getAlleStudenten(){
