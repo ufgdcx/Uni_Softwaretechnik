@@ -1,6 +1,7 @@
 package Database;
 
 import Klassen.*;
+import jdk.jfr.Description;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -23,6 +24,16 @@ public class DBrequest {
 
     // creater(primitiv)
     //
+    /**
+    * @param    email       email of the user
+     * @param   titel     title of the user
+     * @param   vorname   title of the user
+     * @param   vorname   firstname of the user
+     * @param   nachname  lastname of the user
+     * @param   passwort  password of the user
+     * @return            void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails or "User already exists" if the user is already in the system
+     */
     public void createNutzer(String email, String titel, String vorname, String nachname, String passwort)throws DatabaseException {
         logwriter.writetoLog("function: createNutzer(primitive)","TRACE");
 
