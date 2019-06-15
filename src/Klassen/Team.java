@@ -12,19 +12,15 @@ import java.util.ArrayList;
 public class Team
 {
     // member variables
-    /**@author Sven*/
     private int teamID;
-    /**@author Christoph*/
     private String thema;
     //Studienganganteile
-    /**@author Sven*/
     private ArrayList<Studienganganteil> anteile;
     //Teamleistungsblöcke
     private ArrayList<Leistung> leistungen;
     private Gruppe gruppe;
 
     // Constructor
-    /**@author Christoph*/
     public Team(){}
     public Team(int teamID, String thema, ArrayList<Studienganganteil> anteile, ArrayList<Leistung> teaml, Gruppe gruppe)
     {
@@ -36,7 +32,6 @@ public class Team
     }
 
     // Constructor for Database
-    /**@author Sven*/
     public Team(int teamID, String thema, Gruppe gruppe)
     {
         this.teamID = teamID;
@@ -45,7 +40,6 @@ public class Team
     }
     
     // set methods
-    /**@author Christoph*/
     public void setTeamID(int teamID) { this.teamID = teamID; }
     public void setThema(String thema) { this.thema = thema; }
     public void setAnteile(ArrayList<Studienganganteil> anteile) { this.anteile = anteile; }

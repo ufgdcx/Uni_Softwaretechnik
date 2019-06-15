@@ -19,20 +19,22 @@ public class Leistung
     private String lbName;
     /**@author Sebastian*/
     private Student student;
+    private int maxPunkte;
     /**@author Diana*/
     private int lbPunkte;
-    //UnterblÃ¶cke
+    //Unterblöcke
     /**@author Sven*/
     private ArrayList<Unterblock> uBloecke;
     private Veranstaltung veranstaltung;
     
     // constructor
     public Leistung(){}
-    public Leistung(String lbName, Student student, int lbPunkte, ArrayList<Unterblock> uBloecke)
+    public Leistung(String lbName, Student student, int lbPunkte, int maxPunkte, ArrayList<Unterblock> uBloecke)
     {
         this.lbName = lbName;
         this.student = student;
         this.lbPunkte = lbPunkte;
+        this.maxPunkte = maxPunkte;
         this.uBloecke = uBloecke;
     }
 
@@ -60,6 +62,7 @@ public class Leistung
     public String getLbName() {return lbName;}
     /**@author Sebastian*/
     public Student getStudent() {return student;}
+    public int getMaxPunkte() {return maxPunkte;}
     /**@author Diana*/
     public int getLbPunkte() {return lbPunkte;}
     /**@author Sven*/
@@ -73,6 +76,7 @@ public class Leistung
     public void setLbName(String lbName) {this.lbName = lbName;}
     /**@author Sebastian*/
     public void setStudent(Student student) {this.student = student;}
+    public void setMaxPunkte(int maxPunkte) {this.maxPunkte = maxPunkte;}
     /**@author Diana*/
     public void setLbPunkte(int lbPunkte) {this.lbPunkte = lbPunkte;}
     /**@author Sven*/
