@@ -17,6 +17,7 @@ import Controller.MainController;
 import Database.*;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
+import utilities.SendEmail;
 
 public class RegistrierenSeite implements FrameContent {
 
@@ -112,13 +113,13 @@ public class RegistrierenSeite implements FrameContent {
                     hashString = hashString + hashChar[i];
 
                 if (studentRadioButton.isSelected()) {
-                        mainFrame.getController().createNutzer(EMail, Titel, Vorname, Nachname, hashString);
-                        mainFrame.getController().createStudent(EMail, Integer.parseInt(matrikelnummer.getText()), studiengang.getText());
+                    mainFrame.getController().createNutzer(EMail, Titel, Vorname, Nachname, hashString);
+                    mainFrame.getController().createStudent(EMail, Integer.parseInt(matrikelnummer.getText()), studiengang.getText());
                 }
 
                 if (dozentRadioButton.isSelected()) {
-                        mainFrame.getController().createNutzer(EMail, Titel, Vorname, Nachname, hashString);
-                        mainFrame.getController().createDozent(EMail, fakultaet.getText());
+                    mainFrame.getController().createNutzer(EMail, Titel, Vorname, Nachname, hashString);
+                    mainFrame.getController().createDozent(EMail, fakultaet.getText());
                 }
 
                 //TODO: Passwort und Passwort wiederholen abgleichen
@@ -130,6 +131,7 @@ public class RegistrierenSeite implements FrameContent {
                 //TODO: Email mit Verifizierungscode senden
 
                 String verifyingCode = mainFrame.getController().generateVerifyingCode();
+                SendEmail.send(EMail, "Bestaetigungscode", verifyingCode);
 
                 mainFrame.setContent(new VerifikationsSeite());
                 //}
