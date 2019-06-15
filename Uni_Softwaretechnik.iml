@@ -26,8 +26,8 @@
     <orderEntry type="library" name="org.junit.jupiter:junit-jupiter-api:5.4.2" level="project" />
     <orderEntry type="library" name="snakeyaml-1.24" level="project" />
     <orderEntry type="library" name="src" level="project" />
-    <orderEntry type="library" name="apiguardian-api-1.0.0" level="project" />
     <orderEntry type="library" name="junit-platform-commons-1.4.2" level="project" />
+    <orderEntry type="library" name="apiguardian-api-1.0.0" level="project" />
     <orderEntry type="library" name="mail" level="project" />
     <orderEntry type="library" name="activation" level="project" />
   </component>
