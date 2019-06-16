@@ -72,6 +72,9 @@ public class DLeistungUebersichtbearbeiten implements FrameContent {
             public void propertyChange(PropertyChangeEvent evt) {
                 ArrayList<Student> studenten = mainFrame.getController().getStudenten(dVL.get(index));
                 tree = mainFrame.getController().createLeistungsTreeAlle(dVL.get(index), studenten.get(0), treeScrollPane);
+                for (int i = 0; i < tree.getRowCount(); i++) {
+                    tree.expandRow(i);
+                }
             }
         });
         leistungHinzufuegenButton.addActionListener(new ActionListener() {
@@ -181,6 +184,7 @@ public class DLeistungUebersichtbearbeiten implements FrameContent {
                         String ubname = tree.getSelectionPath().getPathComponent(2).toString();
                         //Auswahl des 4. Arrayelements = Name des Unterblocks
                         String aufgabenname = tree.getSelectionPath().getPathComponent(3).toString();
+                        aufgabenname = aufgabenname.split(" ")[0];
                         //DB-Eintrag löschen
                         mainFrame.getController().deleteAufgabe(dVL.get(index), leistungsname, ubname, aufgabenname);
                         //Fenster Gruppenübersicht aktualisieren
@@ -272,4 +276,5 @@ public class DLeistungUebersichtbearbeiten implements FrameContent {
     public JComponent $$$getRootComponent$$$() {
         return DLeistungsUebersichtbearbeitenPanel;
     }
+
 }

@@ -68,6 +68,9 @@ public class SLeistungsuebersicht implements FrameContent {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
                 tree = ctr.createLeistungsTree(v, treeScrollPane);
+                for (int i = 0; i < tree.getRowCount(); i++) {
+                    tree.expandRow(i);
+                }
             }
         });
 

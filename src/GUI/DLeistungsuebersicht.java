@@ -30,7 +30,7 @@ public class DLeistungsuebersicht implements FrameContent {
     private JScrollPane treeScrollPane;
     //Label und Textfeld fuer die hinzuzufuegende Bewertung
     private JLabel BewertungLabel;
-    private JTextField Bewertung;
+    private JTextField bewertung;
     //Button zum Hinzufuegen einer Bewertung eines Teams
     private JButton teambewertungHinzufuegenButton;
     //Button zum Hinzufuegen einer Bewertung eines Studenten
@@ -76,21 +76,45 @@ public class DLeistungsuebersicht implements FrameContent {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
                 tree = mainFrame.getController().createLeistungsTreeStudent(dVL.get(index), student, treeScrollPane);
+                for (int i = 0; i < tree.getRowCount(); i++) {
+                    tree.expandRow(i);
+                }
             }
+
         });
         //zum Hinzufuegen von Einzelleistungen für einen Studenten
         einzelbewertungHinzufuegenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //To Do: Einzelleistung aus obigem Textfeld einem Studenten zuordnen + in DB speichern
-
+                int punkte = Integer.parseInt(bewertung.getText());
+                try {
+                    if (tree.getSelectionPath().getPath().length >= 4) {
+                        //tree.getSelectionPath().getPathComponent(index).toString() gibt Array mit Veranstaltungsname, Leistungsname, Unterblockname, Aufgabenname zurück
+                        //Auswahl des 2. Arrayelements = Name der Leistung
+                        String leistung = tree.getSelectionPath().getPathComponent(1).toString();
+                        //Auswahl des 3. Arrayelements = Name des Unterblock
+                        String ub = tree.getSelectionPath().getPathComponent(2).toString();
+                        //Auswahl des 4. Arrayelements = Name der Aufgabe
+                        String aufgabe = tree.getSelectionPath().getPathComponent(3).toString();
+                        aufgabe = aufgabe.split(" ")[0];
+                        mainFrame.getController().updateEinzelleistungPunkte(student.getMatrikelnr(), dVL.get(index).getName(), ub, aufgabe, leistung, punkte);
+                        //Fenster Gruppenübersicht aktualisieren
+                        mainFrame.setContent(new DLeistungUebersichtbearbeiten(dVL, index));
+                    }
+                } catch (Exception ex) {
+                    ErrorDialog eD = new ErrorDialog("ups, something went wrong");
+                    eD.setResizable(false);
+                    eD.setLocationRelativeTo(null);
+                    eD.setVisible(true);
+                    return;
+                }
             }
         });
         //zum Hinzufuegen von Gruppenleistungen für ein Team
         teambewertungHinzufuegenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //To Do: Teamleistung aus obigem Textfeld einem Team zuordnen + in DB speichern
+
             }
         });
         //Wechsel zurück zum Fenster Gruppenübersicht in der Dozentenansicht
@@ -140,9 +164,9 @@ public class DLeistungsuebersicht implements FrameContent {
         teambewertungHinzufuegenButton = new JButton();
         teambewertungHinzufuegenButton.setText("Teambewertung hinzufügen");
         LeistungsuebersichtPanel.add(teambewertungHinzufuegenButton, new GridConstraints(2, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        Bewertung = new JTextField();
-        Bewertung.setText("");
-        LeistungsuebersichtPanel.add(Bewertung, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(50, -1), new Dimension(50, -1), new Dimension(50, -1), 0, false));
+        bewertung = new JTextField();
+        bewertung.setText("");
+        LeistungsuebersichtPanel.add(bewertung, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(50, -1), new Dimension(50, -1), new Dimension(50, -1), 0, false));
         final Spacer spacer1 = new Spacer();
         LeistungsuebersichtPanel.add(spacer1, new GridConstraints(3, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         treeScrollPane = new JScrollPane();

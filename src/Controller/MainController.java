@@ -470,7 +470,7 @@ public class MainController {
 				DefaultMutableTreeNode unterbloecke = new DefaultMutableTreeNode(unterblock.getUbName());
 				leistungen.add(unterbloecke);
 				for (Aufgabe aufgabe: getAufgabe(student, leistungsblock, unterblock, veranstaltung)) {
-					DefaultMutableTreeNode aufgaben = new DefaultMutableTreeNode(aufgabe.getElName());
+					DefaultMutableTreeNode aufgaben = new DefaultMutableTreeNode(aufgabe.getElName() + "\t (" + aufgabe.getElPunkte()+ "/" + unterblock.getMaxPunkte() + ")");
 					unterbloecke.add(aufgaben);
 				}
 			}
@@ -564,6 +564,23 @@ public class MainController {
 			System.out.println(e.getErrorMsg());
 		}
 	}
+
+    /**@author Diana
+     * Hilfsmethode zum Updaten der Einzelleistungen eines Studenten in DLeistungsuebersicht
+     * @param matrikelnummer
+     * @param veranstaltungsname
+     * @param unterblockname
+     * @param einzelleistungsname
+     * @param leistungsblockname
+     * @param punkte
+     */
+    public void updateEinzelleistungPunkte(int matrikelnummer, String veranstaltungsname, String unterblockname, String einzelleistungsname, String leistungsblockname, int punkte) {
+        try {
+            dbr.updateEinzelleistungPunkte(matrikelnummer, veranstaltungsname, unterblockname, einzelleistungsname, leistungsblockname, punkte);
+        } catch (DatabaseException e) {
+            System.out.println(e.getErrorMsg());
+        }
+    }
 
 	//Methoden für Studentenansicht
 
