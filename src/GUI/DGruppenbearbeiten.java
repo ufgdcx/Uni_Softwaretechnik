@@ -166,19 +166,8 @@ public class DGruppenbearbeiten implements FrameContent {
                         //Auswahl des 2. Arrayelements und absplitten der GruppenID
                         String gruppenID = tree.getSelectionPath().getPathComponent(1).toString();
                         gruppenID = gruppenID.split(" ")[1];
-                        for (Gruppe g : mainFrame.getController().getGruppen(dVL.get(index))) {
-                            if (Integer.parseInt(gruppenID) == g.getGruppenID()) {
-                                for (Team t : mainFrame.getController().getTeams(g)) {
-                                    mainFrame.getController().deleteTeam(Integer.parseInt(gruppenID), t.getTeamID(), dVL.get(index).getName());
-                                    for (Student s : mainFrame.getController().getStudenten(t)) {
-                                        mainFrame.getController().deleteStudent(s);
-                                    }
-                                }
-                            }
-                            //DB-Eintrag löschen
-                            mainFrame.getController().deleteGruppe(Integer.parseInt(gruppenID), dVL.get(index));
-                        }
-
+                        //DB-Eintrag löschen
+                        mainFrame.getController().deleteGruppe(Integer.parseInt(gruppenID), dVL.get(index));
                         //Fenster Gruppenübersicht aktualisieren
                         mainFrame.setContent(new DGruppenbearbeiten(dVL, index));
                     }

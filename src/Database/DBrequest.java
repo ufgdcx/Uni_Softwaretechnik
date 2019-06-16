@@ -523,12 +523,14 @@ public class DBrequest {
             createLeistungEinzel(new Leistung(leistungsname,veranstaltung,s));
         }
     }
+
     public void createUnterblockEinzel(Veranstaltung veranstaltung, String leistungsname, String unterblockname)throws DatabaseException{
         ArrayList<Student> studenten = getStudenten(veranstaltung);
         for (Student s:studenten) {
             createUnterblockEinzel(new Unterblock(unterblockname, new Leistung(leistungsname,veranstaltung,s)));
         }
     }
+
     public void createAufgabeEinzel(Veranstaltung veranstaltung, String leistungsname, String unterblockname, String aufgabename, int maxPunkte)throws DatabaseException{
         ArrayList<Student> studenten = getStudenten(veranstaltung);
         for (Student s:studenten) {
@@ -706,6 +708,7 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
     }
+
     // TODO parent to child because you need to delete the child first
     public void deleteLeitet(Veranstaltung veranstaltung) throws DatabaseException
     {
@@ -1742,21 +1745,6 @@ public class DBrequest {
         {
             Statement stmt = con.createStatement();
             stmt.executeUpdate("UPDATE Veranstaltung SET Fakultaet = '" + fakultaet + "' WHERE Veranstaltungsname = '" +veranstaltungsname+"'");
-            logwriter.writetoLog("successful","TRACE");
-        }
-        catch(SQLException ex)
-        {
-            logwriter.writetoLog("Connection Failed","ERROR");
-            throw new DatabaseException("Connection Failed");
-        }
-    }
-
-    public void updateVeranstaltungGruppenanzahl(String veranstaltungsname, int gruppenanzahl) throws DatabaseException {
-        logwriter.writetoLog("function: updateVeranstaltungGruppenanzahl","TRACE");
-        try
-        {
-            Statement stmt = con.createStatement();
-            stmt.executeUpdate("UPDATE Veranstaltung SET Gruppenanzahl = '" + gruppenanzahl + "' WHERE Veranstaltungsname = '" +veranstaltungsname+"'");
             logwriter.writetoLog("successful","TRACE");
         }
         catch(SQLException ex)

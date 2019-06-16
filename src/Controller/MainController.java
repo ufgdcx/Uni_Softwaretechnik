@@ -410,13 +410,56 @@ public class MainController {
 	}
 
 	/**@author Diana
+	 * Hilfsmethode für createLeistungsTree
+	 * @param veranstaltung
+	 * @return Liste aller Studenten einer Veranstaltung
+	 */
+	public ArrayList<Student> getStudenten(Veranstaltung veranstaltung) {
+
+		try{
+			return dbr.getStudenten(veranstaltung);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+		return null;
+	}
+
+	/**@author Diana
 	 * Erstellt den Tree mit den Leistungen in DLeistungsuebersicht
 	 * @param veranstaltung
 	 * @param student
 	 * @param tsp
 	 * @return
 	 */
-	public JTree createLeistungsTree(Veranstaltung veranstaltung, Student student, JScrollPane tsp) {
+	public JTree createLeistungsTreeAlle(Veranstaltung veranstaltung, Student student, JScrollPane tsp) {
+
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
+
+		for (Leistung leistungsblock: getLeistungsblock(student, veranstaltung)) {
+			DefaultMutableTreeNode leistungen = new DefaultMutableTreeNode(leistungsblock.getLbName());
+			root.add(leistungen);
+			for (Unterblock unterblock: getUnterblock(student, leistungsblock, veranstaltung)) {
+				DefaultMutableTreeNode unterbloecke = new DefaultMutableTreeNode(unterblock.getUbName());
+				leistungen.add(unterbloecke);
+				for (Aufgabe aufgabe: getAufgabe(student, leistungsblock, unterblock, veranstaltung)) {
+					DefaultMutableTreeNode aufgaben = new DefaultMutableTreeNode(aufgabe.getElName());
+					unterbloecke.add(aufgaben);
+				}
+			}
+		}
+		JTree tree = new JTree(root);
+		tsp.setViewportView(tree);
+		return tree;
+	}
+
+	/**@author Diana
+	 * Erstellt den Tree mit den Leistungen in DLeistungsuebersicht fuer einen Studenten
+	 * @param veranstaltung
+	 * @param student
+	 * @param tsp
+	 * @return
+	 */
+	public JTree createLeistungsTreeStudent(Veranstaltung veranstaltung, Student student, JScrollPane tsp) {
 
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode(student.getVorname() + " " + student.getNachname());
 
@@ -475,6 +518,48 @@ public class MainController {
 	public void createAufgabe(Veranstaltung veranstaltung, String leistungsname, String unterblockname, String aufgabename, int maxPunkte){
 		try {
 			dbr.createAufgabeEinzel(veranstaltung, leistungsname, unterblockname, aufgabename, maxPunkte);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
+
+	/**@author Diana
+	 * Hilfsmethode zum Hinzufuegen von Leistungen in den LeistungsTree in DLeistungsuebersicht
+	 * @param leistungsname
+	 * @param veranstaltung
+	 */
+	public void deleteLeistung(Veranstaltung veranstaltung, String leistungsname){
+		try {
+			dbr.deleteLeistungEinzel(veranstaltung, leistungsname);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
+
+	/**@author Diana
+	 * Hilfsmethode zum Hinzufuegen von Unterbloecken in den LeistungsTree in DLeistungsuebersicht
+	 * @param veranstaltung
+	 * @param leistungsname
+	 * @param unterblockname
+	 */
+	public void deleteUnterblock(Veranstaltung veranstaltung, String leistungsname, String unterblockname){
+		try {
+			dbr.deleteUnterblockEinzel(veranstaltung, leistungsname, unterblockname);
+		} catch (DatabaseException e){
+			System.out.println(e.getErrorMsg());
+		}
+	}
+
+	/**@author Diana
+	 * Hilfsmethode zum Hinzufuegen von Aufgaben in den LeistungsTree in DLeistungsuebersicht
+	 * @param veranstaltung
+	 * @param leistungsname
+	 * @param unterblockname
+	 * @param aufgabename
+	 */
+	public void deleteAufgabe(Veranstaltung veranstaltung, String leistungsname, String unterblockname, String aufgabename){
+		try {
+			dbr.deleteAufgabeEinzel(veranstaltung, leistungsname, unterblockname, aufgabename);
 		} catch (DatabaseException e){
 			System.out.println(e.getErrorMsg());
 		}

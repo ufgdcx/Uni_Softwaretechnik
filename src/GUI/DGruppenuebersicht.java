@@ -49,7 +49,7 @@ public class DGruppenuebersicht implements FrameContent {
     /**
      * @author Diana
      */
-    public DGruppenuebersicht(ArrayList<Veranstaltung> dVL, Student student, int index) {
+    public DGruppenuebersicht(ArrayList<Veranstaltung> dVL, int index) {
 
         //initialisiere den Baum
         treeScrollPane.setViewportView(tree);
@@ -58,6 +58,13 @@ public class DGruppenuebersicht implements FrameContent {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
                 tree = mainFrame.getController().createGruppenTree(dVL.get(index), treeScrollPane);
+            }
+        });
+        bearbeiten.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                mainFrame.setContent(new DGruppenbearbeiten(dVL, index));
             }
         });
         einsehen.addActionListener(new ActionListener() {
@@ -91,11 +98,10 @@ public class DGruppenuebersicht implements FrameContent {
                 }
             }
         });
-        bearbeiten.addActionListener(new ActionListener() {
+        leistungsuebersichtBearbeitenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                mainFrame.setContent(new DGruppenbearbeiten(dVL, index));
+                mainFrame.setContent(new DLeistungUebersichtbearbeiten(dVL, index));
             }
         });
         zurueck.addActionListener(new ActionListener() {
@@ -111,13 +117,6 @@ public class DGruppenuebersicht implements FrameContent {
             public void actionPerformed(ActionEvent e) {
 
                 mainFrame.setContent(new LogoutSeite());
-            }
-        });
-
-        leistungsuebersichtBearbeitenButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainFrame.setContent(new DLeistungUebersichtbearbeiten(dVL, student, index));
             }
         });
     }

@@ -1,3 +1,9 @@
+/**@author Diana
+ * Klasse erstellt und erweitert von Diana
+ *
+ * Fenster zum Erstellen und bearbeiten der Leistungsuebersicht in der Dozentenansicht
+ */
+
 package GUI;
 
 import Klassen.*;
@@ -55,35 +61,36 @@ public class DLeistungUebersichtbearbeiten implements FrameContent {
         mainFrame = m;
     }
 
-    public DLeistungUebersichtbearbeiten(ArrayList<Veranstaltung> dVL, Student student, int index) {
+    public DLeistungUebersichtbearbeiten(ArrayList<Veranstaltung> dVL, int index) {
 
         //initialisiere den Baum
         treeScrollPane.setViewportView(tree);
         //Überprüfung des ScrollPane auf Veränderungen und Aktualisierung der Daten mit Hilfe der DB
+
         treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                tree = mainFrame.getController().createLeistungsTree(dVL.get(index), student, treeScrollPane);
+                ArrayList<Student> studenten = mainFrame.getController().getStudenten(dVL.get(index));
+                tree = mainFrame.getController().createLeistungsTreeAlle(dVL.get(index), studenten.get(0), treeScrollPane);
             }
         });
-
         leistungHinzufuegenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int leistAnzahl = Integer.parseInt(leistungTextField.getText());
-                mainFrame.setContent(new DLeistungsInformationen(dVL, student, leistAnzahl, index, 1));
+                mainFrame.setContent(new DLeistungsInformationen(dVL, leistAnzahl, index, 1));
             }
         });
         unterblockHinzufügenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int unterblockAnzahl = Integer.parseInt(ubAnzahlLabel.getText());
+                int unterblockAnzahl = Integer.parseInt(ubTextField.getText());
                 try {
                     if (tree.getSelectionPath().getPath().length >= 2) {
                         //tree.getSelectionPath().getPathComponent(index).toString() gibt Array mit Veranstaltungsname, Leistungsname, Unterblockname, Aufgabenname zurück
                         //Auswahl des 2. Arrayelements = Name der Leistung
                         String leistung = tree.getSelectionPath().getPathComponent(1).toString();
-                        mainFrame.setContent(new DUbInformationen(dVL, student, unterblockAnzahl, leistung, index, 1));
+                        mainFrame.setContent(new DUbInformationen(dVL, unterblockAnzahl, leistung, index, 1));
                     }
                 } catch (Exception ex) {
                     ErrorDialog eD = new ErrorDialog("ups, something went wrong");
@@ -97,7 +104,7 @@ public class DLeistungUebersichtbearbeiten implements FrameContent {
         aufgabeHinzufügenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int aufAnzahl = Integer.parseInt(aufgabenAnzahlLabel.getText());
+                int aufAnzahl = Integer.parseInt(aufgabeTextField.getText());
                 try {
                     if (tree.getSelectionPath().getPath().length >= 3) {
                         //tree.getSelectionPath().getPathComponent(index).toString() gibt Array mit Veranstaltungsname, Leistungsname, Unterblockname, Aufgabenname zurück
@@ -105,7 +112,7 @@ public class DLeistungUebersichtbearbeiten implements FrameContent {
                         String leistung = tree.getSelectionPath().getPathComponent(1).toString();
                         //Auswahl des 3. Arrayelements = Name des Unterblocks
                         String ub = tree.getSelectionPath().getPathComponent(2).toString();
-                        mainFrame.setContent(new DAufgabenInformationen(dVL, student, aufAnzahl, leistung, ub, index, 1));
+                        mainFrame.setContent(new DAufgabenInformationen(dVL, aufAnzahl, leistung, ub, index, 1));
                     }
                 } catch (Exception ex) {
                     ErrorDialog eD = new ErrorDialog("ups, something went wrong");
@@ -119,25 +126,79 @@ public class DLeistungUebersichtbearbeiten implements FrameContent {
         leistungLoeschenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    if (tree.getSelectionPath().getPath().length >= 1) {
+                        //tree.getSelectionPath().getPathComponent(index).toString() gibt Array mit Veranstaltungsname, Leistungsname, Unterblockname, Aufgabe zurück
+                        //Auswahl des 2. Arrayelements = Name der Leistung
+                        String leistungsname = tree.getSelectionPath().getPathComponent(1).toString();
+                        //DB-Eintrag löschen
+                        mainFrame.getController().deleteLeistung(dVL.get(index), leistungsname);
+                        //Fenster Gruppenübersicht aktualisieren
+                        mainFrame.setContent(new DLeistungUebersichtbearbeiten(dVL, index));
+                    }
+                } catch (Exception ex) {
+                    ErrorDialog eD = new ErrorDialog("ups, something went wrong");
+                    eD.setResizable(false);
+                    eD.setLocationRelativeTo(null);
+                    eD.setVisible(true);
+                    return;
+                }
             }
         });
         unterblockLoeschenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    if (tree.getSelectionPath().getPath().length >= 2) {
+                        //tree.getSelectionPath().getPathComponent(index).toString() gibt Array mit Veranstaltungsname, Leistungsname, Unterblockname, Aufgabe zurück
+                        //Auswahl des 2. Arrayelements = Name der Leistung
+                        String leistungsname = tree.getSelectionPath().getPathComponent(1).toString();
+                        //Auswahl des 3. Arrayelements = Name des Unterblocks
+                        String ubname = tree.getSelectionPath().getPathComponent(2).toString();
+                        //DB-Eintrag löschen
+                        mainFrame.getController().deleteUnterblock(dVL.get(index), leistungsname, ubname);
+                        //Fenster Gruppenübersicht aktualisieren
+                        mainFrame.setContent(new DLeistungUebersichtbearbeiten(dVL, index));
+                    }
+                } catch (Exception ex) {
+                    ErrorDialog eD = new ErrorDialog("ups, something went wrong");
+                    eD.setResizable(false);
+                    eD.setLocationRelativeTo(null);
+                    eD.setVisible(true);
+                    return;
+                }
             }
         });
         aufgabeLoeschenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    if (tree.getSelectionPath().getPath().length >= 3) {
+                        //tree.getSelectionPath().getPathComponent(index).toString() gibt Array mit Veranstaltungsname, Leistungsname, Unterblockname, Aufgabe zurück
+                        //Auswahl des 2. Arrayelements = Name der Leistung
+                        String leistungsname = tree.getSelectionPath().getPathComponent(1).toString();
+                        //Auswahl des 3. Arrayelements = Name des Unterblocks
+                        String ubname = tree.getSelectionPath().getPathComponent(2).toString();
+                        //Auswahl des 4. Arrayelements = Name des Unterblocks
+                        String aufgabenname = tree.getSelectionPath().getPathComponent(3).toString();
+                        //DB-Eintrag löschen
+                        mainFrame.getController().deleteAufgabe(dVL.get(index), leistungsname, ubname, aufgabenname);
+                        //Fenster Gruppenübersicht aktualisieren
+                        mainFrame.setContent(new DLeistungUebersichtbearbeiten(dVL, index));
+                    }
+                } catch (Exception ex) {
+                    ErrorDialog eD = new ErrorDialog("ups, something went wrong");
+                    eD.setResizable(false);
+                    eD.setLocationRelativeTo(null);
+                    eD.setVisible(true);
+                    return;
+                }
             }
         });
         zurueckButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                mainFrame.setContent(new DGruppenuebersicht(dVL, index));
             }
         });
     }

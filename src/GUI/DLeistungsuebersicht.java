@@ -75,7 +75,7 @@ public class DLeistungsuebersicht implements FrameContent {
         treeScrollPane.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                tree = mainFrame.getController().createLeistungsTree(dVL.get(index), student, treeScrollPane);
+                tree = mainFrame.getController().createLeistungsTreeStudent(dVL.get(index), student, treeScrollPane);
             }
         });
         //zum Hinzufuegen von Einzelleistungen für einen Studenten
@@ -98,7 +98,7 @@ public class DLeistungsuebersicht implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainFrame.setContent(new DGruppenuebersicht(dVL, student, index));
+                mainFrame.setContent(new DGruppenuebersicht(dVL, index));
             }
         });
         //Logout
