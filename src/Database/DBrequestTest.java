@@ -11,9 +11,16 @@ import java.sql.Time;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+    Testet die verwendeten Datenbank-Methoden auf exceptions.
+*/
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class DBrequestTest
 {
+    // Member Variables
+    //
+    // Test information
     private DBrequest dbrequest = DBrequest.getIntstance();
     private LogWriter log = LogWriter.getIntstance();
     private boolean eo; // does an exception occur?
@@ -37,7 +44,7 @@ class DBrequestTest
     private Aufgabe a = new Aufgabe("Aufgabe 1", 42, u, 42);
     private Studienganganteil sa = new Studienganganteil("SAnteil", 42, t);
 
-    // All DBrequest methods
+    // Test all DBrequest-methods
     //
     // Create
     //
