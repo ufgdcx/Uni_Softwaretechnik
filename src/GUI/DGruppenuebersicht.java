@@ -106,7 +106,7 @@ public class DGruppenuebersicht implements FrameContent {
                                 if (t.getTeamID() == Integer.parseInt(teamID)) {
                                     for (Student s : mainFrame.getController().getStudenten(t)) {
                                         if (s.getVorname().equals(vornameStudent) && s.getNachname().equals(nachnameStudent)) {
-                                            mainFrame.setContent(new DLeistungsuebersicht(dVL, s, index));
+                                            mainFrame.setContent(new DLeistungsuebersicht(dVL, s, index, t));
                                         }
                                     }
                                 }

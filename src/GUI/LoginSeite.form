@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.LoginSeite">
-  <grid id="27dc6" binding="LoginPanel" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="LoginPanel" layout-manager="GridLayoutManager" row-count="4" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="150" left="150" bottom="450" right="300"/>
     <constraints>
-      <xy x="20" y="20" width="989" height="704"/>
+      <xy x="20" y="20" width="989" height="729"/>
     </constraints>
     <properties/>
     <border type="none">
@@ -32,7 +32,7 @@
       </component>
       <component id="feabd" class="javax.swing.JButton" binding="loginButton" default-binding="true">
         <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="150" height="-1"/>
             <preferred-size width="150" height="-1"/>
             <maximum-size width="150" height="-1"/>
@@ -64,7 +64,7 @@
       </component>
       <component id="6c409" class="javax.swing.JButton" binding="registrierenButton">
         <constraints>
-          <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+          <grid row="3" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="150" height="26"/>
             <preferred-size width="150" height="26"/>
             <maximum-size width="150" height="26"/>
@@ -87,12 +87,12 @@
           <verticalTextPosition value="1"/>
         </properties>
       </component>
-      <component id="f1dd8" class="javax.swing.JButton" binding="passwortVergessenButton" default-binding="true">
+      <component id="c2d27" class="javax.swing.JLabel" binding="pwVergessenLabel">
         <constraints>
-          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Passwort vergessen"/>
+          <text value="Passwort vergessen? Hier klicken!"/>
         </properties>
       </component>
     </children>

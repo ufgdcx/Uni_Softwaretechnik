@@ -1,0 +1,62 @@
+# Installationsanleitung für die Benutzung des SWT Programms (Client)
+Das SWT-Programm wurde nur in der Java Version 12 getestet.
+Um Java auf Ihrem System zu installieren, gehen Sie auf die Seite: <https://www.oracle.com/technetwork/java/javase/downloads/index.html>.
+Dort können Sie sich Java in der Version 12 für Ihr System herunterladen.
+Eine Installationsanweisung für verschiedene Betriebssysteme finden Sie hier: <https://docs.oracle.com/en/java/javase/12/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A>
+
+Nachdem Sie Java erfolgreich installiert haben, können Sie das SWT-Programm starten.
+
+# Installationsanleitung für Server/Datenbank
+Vorausgesetzt wird Ubuntu Version 18.04 oder eine ähnliche Linux Umgebung.
+
+Alle benötigten Komponenten können aus den offiziellen Paketquellen installiert werden.
+
+Öffnen Sie einen Browser und Laden sie sich https://github.com/ufgdcx/Uni_Softwaretechnik.git herunter.
+Öffnen Sie eine Konsole und installieren sie Folgende Pakete:
+
+$ sudo apt-get install apache2 libapache2-mod-php7.2 php7.2 php7.2-mysql mysql-server
+
+Für einen ersten Test, öffnen Sie mit einem Webbrowser die Internet-Adresse http://localhost.
+Dort sollte Folgendes zu lesen sein:
+
+	It works!
+	This is the default web page for this server.
+	The web server software is running but no content has been added, yet.
+
+Wenn diese Seite nicht angezeigt wird, wurde Apache vermutlich noch nicht gestartet. In diesem Fall starten Sie den Webserver mit folgendem Befehl:
+
+$ sudo service apache2 start
+
+Im Verzeichnis /var/www/html/ sollten Sie nun eine Datei erstellen mit dem Namen phpinfo.php mit folgendem Inhalt:
+
+<?php
+phpinfo();
+?>
+
+Rufen Sie anschließend mit dem Webbrowser sie Adresse: http://localhost/phpinfo.php bzw. http://IP-ADRESSE/phpinfo.php
+auf. Dort sollten nun alle Informationen zur verwendeten PHP-Version stehen.
+
+Nun öffnen Sie eine Konsole und installieren sie Folgendes Paket:
+
+$ sudo apt-get install phpmyadmin
+
+Nachdem Sie phpmyadmin erfolgreich eingerichtet haben, rufen Sie mit dem Webbrowser die Adresse: http://localhost/phpmyadmin bzw. http://IP-ADRESSE/phpmyadmin auf.
+
+Loggen Sie sich mit dem Username root und dem entsprechenden Passwort ein.
+Klicken Sie nun auf <User accounts> und dann auf <Add user account> und legen Sie sich einen neuen User mit folgenden Informationen an:
+
+Login Information:
+- User name: swt
+- Host name: Any host
+- Password: swt123456
+- Authentication Plugin: Native MySQL authentication
+
+und setzen Sie ein Haken unter <Database for user account> bei <Create database with same name and grant all privileges>.
+
+Anmerkung: Sie können natürlich auch ein anderen Username wählen mit einem anderen Passwort.
+
+Loggen Sie sich als Root aus und mit Ihrem neu erstellten User swt ein.
+Klicken Sie auf die swt Database und dann auf <Import>. Klicken Sie auf <Browse...> und navigieren sie zu dem am Anfang heruntergeladenen git Repository unter .../Uni_Softwaretechnik/Datenbank/swt_datenbank.sql. Klicken Sie anschließend auf <Go> und die Datenbank wird geladen.
+
+Anschließend müssen Sie noch in .../Uni_Softwaretechnik/src/Database/DataSourceConn.java die Verbindungsdaten entsprechend ändern.
+
