@@ -36,7 +36,7 @@ public class DLeistungsInformationen implements FrameContent {
         mainFrame = m;
     }
 
-    public DLeistungsInformationen(ArrayList<Veranstaltung> dVL, Student student, int leistAnzahl, int index, int counter) {
+    public DLeistungsInformationen(ArrayList<Veranstaltung> dVL, int leistAnzahl, int index, int counter) {
 
         seitenanzahlLabel.setText(counter + " / " + leistAnzahl);
 
@@ -50,9 +50,9 @@ public class DLeistungsInformationen implements FrameContent {
                 try {
                     mainFrame.getController().createLeistung(dVL.get(index), leistungsnameTextField.getText());
                     if (leistAnzahl == counter) {
-                        mainFrame.setContent(new DLeistungsuebersicht(dVL, student, index));
+                        mainFrame.setContent(new DLeistungUebersichtbearbeiten(dVL, index));
                     } else {
-                        mainFrame.setContent(new DLeistungsInformationen(dVL, student, leistAnzahl, index, counter + 1));
+                        mainFrame.setContent(new DLeistungsInformationen(dVL, leistAnzahl, index, counter + 1));
                     }
                 } catch (Exception ex) {
                     ErrorDialog eD = new ErrorDialog("ups, something went wrong");

@@ -1,6 +1,6 @@
 /**
  * @author Diana, Sebastian, Sven, Christoph
- * Klasse erstellt von Diana und erweitert von Sebastian Sven und Christoph
+ * Klasse erstellt von Diana und erweitert von Sebastian, Sven und Christoph
  *
  * Klasse fuer eine Leistungskategorie eines Studenten oder Teams.
  * Setzt sich aus mehreren Unterbloecken zusammen.

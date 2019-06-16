@@ -1,0 +1,4 @@
+!!Klassen.Veranstaltung {beschreibung: Test1, dozenten: null, fakultaet: VER, gruppen: null,
+  maxTeilnehmer: 4, name: AAErsteVeranstaltung, teamanzahl: 2}
+--- !!Klassen.Veranstaltung {beschreibung: Test2, dozenten: null, fakultaet: VER,
+  gruppen: null, maxTeilnehmer: 42, name: AAZweiteVeranstaltung, teamanzahl: 42}

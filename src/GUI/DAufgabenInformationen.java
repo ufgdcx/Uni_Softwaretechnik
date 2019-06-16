@@ -38,7 +38,7 @@ public class DAufgabenInformationen implements FrameContent {
         mainFrame = m;
     }
 
-    public DAufgabenInformationen(ArrayList<Veranstaltung> dVL, Student student, int aufAnzahl, String leistung, String ub, int index, int counter) {
+    public DAufgabenInformationen(ArrayList<Veranstaltung> dVL, int aufAnzahl, String leistung, String ub, int index, int counter) {
         seitenanzahlLabel.setText(counter + " / " + aufAnzahl);
 
         if (aufAnzahl == counter) {
@@ -51,9 +51,9 @@ public class DAufgabenInformationen implements FrameContent {
                 try {
                     mainFrame.getController().createAufgabe(dVL.get(index), leistung, ub, aufgabenNameTextField.getText(), Integer.parseInt(gesamtPunktzahlTextField.getText()));
                     if (aufAnzahl == counter) {
-                        mainFrame.setContent(new DLeistungsuebersicht(dVL, student, index));
+                        mainFrame.setContent(new DLeistungUebersichtbearbeiten(dVL, index));
                     } else {
-                        mainFrame.setContent(new DAufgabenInformationen(dVL, student, aufAnzahl, leistung, ub, index, counter + 1));
+                        mainFrame.setContent(new DAufgabenInformationen(dVL, aufAnzahl, leistung, ub, index, counter + 1));
                     }
                 } catch (Exception ex) {
                     ErrorDialog eD = new ErrorDialog("ups, something went wrong");

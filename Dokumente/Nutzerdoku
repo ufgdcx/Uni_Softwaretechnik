@@ -24,7 +24,14 @@ Alle weiteren Einstellungen und die Verwaltung der Übungsgruppen, Projektteams 
 
 \subsection{Veranstaltung hinzufügen/verlassen}
 
-Um einer Veranstaltung beizutreten, klicken Sie auf \flqq Veranstaltung hinzufügen\frqq{}. In der nun angezeigten Veranstaltungsübersicht werden alle verfügbaren Veranstaltungen in einer Liste angezeigt. Aus dieser wählen Sie die gewünschte Veranstaltung und klicken auf \flqq in Veranstaltung eintragen\frqq{}.
+Um einer Veranstaltung beizutreten, klicken Sie auf \flqq Veranstaltung hinzufügen\frqq{}.
+
+img_student1.jpg
+
+In der nun angezeigten Veranstaltungsübersicht werden alle verfügbaren Veranstaltungen in einer Liste angezeigt. Aus dieser wählen Sie die gewünschte Veranstaltung und klicken auf \flqq in Veranstaltung eintragen\frqq{}.
+
+img_student2.jpg
+
 Anschließend wird eine Gruppenübersicht mit allen Übungsgruppen und Teams angezeigt. Um sich abschließend in die Veranstaltung einzutragen, müssen Sie sich noch in ein Team eintragen. %Verweis einfügen: (Siehe Gruppen und Teams bearbeiten)
 Erst jetzt wird die Änderung im System übernommen.
 Sie können jederzeit mit dem Button \flqq zurück\frqq{} in das Hauptmenü gelangen. Um die Veranstaltungsliste im Hauptmenü zu aktualisieren, müssen Sie sich aus- und wieder einloggen.
@@ -33,7 +40,10 @@ Die nun im Hauptmenü angezeigten Veranstaltungen können Sie wieder verlassen, 
 \subsection{Gruppen und Teams bearbeiten}
 
 Um die Gruppen und Teams einer Veranstaltung zu bearbeiten wählen Sie die jeweilige Veranstaltung im Hauptmenü aus und klicken auf \flqq Gruppen und Teams bearbeiten\frqq{}.
-Nun sind Sie in der Gruppenübersicht. Sie können einem Team beitreten, indem Sie es in der links angezeigten Liste auswählen und auf \flqq Team beitreten\frqq{} klicken. 
+Nun sind Sie in der Gruppenübersicht. Sie können einem Team beitreten, indem Sie es in der links angezeigten Liste auswählen und auf \flqq Team beitreten\frqq{} klicken.
+
+img_student3.jpg
+
 Mit dem Button \flqq Team verlassen\frqq{} können Sie sich wieder aus einem Team austragen.
 
 \subsection{Leistungen ansehen}
