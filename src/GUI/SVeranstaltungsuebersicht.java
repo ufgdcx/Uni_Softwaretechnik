@@ -164,7 +164,7 @@ public class SVeranstaltungsuebersicht implements FrameContent {
         verlassen.setText("Veranstaltung verlassen");
         VeranstaltungsuebersichtPanel.add(verlassen, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         passwortAendernButton = new JButton();
-        passwortAendernButton.setText("Passwort aendern");
+        passwortAendernButton.setText("Passwort ändern");
         VeranstaltungsuebersichtPanel.add(passwortAendernButton, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
