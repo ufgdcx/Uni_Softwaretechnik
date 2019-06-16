@@ -74,7 +74,7 @@ public class resetpassword implements FrameContent {
      */
     private void $$$setupUI$$$() {
         resetpasswordPanel = new JPanel();
-        resetpasswordPanel.setLayout(new GridLayoutManager(4, 3, new Insets(50, 50, 500, 50), -1, -1));
+        resetpasswordPanel.setLayout(new GridLayoutManager(4, 3, new Insets(150, 150, 450, 300), -1, -1));
         emaillabel = new JLabel();
         emaillabel.setText("E-Mailadresse:");
         resetpasswordPanel.add(emaillabel, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -82,12 +82,12 @@ public class resetpassword implements FrameContent {
         resetpasswordPanel.add(spacer1, new GridConstraints(0, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         emailfield = new JTextField();
         emailfield.setText("");
-        resetpasswordPanel.add(emailfield, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(100, -1), null, 0, false));
+        resetpasswordPanel.add(emailfield, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(250, -1), new Dimension(250, -1), new Dimension(250, -1), 0, false));
         zurueckButton = new JButton();
-        zurueckButton.setText("zurueck");
+        zurueckButton.setText("zurück");
         resetpasswordPanel.add(zurueckButton, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         bestaetigenButton = new JButton();
-        bestaetigenButton.setText("bestaetigen");
+        bestaetigenButton.setText("bestätigen");
         resetpasswordPanel.add(bestaetigenButton, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         errorlabel = new JLabel();
         errorlabel.setText("Es wurde ein neues Passwort generiert und an die angegebene Adresse versandt");
