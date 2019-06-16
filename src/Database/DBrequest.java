@@ -397,12 +397,12 @@ public class DBrequest {
 
     // creater(objects)
     //
-    public void  createStudent(Student stud)throws DatabaseException {
+    public void createStudent(Student stud)throws DatabaseException {
         createNutzer(stud.getEmail(),stud.getTitel(),stud.getVorname(),stud.getNachname(),stud.getPasswort());
         createStudent(stud.getEmail(),stud.getMatrikelnr(),stud.getStudiengang());
     }
 
-    public void  createDozent(Dozent doz)throws DatabaseException {
+    public void createDozent(Dozent doz)throws DatabaseException {
         createNutzer(doz.getEmail(),doz.getTitel(),doz.getVorname(),doz.getNachname(),doz.getPasswort());
         createDozent(doz.getEmail(),doz.getFakultaet());
     }

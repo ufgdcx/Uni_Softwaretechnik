@@ -66,7 +66,7 @@ public class DLeistungsuebersicht implements FrameContent {
      * @param index
      * @author Diana
      */
-    public DLeistungsuebersicht(ArrayList<Veranstaltung> dVL, Student student, int index) {
+    public DLeistungsuebersicht(ArrayList<Veranstaltung> dVL, Student student, int index, Team team) {
 
         //Initialisierung Baum mit Gruppen, Teams und Mitglieder
         treeScrollPane.setViewportView(tree);
@@ -99,7 +99,7 @@ public class DLeistungsuebersicht implements FrameContent {
                         aufgabe = aufgabe.split(" ")[0];
                         mainFrame.getController().updateEinzelleistungPunkte(student.getMatrikelnr(), dVL.get(index).getName(), ub, aufgabe, leistung, punkte);
                         //Fenster Gruppenübersicht aktualisieren
-                        mainFrame.setContent(new DLeistungUebersichtbearbeiten(dVL, index));
+                        mainFrame.setContent(new DLeistungsuebersicht(dVL, student, index, team));
                     }
                 } catch (Exception ex) {
                     ErrorDialog eD = new ErrorDialog("ups, something went wrong");
@@ -114,7 +114,34 @@ public class DLeistungsuebersicht implements FrameContent {
         teambewertungHinzufuegenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                int punkte = Integer.parseInt(bewertung.getText());
+                try {
+                    if (tree.getSelectionPath().getPath().length >= 4) {
+                        //tree.getSelectionPath().getPathComponent(index).toString() gibt Array mit Veranstaltungsname, Leistungsname, Unterblockname, Aufgabenname zurück
+                        //Auswahl des 2. Arrayelements = Name der Leistung
+                        String leistung = tree.getSelectionPath().getPathComponent(1).toString();
+                        //Auswahl des 3. Arrayelements = Name des Unterblock
+                        String ub = tree.getSelectionPath().getPathComponent(2).toString();
+                        //Auswahl des 4. Arrayelements = Name der Aufgabe
+                        String aufgabe = tree.getSelectionPath().getPathComponent(3).toString();
+                        aufgabe = aufgabe.split(" ")[0];//Auswahl des 3. Arrayelements
+                        String selectedStudent = tree.getSelectionPath().getPathComponent(3).toString();
+                        String vornameStudent = selectedStudent.split(" ")[0];
+                        String nachnameStudent = selectedStudent.split(" ")[1];
+                        for (Student s : mainFrame.getController().getStudenten(team)) {
+                            mainFrame.getController().updateEinzelleistungPunkte(s.getMatrikelnr(), dVL.get(index).getName(), ub, aufgabe, leistung, punkte);
+                            //System.out.println(punkte);
+                        }
+                        //Fenster Gruppenübersicht aktualisieren
+                        mainFrame.setContent(new DLeistungsuebersicht(dVL, student, index, team));
+                    }
+                } catch (Exception ex) {
+                    ErrorDialog eD = new ErrorDialog("ups, something went wrong");
+                    eD.setResizable(false);
+                    eD.setLocationRelativeTo(null);
+                    eD.setVisible(true);
+                    return;
+                }
             }
         });
         //Wechsel zurück zum Fenster Gruppenübersicht in der Dozentenansicht
