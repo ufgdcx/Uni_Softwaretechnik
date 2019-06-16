@@ -1,5 +1,7 @@
 package Database;
 
+/**@author Christoph, Seb */
+
 import Klassen.*;
 import org.junit.jupiter.api.*;
 import utilities.FileHandler;
