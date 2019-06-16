@@ -18,13 +18,13 @@ class DBrequestTest
 
     // Load test student data
     private FileHandler<Student> fh_student = new FileHandler<>();
-    private ArrayList<Student> student = fh_student.readFile("Testdata/studenten.yml", Student.class);
+    private ArrayList<Student> student = fh_student.readFile("Testdata/Studenten.yml", Student.class);
     // Load test dozent data
     private FileHandler<Dozent> fh_dozent = new FileHandler<>();
-    private ArrayList<Dozent> dozent = fh_dozent.readFile("Testdata/dozenten.yml", Dozent.class);
+    private ArrayList<Dozent> dozent = fh_dozent.readFile("Testdata/Dozent.yml", Dozent.class);
     // Load test Veranstaltung data
     private FileHandler<Veranstaltung> fh_veranstaltung = new FileHandler<>();
-    private ArrayList<Veranstaltung> veranstaltung = fh_veranstaltung.readFile("Testdata/veranstaltungen.yml", Veranstaltung.class);
+    private ArrayList<Veranstaltung> veranstaltung = fh_veranstaltung.readFile("Testdata/Veranstaltung.yml", Veranstaltung.class);
 
     private Gruppe g = new Gruppe(1, "Montag", new Time(System.currentTimeMillis()), "woche",
                                     new Date(System.currentTimeMillis()), veranstaltung.get(0), null, dozent.get(0) );
@@ -33,7 +33,6 @@ class DBrequestTest
     private Team t = new Team(1, "Theam 1", null, null, g);
     private Aufgabe a = new Aufgabe("Aufgabe 1", 42, u, 42);
     private Studienganganteil sa = new Studienganganteil("SAnteil", 42, t);
-
 
     // All DBrequest methods
     //
@@ -178,6 +177,7 @@ class DBrequestTest
     @Order(12)
     void createTeamleistung()
     {
+        // TODO fails now ...
         eo = false;
         // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.createAufgabeTeam(a, t); } // this also test createTeamLeistungsblock
@@ -719,3 +719,13 @@ class DBrequestTest
     {
     }
 }
+// save information to .yaml file
+//    try
+//    {
+//        ArrayList<student> gg = new ArrayList<>();
+//        gg.add(a);
+//        FileHandler<student> f = new FileHandler<>();
+//        String filename = "src/utilities/student.yml";
+//        f.writeFile(filename, student);
+//    }
+//    catch (Exception e){System.out.println(e.getMessage());}
