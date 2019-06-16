@@ -52,7 +52,13 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
     }
-
+    /**
+     * @param   email           email of the student
+     * @param   matrikelnummer  matrikelnummer of the student
+     * @param   studiengang     studiengang of the student
+     * @return                  void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "student already exists" if the student is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createStudent(String email, int matrikelnummer, String studiengang)throws DatabaseException {
         logwriter.writetoLog("function: createStudent(primitive)","TRACE");
         try {
@@ -75,7 +81,12 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
     }
-
+    /**
+     * @param   email       email of the docent
+     * @param   fakultaet   matrikelnummer of the docent
+     * @return              void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "docent already exists" if the docent is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createDozent(String email, String fakultaet)throws DatabaseException {
         logwriter.writetoLog("function: createDozent(primitive)","TRACE");
         try {
@@ -99,7 +110,13 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
     }
-
+    /**
+     * @param   matrikelnummer      matrikelnummer of the student
+     * @param   leistungsblockname  name of the "Leistung"
+     * @param   veranstaltungsname  name of the "Veranstaltung" for the "Leistung"
+     * @return                      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Leistungsblock already exists" if the "Leistung" is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname)throws DatabaseException {
         logwriter.writetoLog("function: createLeistungsblock(primitive)","TRACE");
         try {
@@ -122,6 +139,14 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
     }
+    /**
+     * @param   matrikelnummer      matrikelnummer of the student
+     * @param   teamid              id of the team
+     * @param   gruppenid           id of the group of the team
+     * @param   veranstaltungsname  name of the "Veranstaltung" of the team
+     * @return                      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "GehoertZu already exists" if the student is already in the team or "Parent doesn't exist" if the Parent doesn't exist
+     */
 
     public void createGehoertZu(int matrikelnummer, int teamid, int gruppenid, String veranstaltungsname)throws DatabaseException {
         logwriter.writetoLog("function: createGehoertZu(primitive)","TRACE");
@@ -146,6 +171,17 @@ public class DBrequest {
         }
     }
 
+    /**
+     * @param   gruppenid           id of the group of the team
+     * @param   email               email of the groupleader
+     * @param   veranstaltung       name of the "Veranstaltung" of the group
+     * @param   einschreibungsfrist deadline
+     * @param   uhrzeit             time for the exercise
+     * @param   wochentag           day for the exercise
+     * @param   wochenrhytmus       rhythm of the exercise
+     * @return                      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Gruppe already exists" if the group is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createGruppe(int gruppenid, String email, String veranstaltung, Date einschreibungsfrist, Time uhrzeit, String wochentag, String wochenrhytmus)throws DatabaseException {
         logwriter.writetoLog("function: createGruppe(primitive)","TRACE");
         try {
@@ -169,6 +205,12 @@ public class DBrequest {
         }
     }
 
+    /**
+     * @param   name    name of the "Veranstaltung"
+     * @param   email   email of the docent
+     * @return                      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Leitet already exists" if the docent is already in the "Veranstaltung" or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createLeitet(String name, String email)throws DatabaseException {
         logwriter.writetoLog("function: createLeitet(primitive)","TRACE");
         try {
@@ -191,7 +233,15 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
     }
-
+    /**
+     * @param   leistungsblockname  name of the "Leistung" of the "Aufgabe"
+     * @param   unterblockname      name of the "Unterblock" of the "Aufgabe"
+     * @param   veranstaltungsname  name of the "Veranstaltung" for the "Leistung"
+     * @param   leistungsname       name of the "Aufgabe"
+     * @param   punkte              maximal points of the "Aufgabe"
+     * @return                      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "MaxPunktzahl already exists" if the "MaxPunktzahl" is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     private void createMaxPunktzahl(String leistungsblockname, String unterblockname, String veranstaltungsname, String leistungsname, int punkte)throws DatabaseException {
         logwriter.writetoLog("function: createMaxPunktzahl(primitive)","TRACE");
         try {
@@ -214,7 +264,15 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
     }
-
+    /**
+     * @param   studiengang         name of the "Studiengang"
+     * @param   teamid              id of the team
+     * @param   gruppenid           id of the group
+     * @param   veranstaltungsname  name of the "Veranstaltung" of the team
+     * @param   anteil              part of the "Studiengang"
+     * @return                      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Studienganganteil already exists" if the "Studienganganteil" is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createStudienganganteil(String studiengang, int teamid, int gruppenid, String veranstaltungsname, int anteil)throws DatabaseException {
         logwriter.writetoLog("function: createStudienganganteil(primitive)","TRACE");
         try {
@@ -237,7 +295,14 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
     }
-
+    /**
+     * @param   teamid              id of the team
+     * @param   gruppenid           id of the group
+     * @param   veranstaltungsname  name of the "Veranstaltung" of the team
+     * @param   thema               theme of the team
+     * @return                      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Team already exists" if the "Team" is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createTeam(int teamid, int gruppenid, String veranstaltungsname, String thema)throws DatabaseException {
         logwriter.writetoLog("function: createTeam(primitive)","TRACE");
         try {
@@ -260,7 +325,17 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
     }
-
+    /**
+     * @param   teamleistungsblockname      name of the "Leistung"
+     * @param   teamleistungsunterblockname name of the "Unterblock"
+     * @param   teamleistungsname           name of the "Aufgabe"
+     * @param   teamid                      id of the team
+     * @param   gruppenid                   id of the group
+     * @param   veranstaltungsname          name of the "Veranstaltung" of the team
+     * @param   punkte                      reached points of the "Aufgabe"
+     * @return                              void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Teamleistung already exists" if the "Teamleistung" is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createTeamleistung(String teamleistungsblockname, String teamleistungsunterblockname,String teamleistungsname, int teamid, int gruppenid, String veranstaltungsname, int punkte)throws DatabaseException {
         logwriter.writetoLog("function: createTeamleistung(primitive)","TRACE");
         try {
@@ -284,6 +359,15 @@ public class DBrequest {
         }
     }
 
+    /**
+     * @param   teamleistungsblockname      name of the "Leistung"
+     * @param   teamleistungsunterblockname name of the "Unterblock"
+     * @param   teamid                      id of the team
+     * @param   gruppenid                   id of the group
+     * @param   veranstaltungsname          name of the "Veranstaltung" of the team
+     * @return                              void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "TeamLeistungsUnterblock already exists" if the "TeamLeistungsUnterblock" is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createTeamLeistungsUnterblock(String teamleistungsblockname, String teamleistungsunterblockname, int teamid, int gruppenid, String veranstaltungsname)throws DatabaseException {
         logwriter.writetoLog("function: createTeamleistungsUnterblock(primitive)","TRACE");
         try {
@@ -307,6 +391,14 @@ public class DBrequest {
         }
     }
 
+    /**
+     * @param   teamleistungsblockname      name of the "Leistung"
+     * @param   teamid                      id of the team
+     * @param   gruppenid                   id of the group
+     * @param   veranstaltungsname          name of the "Veranstaltung" of the team
+     * @return                              void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "TeamLeistungsblock already exists" if the "TeamLeistungsblock" is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createTeamLeistungsblock(String teamleistungsblockname, int teamid, int gruppenid, String veranstaltungsname)throws DatabaseException {
         logwriter.writetoLog("function: createTeamleistungsblock(primitive)","TRACE");
         try {
@@ -330,6 +422,14 @@ public class DBrequest {
         }
     }
 
+    /**
+     * @param   matrikelnummer      matrikelnummer of the student
+     * @param   leistungsblockname  name of the "Leistung"
+     * @param   unterblockname      name of the "Unterblock"
+     * @param   veranstaltungsname  name of the "Veranstaltung" for the "Leistung"
+     * @return                      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Unterblock already exists" if the "Unterblock" is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname)throws DatabaseException {
         logwriter.writetoLog("function: createUnterblock(primitive)","TRACE");
         try {
@@ -352,7 +452,16 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
     }
-
+    /**
+     * @param   matrikelnummer      matrikelnummer of the student
+     * @param   leistungsblockname  name of the "Leistung"
+     * @param   unterblockname      name of the "Unterblock"
+     * @param   veranstaltungsname  name of the "Veranstaltung" for the "Leistung"
+     * @param   einzelleistungsname name of the "Aufgabe"
+     * @param   punkte              reached points
+     * @return                      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Einzelleistung already exists" if the "Aufgabe" is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createEinzelleistung(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname, String einzelleistungsname, int punkte)throws DatabaseException {
         logwriter.writetoLog("function: createEinzelleistung(primitive)","TRACE");
         try {
@@ -376,7 +485,15 @@ public class DBrequest {
         }
     }
 
-
+    /**
+     * @param   veranstaltungsname  name of the "Veranstaltung"
+     * @param   fakultaet           "fakultaet" of the "Veranstaltung"
+     * @param   teamanzahl          maximum of teams in a group of the "Veranstaltung"
+     * @param   max                 maximum of memberss in a team of the "Veranstaltung"
+     * @param   beschreibung        description of the "Veranstaltung"
+     * @return                      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Veranstaltung already exists" if the "Veranstaltung" is already in the system or "Parent doesn't exist" if the Parent doesn't exist
+     */
     public void createVeranstaltung(String veranstaltungsname, String fakultaet, int teamanzahl, int max, String beschreibung  )throws DatabaseException {
         logwriter.writetoLog("function: createVeranstaltung(primitive)","TRACE");
         try {
@@ -397,16 +514,31 @@ public class DBrequest {
 
     // creater(objects)
     //
-    public void createStudent(Student stud)throws DatabaseException {
+    /**
+     * @param   stud  studentobject
+     * @return        void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Nutzer already exists" or "Student already exists" if the student is already in the system
+     */
+    public void  createStudent(Student stud)throws DatabaseException {
         createNutzer(stud.getEmail(),stud.getTitel(),stud.getVorname(),stud.getNachname(),stud.getPasswort());
         createStudent(stud.getEmail(),stud.getMatrikelnr(),stud.getStudiengang());
     }
 
-    public void createDozent(Dozent doz)throws DatabaseException {
+    /**
+     * @param   doz studentobject
+     * @return      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Nutzer already exists" or "Dozent already exists" if the docent is already in the system
+     */
+    public void  createDozent(Dozent doz)throws DatabaseException {
         createNutzer(doz.getEmail(),doz.getTitel(),doz.getVorname(),doz.getNachname(),doz.getPasswort());
         createDozent(doz.getEmail(),doz.getFakultaet());
     }
 
+    /**
+     * @param   veranstaltung   studentobject
+     * @return                  void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Veranstaltung already exists" if the "Veranstaltung" is already in the system
+     */
     public void createVeranstaltung(Veranstaltung veranstaltung) throws DatabaseException
     {
         createVeranstaltung(veranstaltung.getName(),
@@ -416,11 +548,22 @@ public class DBrequest {
                             veranstaltung.getBeschreibung());
     }
 
+    /**
+     * @param   dozent          dozentenobject
+     * @param   veranstaltung   veranstaltungsobject
+     * @return                  void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Leitet already exists" if the docent already joined the "Veranstaltung"
+     */
     public void createLeitet(Dozent dozent, Veranstaltung veranstaltung) throws DatabaseException
     {
         createLeitet(veranstaltung.getName(), dozent.getEmail());
     }
 
+    /**
+     * @param   gruppe   groupobject
+     * @return           void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Gruppe already exists" if the group is already in the system
+     */
     public void createGruppe(Gruppe gruppe) throws DatabaseException
     {
         createGruppe(gruppe.getGruppenID(),
@@ -432,6 +575,11 @@ public class DBrequest {
                      gruppe.getRhythmus());
     }
 
+    /**
+     * @param   team   teamobject
+     * @return           void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Team already exists" if the team is already in the system
+     */
     public void createTeam(Team team) throws DatabaseException
     {
         createTeam(team.getTeamID(),
@@ -440,6 +588,12 @@ public class DBrequest {
                     team.getThema());
     }
 
+    /**
+     * @param   student    studentobject
+     * @param   team       teamobject
+     * @return             void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Gehoert_zu already exists" if the student already joined the team
+     */
     public void createGehoert_zu(Student student, Team team) throws DatabaseException
     {
         createGehoertZu(student.getMatrikelnr(),
@@ -447,7 +601,11 @@ public class DBrequest {
                         team.getGruppe().getGruppenID(),
                         team.getGruppe().getVeranstaltung().getName());
     }
-
+    /**
+     * @param   studienganganteil   studienganganteilobject
+     * @return                      void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Studienganganteil already exists" if the "Studienganganteil" is already in the system
+     */
     public void createStudienganganteil(Studienganganteil studienganganteil) throws DatabaseException
     {
         createStudienganganteil(studienganganteil.getStudiengang(),
@@ -457,13 +615,23 @@ public class DBrequest {
                                 studienganganteil.getAnteil());
     }
 
-    public void createLeistungEinzel(Leistung leistungs) throws DatabaseException
+    /**
+     * @param   leistung   Leistungsobject
+     * @return              void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Leistungsblock already exists" if the "Leistung" is already in the system
+     */
+    public void createLeistungEinzel(Leistung leistung) throws DatabaseException
     {
-        createLeistungsblock(leistungs.getStudent().getMatrikelnr(),
-                     leistungs.getLbName(),
-                     leistungs.getVeranstaltung().getName());
+        createLeistungsblock(leistung.getStudent().getMatrikelnr(),
+                     leistung.getLbName(),
+                     leistung.getVeranstaltung().getName());
     }
 
+    /**
+     * @param   unterblock   Unterblockobject
+     * @return              void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Unterblock already exists" if the "Unterblock" is already in the system
+     */
     public void createUnterblockEinzel(Unterblock unterblock) throws DatabaseException
     {
         createUnterblock(unterblock.getlBlock().getStudent().getMatrikelnr(),
@@ -472,6 +640,11 @@ public class DBrequest {
                         unterblock.getlBlock().getVeranstaltung().getName());
     }
 
+    /**
+     * @param   aufgabe   Aufgabenobject
+     * @return              void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Einzelleistung already exists" if the "Aufgabe" is already in the system
+     */
     public void createAufgabeEinzel(Aufgabe aufgabe) throws DatabaseException
     {
                createEinzelleistung(aufgabe.getUnterblock().getlBlock().getStudent().getMatrikelnr(),
@@ -483,14 +656,26 @@ public class DBrequest {
                createMaxPunktzahl(aufgabe);
     }
 
-    public void createLeistungTeam(Leistung leistungs,Team team) throws DatabaseException
+    /**
+     * @param   leistung    Leistungsobject
+     * @param   team        teamobject
+     * @return              void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Teamleistungsblock already exists" if the "Leistung" is already in the system
+     */
+    public void createLeistungTeam(Leistung leistung,Team team) throws DatabaseException
     {
-        createTeamLeistungsblock(leistungs.getLbName(),
+        createTeamLeistungsblock(leistung.getLbName(),
                 team.getTeamID(),
                 team.getGruppe().getGruppenID(),
-                leistungs.getVeranstaltung().getName());
+                leistung.getVeranstaltung().getName());
     }
 
+    /**
+     * @param   unterblock  Unterblockobject
+     * @param   team        teamobject
+     * @return              void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Teamleistungsunterblock already exists" if the "Unterblock" is already in the system
+     */
     public void createUnterblockTeam(Unterblock unterblock, Team team) throws DatabaseException
     {
         createTeamLeistungsUnterblock(unterblock.getlBlock().getLbName(),
@@ -499,6 +684,13 @@ public class DBrequest {
                 team.getGruppe().getGruppenID(),
                 unterblock.getlBlock().getVeranstaltung().getName());
     }
+
+    /**
+     * @param   aufgabe     Aufgabenobject
+     * @param   team        teamobject
+     * @return              void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Teamleistung already exists" if the "Aufgabe" is already in the system
+     */
 
     public void createAufgabeTeam(Aufgabe aufgabe, Team team) throws DatabaseException
     {
@@ -512,11 +704,21 @@ public class DBrequest {
         createMaxPunktzahl(aufgabe);
     }
 
+    /**
+     * @param   aufgabe     Aufgabenobject
+     * @return              void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "MaxPunkte already exists" if the "Aufgabe" is already in the system
+     */
     public  void createMaxPunktzahl(Aufgabe aufgabe) throws DatabaseException{
         createMaxPunktzahl(aufgabe.getUnterblock().getlBlock().getLbName(),aufgabe.getUnterblock().getUbName(),aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),aufgabe.getElName(),aufgabe.getMaxPunkte());
     }
 
-
+    /**
+     * @param   veranstaltung     Veranstaltungsobject
+     * @param   leistungsname     name of the "Leistung"
+     * @return                    void
+     * @exception DatabaseException with errormessage = "Connection failed" if the connection to the Databaseserver fails, "Leistungsblock already exists" if the "Leistung" is already in the system
+     */
     public void createLeistungEinzel(Veranstaltung veranstaltung, String leistungsname)throws DatabaseException{
         ArrayList<Student> studenten = getStudenten(veranstaltung);
         for (Student s:studenten) {
@@ -1886,4 +2088,15 @@ public class DBrequest {
         updateEinzelleistungPunkte(einzelLeistung.getUnterblock().getlBlock().getStudent().getMatrikelnr(),veranstaltung.getName(),einzelLeistung.getUnterblock().getUbName(),einzelLeistung.getElName(),einzelLeistung.getUnterblock().getlBlock().getLbName(),einzelLeistung.getElPunkte());
     }
 
+    public Boolean isInDatabase(String emailadresse) throws DatabaseException{
+        try {
+            logwriter.writetoLog("function: isInDatabase(String)","TRACE");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Nutzer.* FROM Nutzer WHERE EMailadresse = '" + emailadresse + "'");
+            return resultSize(rs)!=0;
+        }catch (SQLException ex){
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+    }
 }

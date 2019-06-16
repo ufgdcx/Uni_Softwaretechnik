@@ -27,6 +27,7 @@ public class LoginSeite implements FrameContent {
     private JLabel passwortLabel;
     private JLabel eMailadresseLabel;
     private JLabel uniRostockDeLabel;
+    private JButton passwortVergessenButton;
     private JLabel errorLabel;
 
 
@@ -51,6 +52,12 @@ public class LoginSeite implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainFrame.setContent(new RegistrierenSeite());
+            }
+        });
+        passwortVergessenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.setContent(new resetpassword());
             }
         });
         loginButton.addActionListener(new ActionListener() {
@@ -108,7 +115,7 @@ public class LoginSeite implements FrameContent {
      */
     private void $$$setupUI$$$() {
         LoginPanel = new JPanel();
-        LoginPanel.setLayout(new GridLayoutManager(3, 4, new Insets(150, 150, 450, 300), -1, -1));
+        LoginPanel.setLayout(new GridLayoutManager(3, 5, new Insets(150, 150, 450, 300), -1, -1));
         passwortLabel = new JLabel();
         passwortLabel.setText("Passwort");
         passwortLabel.setVerticalAlignment(1);
@@ -131,12 +138,15 @@ public class LoginSeite implements FrameContent {
         registrierenButton.setText("Registrieren");
         registrierenButton.setVerticalAlignment(0);
         registrierenButton.setVerticalTextPosition(0);
-        LoginPanel.add(registrierenButton, new GridConstraints(2, 2, 1, 2, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(150, 26), new Dimension(150, 26), new Dimension(150, 26), 0, false));
+        LoginPanel.add(registrierenButton, new GridConstraints(2, 2, 1, 3, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(150, 26), new Dimension(150, 26), new Dimension(150, 26), 0, false));
         uniRostockDeLabel = new JLabel();
         uniRostockDeLabel.setText("@uni-rostock.de");
         uniRostockDeLabel.setVerticalAlignment(1);
         uniRostockDeLabel.setVerticalTextPosition(1);
-        LoginPanel.add(uniRostockDeLabel, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        LoginPanel.add(uniRostockDeLabel, new GridConstraints(0, 3, 1, 2, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        passwortVergessenButton = new JButton();
+        passwortVergessenButton.setText("Passwort vergessen");
+        LoginPanel.add(passwortVergessenButton, new GridConstraints(1, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
