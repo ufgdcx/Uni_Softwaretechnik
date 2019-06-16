@@ -137,7 +137,9 @@ public class DGruppenbearbeiten implements FrameContent {
         festlegenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.getController().setMaximale_Teilnehmeranzahl_je_Team(dVL.get(index).getName(), Integer.parseInt(tAnzahlTextField.getText()));
+                mainFrame.getController().setMaximale_Teilnehmeranzahl_je_Team(dVL.get(index).getName(), Integer.parseInt(tGroesseTextField.getText()));
+                //Fenster Gruppenübersicht aktualisieren
+                mainFrame.setContent(new DGruppenbearbeiten(dVL, index));
             }
         });
         //zum Hinzufuegen eines Studenten (bspw. nach Ablauf der Anmeldefrist) zum ausgewählten Team
