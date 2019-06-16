@@ -44,6 +44,10 @@ public class createNewPassword implements FrameContent {
                             for (int i = 0; i < hashChar.length; i++)
                                 hashString = hashString + hashChar[i];
                             DBrequest.getIntstance().updateNutzerPasswort(s.getEmail(), hashString);
+                            mainFrame.setContent(new SVeranstaltungsuebersicht(mainFrame));
+                        } else {
+                            mainFrame.getController().createError("falsches Passwort");
+                            return;
                         }
                     } else {
                         //TODO Dozenten
@@ -58,7 +62,7 @@ public class createNewPassword implements FrameContent {
             public void actionPerformed(ActionEvent e) {
                 if (mainFrame.getController() instanceof StudentController) {
                     mainFrame.setContent(new SVeranstaltungsuebersicht(mainFrame));
-                }else{
+                } else {
                     //TODO Dozenten
                 }
             }
