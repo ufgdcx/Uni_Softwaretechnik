@@ -22,7 +22,7 @@ public class Leistung
     private int maxPunkte;
     /**@author Diana*/
     private int lbPunkte;
-    //Unterbl�cke
+    //Unterbloecke
     /**@author Sven*/
     private ArrayList<Unterblock> uBloecke;
     private Veranstaltung veranstaltung;

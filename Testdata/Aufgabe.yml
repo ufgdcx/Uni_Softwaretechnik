@@ -1,0 +1,5 @@
+!!Klassen.Aufgabe
+elName: Aufgabe 1
+elPunkte: 42
+maxPunkte: 42
+unterblock: {aufgaben: null, maxPunkte: 0, ubName: Unterblock 1, ubPunkte: 42}

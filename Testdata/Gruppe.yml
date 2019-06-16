@@ -1,0 +1,10 @@
+!!Klassen.Gruppe
+dozent: {email: aaErsterDozent@uni-rostock.de, fakultaet: ABC, gruppen: null, nachname: Dozent,
+  passwort: '123456', titel: Meister, veranstaltungen: null, vorname: Bob}
+frist: 2019-06-16T11:32:19.757Z
+gruppenID: 1
+rhythmus: woche
+teams: null
+veranstaltung: {beschreibung: Test1, dozenten: null, fakultaet: VER, gruppen: null,
+  maxTeilnehmer: 4, name: AAErsteVeranstaltung, teamanzahl: 2}
+zeit: 2019-06-16T11:32:19.757Z

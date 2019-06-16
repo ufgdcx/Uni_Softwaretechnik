@@ -1,0 +1,19 @@
+!!Klassen.Studienganganteil
+anteil: 42
+studiengang: SAnteil
+team:
+  anteile: null
+  gruppe:
+    dozent: {email: aaErsterDozent@uni-rostock.de, fakultaet: ABC, gruppen: null,
+      nachname: Dozent, passwort: '123456', titel: Meister, veranstaltungen: null,
+      vorname: Bob}
+    frist: 2019-06-16T11:46:00.782Z
+    gruppenID: 1
+    rhythmus: woche
+    teams: null
+    veranstaltung: {beschreibung: Test1, dozenten: null, fakultaet: VER, gruppen: null,
+      maxTeilnehmer: 4, name: AAErsteVeranstaltung, teamanzahl: 2}
+    zeit: 2019-06-16T11:46:00.782Z
+  leistungen: null
+  teamID: 1
+  thema: Theam 1

@@ -1,0 +1,9 @@
+!!Klassen.Leistung
+lbName: Leistungsblock 1
+lbPunkte: 0
+maxPunkte: 0
+student: {email: aastudent1.student@uni-rostock.de, leistungsblock: null, matrikelnr: 1142424,
+  nachname: student, passwort: '123456', studiengang: IN, team: null, titel: '', vorname: student1}
+uBloecke: null
+veranstaltung: {beschreibung: Test1, dozenten: null, fakultaet: VER, gruppen: null,
+  maxTeilnehmer: 4, name: AAErsteVeranstaltung, teamanzahl: 2}
