@@ -207,6 +207,319 @@ class DBrequestTest
         assertFalse(eo);
     }
 
+    // Update
+    //
+
+    @Test
+    @Order(50)
+    void updateStudent()
+    {
+        eo = false;
+        try{ dbrequest.updateStudent(student.get(0)); } // update the database
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(51)
+    void updateDozent()
+    {
+        eo = false;
+        try{ dbrequest.updateDozent(dozent.get(0)); } // update the database
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(52)
+    void updateNutzerPasswort()
+    {
+        eo = false;
+        try{ dbrequest.updateNutzerPasswort(student.get(0).getEmail(), student.get(0).getPasswort()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(53)
+    void updateNutzerTitle()
+    {
+        eo = false;
+        try{ dbrequest.updateNutzerTitle(dozent.get(0).getEmail(), dozent.get(0).getTitel()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(54)
+    void updateNutzerVornamen()
+    {
+        eo = false;
+        try{ dbrequest.updateNutzerVornamen(dozent.get(0).getEmail(), dozent.get(0).getVorname()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(55)
+    void updateNutzerNachname()
+    {
+        eo = false;
+        try{ dbrequest.updateNutzerNachname(dozent.get(0).getEmail(), dozent.get(0).getNachname()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(56)
+    void updateDozentFakultaet()
+    {
+        eo = false;
+        try{ dbrequest.updateDozentFakultaet(dozent.get(0).getEmail(), dozent.get(0).getFakultaet()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(57)
+    void updateVeranstaltung()
+    {
+        eo = false;
+        try{ dbrequest.updateVeranstaltung(veranstaltung.get(0)); } // also updtae updateVeranstaltungBeschreibung, updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team,  updateVeranstaltungTeamanzahl_je_Gruppe, updateVeranstaltungFakultaet
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(58)
+    void updateGruppe()
+    {
+        eo = false;
+        try{ dbrequest.updateGruppe(g); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(59)
+    void updateTeam()
+    {
+        eo = false;
+        try{ dbrequest.updateTeam(t); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(60)
+    void updateTeamleistung()
+    {
+        eo = false;
+        try{ dbrequest.updateTeamleistung(a, t); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(61)
+    void updateStudienganganteil1()
+    {
+        eo = false;
+        try{ dbrequest.updateStudienganganteil(sa); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(62)
+    void updateEinzelLeistung()
+    {
+        eo = false;
+        try{ dbrequest.updateEinzelLeistung(a, veranstaltung.get(0)); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(63)
+    void updateGruppeEinschreibefrist()
+    {
+        eo = false;
+        try{ dbrequest.updateGruppeEinschreibefrist(g.getGruppenID(), veranstaltung.get(0).getName(), g.getFrist() ); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(64)
+    void updateGruppeUhrzeit()
+    {
+        eo = false;
+        try{ dbrequest.updateGruppeUhrzeit(g.getGruppenID(), veranstaltung.get(0).getName(), g.getZeit()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(65)
+    void updateGruppeWochentag()
+    {
+        eo = false;
+        try{ dbrequest.updateGruppeWochentag(g.getGruppenID(), veranstaltung.get(0).getName(), g.getWochentag()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(66)
+    void updateGruppeWochenrhythmus()
+    {
+        eo = false;
+        try{ dbrequest.updateGruppeWochentag(g.getGruppenID(), veranstaltung.get(0).getName(), g.getRhythmus()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(67)
+    void updateEinzelleistungName()
+    {
+        // updateEinzelleistungName(int matrikelnummer, String veranstaltungsname, String unterblockname, String oldname, String leistungsblockname, String newname)
+        eo = false;
+        try{ dbrequest.updateEinzelleistungName(student.get(0).getMatrikelnr(), veranstaltung.get(0).getName(), u.getUbName(), a.getElName(), l.getLbName(), a.getElName() ); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(68)
+    void updateEinzelleistungPunkte()
+    {
+        eo = false;
+        try{ dbrequest.updateEinzelLeistung(a, veranstaltung.get(0)); } // tets updateEinzelLeistung and updateEinzelleistungPunkte
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(69)
+    void updateStudienganganteil()
+    {
+        eo = false;
+        try{ dbrequest.updateStudienganganteil(sa); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(70)
+    void updateTeamThema()
+    {
+        eo = false;
+        try{ dbrequest.updateTeam(t); } // also update TeamThema
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(71)
+    void updateTeamleistungPunkte()
+    {
+        //updateTeamleistungPunkte(int teamID, int punkte, int gruppenID, String veranstaltungsname, String teamleistungsblockname, String teamleistungsunterblockname,
+        // String teamleistungsname)
+
+        // TODO wo ist der unterschied: teamleistungsblockname vs teamleistungsname in unserem Klassen Model?
+        eo = false;
+        try{ dbrequest.updateTeamleistungPunkte(t.getTeamID(), 42, g.getGruppenID(), veranstaltung.get(0).getName(), l.getLbName(), u.getUbName(), l.getLbName()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(72)
+    void updateTeamleistungName()
+    {
+        eo = false;
+        try{ dbrequest.updateTeamleistung(a, t); } // also update updateTeamleistung,updateTeamleistungName
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    // tested in updateVeranstaltung
+//    void updateVeranstaltungTeamanzahl_je_Gruppe()
+//    {
+//    }
+//
+//    void updateVeranstaltungBeschreibung()
+//    {
+//    }
+//
+//    void updateVeranstaltungGruppenanzahl()
+//    {
+//    }
+//
+//    void updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team()
+//    {
+//    }
+
+    // Get
+    //
+
+    void getNutzer()
+    {
+    }
+
+    void getAllDozenten()
+    {
+    }
+
+    void getAllStudenten()
+    {
+    }
+
+    void getVeranstaltungen()
+    {
+    }
+
+    void getGruppenanzahl()
+    {
+    }
+
+    void getStudenten()
+    {
+    }
+
+    void getGruppen()
+    {
+    }
+
+    void getDozent()
+    {
+    }
+
+    void getTeams()
+    {
+    }
+
+    void getTeam()
+    {
+    }
+
+
+    void getLeistungsblock()
+    {
+    }
+
+
+    void getLeistung()
+    {
+    }
+
+
+    void getAllVeranstaltungen()
+    {
+    }
+
 
 
     // Delete
@@ -264,10 +577,11 @@ class DBrequestTest
     @Order(154)
     void deleteTeamleistungsblock()
     {
+        // TODO deleteTeamleistungsblock cant be deleted
         // deleteTeamleistungsblock(String teamleistungsblockname, int teamid, int gruppenid, String veranstaltungsname)
         eo = false;
         log.writetoLog("deleteTeamleistungsblock: " + l.getLbName(), "INFO");
-        try{ dbrequest.deleteTeamleistungsblock(l.getLbName(), t.getTeamID(), t.getGruppe().getGruppenID(), veranstaltung.get(0).getName()); }
+        try{ dbrequest.deleteTeamleistungsblock(l.getLbName(), t.getTeamID(), g.getGruppenID(), veranstaltung.get(0).getName()); }
         catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         assertFalse(eo);
     }
@@ -383,141 +697,6 @@ class DBrequestTest
         assertFalse(eo);
     }
 
-    void getNutzer()
-    {
-    }
-
-    void getVeranstaltungen()
-    {
-    }
-    
-    void getGruppenanzahl()
-    {
-    }
-    
-    void getAllDozenten()
-    {
-    }
-
-    void getAllStudenten()
-    {
-    }
-
-    void getStudenten()
-    {
-    }
-
-    void getGruppen()
-    {
-    }
-
-    void getDozent()
-    {
-    }
-
-    void getTeams()
-    {
-    }
-
-    void getTeam()
-    {
-    }
-
-    
-    void getLeistungsblock()
-    {
-    }
-
-    
-    void getLeistung()
-    {
-    }
-
-    
-    void getAllVeranstaltungen()
-    {
-    }
-
-    
-    void updateNutzerPasswort()
-    {
-    }
-
-    
-    void updateNutzerTitle()
-    {
-    }
-
-    
-    void updateNutzerVornamen()
-    {
-    }
-
-    
-    void updateNutzerNachname()
-    {
-    }
-
-    void updateDozentFakultaet()
-    {
-    }
-    
-    void updateGruppeEinschreibefrist()
-    {
-    }
-
-    void updateGruppeUhrzeit()
-    {
-    }
-    
-    void updateGruppeWochentag()
-    {
-    }
-    
-    void updateGruppeWochenrhythmus()
-    {
-    }
-    
-    void updateEinzelleistungName()
-    {
-    }
-
-    void updateEinzelleistungPunkte()
-    {
-    }
-    
-    void updateStudienganganteil()
-    {
-    }
-
-    void updateTeamThema()
-    {
-    }
-    
-    void updateTeamleistungPunkte()
-    {
-    }
-
-    void updateTeamleistungName()
-    {
-    }
-    
-    void updateVeranstaltungTeamanzahl_je_Gruppe()
-    {
-    }
-    
-    void updateVeranstaltungBeschreibung()
-    {
-    }
-    
-    void updateVeranstaltungGruppenanzahl()
-    {
-    }
-    
-    void updateVeranstaltungMaximale_Teilnehmeranzahl_je_Team()
-    {
-    }
-
     @Test
     @Order(999)
     void deleteAll()
@@ -539,50 +718,4 @@ class DBrequestTest
     void resultSize()
     {
     }
-
-    @Test
-    @Order(50)
-    void updateStudent()
-    {
-        eo = false;
-        try{ dbrequest.updateStudent(student.get(0)); } // update the database
-        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
-        assertFalse(eo);
-    }
-
-    @Test
-    @Order(51)
-    void updateDozent()
-    {
-        eo = false;
-        try{ dbrequest.updateDozent(dozent.get(0)); } // update the database
-        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
-        assertFalse(eo);
-    }
-
-    
-    void updateVeranstaltung()
-    {
-    }
-
-    void updateGruppe()
-    {
-    }
-
-    void updateTeam()
-    {
-    }
-    
-    void updateTeamleistung()
-    {
-    }
-    
-    void updateStudienganganteil1()
-    {
-    }
-    
-    void updateEinzelLeistung()
-    {
-    }
-
 }
