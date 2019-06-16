@@ -19,7 +19,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class SVeranstaltungsuebersicht implements FrameContent {
-    /**@author Kristi*/
+    /**
+     * @author Kristi
+     */
     private GUIMain mainFrame;
 
     private JPanel VeranstaltungsuebersichtPanel;
@@ -31,11 +33,14 @@ public class SVeranstaltungsuebersicht implements FrameContent {
     private JButton ansehen;
     //Button zum Fenster mit allen Veranstaltungen, um Veranstaltung(en) beizutreten
     private JButton hinzufuegen;
-    /**@author Diana*/
+    /**
+     * @author Diana
+     */
     //Button für Logout
     private JButton logoutButton;
     //Button zum Verlassen einer Veranstaltung
     private JButton verlassen;
+    private JButton passwortAendernButton;
     //für eine dynamische Liste
     private DefaultListModel dLM = new DefaultListModel();
 
@@ -73,6 +78,12 @@ public class SVeranstaltungsuebersicht implements FrameContent {
 
         veranstaltungenList.setModel(dLM);
 
+        passwortAendernButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.setContent(new createNewPassword());
+            }
+        });
         hinzufuegen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -152,6 +163,9 @@ public class SVeranstaltungsuebersicht implements FrameContent {
         verlassen = new JButton();
         verlassen.setText("Veranstaltung verlassen");
         VeranstaltungsuebersichtPanel.add(verlassen, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        passwortAendernButton = new JButton();
+        passwortAendernButton.setText("Passwort aendern");
+        VeranstaltungsuebersichtPanel.add(passwortAendernButton, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**

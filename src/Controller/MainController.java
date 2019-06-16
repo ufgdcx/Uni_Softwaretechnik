@@ -218,7 +218,7 @@ public class MainController {
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode(veranstaltung.getName());
 
 		for (Gruppe gruppe: getGruppen(veranstaltung)) {
-			DefaultMutableTreeNode gruppen = new DefaultMutableTreeNode("Gruppe" + " " + gruppe.getGruppenID());
+			DefaultMutableTreeNode gruppen = new DefaultMutableTreeNode("Gruppe" + " " + gruppe.getGruppenID() + " " +  " \t(" + gruppe.getWochentag() + "; " +  gruppe.getZeit() + "; " +  gruppe.getRhythmus() + "; " +  gruppe.getFrist() + ")");
 			root.add(gruppen);
 			for (Team team: getTeams(gruppe)) {
 				DefaultMutableTreeNode teams = new DefaultMutableTreeNode("Team" + " " + team.getTeamID() + " " + "\t(" + getStudenten(team).size() + "/" + veranstaltung.getMaxTeilnehmer() + ")");
