@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.12.1)  16 JUN 2019 23:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.12.1)  16 JUN 2019 23:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -797,7 +797,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<Handbuch.png, id=7, 1766.6pt x 362.35374pt>
+<Handbuch.png, id=119, 1766.6pt x 362.35374pt>
 File: Handbuch.png Graphic file (type png)
 <use Handbuch.png>
 Package pdftex.def Info: Handbuch.png  used on input line 10.
@@ -820,12 +820,10 @@ Overfull \hbox (10.79266pt too wide) in paragraph at lines 20--29
 
 
 {c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Handbuch.png>
-]
-
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
+] (./Nutzerhandbuch.toc)
 \tf@toc=\write5
 \openout5 = `Nutzerhandbuch.toc'.
+
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -984,17 +982,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [3]
-<img_adminGUI_01.png, id=54, 367.5194pt x 386.9089pt>
+<img_adminGUI_01.png, id=190, 367.5194pt x 386.9089pt>
 File: img_adminGUI_01.png Graphic file (type png)
 <use img_adminGUI_01.png>
 Package pdftex.def Info: img_adminGUI_01.png  used on input line 133.
 (pdftex.def)             Requested size: 318.66948pt x 335.49812pt.
-<img_adminGUI_02.png, id=55, 616.93903pt x 308.46951pt>
+<img_adminGUI_02.png, id=191, 616.93903pt x 308.46951pt>
 File: img_adminGUI_02.png Graphic file (type png)
 <use img_adminGUI_02.png>
 Package pdftex.def Info: img_adminGUI_02.png  used on input line 139.
 (pdftex.def)             Requested size: 318.66948pt x 159.3319pt.
-<img_adminGUI_03.png, id=56, 616.93903pt x 308.46951pt>
+<img_adminGUI_03.png, id=192, 616.93903pt x 308.46951pt>
 File: img_adminGUI_03.png Graphic file (type png)
 <use img_adminGUI_03.png>
 Package pdftex.def Info: img_adminGUI_03.png  used on input line 143.
@@ -1007,12 +1005,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4 <./img_adminGUI_01.png> <./img_adminGUI_02.png>]
-<img_adminGUI_04.png, id=66, 484.73781pt x 299.6561pt>
+<img_adminGUI_04.png, id=199, 484.73781pt x 299.6561pt>
 File: img_adminGUI_04.png Graphic file (type png)
 <use img_adminGUI_04.png>
 Package pdftex.def Info: img_adminGUI_04.png  used on input line 148.
 (pdftex.def)             Requested size: 318.66948pt x 197.0009pt.
-<img_adminGUI_05.png, id=67, 484.73781pt x 299.6561pt>
+<img_adminGUI_05.png, id=200, 484.73781pt x 299.6561pt>
 File: img_adminGUI_05.png Graphic file (type png)
 <use img_adminGUI_05.png>
 Package pdftex.def Info: img_adminGUI_05.png  used on input line 152.
@@ -1025,12 +1023,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [5 <./img_adminGUI_03.png> <./img_adminGUI_04.png> <./img_adminGUI_05.png>]
-<img_adminGUI_06.png, id=76, 484.73781pt x 299.6561pt>
+<img_adminGUI_06.png, id=209, 484.73781pt x 299.6561pt>
 File: img_adminGUI_06.png Graphic file (type png)
 <use img_adminGUI_06.png>
 Package pdftex.def Info: img_adminGUI_06.png  used on input line 156.
 (pdftex.def)             Requested size: 318.66948pt x 197.0009pt.
-<img_adminGUI_07.png, id=77, 616.93903pt x 308.46951pt>
+<img_adminGUI_07.png, id=210, 616.93903pt x 308.46951pt>
 File: img_adminGUI_07.png Graphic file (type png)
 <use img_adminGUI_07.png>
 Package pdftex.def Info: img_adminGUI_07.png  used on input line 160.
@@ -1041,7 +1039,7 @@ Overfull \hbox (1.62173pt too wide) in paragraph at lines 162--163
 -cken, und Sie ge-lan-gen wie-der zur []Ubersicht
  []
 
-<img_adminGUI_08.png, id=78, 367.5194pt x 386.9089pt>
+<img_adminGUI_08.png, id=211, 367.5194pt x 386.9089pt>
 File: img_adminGUI_08.png Graphic file (type png)
 <use img_adminGUI_08.png>
 Package pdftex.def Info: img_adminGUI_08.png  used on input line 164.
@@ -1053,7 +1051,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6 <./img_adminGUI_06.png> <./img_adminGUI_07.png>]
-<img_adminGUI_09.png, id=85, 616.93903pt x 308.46951pt>
+<img_adminGUI_09.png, id=218, 616.93903pt x 308.46951pt>
 File: img_adminGUI_09.png Graphic file (type png)
 <use img_adminGUI_09.png>
 Package pdftex.def Info: img_adminGUI_09.png  used on input line 170.
@@ -1064,7 +1062,7 @@ Overfull \hbox (17.77063pt too wide) in paragraph at lines 172--173
  und die-se wer-den in das Sys-tem []ubernommen. 
  []
 
-<img_adminGUI_10.png, id=86, 616.93903pt x 308.46951pt>
+<img_adminGUI_10.png, id=219, 616.93903pt x 308.46951pt>
 File: img_adminGUI_10.png Graphic file (type png)
 <use img_adminGUI_10.png>
 Package pdftex.def Info: img_adminGUI_10.png  used on input line 174.
@@ -1076,12 +1074,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7 <./img_adminGUI_08.png> <./img_adminGUI_09.png>]
-<img_adminGUI_11.png, id=94, 367.5194pt x 386.9089pt>
+<img_adminGUI_11.png, id=226, 367.5194pt x 386.9089pt>
 File: img_adminGUI_11.png Graphic file (type png)
 <use img_adminGUI_11.png>
 Package pdftex.def Info: img_adminGUI_11.png  used on input line 180.
 (pdftex.def)             Requested size: 318.66948pt x 335.49812pt.
-<img_adminGUI_12.png, id=95, 367.5194pt x 386.9089pt>
+<img_adminGUI_12.png, id=227, 367.5194pt x 386.9089pt>
 File: img_adminGUI_12.png Graphic file (type png)
 <use img_adminGUI_12.png>
 Package pdftex.def Info: img_adminGUI_12.png  used on input line 184.
@@ -1101,17 +1099,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9 <./img_adminGUI_12.png>]
-<img_DozentenGUI_01.png, id=108, 580.41844pt x 438.8897pt>
+<img_DozentenGUI_01.png, id=239, 580.41844pt x 438.8897pt>
 File: img_DozentenGUI_01.png Graphic file (type png)
 <use img_DozentenGUI_01.png>
 Package pdftex.def Info: img_DozentenGUI_01.png  used on input line 199.
 (pdftex.def)             Requested size: 318.66948pt x 240.96817pt.
-<img_DozentenGUI_02.png, id=109, 585.68813pt x 438.8897pt>
+<img_DozentenGUI_02.png, id=240, 585.68813pt x 438.8897pt>
 File: img_DozentenGUI_02.png Graphic file (type png)
 <use img_DozentenGUI_02.png>
 Package pdftex.def Info: img_DozentenGUI_02.png  used on input line 203.
 (pdftex.def)             Requested size: 318.66948pt x 238.80507pt.
-<img_DozentenGUI_03.png, id=110, 581.92406pt x 438.13687pt>
+<img_DozentenGUI_03.png, id=241, 581.92406pt x 438.13687pt>
 File: img_DozentenGUI_03.png Graphic file (type png)
 <use img_DozentenGUI_03.png>
 Package pdftex.def Info: img_DozentenGUI_03.png  used on input line 207.
@@ -1124,12 +1122,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [10 <./img_dozentenGUI_01.png> <./img_dozentenGUI_02.png>]
-<img_DozentenGUI_04.png, id=119, 578.16pt x 433.62pt>
+<img_DozentenGUI_04.png, id=248, 578.16pt x 433.62pt>
 File: img_DozentenGUI_04.png Graphic file (type png)
 <use img_DozentenGUI_04.png>
 Package pdftex.def Info: img_DozentenGUI_04.png  used on input line 211.
 (pdftex.def)             Requested size: 318.66948pt x 239.0012pt.
-<img_DozentenGUI_05.png, id=120, 579.66562pt x 439.6425pt>
+<img_DozentenGUI_05.png, id=249, 579.66562pt x 439.6425pt>
 File: img_DozentenGUI_05.png Graphic file (type png)
 <use img_DozentenGUI_05.png>
 Package pdftex.def Info: img_DozentenGUI_05.png  used on input line 219.
@@ -1142,12 +1140,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [11 <./img_dozentenGUI_03.png> <./img_DozentenGUI_04.png>]
-<img_DozentenGUI_06.png, id=129, 582.67688pt x 440.39531pt>
+<img_DozentenGUI_06.png, id=257, 582.67688pt x 440.39531pt>
 File: img_DozentenGUI_06.png Graphic file (type png)
 <use img_DozentenGUI_06.png>
 Package pdftex.def Info: img_DozentenGUI_06.png  used on input line 225.
 (pdftex.def)             Requested size: 318.66948pt x 240.86075pt.
-<img_DozentenGUI_07.png, id=130, 582.67688pt x 438.13687pt>
+<img_DozentenGUI_07.png, id=258, 582.67688pt x 438.13687pt>
 File: img_DozentenGUI_07.png Graphic file (type png)
 <use img_DozentenGUI_07.png>
 Package pdftex.def Info: img_DozentenGUI_07.png  used on input line 229.
@@ -1160,12 +1158,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [12 <./img_DozentenGUI_05.png> <./img_DozentenGUI_06.png>]
-<img_DozentenGUI_08.png, id=138, 581.92406pt x 440.39531pt>
+<img_DozentenGUI_08.png, id=265, 581.92406pt x 440.39531pt>
 File: img_DozentenGUI_08.png Graphic file (type png)
 <use img_DozentenGUI_08.png>
 Package pdftex.def Info: img_DozentenGUI_08.png  used on input line 235.
 (pdftex.def)             Requested size: 318.66948pt x 241.16986pt.
-<img_DozentenGUI_09.png, id=139, 583.42969pt x 436.63126pt>
+<img_DozentenGUI_09.png, id=266, 583.42969pt x 436.63126pt>
 File: img_DozentenGUI_09.png Graphic file (type png)
 <use img_DozentenGUI_09.png>
 Package pdftex.def Info: img_DozentenGUI_09.png  used on input line 239.
@@ -1178,12 +1176,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13 <./img_DozentenGUI_07.png> <./img_DozentenGUI_08.png>]
-<img_DozentenGUI_11.png, id=147, 585.68813pt x 439.6425pt>
+<img_DozentenGUI_11.png, id=273, 585.68813pt x 439.6425pt>
 File: img_DozentenGUI_11.png Graphic file (type png)
 <use img_DozentenGUI_11.png>
 Package pdftex.def Info: img_DozentenGUI_11.png  used on input line 246.
 (pdftex.def)             Requested size: 318.66948pt x 239.21468pt.
-<img_DozentenGUI_12.png, id=148, 582.67688pt x 435.12563pt>
+<img_DozentenGUI_12.png, id=274, 582.67688pt x 435.12563pt>
 File: img_DozentenGUI_12.png Graphic file (type png)
 <use img_DozentenGUI_12.png>
 Package pdftex.def Info: img_DozentenGUI_12.png  used on input line 249.
@@ -1196,12 +1194,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [14 <./img_DozentenGUI_09.png> <./img_DozentenGUI_11.png>]
-<img_DozentenGUI_13.png, id=156, 584.1825pt x 435.12563pt>
+<img_DozentenGUI_13.png, id=281, 584.1825pt x 435.12563pt>
 File: img_DozentenGUI_13.png Graphic file (type png)
 <use img_DozentenGUI_13.png>
 Package pdftex.def Info: img_DozentenGUI_13.png  used on input line 254.
 (pdftex.def)             Requested size: 318.66948pt x 237.36783pt.
-<img_DozentenGUI_14.png, id=157, 582.67688pt x 438.13687pt>
+<img_DozentenGUI_14.png, id=282, 582.67688pt x 438.13687pt>
 File: img_DozentenGUI_14.png Graphic file (type png)
 <use img_DozentenGUI_14.png>
 Package pdftex.def Info: img_DozentenGUI_14.png  used on input line 258.
@@ -1224,7 +1222,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 259--265
 
  []
 
-<img_DozentenGUI_15.png, id=164, 585.68813pt x 441.14813pt>
+<img_DozentenGUI_15.png, id=289, 585.68813pt x 441.14813pt>
 File: img_DozentenGUI_15.png Graphic file (type png)
 <use img_DozentenGUI_15.png>
 Package pdftex.def Info: img_DozentenGUI_15.png  used on input line 269.
@@ -1236,12 +1234,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [16 <./img_DozentenGUI_14.png>]
-<img_DozentenGUI_16.png, id=171, 583.42969pt x 439.6425pt>
+<img_DozentenGUI_16.png, id=295, 583.42969pt x 439.6425pt>
 File: img_DozentenGUI_16.png Graphic file (type png)
 <use img_DozentenGUI_16.png>
 Package pdftex.def Info: img_DozentenGUI_16.png  used on input line 273.
 (pdftex.def)             Requested size: 318.66948pt x 240.14043pt.
-<img_DozentenGUI_17.png, id=172, 581.92406pt x 440.39531pt>
+<img_DozentenGUI_17.png, id=296, 581.92406pt x 440.39531pt>
 File: img_DozentenGUI_17.png Graphic file (type png)
 <use img_DozentenGUI_17.png>
 Package pdftex.def Info: img_DozentenGUI_17.png  used on input line 278.
@@ -1254,7 +1252,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17 <./img_DozentenGUI_15.png> <./img_DozentenGUI_16.png>]
-<img_DozentenGUI_18.png, id=180, 579.66562pt x 440.39531pt>
+<img_DozentenGUI_18.png, id=304, 579.66562pt x 440.39531pt>
 File: img_DozentenGUI_18.png Graphic file (type png)
 <use img_DozentenGUI_18.png>
 Package pdftex.def Info: img_DozentenGUI_18.png  used on input line 283.
@@ -1271,12 +1269,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [18 <./img_DozentenGUI_17.png> <./img_DozentenGUI_18.png>]
-<img_DozentenGUI_19.png, id=187, 581.17125pt x 438.13687pt>
+<img_DozentenGUI_19.png, id=311, 581.17125pt x 438.13687pt>
 File: img_DozentenGUI_19.png Graphic file (type png)
 <use img_DozentenGUI_19.png>
 Package pdftex.def Info: img_DozentenGUI_19.png  used on input line 292.
 (pdftex.def)             Requested size: 318.66948pt x 240.24062pt.
-<img_DozentenGUI_20.png, id=188, 582.67688pt x 440.39531pt>
+<img_DozentenGUI_20.png, id=312, 582.67688pt x 440.39531pt>
 File: img_DozentenGUI_20.png Graphic file (type png)
 <use img_DozentenGUI_20.png>
 Package pdftex.def Info: img_DozentenGUI_20.png  used on input line 296.
@@ -1296,11 +1294,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [20]
-<img_student1.jpg, id=201, 718.18312pt x 542.025pt>
-File: img_student1.jpg Graphic file (type jpg)
-<use img_student1.jpg>
-Package pdftex.def Info: img_student1.jpg  used on input line 348.
-(pdftex.def)             Requested size: 318.66948pt x 240.50977pt.
+<student00.png, id=323, 578.16pt x 435.87843pt>
+File: student00.png Graphic file (type png)
+<use student00.png>
+Package pdftex.def Info: student00.png  used on input line 314.
+(pdftex.def)             Requested size: 318.66948pt x 240.246pt.
+<student02.png, id=324, 581.17125pt x 437.38406pt>
+File: student02.png Graphic file (type png)
+<use student02.png>
+Package pdftex.def Info: student02.png  used on input line 318.
+(pdftex.def)             Requested size: 318.66948pt x 239.82784pt.
+File: img_DozentenGUI_04.png Graphic file (type png)
+<use img_DozentenGUI_04.png>
+Package pdftex.def Info: img_DozentenGUI_04.png  used on input line 323.
+(pdftex.def)             Requested size: 318.66948pt x 239.0012pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1308,16 +1315,46 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[21]
-<img_student2.jpg, id=212, 600.74437pt x 450.18187pt>
+[21 <./student00.png> <./student02.png>]
+File: img_DozentenGUI_06.png Graphic file (type png)
+<use img_DozentenGUI_06.png>
+Package pdftex.def Info: img_DozentenGUI_06.png  used on input line 333.
+(pdftex.def)             Requested size: 318.66948pt x 240.86075pt.
+File: img_DozentenGUI_07.png Graphic file (type png)
+<use img_DozentenGUI_07.png>
+Package pdftex.def Info: img_DozentenGUI_07.png  used on input line 337.
+(pdftex.def)             Requested size: 318.66948pt x 239.62556pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22]
+<img_student1.jpg, id=335, 718.18312pt x 542.025pt>
+File: img_student1.jpg Graphic file (type jpg)
+<use img_student1.jpg>
+Package pdftex.def Info: img_student1.jpg  used on input line 345.
+(pdftex.def)             Requested size: 318.66948pt x 240.50977pt.
+<img_student2.jpg, id=336, 600.74437pt x 450.18187pt>
 File: img_student2.jpg Graphic file (type jpg)
 <use img_student2.jpg>
-Package pdftex.def Info: img_student2.jpg  used on input line 352.
+Package pdftex.def Info: img_student2.jpg  used on input line 349.
 (pdftex.def)             Requested size: 318.66948pt x 238.8082pt.
 
 
-LaTeX Warning: Reference `sec:gruppenteamsbearbeiten' on page 22 undefined on i
-nput line 354.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[23 <./img_student1.jpg>]
+<img_student3.jpg, id=343, 599.99156pt x 450.18187pt>
+File: img_student3.jpg Graphic file (type jpg)
+<use img_student3.jpg>
+Package pdftex.def Info: img_student3.jpg  used on input line 360.
+(pdftex.def)             Requested size: 318.66948pt x 239.11044pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1325,14 +1362,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22 <./img_student1.jpg> <./img_student2.jpg>]
-<img_student3.jpg, id=219, 599.99156pt x 450.18187pt>
-File: img_student3.jpg Graphic file (type jpg)
-<use img_student3.jpg>
-Package pdftex.def Info: img_student3.jpg  used on input line 363.
-(pdftex.def)             Requested size: 318.66948pt x 239.11044pt.
+[24 <./img_student2.jpg> <./img_student3.jpg>]
+<student4.png, id=349, 577.40718pt x 433.62pt>
+File: student4.png Graphic file (type png)
+<use student4.png>
+Package pdftex.def Info: student4.png  used on input line 366.
+(pdftex.def)             Requested size: 318.66948pt x 239.32541pt.
 
-Overfull \hbox (4.65762pt too wide) in paragraph at lines 371--372
+Overfull \hbox (4.65762pt too wide) in paragraph at lines 368--369
 \OT1/cmr/m/n/10.95 Ihre er-reich-ten Leis-tun-gen in ei-ner Ver-an-stal-tung k[
 ]onnen sie []uberpr[]ufen, in-dem Sie die gew[]unschte
  []
@@ -1343,34 +1380,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23 <./img_student3.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 379.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 379.
+[25 <./student4.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 376.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 376.
  (./Nutzerhandbuch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 379.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 379.
-
-
-Package rerunfilecheck Warning: File `Nutzerhandbuch.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Nutzerhandbuch.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  F3073F209EEAAAFE6670AD6522BEAFE6;1995.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 379.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 376.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 376.
+Package rerunfilecheck Info: File `Nutzerhandbuch.out' has not changed.
+(rerunfilecheck)             Checksum: F3073F209EEAAAFE6670AD6522BEAFE6;1995.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 376.
  ) 
 Here is how much of TeX's memory you used:
- 19203 strings out of 492639
- 351093 string characters out of 6133088
- 436810 words of memory out of 5000000
- 22672 multiletter control sequences out of 15000+600000
+ 19251 strings out of 492639
+ 351817 string characters out of 6133088
+ 436973 words of memory out of 5000000
+ 22713 multiletter control sequences out of 15000+600000
  10571 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,11n,56p,485b,588s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1381,10 +1405,10 @@ ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy6.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmtt10.pfb>
-Output written on Nutzerhandbuch.pdf (25 pages, 815912 bytes).
+Output written on Nutzerhandbuch.pdf (27 pages, 861880 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
- 54 named destinations out of 1000 (max. 500000)
- 188 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 394 PDF objects out of 1000 (max. 8388607)
+ 282 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 427 words of extra memory for PDF output out of 10000 (max. 10000000)
 
