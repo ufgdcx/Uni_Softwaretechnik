@@ -1,5 +1,7 @@
 package Database;
 
+/**@author Christoph, Seb */
+
 import Klassen.*;
 import org.junit.jupiter.api.*;
 import utilities.FileHandler;
@@ -30,6 +32,7 @@ class DBrequestTest
                                     new Date(System.currentTimeMillis()), veranstaltung.get(0), null, dozent.get(0) );
     private Leistung l = new Leistung("Leistungsblock 1", veranstaltung.get(0), student.get(0));
     private Unterblock u = new Unterblock("Unterblock 1", 42, l, null, student.get(0).getMatrikelnr());
+    private ArrayList<Leistung> l_AL = new ArrayList<>();
     private Team t = new Team(1, "Theam 1", null, null, g);
     private Aufgabe a = new Aufgabe("Aufgabe 1", 42, u, 42);
     private Studienganganteil sa = new Studienganganteil("SAnteil", 42, t);
@@ -45,7 +48,7 @@ class DBrequestTest
         eo = false;
         for(Student v : student)
         {
-            log.writetoLog("Email: " + v.getEmail(), "INFO");
+            //log.writetoLog("Email: " + v.getEmail(), "INFO");
             try{ dbrequest.createStudent(v); }
             catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         }
@@ -59,7 +62,7 @@ class DBrequestTest
         eo = false;
         for(Dozent v : dozent)
         {
-            log.writetoLog("Email: " + v.getEmail(), "INFO");
+            //log.writetoLog("Email: " + v.getEmail(), "INFO");
             try{ dbrequest.createDozent(v); }
             catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         }
@@ -73,7 +76,7 @@ class DBrequestTest
         eo = false;
         for(Veranstaltung v : veranstaltung)
         {
-            log.writetoLog("Veranstaltung: " + v.getName(), "INFO");
+            //log.writetoLog("Veranstaltung: " + v.getName(), "INFO");
             try{ dbrequest.createVeranstaltung(v); }
             catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         }
@@ -85,7 +88,7 @@ class DBrequestTest
     void createLeitet()
     {
         eo = false;
-        log.writetoLog("Dozent: " + dozent.get(0).getVorname(), "INFO");
+        //log.writetoLog("Dozent: " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.createLeitet(dozent.get(0), veranstaltung.get(0)); } // Erster Dozent Leitete Erste Veranstaltung
         catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         assertFalse(eo);
@@ -97,7 +100,7 @@ class DBrequestTest
     void createGruppe()
     {
         eo = false;
-        log.writetoLog("Dozent: " + dozent.get(0).getVorname(), "INFO");
+        //log.writetoLog("Dozent: " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.createGruppe(g); } // Erste Veranstaltung und Erster Dozent
         catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         assertFalse(eo);
@@ -173,14 +176,14 @@ class DBrequestTest
         assertFalse(eo);
     }
 
+    // never used function
     @Test
     @Order(12)
     void createTeamleistung()
     {
-        // TODO fails now ...
         eo = false;
         // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
-        try{ dbrequest.createAufgabeTeam(a, t); } // this also test createTeamLeistungsblock
+        try{ dbrequest.createTeamleistung(l.getLbName(), u.getUbName(), l.getLbName(), t.getTeamID(), g.getGruppenID(), veranstaltung.get(0).getName(), 42); } // this also test createTeamLeistungsblock
         catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
         assertFalse(eo);
     }
@@ -209,7 +212,6 @@ class DBrequestTest
 
     // Update
     //
-
     @Test
     @Order(50)
     void updateStudent()
@@ -384,7 +386,6 @@ class DBrequestTest
     @Order(67)
     void updateEinzelleistungName()
     {
-        // updateEinzelleistungName(int matrikelnummer, String veranstaltungsname, String unterblockname, String oldname, String leistungsblockname, String newname)
         eo = false;
         try{ dbrequest.updateEinzelleistungName(student.get(0).getMatrikelnr(), veranstaltung.get(0).getName(), u.getUbName(), a.getElName(), l.getLbName(), a.getElName() ); }
         catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
@@ -425,9 +426,6 @@ class DBrequestTest
     @Order(71)
     void updateTeamleistungPunkte()
     {
-        //updateTeamleistungPunkte(int teamID, int punkte, int gruppenID, String veranstaltungsname, String teamleistungsblockname, String teamleistungsunterblockname,
-        // String teamleistungsname)
-
         // TODO wo ist der unterschied: teamleistungsblockname vs teamleistungsname in unserem Klassen Model?
         eo = false;
         try{ dbrequest.updateTeamleistungPunkte(t.getTeamID(), 42, g.getGruppenID(), veranstaltung.get(0).getName(), l.getLbName(), u.getUbName(), l.getLbName()); }
@@ -464,67 +462,155 @@ class DBrequestTest
 
     // Get
     //
-
+    @Test
+    @Order(100)
     void getNutzer()
     {
+        eo = false;
+        try{ dbrequest.getNutzer(dozent.get(0).getEmail(), dozent.get(0).getPasswort()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
     }
 
+    @Test
+    @Order(101)
     void getAllDozenten()
     {
+        eo = false;
+        try{ dbrequest.getAllDozenten(); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
     }
 
+    @Test
+    @Order(102)
     void getAllStudenten()
     {
+        eo = false;
+        try{ dbrequest.getAllStudenten(); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
     }
 
-    void getVeranstaltungen()
-    {
-    }
-
-    void getGruppenanzahl()
-    {
-    }
-
-    void getStudenten()
-    {
-    }
-
-    void getGruppen()
-    {
-    }
-
-    void getDozent()
-    {
-    }
-
-    void getTeams()
-    {
-    }
-
-    void getTeam()
-    {
-    }
-
-
-    void getLeistungsblock()
-    {
-    }
-
-
-    void getLeistung()
-    {
-    }
-
-
+    @Test
+    @Order(103)
     void getAllVeranstaltungen()
     {
+        eo = false;
+        try{ dbrequest.getAllVeranstaltungen(); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
     }
 
+    @Test
+    @Order(104)
+    void getVeranstaltungen()
+    {
+        eo = false;
+        try{ dbrequest.getVeranstaltungen(dozent.get(0)); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+
+        eo = false;
+        try{ dbrequest.getVeranstaltungen(student.get(0)); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(105)
+    void getStudenten()
+    {
+        eo = false;
+        try{ dbrequest.getStudenten(veranstaltung.get(0)); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+
+        eo = false;
+        try{ dbrequest.getStudenten(t); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(106)
+    void getGruppen()
+    {
+        eo = false;
+        try{ dbrequest.getGruppen(veranstaltung.get(0)); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(107)
+    void getDozent()
+    {
+        eo = false;
+        try{ dbrequest.getDozent(dozent.get(0).getEmail()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+
+        eo = false;
+        try{ dbrequest.getDozenten(veranstaltung.get(0)); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(110)
+    void getTeams()
+    {
+        eo = false;
+        try{ dbrequest.getTeams(g); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(111)
+    void getTeam()
+    {
+        eo = false;
+        try{ dbrequest.getTeam(student.get(0), g); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(112)
+    void getLeistungsblock()
+    {
+        eo = false;
+        try{ dbrequest.getLeistungsblock(student.get(0), veranstaltung.get(0)); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    // isn't used, yet
+    @Test
+    @Order(113)
+    void getLeistung()
+    {
+        eo = false;
+        try{ dbrequest.getLeistung(t); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
+    @Order(114)
+    void getUnterblock()
+    {
+        eo = false;
+        try{ dbrequest.getUnterblock(student.get(0), l, veranstaltung.get(0)); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
 
 
     // Delete
     //
-
     @Test
     @Order(150)
     void deleteGehoertZu()
@@ -549,23 +635,11 @@ class DBrequestTest
         catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
     }
 
-    @Test
-    @Order(152)
-    void deleteTeamleistung()
-    {
-        //deleteTeamleistung(String teamleistungsblockname, String teamleistungsunterblockname, String teamleistungsname,int teamid, int gruppenid, String veranstaltungsname)
-        eo = false;
-        // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
-        try{ dbrequest.deleteTeamleistung(l.getLbName(), u.getUbName(), a.getElName() , t.getTeamID(), g.getGruppenID(), veranstaltung.get(0).getName()); }
-        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
-        assertFalse(eo);
-    }
 
     @Test
-    @Order(153)
+    @Order(152)
     void deleteTeamleistungsUnterblock()
     {
-        // deleteTeamleistungsUnterblock(String teamleistungsblockname, String teamleistungsunterblockname, int teamid, int gruppenid, String veranstaltungsname)
         eo = false;
         // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.deleteTeamleistungsUnterblock(l.getLbName(), u.getUbName(), t.getTeamID(), g.getGruppenID(), veranstaltung.get(0).getName()); }
@@ -573,8 +647,9 @@ class DBrequestTest
         assertFalse(eo);
     }
 
+    // Deprecatet method
     @Test
-    @Order(154)
+    @Order(153)
     void deleteTeamleistungsblock()
     {
         // TODO deleteTeamleistungsblock cant be deleted
@@ -587,10 +662,20 @@ class DBrequestTest
     }
 
     @Test
+    @Order(154)
+    void deleteTeamleistung()
+    {
+        eo = false;
+        // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
+        try{ dbrequest.deleteTeamleistung(l.getLbName(), u.getUbName(), a.getElName() , t.getTeamID(), g.getGruppenID(), veranstaltung.get(0).getName()); }
+        catch (DatabaseException e) { System.out.println(e.getErrorMsg()); eo = true; }
+        assertFalse(eo);
+    }
+
+    @Test
     @Order(155)
     void deleteTeam()
     {
-        // deleteTeam(int teamid, int gruppenid, String veranstaltungsname)
         eo = false;
         // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.deleteTeam(t.getTeamID(), g.getGruppenID(), veranstaltung.get(0).getName()); }
@@ -614,7 +699,6 @@ class DBrequestTest
     @Order(157)
     void deleteUnterblock()
     {
-        // deleteUnterblock(int matrikelnummer, String leistungsblockname, String unterblockname, String veranstaltungsname)
         eo = false;
         // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.deleteUnterblock(l.getStudent().getMatrikelnr(),
@@ -626,7 +710,6 @@ class DBrequestTest
     @Order(158)
     void deleteLeistungsblock()
     {
-        // deleteLeistungsblock(int matrikelnummer, String leistungsblockname, String veranstaltungsname)
         eo = false;
         // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.deleteLeistungsblock(l.getStudent().getMatrikelnr(),
@@ -638,7 +721,6 @@ class DBrequestTest
     @Order(159)
     void deleteGruppe()
     {
-        // deleteGruppe(int gruppenid, String veranstaltungsname)
         eo = false;
         // log.writetoLog(": " + dozent.get(0).getVorname(), "INFO");
         try{ dbrequest.deleteGruppe(g.getGruppenID(), g.getVeranstaltung().getName()); }
@@ -706,26 +788,4 @@ class DBrequestTest
         catch (DatabaseException e){ System.out.println(e.getErrorMsg()); eo = true; }
         assertFalse(eo);
     }
-
-    void getIntstance()
-    {
-    }
-    
-    void close()
-    {
-    }
-    
-    void resultSize()
-    {
-    }
 }
-// save information to .yaml file
-//    try
-//    {
-//        ArrayList<student> gg = new ArrayList<>();
-//        gg.add(a);
-//        FileHandler<student> f = new FileHandler<>();
-//        String filename = "src/utilities/student.yml";
-//        f.writeFile(filename, student);
-//    }
-//    catch (Exception e){System.out.println(e.getMessage());}
