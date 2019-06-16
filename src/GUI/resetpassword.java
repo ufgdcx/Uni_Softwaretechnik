@@ -1,5 +1,6 @@
 package GUI;
 
+import Controller.MainController;
 import Database.DBrequest;
 import Database.DatabaseException;
 import com.intellij.uiDesigner.core.GridConstraints;
@@ -31,8 +32,12 @@ public class resetpassword implements FrameContent {
                 try {
                     if (DBrequest.getIntstance().isInDatabase(email)) {
                         String newpw = mainFrame.getController().generateVerifyingCode();
+                        char[] hashChar = MainController.getHash(newpw.toCharArray());
+                        String hashString = "";
+                        for (int i = 0; i < hashChar.length; i++)
+                            hashString = hashString + hashChar[i];
                         SendEmail.send(email, "Neues Passwort", newpw);
-                        DBrequest.getIntstance().updateNutzerPasswort(email, newpw);
+                        DBrequest.getIntstance().updateNutzerPasswort(email, hashString);
                         errorlabel.setText("Es wurde ein neues Passwort generiert und an die angegebene Adresse versandt");
                         errorlabel.setVisible(true);
                     } else {
