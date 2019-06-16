@@ -12,7 +12,6 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
-import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,6 +32,7 @@ public class DGruppenuebersicht implements FrameContent {
     private JButton logoutButton;
     private JTree tree;
     private JScrollPane treeScrollPane;
+    private JButton leistungsuebersichtBearbeitenButton;
 
     public String getName() {
         return "Gruppen- und Teamübersicht - Dozent";
@@ -49,7 +49,7 @@ public class DGruppenuebersicht implements FrameContent {
     /**
      * @author Diana
      */
-    public DGruppenuebersicht(ArrayList<Veranstaltung> dVL, int index) {
+    public DGruppenuebersicht(ArrayList<Veranstaltung> dVL, Student student, int index) {
 
         //initialisiere den Baum
         treeScrollPane.setViewportView(tree);
@@ -114,6 +114,12 @@ public class DGruppenuebersicht implements FrameContent {
             }
         });
 
+        leistungsuebersichtBearbeitenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.setContent(new DLeistungUebersichtbearbeiten(dVL, student, index));
+            }
+        });
     }
 
     {
@@ -132,25 +138,30 @@ public class DGruppenuebersicht implements FrameContent {
      */
     private void $$$setupUI$$$() {
         GruppenuebersichtPanel = new JPanel();
-        GruppenuebersichtPanel.setLayout(new GridLayoutManager(4, 3, new Insets(50, 20, 50, 20), -1, -1));
-        einsehen = new JButton();
-        einsehen.setText("Leistung einsehen");
-        GruppenuebersichtPanel.add(einsehen, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenuebersichtPanel.setLayout(new GridLayoutManager(6, 3, new Insets(50, 20, 50, 20), -1, -1));
         zurueck = new JButton();
         zurueck.setText("zurück");
-        GruppenuebersichtPanel.add(zurueck, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenuebersichtPanel.add(zurueck, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         logoutButton = new JButton();
         logoutButton.setText("Logout");
         GruppenuebersichtPanel.add(logoutButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        bearbeiten = new JButton();
-        bearbeiten.setText("Gruppen und Teams bearbeiten");
-        GruppenuebersichtPanel.add(bearbeiten, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        GruppenuebersichtPanel.add(spacer1, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        GruppenuebersichtPanel.add(spacer1, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         treeScrollPane = new JScrollPane();
-        GruppenuebersichtPanel.add(treeScrollPane, new GridConstraints(0, 0, 4, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        GruppenuebersichtPanel.add(treeScrollPane, new GridConstraints(0, 0, 6, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         tree = new JTree();
         treeScrollPane.setViewportView(tree);
+        einsehen = new JButton();
+        einsehen.setText("Leistung einsehen und bearbeiten");
+        GruppenuebersichtPanel.add(einsehen, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bearbeiten = new JButton();
+        bearbeiten.setText("Gruppen und Teams bearbeiten");
+        GruppenuebersichtPanel.add(bearbeiten, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final Spacer spacer2 = new Spacer();
+        GruppenuebersichtPanel.add(spacer2, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        leistungsuebersichtBearbeitenButton = new JButton();
+        leistungsuebersichtBearbeitenButton.setText("Leistungsübersicht bearbeiten");
+        GruppenuebersichtPanel.add(leistungsuebersichtBearbeitenButton, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
