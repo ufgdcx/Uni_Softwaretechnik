@@ -37,6 +37,8 @@ public class SGruppenuebersicht implements FrameContent {
      */
     private JButton logoutButton;
     private JScrollPane treeScrollPane;
+    private JButton allesAusklappenButton;
+    private JButton allesEinklappenButton;
 
     /**
      * @author Kristi
@@ -72,13 +74,29 @@ public class SGruppenuebersicht implements FrameContent {
                 tree = ctr.createGruppenTree(v, treeScrollPane);
             }
         });
+        allesAusklappenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i < tree.getRowCount(); i++) {
+                    tree.expandRow(i);
+                }
+            }
+        });
+        allesEinklappenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (int i = tree.getRowCount(); i > 0; i--) {
+                    tree.collapseRow(i);
+                }
+            }
+        });
 
         beitreten.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 if (tree.getSelectionPath().getPath().length >= 3) {
-                	String[] slc = getTreeSelection();
+                    String[] slc = getTreeSelection();
                     ctr.teamEintragen(slc);
                     //Fenster Gruppenübersicht aktualisieren
                     mainFrame.setContent(new SGruppenuebersicht(mainFrame, v));
@@ -91,7 +109,7 @@ public class SGruppenuebersicht implements FrameContent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (tree.getSelectionPath().getPath().length >= 3) {
-                	String[] slc = getTreeSelection();
+                    String[] slc = getTreeSelection();
                     ctr.teamAustragen(slc);
                     //Fenster Gruppenübersicht aktualisieren
                     mainFrame.setContent(new SGruppenuebersicht(mainFrame, v));
@@ -149,28 +167,36 @@ public class SGruppenuebersicht implements FrameContent {
      */
     private void $$$setupUI$$$() {
         GruppenuebersichtPanel = new JPanel();
-        GruppenuebersichtPanel.setLayout(new GridLayoutManager(4, 3, new Insets(20, 50, 50, 20), -1, -1));
-        beitreten = new JButton();
-        beitreten.setText("Team beitreten");
-        GruppenuebersichtPanel.add(beitreten, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenuebersichtPanel.setLayout(new GridLayoutManager(7, 3, new Insets(20, 50, 50, 20), -1, -1));
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        GruppenuebersichtPanel.add(panel1, new GridConstraints(0, 0, 4, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        GruppenuebersichtPanel.add(panel1, new GridConstraints(0, 0, 7, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         treeScrollPane = new JScrollPane();
         panel1.add(treeScrollPane, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         tree = new JTree();
         treeScrollPane.setViewportView(tree);
         verlassen = new JButton();
         verlassen.setText("Team verlassen");
-        GruppenuebersichtPanel.add(verlassen, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenuebersichtPanel.add(verlassen, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         zurueckButton = new JButton();
         zurueckButton.setText("zurück");
-        GruppenuebersichtPanel.add(zurueckButton, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenuebersichtPanel.add(zurueckButton, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        GruppenuebersichtPanel.add(spacer1, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        GruppenuebersichtPanel.add(spacer1, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         logoutButton = new JButton();
         logoutButton.setText("Logout");
         GruppenuebersichtPanel.add(logoutButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        beitreten = new JButton();
+        beitreten.setText("Team beitreten");
+        GruppenuebersichtPanel.add(beitreten, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        allesAusklappenButton = new JButton();
+        allesAusklappenButton.setText("Alles ausklappen");
+        GruppenuebersichtPanel.add(allesAusklappenButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        allesEinklappenButton = new JButton();
+        allesEinklappenButton.setText("Alles einklappen");
+        GruppenuebersichtPanel.add(allesEinklappenButton, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final Spacer spacer2 = new Spacer();
+        GruppenuebersichtPanel.add(spacer2, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
     }
 
     /**

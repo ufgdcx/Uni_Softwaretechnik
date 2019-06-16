@@ -58,7 +58,7 @@ public class StudentController extends MainController{
 	 * (spart den Studenten als Parameter)
 	 */
 	public JTree createLeistungsTree(Veranstaltung v, JScrollPane tsp) {
-		return super.createLeistungsTree(v, me, tsp);
+		return super.createLeistungsTreeStudent(v, me, tsp);
 	}
 	
 	/**@author Oleg

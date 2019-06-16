@@ -6,6 +6,7 @@
 package GUI;
 
 import Klassen.Dozent;
+import Klassen.Student;
 import Klassen.Veranstaltung;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;

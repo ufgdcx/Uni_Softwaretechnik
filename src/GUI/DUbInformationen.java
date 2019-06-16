@@ -36,7 +36,7 @@ public class DUbInformationen implements FrameContent {
         mainFrame = m;
     }
 
-    public DUbInformationen(ArrayList<Veranstaltung> dVL, Student student, int unterblockAnzahl, String leistung, int index, int counter) {
+    public DUbInformationen(ArrayList<Veranstaltung> dVL, int unterblockAnzahl, String leistung, int index, int counter) {
 
         seitenanzahlLabel.setText(counter + " / " + unterblockAnzahl);
 
@@ -50,9 +50,9 @@ public class DUbInformationen implements FrameContent {
                 try {
                     mainFrame.getController().createUnterblock(dVL.get(index), leistung, ubNameTextField.getText());
                     if (unterblockAnzahl == counter) {
-                        mainFrame.setContent(new DLeistungsuebersicht(dVL, student, index));
+                        mainFrame.setContent(new DLeistungUebersichtbearbeiten(dVL, index));
                     } else {
-                        mainFrame.setContent(new DUbInformationen(dVL, student, unterblockAnzahl, leistung, index, counter + 1));
+                        mainFrame.setContent(new DUbInformationen(dVL, unterblockAnzahl, leistung, index, counter + 1));
                     }
                 } catch (Exception ex) {
                     ErrorDialog eD = new ErrorDialog("ups, something went wrong");

@@ -59,6 +59,8 @@ public class DGruppenbearbeiten implements FrameContent {
     private JTextField studentNameTextField;
     private JLabel studentNameLabel;
     private JLabel hinweisLabel;
+    private JButton allesAusklappenButton;
+    private JButton allesEinklappenButton;
 
 
     /**
@@ -89,6 +91,23 @@ public class DGruppenbearbeiten implements FrameContent {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
                 tree = mainFrame.getController().createGruppenTree(dVL.get(index), treeScrollPane);
+            }
+        });
+
+        allesAusklappenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i < tree.getRowCount(); i++) {
+                    tree.expandRow(i);
+                }
+            }
+        });
+        allesEinklappenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (int i = tree.getRowCount(); i > 0; i--) {
+                    tree.collapseRow(i);
+                }
             }
         });
 
@@ -166,19 +185,8 @@ public class DGruppenbearbeiten implements FrameContent {
                         //Auswahl des 2. Arrayelements und absplitten der GruppenID
                         String gruppenID = tree.getSelectionPath().getPathComponent(1).toString();
                         gruppenID = gruppenID.split(" ")[1];
-                        for (Gruppe g : mainFrame.getController().getGruppen(dVL.get(index))) {
-                            if (Integer.parseInt(gruppenID) == g.getGruppenID()) {
-                                for (Team t : mainFrame.getController().getTeams(g)) {
-                                    mainFrame.getController().deleteTeam(Integer.parseInt(gruppenID), t.getTeamID(), dVL.get(index).getName());
-                                    for (Student s : mainFrame.getController().getStudenten(t)) {
-                                        mainFrame.getController().deleteStudent(s);
-                                    }
-                                }
-                            }
-                            //DB-Eintrag löschen
-                            mainFrame.getController().deleteGruppe(Integer.parseInt(gruppenID), dVL.get(index));
-                        }
-
+                        //DB-Eintrag löschen
+                        mainFrame.getController().deleteGruppe(Integer.parseInt(gruppenID), dVL.get(index));
                         //Fenster Gruppenübersicht aktualisieren
                         mainFrame.setContent(new DGruppenbearbeiten(dVL, index));
                     }
@@ -296,70 +304,78 @@ public class DGruppenbearbeiten implements FrameContent {
      */
     private void $$$setupUI$$$() {
         GruppenbearbeitenPanel = new JPanel();
-        GruppenbearbeitenPanel.setLayout(new GridLayoutManager(16, 4, new Insets(50, 20, 50, 20), -1, -1));
+        GruppenbearbeitenPanel.setLayout(new GridLayoutManager(18, 4, new Insets(50, 20, 50, 20), -1, -1));
         zurueckButton = new JButton();
         zurueckButton.setText("zurück");
-        GruppenbearbeitenPanel.add(zurueckButton, new GridConstraints(15, 1, 1, 2, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(zurueckButton, new GridConstraints(17, 1, 1, 2, GridConstraints.ANCHOR_SOUTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         gruppeLoeschenButton = new JButton();
         gruppeLoeschenButton.setText("Gruppe löschen");
-        GruppenbearbeitenPanel.add(gruppeLoeschenButton, new GridConstraints(11, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(gruppeLoeschenButton, new GridConstraints(13, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         teamLoeschenButton = new JButton();
         teamLoeschenButton.setText("Team löschen");
-        GruppenbearbeitenPanel.add(teamLoeschenButton, new GridConstraints(12, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(teamLoeschenButton, new GridConstraints(14, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        GruppenbearbeitenPanel.add(spacer1, new GridConstraints(14, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(spacer1, new GridConstraints(16, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         treeScrollPane = new JScrollPane();
-        GruppenbearbeitenPanel.add(treeScrollPane, new GridConstraints(0, 0, 16, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(treeScrollPane, new GridConstraints(0, 0, 18, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         tree = new JTree();
         treeScrollPane.setViewportView(tree);
         gruppenanzahl = new JLabel();
         gruppenanzahl.setText("Anzahl der Übungsgruppen");
-        GruppenbearbeitenPanel.add(gruppenanzahl, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(gruppenanzahl, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         grAnzahlTextField = new JTextField();
-        GruppenbearbeitenPanel.add(grAnzahlTextField, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
+        GruppenbearbeitenPanel.add(grAnzahlTextField, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
         tAnzahlTextField = new JTextField();
-        GruppenbearbeitenPanel.add(tAnzahlTextField, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
+        GruppenbearbeitenPanel.add(tAnzahlTextField, new GridConstraints(4, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
         teamanzahl = new JLabel();
         teamanzahl.setText("Anzahl der Teams");
-        GruppenbearbeitenPanel.add(teamanzahl, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(teamanzahl, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         tGroesseTextField = new JTextField();
-        GruppenbearbeitenPanel.add(tGroesseTextField, new GridConstraints(4, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
+        GruppenbearbeitenPanel.add(tGroesseTextField, new GridConstraints(6, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
         teamgroesse = new JLabel();
         teamgroesse.setText("Anzahl der Teammitglieder");
-        GruppenbearbeitenPanel.add(teamgroesse, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        logoutButton = new JButton();
-        logoutButton.setText("Logout");
-        GruppenbearbeitenPanel.add(logoutButton, new GridConstraints(0, 3, 5, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(teamgroesse, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         gruppeHinzufuegenButton = new JButton();
         gruppeHinzufuegenButton.setText("neue Gruppe hinzufügen");
-        GruppenbearbeitenPanel.add(gruppeHinzufuegenButton, new GridConstraints(1, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(gruppeHinzufuegenButton, new GridConstraints(3, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         teamHinzufuegenButton = new JButton();
         teamHinzufuegenButton.setText("neues Team hinzufügen");
-        GruppenbearbeitenPanel.add(teamHinzufuegenButton, new GridConstraints(3, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(teamHinzufuegenButton, new GridConstraints(5, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
-        GruppenbearbeitenPanel.add(spacer2, new GridConstraints(10, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(spacer2, new GridConstraints(12, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         festlegenButton = new JButton();
         festlegenButton.setText("Anzahl festlegen");
-        GruppenbearbeitenPanel.add(festlegenButton, new GridConstraints(5, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(festlegenButton, new GridConstraints(7, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         successLabel = new JLabel();
         successLabel.setForeground(new Color(-16724992));
         successLabel.setText("Anzahl festgelegt");
         successLabel.setVisible(false);
-        GruppenbearbeitenPanel.add(successLabel, new GridConstraints(9, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(successLabel, new GridConstraints(11, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         studentLoeschenButton = new JButton();
         studentLoeschenButton.setText("Student löschen");
-        GruppenbearbeitenPanel.add(studentLoeschenButton, new GridConstraints(13, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(studentLoeschenButton, new GridConstraints(15, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         studentZuTeamHinzufuegenButton = new JButton();
         studentZuTeamHinzufuegenButton.setText("Student zu Team hinzufügen");
-        GruppenbearbeitenPanel.add(studentZuTeamHinzufuegenButton, new GridConstraints(8, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(studentZuTeamHinzufuegenButton, new GridConstraints(10, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         studentNameTextField = new JTextField();
-        GruppenbearbeitenPanel.add(studentNameTextField, new GridConstraints(6, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        GruppenbearbeitenPanel.add(studentNameTextField, new GridConstraints(8, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         studentNameLabel = new JLabel();
         studentNameLabel.setText("Name des Studenten");
-        GruppenbearbeitenPanel.add(studentNameLabel, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(studentNameLabel, new GridConstraints(8, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         hinweisLabel = new JLabel();
         hinweisLabel.setText("(Vorname Nachname)");
-        GruppenbearbeitenPanel.add(hinweisLabel, new GridConstraints(7, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GruppenbearbeitenPanel.add(hinweisLabel, new GridConstraints(9, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        allesAusklappenButton = new JButton();
+        allesAusklappenButton.setText("Alles ausklappen");
+        GruppenbearbeitenPanel.add(allesAusklappenButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        logoutButton = new JButton();
+        logoutButton.setText("Logout");
+        GruppenbearbeitenPanel.add(logoutButton, new GridConstraints(0, 3, 6, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final Spacer spacer3 = new Spacer();
+        GruppenbearbeitenPanel.add(spacer3, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        allesEinklappenButton = new JButton();
+        allesEinklappenButton.setText("Alles einklappen");
+        GruppenbearbeitenPanel.add(allesEinklappenButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
