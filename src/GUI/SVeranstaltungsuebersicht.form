@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="VeranstaltungsuebersichtPanel" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="50" left="20" bottom="50" right="20"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="542" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -59,6 +59,14 @@
         </constraints>
         <properties>
           <text value="Veranstaltung verlassen"/>
+        </properties>
+      </component>
+      <component id="9e8b2" class="javax.swing.JButton" binding="passwortAendernButton" default-binding="true">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Passwort aendern"/>
         </properties>
       </component>
     </children>

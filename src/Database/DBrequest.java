@@ -2099,4 +2099,16 @@ public class DBrequest {
             throw new DatabaseException("Connection Failed");
         }
     }
+
+    public Boolean isPasswordCorrect(String emailadresse, String password) throws DatabaseException{
+        try {
+            logwriter.writetoLog("function: isInDatabase(String)","TRACE");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Nutzer.* FROM Nutzer WHERE EMailadresse = '" + emailadresse + "' AND Passwort = '" + password + "'");
+            return resultSize(rs)!=0;
+        }catch (SQLException ex){
+            logwriter.writetoLog("Connection Failed","ERROR");
+            throw new DatabaseException("Connection Failed");
+        }
+    }
 }

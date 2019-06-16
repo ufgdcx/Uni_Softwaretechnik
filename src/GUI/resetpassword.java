@@ -49,12 +49,7 @@ public class resetpassword implements FrameContent {
                 }
             }
         });
-        zurueckButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainFrame.setContent(new LoginSeite());
-            }
-        });
+        zurueckButton.addActionListener(e -> mainFrame.setContent(new LoginSeite()));
     }
 
 
