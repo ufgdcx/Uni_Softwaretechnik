@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.12.1)  16 JUN 2019 23:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.12.1)  17 JUN 2019 00:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -982,11 +982,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [3]
-<img_adminGUI_01.png, id=190, 367.5194pt x 386.9089pt>
+<img_adminGUI_01.png, id=190, 380.17032pt x 407.27156pt>
 File: img_adminGUI_01.png Graphic file (type png)
 <use img_adminGUI_01.png>
 Package pdftex.def Info: img_adminGUI_01.png  used on input line 133.
-(pdftex.def)             Requested size: 318.66948pt x 335.49812pt.
+(pdftex.def)             Requested size: 318.66948pt x 341.39732pt.
 <img_adminGUI_02.png, id=191, 616.93903pt x 308.46951pt>
 File: img_adminGUI_02.png Graphic file (type png)
 <use img_adminGUI_02.png>
@@ -1005,16 +1005,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4 <./img_adminGUI_01.png> <./img_adminGUI_02.png>]
-<img_adminGUI_04.png, id=199, 484.73781pt x 299.6561pt>
+<img_adminGUI_04.png, id=199, 505.13719pt x 313.9228pt>
 File: img_adminGUI_04.png Graphic file (type png)
 <use img_adminGUI_04.png>
 Package pdftex.def Info: img_adminGUI_04.png  used on input line 148.
-(pdftex.def)             Requested size: 318.66948pt x 197.0009pt.
-<img_adminGUI_05.png, id=200, 484.73781pt x 299.6561pt>
+(pdftex.def)             Requested size: 318.66948pt x 198.04065pt.
+<img_adminGUI_05.png, id=200, 505.13719pt x 313.9228pt>
 File: img_adminGUI_05.png Graphic file (type png)
 <use img_adminGUI_05.png>
 Package pdftex.def Info: img_adminGUI_05.png  used on input line 152.
-(pdftex.def)             Requested size: 318.66948pt x 197.0009pt.
+(pdftex.def)             Requested size: 318.66948pt x 198.04065pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1023,11 +1023,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [5 <./img_adminGUI_03.png> <./img_adminGUI_04.png> <./img_adminGUI_05.png>]
-<img_adminGUI_06.png, id=209, 484.73781pt x 299.6561pt>
+<img_adminGUI_06.png, id=209, 505.13719pt x 313.9228pt>
 File: img_adminGUI_06.png Graphic file (type png)
 <use img_adminGUI_06.png>
 Package pdftex.def Info: img_adminGUI_06.png  used on input line 156.
-(pdftex.def)             Requested size: 318.66948pt x 197.0009pt.
+(pdftex.def)             Requested size: 318.66948pt x 198.04065pt.
 <img_adminGUI_07.png, id=210, 616.93903pt x 308.46951pt>
 File: img_adminGUI_07.png Graphic file (type png)
 <use img_adminGUI_07.png>
@@ -1099,11 +1099,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9 <./img_adminGUI_12.png>]
-<img_DozentenGUI_01.png, id=239, 580.41844pt x 438.8897pt>
+<img_DozentenGUI_01.png, id=239, 718.18312pt x 542.025pt>
 File: img_DozentenGUI_01.png Graphic file (type png)
 <use img_DozentenGUI_01.png>
 Package pdftex.def Info: img_DozentenGUI_01.png  used on input line 199.
-(pdftex.def)             Requested size: 318.66948pt x 240.96817pt.
+(pdftex.def)             Requested size: 318.66948pt x 240.50977pt.
 <img_DozentenGUI_02.png, id=240, 585.68813pt x 438.8897pt>
 File: img_DozentenGUI_02.png Graphic file (type png)
 <use img_DozentenGUI_02.png>
@@ -1332,16 +1332,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [22]
-<img_student1.jpg, id=335, 718.18312pt x 542.025pt>
-File: img_student1.jpg Graphic file (type jpg)
-<use img_student1.jpg>
-Package pdftex.def Info: img_student1.jpg  used on input line 345.
+<img_student1.png, id=335, 718.18312pt x 542.025pt>
+File: img_student1.png Graphic file (type png)
+<use img_student1.png>
+Package pdftex.def Info: img_student1.png  used on input line 345.
 (pdftex.def)             Requested size: 318.66948pt x 240.50977pt.
-<img_student2.jpg, id=336, 600.74437pt x 450.18187pt>
-File: img_student2.jpg Graphic file (type jpg)
-<use img_student2.jpg>
-Package pdftex.def Info: img_student2.jpg  used on input line 349.
-(pdftex.def)             Requested size: 318.66948pt x 238.8082pt.
+<img_student2.png, id=336, 718.18312pt x 542.025pt>
+File: img_student2.png Graphic file (type png)
+<use img_student2.png>
+Package pdftex.def Info: img_student2.png  used on input line 349.
+(pdftex.def)             Requested size: 318.66948pt x 240.50977pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1349,8 +1349,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23 <./img_student1.jpg>]
-<img_student3.jpg, id=343, 599.99156pt x 450.18187pt>
+[23 <./img_student1.png>]
+<img_student3.jpg, id=344, 599.99156pt x 450.18187pt>
 File: img_student3.jpg Graphic file (type jpg)
 <use img_student3.jpg>
 Package pdftex.def Info: img_student3.jpg  used on input line 360.
@@ -1362,8 +1362,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24 <./img_student2.jpg> <./img_student3.jpg>]
-<student4.png, id=349, 577.40718pt x 433.62pt>
+[24 <./img_student2.png> <./img_student3.jpg>]
+<student4.png, id=351, 577.40718pt x 433.62pt>
 File: student4.png Graphic file (type png)
 <use student4.png>
 Package pdftex.def Info: student4.png  used on input line 366.
@@ -1393,7 +1393,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 376.
 Here is how much of TeX's memory you used:
  19251 strings out of 492639
  351817 string characters out of 6133088
- 436973 words of memory out of 5000000
+ 436970 words of memory out of 5000000
  22713 multiletter control sequences out of 15000+600000
  10571 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1405,9 +1405,9 @@ ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy6.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmtt10.pfb>
-Output written on Nutzerhandbuch.pdf (27 pages, 861880 bytes).
+Output written on Nutzerhandbuch.pdf (27 pages, 978031 bytes).
 PDF statistics:
- 394 PDF objects out of 1000 (max. 8388607)
+ 396 PDF objects out of 1000 (max. 8388607)
  282 compressed objects within 3 object streams
  56 named destinations out of 1000 (max. 500000)
  427 words of extra memory for PDF output out of 10000 (max. 10000000)
