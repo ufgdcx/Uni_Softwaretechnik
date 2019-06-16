@@ -11,7 +11,11 @@ import java.sql.SQLException;
  * @author Sven
  */
 
-public  class DataSourceConn {
+public  class DataSourceConn
+{
+    // Member Variables
+    //
+    // Database Connection Information
     final static String server = "swt.ignorelist.com";
     final static int port = 3306;
     final static String databaseName = "swt_datenbank?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -19,6 +23,8 @@ public  class DataSourceConn {
     final static String password = "123456swtistdoof";
 
 
+    // Create and return a database connection
+    //
     public static Connection buildConnection(){
         try {
             MysqlDataSource dataSource = new MysqlDataSource();
