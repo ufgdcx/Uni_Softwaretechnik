@@ -83,12 +83,12 @@ public class DAufgabenInformationen implements FrameContent {
      */
     private void $$$setupUI$$$() {
         DAufgabenInformationenPanel = new JPanel();
-        DAufgabenInformationenPanel.setLayout(new GridLayoutManager(3, 2, new Insets(250, 200, 250, 250), -1, -1));
+        DAufgabenInformationenPanel.setLayout(new GridLayoutManager(3, 2, new Insets(250, 200, 350, 250), -1, -1));
         aufgabenNameLabel = new JLabel();
         aufgabenNameLabel.setText("Aufgabenname:");
         DAufgabenInformationenPanel.add(aufgabenNameLabel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         aufgabenNameTextField = new JTextField();
-        DAufgabenInformationenPanel.add(aufgabenNameTextField, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(80, -1), new Dimension(80, -1), new Dimension(80, -1), 0, false));
+        DAufgabenInformationenPanel.add(aufgabenNameTextField, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(200, -1), new Dimension(200, -1), new Dimension(200, -1), 0, false));
         seitenanzahlLabel = new JLabel();
         seitenanzahlLabel.setText("Seitenanzahl");
         DAufgabenInformationenPanel.add(seitenanzahlLabel, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
