@@ -653,7 +653,6 @@ public class DBrequest {
                         aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),
                         aufgabe.getElName(),
                         aufgabe.getUnterblock().getUbPunkte());
-               createMaxPunktzahl(aufgabe);
     }
 
     /**
@@ -701,7 +700,6 @@ public class DBrequest {
                 team.getGruppe().getGruppenID(),
                 aufgabe.getUnterblock().getlBlock().getVeranstaltung().getName(),
                 aufgabe.getElPunkte());
-        createMaxPunktzahl(aufgabe);
     }
 
     /**
@@ -740,6 +738,7 @@ public class DBrequest {
         }
         Aufgabe a = new Aufgabe(aufgabename,0,new Unterblock(unterblockname, new Leistung(leistungsname,veranstaltung)));
         a.setMaxPunkte(maxPunkte);
+        System.out.println(a.getMaxPunkte());
         createMaxPunktzahl(a);
     }
 
@@ -1121,6 +1120,8 @@ public class DBrequest {
             stmt.executeUpdate("DELETE FROM Unterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "'");
             logwriter.writetoLog("  deleted from Unterblock","TRACE");
             stmt.executeUpdate("DELETE FROM Leistungsblock WHERE Leistungsblock_name = '" + leistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Leistungsblock","TRACE");
+            stmt.executeUpdate("DELETE FROM MaxPunktzahl WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "'");
             logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
@@ -1136,6 +1137,8 @@ public class DBrequest {
             stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "'");
             logwriter.writetoLog("  deleted from Einzelleistung","TRACE");
             stmt.executeUpdate("DELETE FROM Unterblock WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "'");
+            logwriter.writetoLog("  deleted from Unterblock","TRACE");
+            stmt.executeUpdate("DELETE FROM MaxPunktzahl WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "'");
             logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
@@ -1149,6 +1152,8 @@ public class DBrequest {
         try {
             Statement stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Einzelleistung WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Einzelleistung_name = '" + aufgabenname + "'");
+            logwriter.writetoLog("deleted from Einzelleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM MaxPunktzahl WHERE Veranstaltungsname = '" + veranstaltungsname + "' AND Leistungsblock_name = '" + leistungsblockname + "' AND Unterblock_name = '" + unterblockname + "' AND Einzelleistung_name = '" + aufgabenname + "'");
             logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             logwriter.writetoLog("Connection Failed","ERROR");
@@ -1167,6 +1172,8 @@ public class DBrequest {
             stmt.executeUpdate("DELETE FROM Teamleistungsunterblock Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
             logwriter.writetoLog("  deleted from Teamleistungsunterblock","TRACE");
             stmt.executeUpdate("DELETE FROM Teamleistungsblock WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
+            logwriter.writetoLog("  deleted from Teamleistungsblock","TRACE");
+            stmt.executeUpdate("DELETE FROM MaxPunktzahl WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "'");
             logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             throw new DatabaseException("Connection Failed");
@@ -1182,7 +1189,9 @@ public class DBrequest {
             stmt.executeUpdate("DELETE FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsunterblockname = '" + unterblockname + "'");
             logwriter.writetoLog("  deleted from Teamleistung","TRACE");
             stmt.executeUpdate("DELETE FROM Teamleistungsunterblock Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsunterblockname = '" + unterblockname + "'");
-           logwriter.writetoLog("successful","TRACE");
+            logwriter.writetoLog("  deleted from Teamleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM MaxPunktzahl WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsunterblockname = '" + unterblockname + "'");
+            logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             throw new DatabaseException("Connection Failed");
         }
@@ -1195,6 +1204,8 @@ public class DBrequest {
         try {
             Statement stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM Teamleistung WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsunterblockname = '" + unterblockname + "' AND Teamleistungsname = '" + aufgabenname + "'");
+            logwriter.writetoLog("  deleted from Teamleistung","TRACE");
+            stmt.executeUpdate("DELETE FROM MaxPunktzahl WHERE Teamleistungsblockname = '" + teamleistungsblockname + "' AND Veranstaltungsname = '" + veranstaltungsname + "' AND Teamleistungsunterblockname = '" + unterblockname + "' AND Teamleistungsname = '" + aufgabenname + "'");
             logwriter.writetoLog("successful","TRACE");
         } catch (SQLException ex) {
             throw new DatabaseException("Connection Failed");
@@ -1820,6 +1831,8 @@ public class DBrequest {
 
     public void updateEinzelleistungPunkte(int matrikelnummer, String veranstaltungsname, String unterblockname, String einzelleistungsname, String leistungsblockname, int punkte) throws DatabaseException {
         logwriter.writetoLog("function: updateEinzelleistungPunkte","TRACE");
+        System.out.println(matrikelnummer + veranstaltungsname + unterblockname + einzelleistungsname + leistungsblockname + punkte);
+        System.out.println(punkte);
         try
         {
             Statement stmt = con.createStatement();

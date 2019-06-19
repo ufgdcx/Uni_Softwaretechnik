@@ -470,7 +470,7 @@ public class MainController {
 				DefaultMutableTreeNode unterbloecke = new DefaultMutableTreeNode(unterblock.getUbName());
 				leistungen.add(unterbloecke);
 				for (Aufgabe aufgabe: getAufgabe(student, leistungsblock, unterblock, veranstaltung)) {
-					DefaultMutableTreeNode aufgaben = new DefaultMutableTreeNode(aufgabe.getElName() + "\t (" + aufgabe.getElPunkte()+ "/" + unterblock.getMaxPunkte() + ")");
+					DefaultMutableTreeNode aufgaben = new DefaultMutableTreeNode(aufgabe.getElName() + "\t (" + aufgabe.getElPunkte()+ "/" + aufgabe.getMaxPunkte() + ")");
 					unterbloecke.add(aufgaben);
 				}
 			}
