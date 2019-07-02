@@ -15,7 +15,7 @@ public class SendEmail {
     // Sender's email ID needs to be mentioned
 	private final static String from = "swt2019@web.de";
 	private final static String username = "swt2019";//change accordingly
-	private final static String password = "123456swt";//change accordingly
+	private final static String password = "654321swt";//change accordingly
     // Assuming you are sending email through relay.jangosmtp.net
     private final static String host = "smtp.web.de";
 

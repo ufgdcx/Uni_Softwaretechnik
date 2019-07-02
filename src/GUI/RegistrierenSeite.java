@@ -122,17 +122,17 @@ public class RegistrierenSeite implements FrameContent {
                     mainFrame.getController().createDozent(EMail, fakultaet.getText());
                 }
 
-                if (!passwort.getPassword().equals(passwortwdh.getPassword())) {
+                ///if (!passwort.getPassword().equals(passwortwdh.getPassword())) {
 
-                    errorLabel.setVisible(true);
-                } else {
+                //    errorLabel.setVisible(true);
+                //} else {
                     //TODO: Email mit Verifizierungscode senden
 
                 String verifyingCode = mainFrame.getController().generateVerifyingCode();
                 SendEmail.send(EMail, "Bestaetigungscode", verifyingCode);
 
                 mainFrame.setContent(new VerifikationsSeite());
-                }
+                //}
             }
         });
         abbrechenButton.addActionListener(new ActionListener() {
